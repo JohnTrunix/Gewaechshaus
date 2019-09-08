@@ -3,7 +3,6 @@
 <head>
 <title>Gewaechshaus Raspberry Pi 3B+</title>
 <link rel="stylesheet" href="style.css">
-<meta http-equiv="refresh" content="5">
 </head>
 <body>
 
@@ -26,11 +25,8 @@
   </div>
 </div>
 
-<div class="menu_bar">
-  <p class="menu_titel">Statistik</p>
-</div>
-  <div class="mitte">
-  <iframe class="statistik_iframe" src="localhost:3000/d/AfG9VvzRk/dashboard?orgId=1&refresh=5s&theme=light&kiosk"></iframe>
+  <div class="statistik_iframe">
+  <iframe src="http://172.20.10.2:3000/d/MXB12HRgz/livewerte?orgId=1&refresh=5s&theme=light" width="100%" height="100%" frameborder="0"></iframe>
 	</div>
 </body>
 </html>

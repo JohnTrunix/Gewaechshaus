@@ -64,7 +64,7 @@ def rtczeit_abfrage():
 def systemzeit_abfrage():
     global lokale_zeit
     utc_zeit = (int(time.time()))
-    lokale_zeit = (utc_zeit + 7200)  # +2 Stunden (7200 Sekunden)
+    lokale_zeit = utc_zeit	# +2 Stunden (7200 Sekunden)
 
 ###########################################################################################################################################
 

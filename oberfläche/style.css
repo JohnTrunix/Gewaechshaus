@@ -170,7 +170,10 @@ body {
 }
 
 .statistik_iframe {
-    position: relative;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 80px;
     height: 100%;
-    width: 100%;
+    border: 0;
 }
