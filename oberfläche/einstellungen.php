@@ -101,12 +101,12 @@
         </div>
         <script>
             $.ajax({
-               url : 'parameter-download.php', // your php file
-               type : 'GET', // type of the HTTP request
-               success : function(data){
-                  var obj = jQuery.parseJSON(data);
-                  console.log(obj);
-               }
+              url : 'parameter-download.php', // your php file
+              type : 'GET', // type of the HTTP request
+              success : function(data){
+                var obj = jQuery.parseJSON(data);
+                console.log(obj);
+              }
             });
             
             
