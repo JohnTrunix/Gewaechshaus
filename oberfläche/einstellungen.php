@@ -48,7 +48,7 @@
                     output_1.innerHTML = slider_1.value;
                     
                     slider_1.oninput = function() {
-                      output_1.innerHTML = this.value;
+                        output_1.innerHTML = this.value;
                     }
                 </script>
                 <br>
@@ -62,7 +62,7 @@
                     output_2.innerHTML = slider_2.value;
                     
                     slider_2.oninput = function() {
-                      output_2.innerHTML = this.value;
+                        output_2.innerHTML = this.value;
                     }
                 </script>
                 <br>
@@ -76,7 +76,7 @@
                     output_3.innerHTML = slider_3.value;
                     
                     slider_3.oninput = function() {
-                      output_3.innerHTML = this.value;
+                        output_3.innerHTML = this.value;
                     }
                 </script>
                 <br>
@@ -90,7 +90,7 @@
                     output_4.innerHTML = slider_4.value;
                     
                     slider_4.oninput = function() {
-                      output_4.innerHTML = this.value;
+                        output_4.innerHTML = this.value;
                     }
                 </script>
                 <br>
@@ -101,12 +101,12 @@
         </div>
         <script>
             $.ajax({
-              url : 'parameter-download.php', // your php file
-              type : 'GET', // type of the HTTP request
-              success : function(data){
-                var obj = jQuery.parseJSON(data);
-                console.log(obj);
-              }
+                url : 'parameter-download.php', // your php file
+                type : 'GET', // type of the HTTP request
+                success : function(data){
+                    var obj = jQuery.parseJSON(data);
+                    console.log(obj);
+                }
             });
             
             
@@ -119,12 +119,13 @@
             var error_msg = document.getElementById('error_div');
             var success_msg = document.getElementById('success_div');
             if ( url.search( 'fehler' ) > 0 ) {
-              error_msg.style.display = "flex";
-              success_msg.style.display = "none";
-            } else if ( url.search( 'erfolgreich' ) > 0 ) {
+                error_msg.style.display = "flex";
+                success_msg.style.display = "none";
+            } 
+            else if ( url.search( 'erfolgreich' ) > 0 ) {
                 success_msg.style.display = "flex";
                 error_msg.style.display = "none";
-              }
+            }
         </script>
     </body>
 </html>
