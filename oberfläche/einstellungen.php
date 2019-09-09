@@ -115,25 +115,5 @@
 
 </div>
 
-
-<script>
-
-$.ajax({
-   url : 'parameter-download.php', // your php file
-   type : 'GET', // type of the HTTP request
-   success : function(data){
-      var obj = jQuery.parseJSON(data);
-      console.log(obj);
-   }
-});
-
-
-function getComboA(selectObject) {
-    var value = selectObject.value; 
-
-}
-</script>
-
-
 </body>
 </html> 
