@@ -3,7 +3,6 @@
     <head>
         <title>Gewaechshaus Raspberry Pi 3B+</title>
         <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="einstellungen.css">
         <script src="js/jquery.min.js"></script>
     </head>
     <body style="background-color:white;">
@@ -21,123 +20,111 @@
                 <img src="img/logout.svg" class="menubild">
             </div>
         </div>
-        <form class="form" action="parameter-update.php">
-            <input type="text" name="name" placeholder="Name">
-            <br>
-            <a>Slot: </a>
-            <select name="slot" onchange="getComboA(this)">
-                <option value="" disabled selected>Nr.</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-            </select>
-            <div class="container">
-                <div class="range-slider">
-                    <span id="rs-bullet1" class="rs-label">0</span>
-                    <input id="rs-range-line1" class="rs-range" type="range" value="0" min="0" max="200">
-                </div>
-                <div class="box-minmax">
-                </div>
+        <div class="mitte">
+            <form action="parameter-update.php">
+                <input type="text" name="name" placeholder="Name">
+                <br>
+                <a>Slot: </a>
+                <select name="slot" onchange="getComboA(this)">
+                    <option value="" disabled selected>Nr.</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <p>Temperatur: <span id="wert_temperatur"></span>  °C</p>
+                0
+                <input type="range" id="temperatur" name="temperatur" min="0" max="30" value="15">
+                30
                 <script>
-                    var rangeSlider1 = document.getElementById("rs-range-line1");
-                    var rangeBullet1 = document.getElementById("rs-bullet1");
+                    var slider_1 = document.getElementById("temperatur");
+                    var output_1 = document.getElementById("wert_temperatur");
+                    output_1.innerHTML = slider_1.value;
                     
-                    rangeSlider1.addEventListener("input", showSliderValue1, false);
-                    
-                    function showSliderValue1() {
-                      rangeBullet1.innerHTML = rangeSlider1.value;
-                    var bulletPosition1 = (rangeSlider1.value /rangeSlider1.max);
-                    rangeBullet1.style.left = (bulletPosition1 * 578) + "px";
+                    slider_1.oninput = function() {
+                      output_1.innerHTML = this.value;
                     }
                 </script>
-            </div>
-            <br>
-            <div class="container">
-                <div class="range-slider">
-                    <span id="rs-bullet2" class="rs-label">0</span>
-                    <input id="rs-range-line2" class="rs-range" type="range" value="0" min="0" max="200">
-                </div>
-                <div class="box-minmax">
-                </div>
+                <br>
+                <p>Licht: <span id="wert_lichtstunden"></span>  h/Tag</p>
+                0
+                <input type="range" id="lichtstunden" name="lichtstunden" min="0.0" max="24.0" value="12.0" step="0.1">
+                24
                 <script>
-                    var rangeSlider2 = document.getElementById("rs-range-line2");
-                    var rangeBullet2 = document.getElementById("rs-bullet2");
+                    var slider_2 = document.getElementById("lichtstunden");
+                    var output_2 = document.getElementById("wert_lichtstunden");
+                    output_2.innerHTML = slider_2.value;
                     
-                    rangeSlider2.addEventListener("input", showSliderValue2, false);
-                    
-                    function showSliderValue2() {
-                    rangeBullet2.innerHTML = rangeSlider2.value;
-                    var bulletPosition2 = (rangeSlider2.value /rangeSlider2.max);
-                    rangeBullet2.style.left = (bulletPosition2 * 578) + "px";
+                    slider_2.oninput = function() {
+                      output_2.innerHTML = this.value;
                     }
                 </script>
-            </div>
-            <br>
-            <div class="container">
-                <div class="range-slider">
-                    <span id="rs-bullet3" class="rs-label">0</span>
-                    <input id="rs-range-line3" class="rs-range" type="range" value="0" min="0" max="200">
-                </div>
-                <div class="box-minmax">
-                </div>
+                <br>
+                <p>Wassermenge: <span id="wert_wassermenge"></span>  l/Tag</p>
+                0
+                <input type="range" id="wassermenge" name="wassermenge" min="0.0" max="10.0" value="5.0" step="0.1">
+                10
                 <script>
-                    var rangeSlider3 = document.getElementById("rs-range-line3");
-                    var rangeBullet3 = document.getElementById("rs-bullet3");
+                    var slider_3 = document.getElementById("wassermenge");
+                    var output_3 = document.getElementById("wert_wassermenge");
+                    output_3.innerHTML = slider_3.value;
                     
-                    rangeSlider3.addEventListener("input", showSliderValue3, false);
-                    
-                    function showSliderValue3() {
-                    rangeBullet3.innerHTML = rangeSlider3.value;
-                    var bulletPosition3 = (rangeSlider3.value /rangeSlider3.max);
-                    rangeBullet3.style.left = (bulletPosition3 * 578) + "px";
+                    slider_3.oninput = function() {
+                      output_3.innerHTML = this.value;
                     }
                 </script>
-            </div>
-            <br>
-            <div class="container">
-                <div class="range-slider">
-                    <span id="rs-bullet4" class="rs-label">0</span>
-                    <input id="rs-range-line4" class="rs-range" type="range" value="0" min="0" max="200">
-                </div>
-                <div class="box-minmax">
-                </div>
+                <br>
+                <p>Luftfeuchtigkeit: <span id="wert_luftfeuchtigkeit"></span>  %</p>
+                0
+                <input type="range" id="luftfeuchtigkeit" name="luftfeuchtigkeit" min="0" max="100" value="50">
+                100
                 <script>
-                    var rangeSlider4 = document.getElementById("rs-range-line4");
-                    var rangeBullet4 = document.getElementById("rs-bullet4");
+                    var slider_4 = document.getElementById("luftfeuchtigkeit");
+                    var output_4 = document.getElementById("wert_luftfeuchtigkeit");
+                    output_4.innerHTML = slider_4.value;
                     
-                    rangeSlider4.addEventListener("input", showSliderValue4, false);
-                    
-                    function showSliderValue4() {
-                    rangeBullet4.innerHTML = rangeSlider4.value;
-                    var bulletPosition4 = (rangeSlider4.value /rangeSlider4.max);
-                    rangeBullet4.style.left = (bulletPosition4 * 578) + "px";
+                    slider_4.oninput = function() {
+                      output_4.innerHTML = this.value;
                     }
                 </script>
-            </div>
-            <br>
-            <input type="submit" value="Speichern">
+                <br>
+                <input type="submit" value="Speichern">
+            </form>
             <div id="error_div">Fehler!</div>
             <div id="success_div">Erfolgreich!</div>
-        </form>
-        <script type="text/javascript">
+        </div>
+        <script>
+            $.ajax({
+               url : 'parameter-download.php', // your php file
+               type : 'GET', // type of the HTTP request
+               success : function(data){
+                  var obj = jQuery.parseJSON(data);
+                  console.log(obj);
+               }
+            });
+            
+            
+            function getComboA(selectObject) {
+                var value = selectObject.value; 
+            
+            }
+            
             var url = window.location.href;
             var error_msg = document.getElementById('error_div');
             var success_msg = document.getElementById('success_div');
-            
             if ( url.search( 'fehler' ) > 0 ) {
               error_msg.style.display = "flex";
               success_msg.style.display = "none";
             } else if ( url.search( 'erfolgreich' ) > 0 ) {
                 success_msg.style.display = "flex";
                 error_msg.style.display = "none";
-            }
+              }
         </script>
     </body>
 </html>
