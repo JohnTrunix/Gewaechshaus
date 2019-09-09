@@ -17,9 +17,9 @@
                     if($result = mysqli_query($link, $sql)){
                         if(mysqli_num_rows($result) > 0){
                             while($row = mysqli_fetch_array($result)){
-                              echo "<a class='sensor_zahl'>";
-                              echo $row['sensorwert'] . " " . $str2;
-                              echo "</a>";
+                                echo "<a class='sensor_zahl'>";
+                                echo $row['sensorwert'] . " " . $str2;
+                                echo "</a>";
                             }
                             mysqli_free_result($result);
                         }
@@ -36,9 +36,9 @@
                     if($result = mysqli_query($link, $sql)){
                         if(mysqli_num_rows($result) > 0){
                             while($row = mysqli_fetch_array($result)){
-                              echo "<a class='sensor_zahl'>";
-                              echo $row['sensorwert'] . " " . $str2;
-                              echo "</a>";
+                                echo "<a class='sensor_zahl'>";
+                                echo $row['sensorwert'] . " " . $str2;
+                                echo "</a>";
                             }
                             mysqli_free_result($result);
                         }
@@ -55,9 +55,9 @@
                     if($result = mysqli_query($link, $sql)){
                         if(mysqli_num_rows($result) > 0){
                             while($row = mysqli_fetch_array($result)){
-                              echo "<a class='sensor_zahl'>";
-                              echo $row['sensorwert'] . " " . $str2;
-                              echo "</a>";
+                                echo "<a class='sensor_zahl'>";
+                                echo $row['sensorwert'] . " " . $str2;
+                                echo "</a>";
                             }
                             mysqli_free_result($result);
                         }
