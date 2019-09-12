@@ -1,9 +1,45 @@
+<?php
+$servername = "localhost";
+$username = "datenbank";
+$password = "rasp";
+$dbname = "datenbank";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT slot, pflanze, temperatur, lichtstunden, wassermenge, luftfeuchtigkeit FROM parameter WHERE slot=1";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        $slot = $row["slot"];
+        $pflanze = $row["pflanze"];
+        $temperatur = $row["temperatur"];
+        $lichtstunden = $row["lichtstunden"];
+        $wassermenge = $row["wassermenge"];
+        $luftfeuchtigkeit = $row["luftfeuchtigkeit"];
+    }
+} else {
+    echo "FEHLER!!!";
+}
+$conn->close();
+?>
 <!DOCTYPE html>
 <html>
     <head>
         <title>Gewaechshaus Raspberry Pi 3B+</title>
         <link rel="stylesheet" href="style.css">
         <script src="js/jquery.min.js"></script>
+        <script>
+        slot1 = "<?php echo $slot ?>"; 
+        pflanze1 = "<?php echo $pflanze ?>";
+        temperatur1 = "<?php echo $temperatur ?>";
+        lichtstunden1 = "<?php echo $lichtstunden ?>";
+        wassermenge1 = "<?php echo $wassermenge ?>";
+        luftfeuchtigkeit1 = "<?php echo $wassermenge ?>";
+        </script>
     </head>
     <body style="background-color:white;">
         <div class="menu_rahmen">
@@ -101,7 +137,13 @@
         </div>
         <script>
             function getComboA(selectObject) {
-                var value = selectObject.value;            
+                var value = selectObject.value;
+                if (value == 1) {
+                    document.getElementById("temperatur").value = 'temperatur1';
+                    document.getElementById("lichtstunden").value = "75";
+                    document.getElementById("wassermenge").value = "75";
+                    document.getElementById("luftfeuchtigkeit").value = "75";
+                }
             }
             
             var url = window.location.href;
