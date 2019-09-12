@@ -109,6 +109,62 @@ $conn->close();
         lichtstunden2 = "<?php echo $lichtstunden2 ?>";
         wassermenge2 = "<?php echo $wassermenge2 ?>";
         luftfeuchtigkeit2 = "<?php echo $luftfeuchtigkeit2 ?>";
+
+        slot3 = "<?php echo $slot3 ?>"; 
+        pflanze3 = "<?php echo $pflanze3 ?>";
+        temperatur3 = "<?php echo $temperatur3 ?>";
+        lichtstunden3 = "<?php echo $lichtstunden3 ?>";
+        wassermenge3 = "<?php echo $wassermenge3 ?>";
+        luftfeuchtigkeit3 = "<?php echo $luftfeuchtigkeit3 ?>";
+
+        slot4 = "<?php echo $slot4 ?>"; 
+        pflanze4 = "<?php echo $pflanze4 ?>";
+        temperatur4 = "<?php echo $temperatur4 ?>";
+        lichtstunden4 = "<?php echo $lichtstunden4 ?>";
+        wassermenge4 = "<?php echo $wassermenge4 ?>";
+        luftfeuchtigkeit4 = "<?php echo $luftfeuchtigkeit4 ?>";
+
+        slot5 = "<?php echo $slot5 ?>"; 
+        pflanze5 = "<?php echo $pflanze5 ?>";
+        temperatur5 = "<?php echo $temperatur5 ?>";
+        lichtstunden5 = "<?php echo $lichtstunden5 ?>";
+        wassermenge5 = "<?php echo $wassermenge5 ?>";
+        luftfeuchtigkeit5 = "<?php echo $luftfeuchtigkeit5 ?>";
+
+        slot6 = "<?php echo $slot6 ?>"; 
+        pflanze6 = "<?php echo $pflanze6 ?>";
+        temperatur6 = "<?php echo $temperatur6 ?>";
+        lichtstunden6 = "<?php echo $lichtstunden6 ?>";
+        wassermenge6 = "<?php echo $wassermenge6 ?>";
+        luftfeuchtigkeit6 = "<?php echo $luftfeuchtigkeit6 ?>";
+
+        slot7 = "<?php echo $slot7 ?>"; 
+        pflanze7 = "<?php echo $pflanze7 ?>";
+        temperatur7 = "<?php echo $temperatur7 ?>";
+        lichtstunden7 = "<?php echo $lichtstunden7 ?>";
+        wassermenge7 = "<?php echo $wassermenge7 ?>";
+        luftfeuchtigkeit7 = "<?php echo $luftfeuchtigkeit7 ?>";
+
+        slot8 = "<?php echo $slot8 ?>"; 
+        pflanze8 = "<?php echo $pflanze8 ?>";
+        temperatur8 = "<?php echo $temperatur8 ?>";
+        lichtstunden8 = "<?php echo $lichtstunden8 ?>";
+        wassermenge8 = "<?php echo $wassermenge8 ?>";
+        luftfeuchtigkeit8 = "<?php echo $luftfeuchtigkeit8 ?>";
+
+        slot9 = "<?php echo $slot9 ?>"; 
+        pflanze9 = "<?php echo $pflanze9 ?>";
+        temperatur9 = "<?php echo $temperatur9 ?>";
+        lichtstunden9 = "<?php echo $lichtstunden9 ?>";
+        wassermenge9 = "<?php echo $wassermenge9 ?>";
+        luftfeuchtigkeit9 = "<?php echo $luftfeuchtigkeit9 ?>";
+
+        slot10 = "<?php echo $slot10 ?>"; 
+        pflanze10 = "<?php echo $pflanze10 ?>";
+        temperatur10 = "<?php echo $temperatur10 ?>";
+        lichtstunden10 = "<?php echo $lichtstunden10 ?>";
+        wassermenge10 = "<?php echo $wassermenge10 ?>";
+        luftfeuchtigkeit10 = "<?php echo $luftfeuchtigkeit10 ?>";
         </script>
     </head>
     <body style="background-color:white;">
