@@ -107,4 +107,4 @@ while True:
     datenbank_luftfeuchtesensor_einfuegen()
     datenbank_temperatursensor_einfuegen()
     print("----------------------------")
-    time.sleep(5)
+    time.sleep(20)
