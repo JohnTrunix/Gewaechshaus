@@ -58,7 +58,7 @@ $conn->close();
         </div>
         <div class="mitte">
             <form action="parameter-update.php">
-                <input type="text" name="name" placeholder="Name">
+                <input required type="text" name="name" placeholder="Name">
                 <br>
                 <a>Slot: </a>
                 <select name="slot" onchange="getComboA(this)">
@@ -139,7 +139,7 @@ $conn->close();
             function getComboA(selectObject) {
                 var value = selectObject.value;
                 if (value == 1) {
-                    document.getElementById("temperatur").value = 'temperatur1';
+                    document.getElementById("temperatur").value = temperatur1;
                     document.getElementById("lichtstunden").value = "75";
                     document.getElementById("wassermenge").value = "75";
                     document.getElementById("luftfeuchtigkeit").value = "75";
