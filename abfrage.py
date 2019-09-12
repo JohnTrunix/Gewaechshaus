@@ -39,7 +39,7 @@ def lichtsensor_abfrage():
 def temperatur_abfrage():
     global temperatur_gerundet
     print("Temperatur: %0.1f C" %
-          sensor_temperatur_luftfeuchtigkeit.temperature)  # debugging
+    sensor_temperatur_luftfeuchtigkeit.temperature)  # debugging
     aktuelle_temperatur = (sensor_temperatur_luftfeuchtigkeit.temperature)
     temperatur_gerundet = (round(aktuelle_temperatur, 1))
 
@@ -47,18 +47,18 @@ def temperatur_abfrage():
 def luftfeuchtigkeit_abfrage():
     global luftfeuchtigkeit_gerundet
     print("Luftfeuchtigkeit: %0.1f %%" %
-          sensor_temperatur_luftfeuchtigkeit.relative_humidity)  # debugging
+    sensor_temperatur_luftfeuchtigkeit.relative_humidity)  # debugging
     aktuelle_luftfeuchtigkeit = (
-        sensor_temperatur_luftfeuchtigkeit.relative_humidity)
+    sensor_temperatur_luftfeuchtigkeit.relative_humidity)
     luftfeuchtigkeit_gerundet = (round(aktuelle_luftfeuchtigkeit, 1))
 
 
 def rtczeit_abfrage():
     t = rtc.datetime
     print("RTC Datum: %s %d/%d/%d" %
-          (t.tm_mday, t.tm_mon, t.tm_year))  # debugging
+    (t.tm_mday, t.tm_mon, t.tm_year))  # debugging
     print("RTC Zeit: %d:%02d:%02d" %
-          (t.tm_hour, t.tm_min, t.tm_sec))  # debugging
+    (t.tm_hour, t.tm_min, t.tm_sec))  # debugging
 
 
 def systemzeit_abfrage():
