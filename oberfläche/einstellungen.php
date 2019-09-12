@@ -1,30 +1,3 @@
-<?php
-$servername = "localhost";
-$username = "datenbank";
-$password = "rasp";
-$dbname = "datenbank";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-$sql = "SELECT slot, pflanze, temperatur, lichtstunden, wassermenge, luftfeuchtigkeit FROM parameter ORDER BY slot";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    echo "<table>";
-    while($row = $result->fetch_assoc()) {
-        echo "<tr><td>".$row["slot"]."</td><td>".$row["pflanze"]." ".$row["temperatur"]." ".$row["lichtstunden"]." ".$row["wassermenge"]." ".$row["luftfeuchtigkeit"]."</td></tr>";
-    }
-    echo "</table>";
-} else {
-    echo "0 results";
-}
-$conn->close();
-?>
 <!DOCTYPE html>
 <html>
     <head>
