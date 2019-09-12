@@ -270,60 +270,100 @@ $conn->close();
                     document.getElementById("lichtstunden").value = lichtstunden1;
                     document.getElementById("wassermenge").value = wassermenge1;
                     document.getElementById("luftfeuchtigkeit").value = luftfeuchtigkeit1;
+                    document.getElementById("wert_temperatur").innerHTML = temperatur1;
+                    document.getElementById("wert_lichtstunden").innerHTML = lichtstunden1;
+                    document.getElementById("wert_wassermenge").innerHTML = wassermenge1;
+                    document.getElementById("wert_luftfeuchtigkeit").innerHTML = luftfeuchtigkeit1;
                 } else if (value == 2) {
                     document.getElementById("pflanze").value = pflanze2;
                     document.getElementById("temperatur").value = temperatur2;
                     document.getElementById("lichtstunden").value = lichtstunden2;
                     document.getElementById("wassermenge").value = wassermenge2;
                     document.getElementById("luftfeuchtigkeit").value = luftfeuchtigkeit2;
+                    document.getElementById("wert_temperatur").innerHTML = temperatur2;
+                    document.getElementById("wert_lichtstunden").innerHTML = lichtstunden2;
+                    document.getElementById("wert_wassermenge").innerHTML = wassermenge2;
+                    document.getElementById("wert_luftfeuchtigkeit").innerHTML = luftfeuchtigkeit2;
                 } else if (value == 3) {
                     document.getElementById("pflanze").value = pflanze3;
                     document.getElementById("temperatur").value = temperatur3;
                     document.getElementById("lichtstunden").value = lichtstunden3;
                     document.getElementById("wassermenge").value = wassermenge3;
                     document.getElementById("luftfeuchtigkeit").value = luftfeuchtigkeit3;
+                    document.getElementById("wert_temperatur").innerHTML = temperatur3;
+                    document.getElementById("wert_lichtstunden").innerHTML = lichtstunden3;
+                    document.getElementById("wert_wassermenge").innerHTML = wassermenge3;
+                    document.getElementById("wert_luftfeuchtigkeit").innerHTML = luftfeuchtigkeit3;
                 } else if (value == 4) {
                     document.getElementById("pflanze").value = pflanze4;
                     document.getElementById("temperatur").value = temperatur4;
                     document.getElementById("lichtstunden").value = lichtstunden4;
                     document.getElementById("wassermenge").value = wassermenge4;
                     document.getElementById("luftfeuchtigkeit").value = luftfeuchtigkeit4;
+                    document.getElementById("wert_temperatur").innerHTML = temperatur4;
+                    document.getElementById("wert_lichtstunden").innerHTML = lichtstunden4;
+                    document.getElementById("wert_wassermenge").innerHTML = wassermenge4;
+                    document.getElementById("wert_luftfeuchtigkeit").innerHTML = luftfeuchtigkeit4;
                 } else if (value == 5) {
                     document.getElementById("pflanze").value = pflanze5;
                     document.getElementById("temperatur").value = temperatur5;
                     document.getElementById("lichtstunden").value = lichtstunden5;
                     document.getElementById("wassermenge").value = wassermenge5;
                     document.getElementById("luftfeuchtigkeit").value = luftfeuchtigkeit5;
+                    document.getElementById("wert_temperatur").innerHTML = temperatur5;
+                    document.getElementById("wert_lichtstunden").innerHTML = lichtstunden5;
+                    document.getElementById("wert_wassermenge").innerHTML = wassermenge5;
+                    document.getElementById("wert_luftfeuchtigkeit").innerHTML = luftfeuchtigkeit5;
                 } else if (value == 6) {
                     document.getElementById("pflanze").value = pflanze6;
                     document.getElementById("temperatur").value = temperatur6;
                     document.getElementById("lichtstunden").value = lichtstunden6;
                     document.getElementById("wassermenge").value = wassermenge6;
                     document.getElementById("luftfeuchtigkeit").value = luftfeuchtigkeit6;
+                    document.getElementById("wert_temperatur").innerHTML = temperatur6;
+                    document.getElementById("wert_lichtstunden").innerHTML = lichtstunden6;
+                    document.getElementById("wert_wassermenge").innerHTML = wassermenge6;
+                    document.getElementById("wert_luftfeuchtigkeit").innerHTML = luftfeuchtigkeit6;
                 } else if (value == 7) {
                     document.getElementById("pflanze").value = pflanze7;
                     document.getElementById("temperatur").value = temperatur7;
                     document.getElementById("lichtstunden").value = lichtstunden7;
                     document.getElementById("wassermenge").value = wassermenge7;
                     document.getElementById("luftfeuchtigkeit").value = luftfeuchtigkeit7;
+                    document.getElementById("wert_temperatur").innerHTML = temperatur7;
+                    document.getElementById("wert_lichtstunden").innerHTML = lichtstunden7;
+                    document.getElementById("wert_wassermenge").innerHTML = wassermenge7;
+                    document.getElementById("wert_luftfeuchtigkeit").innerHTML = luftfeuchtigkeit7;
                 } else if (value == 8) {
                     document.getElementById("pflanze").value = pflanze8;
                     document.getElementById("temperatur").value = temperatur8;
                     document.getElementById("lichtstunden").value = lichtstunden8;
                     document.getElementById("wassermenge").value = wassermenge8;
                     document.getElementById("luftfeuchtigkeit").value = luftfeuchtigkeit8;
+                    document.getElementById("wert_temperatur").innerHTML = temperatur8;
+                    document.getElementById("wert_lichtstunden").innerHTML = lichtstunden8;
+                    document.getElementById("wert_wassermenge").innerHTML = wassermenge8;
+                    document.getElementById("wert_luftfeuchtigkeit").innerHTML = luftfeuchtigkeit8;
                 } else if (value == 9) {
                     document.getElementById("pflanze").value = pflanze9;
                     document.getElementById("temperatur").value = temperatur9;
                     document.getElementById("lichtstunden").value = lichtstunden9;
                     document.getElementById("wassermenge").value = wassermenge9;
                     document.getElementById("luftfeuchtigkeit").value = luftfeuchtigkeit9;
+                    document.getElementById("wert_temperatur").innerHTML = temperatur9;
+                    document.getElementById("wert_lichtstunden").innerHTML = lichtstunden9;
+                    document.getElementById("wert_wassermenge").innerHTML = wassermenge9;
+                    document.getElementById("wert_luftfeuchtigkeit").innerHTML = luftfeuchtigkeit9;
                 } else if (value == 10) {
                     document.getElementById("pflanze").value = pflanze10;
                     document.getElementById("temperatur").value = temperatur10;
                     document.getElementById("lichtstunden").value = lichtstunden10;
                     document.getElementById("wassermenge").value = wassermenge10;
                     document.getElementById("luftfeuchtigkeit").value = luftfeuchtigkeit10;
+                    document.getElementById("wert_temperatur").innerHTML = temperatur10;
+                    document.getElementById("wert_lichtstunden").innerHTML = lichtstunden10;
+                    document.getElementById("wert_wassermenge").innerHTML = wassermenge10;
+                    document.getElementById("wert_luftfeuchtigkeit").innerHTML = luftfeuchtigkeit10;
                 }
             }
             
