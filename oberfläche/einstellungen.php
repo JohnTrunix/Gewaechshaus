@@ -184,7 +184,7 @@ $conn->close();
         </div>
         <div class="mitte">
             <form action="parameter-update.php">
-                <input required type="text" name="name" placeholder="Name">
+                <input required type="text" name="name" placeholder="Name" id="pflanze">
                 <br>
                 <a>Slot: </a>
                 <select name="slot" onchange="getComboA(this)">
@@ -265,51 +265,61 @@ $conn->close();
             function getComboA(selectObject) {
                 var value = selectObject.value;
                 if (value == 1) {
+                    document.getElementById("pflanze").value = pflanze1;
                     document.getElementById("temperatur").value = temperatur1;
                     document.getElementById("lichtstunden").value = lichtstunden1;
                     document.getElementById("wassermenge").value = wassermenge1;
                     document.getElementById("luftfeuchtigkeit").value = luftfeuchtigkeit1;
                 } else if (value == 2) {
+                    document.getElementById("pflanze").value = pflanze2;
                     document.getElementById("temperatur").value = temperatur2;
                     document.getElementById("lichtstunden").value = lichtstunden2;
                     document.getElementById("wassermenge").value = wassermenge2;
                     document.getElementById("luftfeuchtigkeit").value = luftfeuchtigkeit2;
                 } else if (value == 3) {
+                    document.getElementById("pflanze").value = pflanze3;
                     document.getElementById("temperatur").value = temperatur3;
                     document.getElementById("lichtstunden").value = lichtstunden3;
                     document.getElementById("wassermenge").value = wassermenge3;
                     document.getElementById("luftfeuchtigkeit").value = luftfeuchtigkeit3;
                 } else if (value == 4) {
+                    document.getElementById("pflanze").value = pflanze4;
                     document.getElementById("temperatur").value = temperatur4;
                     document.getElementById("lichtstunden").value = lichtstunden4;
                     document.getElementById("wassermenge").value = wassermenge4;
                     document.getElementById("luftfeuchtigkeit").value = luftfeuchtigkeit4;
                 } else if (value == 5) {
+                    document.getElementById("pflanze").value = pflanze5;
                     document.getElementById("temperatur").value = temperatur5;
                     document.getElementById("lichtstunden").value = lichtstunden5;
                     document.getElementById("wassermenge").value = wassermenge5;
                     document.getElementById("luftfeuchtigkeit").value = luftfeuchtigkeit5;
                 } else if (value == 6) {
+                    document.getElementById("pflanze").value = pflanze6;
                     document.getElementById("temperatur").value = temperatur6;
                     document.getElementById("lichtstunden").value = lichtstunden6;
                     document.getElementById("wassermenge").value = wassermenge6;
                     document.getElementById("luftfeuchtigkeit").value = luftfeuchtigkeit6;
                 } else if (value == 7) {
+                    document.getElementById("pflanze").value = pflanze7;
                     document.getElementById("temperatur").value = temperatur7;
                     document.getElementById("lichtstunden").value = lichtstunden7;
                     document.getElementById("wassermenge").value = wassermenge7;
                     document.getElementById("luftfeuchtigkeit").value = luftfeuchtigkeit7;
                 } else if (value == 8) {
+                    document.getElementById("pflanze").value = pflanze8;
                     document.getElementById("temperatur").value = temperatur8;
                     document.getElementById("lichtstunden").value = lichtstunden8;
                     document.getElementById("wassermenge").value = wassermenge8;
                     document.getElementById("luftfeuchtigkeit").value = luftfeuchtigkeit8;
                 } else if (value == 9) {
+                    document.getElementById("pflanze").value = pflanze9;
                     document.getElementById("temperatur").value = temperatur9;
                     document.getElementById("lichtstunden").value = lichtstunden9;
                     document.getElementById("wassermenge").value = wassermenge9;
                     document.getElementById("luftfeuchtigkeit").value = luftfeuchtigkeit9;
                 } else if (value == 10) {
+                    document.getElementById("pflanze").value = pflanze10;
                     document.getElementById("temperatur").value = temperatur10;
                     document.getElementById("lichtstunden").value = lichtstunden10;
                     document.getElementById("wassermenge").value = wassermenge10;
