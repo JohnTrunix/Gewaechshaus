@@ -1,23 +1,38 @@
 <?php
-$con=mysqli_connect("localhost","datenbank","rasp","datenbank");
+$servername = "localhost";
+$username = "datenbank";
+$password = "rasp";
+$dbname = "datenbank";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
-if (mysqli_connect_errno())
-  {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-  }
-
-$sql="SELECT slot, pflanze, temperatur, lichtstunden, wassermenge, luftfeuchtigkeit FROM parameter ORDER BY  slot";
-
-if ($result=mysqli_query($con,$sql))
-  {
-  // Fetch one and one row
-  while ($row=mysqli_fetch_row($result))
-    {
-        echo "$row[0] $row[1] $row[2] $row[3] $row[4] $row[5] \r\n";
-    }
-  // Free result set
-  mysqli_free_result($result);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 
-mysqli_close($con);
-?> 
+$sql = "SELECT slot, pflanze, temperatur, lichtstunden, wassermenge, luftfeuchtigkeit FROM parameter";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+      $slot = $row["slot"];
+      $pflanze = $row["pflanze"];
+      $temperatur = $row["temperatur"];
+      $lichtstunden = $row["lichtstunden"];
+      $wassermenge = $row["wassermenge"];
+      $luftfeuchtigkeit = $row["luftfeuchtigkeit"];
+    }
+
+  echo $slot;
+  echo $pflanze;
+  echo $temperatur;
+  echo $lichtstunden;
+  echo $wassermenge;
+  echo $luftfeuchtigkeit;
+
+} else {
+    echo "FEHLER!!!";
+}
+$conn->close();
+?>
