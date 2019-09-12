@@ -86,8 +86,6 @@ if ($result->num_rows > 0) {
             $luftfeuchtigkeit10 = $row["luftfeuchtigkeit"];
         }
     }
-} else {
-    header("Location: einstellungen.php?fehler");
 }
 $conn->close();
 ?>
