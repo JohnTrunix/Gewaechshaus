@@ -38,7 +38,7 @@ $conn->close();
         temperatur1 = "<?php echo $temperatur ?>";
         lichtstunden1 = "<?php echo $lichtstunden ?>";
         wassermenge1 = "<?php echo $wassermenge ?>";
-        luftfeuchtigkeit1 = "<?php echo $wassermenge ?>";
+        luftfeuchtigkeit1 = "<?php echo $luftfeuchtigkeit ?>";
         </script>
     </head>
     <body style="background-color:white;">
@@ -140,9 +140,9 @@ $conn->close();
                 var value = selectObject.value;
                 if (value == 1) {
                     document.getElementById("temperatur").value = temperatur1;
-                    document.getElementById("lichtstunden").value = "75";
-                    document.getElementById("wassermenge").value = "75";
-                    document.getElementById("luftfeuchtigkeit").value = "75";
+                    document.getElementById("lichtstunden").value = lichtstunden1;
+                    document.getElementById("wassermenge").value = wassermenge1;
+                    document.getElementById("luftfeuchtigkeit").value = luftfeuchtigkeit1;
                 }
             }
             
