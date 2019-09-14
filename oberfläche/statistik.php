@@ -26,7 +26,7 @@
 </div>
 
   <div class="statistik_iframe">
-  <iframe src="http://172.20.10.2:3000/d/MXB12HRgz/livewerte?orgId=1&refresh=5s&theme=light" width="100%" height="100%" frameborder="0"></iframe>
+  <iframe src="http://<?php echo $_SERVER['HTTP_HOST'];?>:3000/d/MXB12HRgz/livewerte?orgId=1&refresh=5s&theme=light" width="100%" height="100%" frameborder="0"></iframe>
 	</div>
 </body>
 </html>
