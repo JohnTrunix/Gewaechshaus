@@ -3,7 +3,7 @@
     <head>
         <title>Gewaechshaus Raspberry Pi 3B+</title>
         <link rel="stylesheet" href="style.css">
-        <meta http-equiv="refresh" content="5">
+        <meta http-equiv="refresh" content="20">
     </head>
     <body>
         <div class="menu_bar">
