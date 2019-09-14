@@ -7,6 +7,7 @@ from datetime import datetime
 import mysql.connector
 import subprocess
 
+
 mydb = mysql.connector.connect(
     host="localhost",
     user="datenbank",
@@ -14,11 +15,14 @@ mydb = mysql.connector.connect(
     database="datenbank"
 )
 
+
 # definiere i2c
 i2c = busio.I2C(board.SCL, board.SDA)
 
+
 # definiere baustein temperaturabfrage
 sensor_temperatur_luftfeuchtigkeit = adafruit_si7021.SI7021(i2c)
+
 
 ###########################################################################################################################################
 
@@ -82,6 +86,7 @@ def datenbank_temperatursensor_einfuegen():
     mycursor.execute(sql, val)
     mydb.commit()
     print(mycursor.rowcount, "Temperaturdaten eingefügt")
+
 
 ###########################################################################################################################################
 
