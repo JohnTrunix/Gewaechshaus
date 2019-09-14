@@ -16,11 +16,7 @@ mydb = mysql.connector.connect(
 )
 
 
-# definiere i2c
 i2c = busio.I2C(board.SCL, board.SDA)
-
-
-# definiere baustein temperaturabfrage
 sensor_temperatur_luftfeuchtigkeit = adafruit_si7021.SI7021(i2c)
 
 
@@ -33,13 +29,13 @@ def lichtsensor_abfrage():
     full, ir = tsl.get_full_luminosity()
     lux = tsl.calculate_lux(full, ir)
     lux_gerundet = (round(lux, 1))
-    print("Lichtstärke:", lux_gerundet)  # debugging
+    print("Lichtstärke:", lux_gerundet)
 
 
 def temperatur_abfrage():
     global temperatur_gerundet
     print("Temperatur: %0.1f C" %
-    sensor_temperatur_luftfeuchtigkeit.temperature)  # debugging
+    sensor_temperatur_luftfeuchtigkeit.temperature)
     aktuelle_temperatur = (sensor_temperatur_luftfeuchtigkeit.temperature)
     temperatur_gerundet = (round(aktuelle_temperatur, 1))
 
@@ -47,7 +43,7 @@ def temperatur_abfrage():
 def luftfeuchtigkeit_abfrage():
     global luftfeuchtigkeit_gerundet
     print("Luftfeuchtigkeit: %0.1f %%" %
-    sensor_temperatur_luftfeuchtigkeit.relative_humidity)  # debugging
+    sensor_temperatur_luftfeuchtigkeit.relative_humidity)
     aktuelle_luftfeuchtigkeit = (
     sensor_temperatur_luftfeuchtigkeit.relative_humidity)
     luftfeuchtigkeit_gerundet = (round(aktuelle_luftfeuchtigkeit, 1))
