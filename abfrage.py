@@ -104,7 +104,7 @@ while True:
         print("Aktuelle Luftfeuchtigkeit wird abgefragt und an Datenbank gesendet.")
     except:
         print("Fehler bei luftfeuchtigkeit_abfrage()") 
-    print("Alle Sensorwerte wurden aktualisiert. Die nächste Aktualisierung erfolgt in 20 Sekunden.")
+    print("Alle Sensorwerte wurden aktualisiert. Die nächste Aktualisierung erfolgt in 30 Sekunden.")
     print("----------------------------")
     print("")
-    time.sleep(20)
+    time.sleep(30)
