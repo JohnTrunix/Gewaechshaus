@@ -86,7 +86,7 @@ while True:
     print("----------------------------")
     try:
         systemzeit_abfrage()
-        print("Neue Sensorabfrage wird ausgeführt. Aktuelle Zeit:", lokale_zeit)
+        print("Neue Sensorabfrage wird ausgeführt.")
     except:
         print("Fehler bei systemzeit_abfrage()")
     try:
