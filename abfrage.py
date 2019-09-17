@@ -84,9 +84,10 @@ def datenbank_temperatursensor_einfuegen():
 while True:
     print("")
     print("----------------------------")
+    print("Neue Sensorabfrage wird ausgeführt.")
     try:
         systemzeit_abfrage()
-        print("Neue Sensorabfrage wird ausgeführt.")
+        print("Aktuelle Zeit wird abgefragt.")
     except:
         print("Fehler bei systemzeit_abfrage()")
     try:
