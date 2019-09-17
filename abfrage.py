@@ -23,35 +23,32 @@ sensor_temperatur_luftfeuchtigkeit = adafruit_si7021.SI7021(i2c)
 ###########################################################################################################################################
 
 
+def systemzeit_abfrage():
+    global lokale_zeit
+    lokale_zeit = (int(time.time()))
+
+
 def lichtsensor_abfrage():
     global lux_gerundet
     tsl = tsl2591()
     full, ir = tsl.get_full_luminosity()
     lux = tsl.calculate_lux(full, ir)
     lux_gerundet = (round(lux, 1))
-    print("Lichtstärke:", lux_gerundet)
+    datenbank_lichtsensor_einfuegen()
 
 
 def temperatur_abfrage():
     global temperatur_gerundet
-    print("Temperatur: %0.1f C" %
-    sensor_temperatur_luftfeuchtigkeit.temperature)
     aktuelle_temperatur = (sensor_temperatur_luftfeuchtigkeit.temperature)
     temperatur_gerundet = (round(aktuelle_temperatur, 1))
+    datenbank_temperatursensor_einfuegen()
 
 
 def luftfeuchtigkeit_abfrage():
     global luftfeuchtigkeit_gerundet
-    print("Luftfeuchtigkeit: %0.1f %%" %
-    sensor_temperatur_luftfeuchtigkeit.relative_humidity)
-    aktuelle_luftfeuchtigkeit = (
-    sensor_temperatur_luftfeuchtigkeit.relative_humidity)
+    aktuelle_luftfeuchtigkeit = (sensor_temperatur_luftfeuchtigkeit.relative_humidity)
     luftfeuchtigkeit_gerundet = (round(aktuelle_luftfeuchtigkeit, 1))
-
-
-def systemzeit_abfrage():
-    global lokale_zeit
-    lokale_zeit = (int(time.time()))
+    datenbank_luftfeuchtesensor_einfuegen()
 
 
 ###########################################################################################################################################
@@ -63,7 +60,6 @@ def datenbank_lichtsensor_einfuegen():
     val = (lokale_zeit, lux_gerundet)
     mycursor.execute(sql, val)
     mydb.commit()
-    print(mycursor.rowcount, "Lichtstärkedaten eingefügt")
 
 
 def datenbank_luftfeuchtesensor_einfuegen():
@@ -72,7 +68,6 @@ def datenbank_luftfeuchtesensor_einfuegen():
     val = (lokale_zeit, luftfeuchtigkeit_gerundet)
     mycursor.execute(sql, val)
     mydb.commit()
-    print(mycursor.rowcount, "Luftfeuchtigkeitsdaten eingefügt")
 
 
 def datenbank_temperatursensor_einfuegen():
@@ -81,7 +76,6 @@ def datenbank_temperatursensor_einfuegen():
     val = (lokale_zeit, temperatur_gerundet)
     mycursor.execute(sql, val)
     mydb.commit()
-    print(mycursor.rowcount, "Temperaturdaten eingefügt")
 
 
 ###########################################################################################################################################
@@ -90,13 +84,27 @@ def datenbank_temperatursensor_einfuegen():
 while True:
     print("")
     print("----------------------------")
-    systemzeit_abfrage()
-    lichtsensor_abfrage()
-    temperatur_abfrage()
-    luftfeuchtigkeit_abfrage()
-    datenbank_lichtsensor_einfuegen()
-    datenbank_luftfeuchtesensor_einfuegen()
-    datenbank_temperatursensor_einfuegen()
+    try:
+        systemzeit_abfrage()
+        print("Neue Sensorabfrage wird ausgeführt. Aktuelle Zeit:", lokale_zeit)
+    except:
+        print("Fehler bei systemzeit_abfrage()")
+    try:
+        lichtsensor_abfrage()
+        print("Aktuelle Lichtstärke wird abgefragt und an Datenbank gesendet.")
+    except:
+        print("Fehler bei lichtsensor_abfrage()") 
+    try:
+        temperatur_abfrage()
+        print("Aktuelle Temperatur wird abgefragt und an Datenbank gesendet.")
+    except:
+        print("Fehler bei temperatur_abfrage()") 
+    try:
+        luftfeuchtigkeit_abfrage()
+        print("Aktuelle Luftfeuchtigkeit wird abgefragt und an Datenbank gesendet.")
+    except:
+        print("Fehler bei luftfeuchtigkeit_abfrage()") 
+    print("Alle Sensorwerte wurden aktualisiert. Die nächste Aktualisierung erfolgt in 20 Sekunden.")
     print("----------------------------")
     print("")
     time.sleep(20)
