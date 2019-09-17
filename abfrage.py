@@ -86,23 +86,23 @@ while True:
     print("----------------------------")
     print("Neue Sensorabfrage wird ausgeführt.")
     try:
-        systemzeit_abfrage()
         print("Aktuelle Zeit wird abgefragt.")
+        systemzeit_abfrage()
     except:
         print("Fehler bei systemzeit_abfrage()")
     try:
-        lichtsensor_abfrage()
         print("Aktuelle Lichtstärke wird abgefragt und an Datenbank gesendet.")
+        lichtsensor_abfrage()
     except:
         print("Fehler bei lichtsensor_abfrage()") 
     try:
-        temperatur_abfrage()
         print("Aktuelle Temperatur wird abgefragt und an Datenbank gesendet.")
+        temperatur_abfrage()
     except:
         print("Fehler bei temperatur_abfrage()") 
     try:
-        luftfeuchtigkeit_abfrage()
         print("Aktuelle Luftfeuchtigkeit wird abgefragt und an Datenbank gesendet.")
+        luftfeuchtigkeit_abfrage()
     except:
         print("Fehler bei luftfeuchtigkeit_abfrage()") 
     print("Alle Sensorwerte wurden aktualisiert. Die nächste Aktualisierung erfolgt in 30 Sekunden.")
