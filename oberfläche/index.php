@@ -185,6 +185,12 @@ $conn->close();
                 <div class="parameter" id="wassermenge">Wassermenge:</div>
                 <div class="parameter" id="luftfeuchtigkeit">Luftfeuchtigkeit:</div>
             </div>
+
+            <div class="betriebsmodus">
+                <input type="submit" value="Start">
+                <input type="submit" value="Stop">
+                <input type="submit" value="Pause">
+            </div>
 		</div>
 
         <script>

@@ -180,3 +180,9 @@ body {
     top: 80px;
     left: 10px;
 }
+
+.betriebsmodus {
+    position: relative;
+    left: 10px;
+    top: 100px;
+}
