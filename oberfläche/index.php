@@ -188,7 +188,7 @@ $conn->close();
 
             <div class="betriebsmodus">
                 <form action="betriebsmodus.php">
-                    <input type="hidden" name="parameter_slot" id="parameter_slot" value="1">
+                    <input required type="hidden" name="parameter_slot" id="parameter_slot" value="0">
                     <input type="submit" value="Start">
                 </form>
             </div>
