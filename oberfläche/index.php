@@ -13,7 +13,7 @@ $sql = "SELECT slot, pflanze, temperatur, lichtstunden, wassermenge, luftfeuchti
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
+    while ($row = $result->fetch_assoc()) {
         if ($row["slot"] == 1) {
             $pflanze1 = $row["pflanze"];
             $temperatur1 = $row["temperatur"];
@@ -163,7 +163,7 @@ $conn->close();
                 <img src="img/logout.svg" class="menubild">
             </div>
         </div>
-		<iframe src="livewerte.php" style="position:fixed; left:0;top:0;height:100%;width:200px;border: 0; outline:none;"></iframe> 
+		<iframe src="livewerte.php" style="position:fixed; left:0;top:0;height:100%;width:200px;border: 0; outline:none;"></iframe>
 		<div class="mitte">
 			<div id="select-dropdown" class="closed">
                 <div id="select-default" class="select default">Rezept auswählen</div>
