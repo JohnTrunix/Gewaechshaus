@@ -201,55 +201,55 @@ $conn->close();
         function getComboA() {
             var value = window.dropdown;
                 if (value == 1) {
-                    document.getElementById("temperatur").innerHTML = temperatur1;
-                    document.getElementById("lichtstunden").innerHTML = lichtstunden1;
-                    document.getElementById("wassermenge").innerHTML = wassermenge1;
-                    document.getElementById("luftfeuchtigkeit").innerHTML = luftfeuchtigkeit1;
+                    document.getElementById("temperatur").innerHTML = 'Temperatur: ' + temperatur1;
+                    document.getElementById("lichtstunden").innerHTML = 'Licht pro Tag: ' + lichtstunden1;
+                    document.getElementById("wassermenge").innerHTML = 'Wasser pro Tag: ' + wassermenge1;
+                    document.getElementById("luftfeuchtigkeit").innerHTML = 'Luftfeuchtigkeit: ' + luftfeuchtigkeit1;
                 } else if (value == 2) {
-                    document.getElementById("temperatur").innerHTML = temperatur2;
-                    document.getElementById("lichtstunden").innerHTML = lichtstunden2;
-                    document.getElementById("wassermenge").innerHTML = wassermenge2;
-                    document.getElementById("luftfeuchtigkeit").innerHTML = luftfeuchtigkeit2;
+                    document.getElementById("temperatur").innerHTML = 'Temperatur: ' + temperatur2;
+                    document.getElementById("lichtstunden").innerHTML = 'Licht pro Tag: ' + lichtstunden2;
+                    document.getElementById("wassermenge").innerHTML = 'Wasser pro Tag: ' + wassermenge2;
+                    document.getElementById("luftfeuchtigkeit").innerHTML = 'Luftfeuchtigkeit: ' + luftfeuchtigkeit2;
                 } else if (value == 3) {
-                    document.getElementById("temperatur").innerHTML = temperatur3;
-                    document.getElementById("lichtstunden").innerHTML = lichtstunden3;
-                    document.getElementById("wassermenge").innerHTML = wassermenge3;
-                    document.getElementById("luftfeuchtigkeit").innerHTML = luftfeuchtigkeit3;
+                    document.getElementById("temperatur").innerHTML = 'Temperatur: ' + temperatur3;
+                    document.getElementById("lichtstunden").innerHTML = 'Licht pro Tag: ' + lichtstunden3;
+                    document.getElementById("wassermenge").innerHTML = 'Wasser pro Tag: ' + wassermenge3;
+                    document.getElementById("luftfeuchtigkeit").innerHTML = 'Luftfeuchtigkeit: ' + luftfeuchtigkeit3;
                 } else if (value == 4) {
-                    document.getElementById("temperatur").innerHTML = temperatur4;
-                    document.getElementById("lichtstunden").innerHTML = lichtstunden4;
-                    document.getElementById("wassermenge").innerHTML = wassermenge4;
-                    document.getElementById("luftfeuchtigkeit").innerHTML = luftfeuchtigkeit4;
+                    document.getElementById("temperatur").innerHTML = 'Temperatur: ' + temperatur4;
+                    document.getElementById("lichtstunden").innerHTML = 'Licht pro Tag: ' + lichtstunden4;
+                    document.getElementById("wassermenge").innerHTML = 'Wasser pro Tag: ' + wassermenge4;
+                    document.getElementById("luftfeuchtigkeit").innerHTML = 'Luftfeuchtigkeit: ' + luftfeuchtigkeit4;
                 } else if (value == 5) {
-                    document.getElementById("temperatur").innerHTML = temperatur5;
-                    document.getElementById("lichtstunden").innerHTML = lichtstunden5;
-                    document.getElementById("wassermenge").innerHTML = wassermenge5;
-                    document.getElementById("luftfeuchtigkeit").innerHTML = luftfeuchtigkeit5;
+                    document.getElementById("temperatur").innerHTML = 'Temperatur: ' + temperatur5;
+                    document.getElementById("lichtstunden").innerHTML = 'Licht pro Tag: ' + lichtstunden5;
+                    document.getElementById("wassermenge").innerHTML = 'Wasser pro Tag: ' + wassermenge5;
+                    document.getElementById("luftfeuchtigkeit").innerHTML = 'Luftfeuchtigkeit: ' + luftfeuchtigkeit5;
                 } else if (value == 6) {
-                    document.getElementById("temperatur").innerHTML = temperatur6;
-                    document.getElementById("lichtstunden").innerHTML = lichtstunden6;
-                    document.getElementById("wassermenge").innerHTML = wassermenge6;
-                    document.getElementById("luftfeuchtigkeit").innerHTML = luftfeuchtigkeit6;
+                    document.getElementById("temperatur").innerHTML = 'Temperatur: ' + temperatur6;
+                    document.getElementById("lichtstunden").innerHTML = 'Licht pro Tag: ' + lichtstunden6;
+                    document.getElementById("wassermenge").innerHTML = 'Wasser pro Tag: ' + wassermenge6;
+                    document.getElementById("luftfeuchtigkeit").innerHTML = 'Luftfeuchtigkeit: ' + luftfeuchtigkeit6;
                 } else if (value == 7) {
-                    document.getElementById("temperatur").innerHTML = temperatur7;
-                    document.getElementById("lichtstunden").innerHTML = lichtstunden7;
-                    document.getElementById("wassermenge").innerHTML = wassermenge7;
-                    document.getElementById("luftfeuchtigkeit").innerHTML = luftfeuchtigkeit7;
+                    document.getElementById("temperatur").innerHTML = 'Temperatur: ' + temperatur7;
+                    document.getElementById("lichtstunden").innerHTML = 'Licht pro Tag: ' + lichtstunden7;
+                    document.getElementById("wassermenge").innerHTML = 'Wasser pro Tag: ' + wassermenge7;
+                    document.getElementById("luftfeuchtigkeit").innerHTML = 'Luftfeuchtigkeit: ' + luftfeuchtigkeit7;
                 } else if (value == 8) {
-                    document.getElementById("temperatur").innerHTML = temperatur8;
-                    document.getElementById("lichtstunden").innerHTML = lichtstunden8;
-                    document.getElementById("wassermenge").innerHTML = wassermenge8;
-                    document.getElementById("luftfeuchtigkeit").innerHTML = luftfeuchtigkeit8;
+                    document.getElementById("temperatur").innerHTML = 'Temperatur: ' + temperatur8;
+                    document.getElementById("lichtstunden").innerHTML = 'Licht pro Tag: ' + lichtstunden8;
+                    document.getElementById("wassermenge").innerHTML = 'Wasser pro Tag: ' + wassermenge8;
+                    document.getElementById("luftfeuchtigkeit").innerHTML = 'Luftfeuchtigkeit: ' + luftfeuchtigkeit8;
                 } else if (value == 9) {
-                    document.getElementById("temperatur").innerHTML = temperatur9;
-                    document.getElementById("lichtstunden").innerHTML = lichtstunden9;
-                    document.getElementById("wassermenge").innerHTML = wassermenge9;
-                    document.getElementById("luftfeuchtigkeit").innerHTML = luftfeuchtigkeit9;
+                    document.getElementById("temperatur").innerHTML = 'Temperatur: ' + temperatur9;
+                    document.getElementById("lichtstunden").innerHTML = 'Licht pro Tag: ' + lichtstunden9;
+                    document.getElementById("wassermenge").innerHTML = 'Wasser pro Tag: ' + wassermenge9;
+                    document.getElementById("luftfeuchtigkeit").innerHTML = 'Luftfeuchtigkeit: ' + luftfeuchtigkeit9;
                 } else if (value == 10) {
-                    document.getElementById("temperatur").innerHTML = temperatur10;
-                    document.getElementById("lichtstunden").innerHTML = lichtstunden10;
-                    document.getElementById("wassermenge").innerHTML = wassermenge10;
-                    document.getElementById("luftfeuchtigkeit").innerHTML = luftfeuchtigkeit10;
+                    document.getElementById("temperatur").innerHTML = 'Temperatur: ' + temperatur10;
+                    document.getElementById("lichtstunden").innerHTML = 'Licht pro Tag: ' + lichtstunden10;
+                    document.getElementById("wassermenge").innerHTML = 'Wasser pro Tag: ' + wassermenge10;
+                    document.getElementById("luftfeuchtigkeit").innerHTML = 'Luftfeuchtigkeit: ' + luftfeuchtigkeit10;
                 }
             }
         </script>
