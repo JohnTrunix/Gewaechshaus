@@ -106,23 +106,9 @@ body {
   left: 200px;
   right: 80px;
 }
-.navigation_oben {
-  position: relative;
-  top: 35px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 400px;
-  background-color: #364366;
-}
 #select-dropdown {
   color: white;
   width: 250px;
-  margin: auto;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  margin-top: -20px;
-  margin-left: -125px;
   font-family: Schrift_Bold;
   font-size: 14px;
   -webkit-touch-callout: none;
@@ -132,6 +118,8 @@ body {
   -ms-user-select: none;
   user-select: none;
   cursor: pointer;
+  position: relative;
+  top: 10px;
 }
 .select {
   background-color: #364366;
