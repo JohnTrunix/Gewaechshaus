@@ -179,6 +179,7 @@ $conn->close();
                 <div class="select option" id="slot10" data-id="10">Leer</div>
 			</div>
             <div class="slot_parameter">
+                <p class=title_parameter>Soll-Werte:</p>
                 <div class="parameter" id="temperatur">Temperatur:</div>
                 <div class="parameter" id="lichtstunden">Lichtstunden:</div>
                 <div class="parameter" id="wassermenge">Wassermenge:</div>
