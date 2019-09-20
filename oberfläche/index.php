@@ -187,9 +187,11 @@ $conn->close();
             </div>
 
             <div class="betriebsmodus">
-                <input type="submit" value="Start">
-                <input type="submit" value="Pause">
-                <input type="submit" value="Reset">
+                <form action="betriebswahl.php">
+                    <input type="submit" value="Start">
+                    <input type="submit" value="Pause">
+                    <input type="submit" value="Reset">
+                </form>
             </div>
 		</div>
 
