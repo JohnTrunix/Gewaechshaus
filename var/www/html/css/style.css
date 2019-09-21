@@ -42,7 +42,6 @@ body {
 }
 .aktiv {
     background-color: #4660a7;
-    border-radius: 10px;
 }
 .shutdown {
     position: fixed;
