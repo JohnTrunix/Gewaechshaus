@@ -1,15 +1,13 @@
-import abfrage
-import rtc_zeit
+from abfrage import start_sensorabfrage
+from datenbegrenzung import start_datenbegrenzung
+from zeit_update import start_zeit_update
+import schedule
+import time
 
-
-try:
-    connection_check()
-except:
-    print("Zeit konnte nicht aktualisiert werden.")
-
+schedule.every(1).minutes.do(start_sensorabfrage)
+schedule.every().day.at("10:30").do(start_datenbegrenzung)
+schedule.every().day.at("10:30").do(start_zeit_update)
 
 while True:
-    try:
-        abfrage_start()
-    except:
-        print("Abfrage konnte nicht ausgeführt werden.")
+    schedule.run_pending()
+    time.sleep(1)
