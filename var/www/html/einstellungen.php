@@ -103,31 +103,31 @@ require 'php/parameter_download.php';
             <div id="success_div">Erfolgreich!</div>
         </div>
         <script>
-        function selected_slot(selectObject) {
-            ar = <?php echo json_encode($arr) ?>;
-            var value = selectObject.value;
-            document.getElementById("pflanze").value = ar[value-1].pflanze;
-            document.getElementById("temperatur").value = ar[value-1].temperatur
-            document.getElementById("lichtstunden").value = ar[value-1].lichtstunden
-            document.getElementById("wassermenge").value = ar[value-1].wassermenge
-            document.getElementById("luftfeuchtigkeit").value = ar[value-1].luftfeuchtigkeit
-            document.getElementById("wert_temperatur").value = ar[value-1].temperatur
-            document.getElementById("wert_lichtstunden").value = ar[value-1].lichtstunden
-            document.getElementById("wert_wassermenge").value = ar[value-1].wassermenge
-            document.getElementById("wert_luftfeuchtigkeit").value = ar[value-1].luftfeuchtigkeit
-        }
+            function selected_slot(selectObject) {
+                ar = <?php echo json_encode($arr) ?>;
+                var value = selectObject.value;
+                document.getElementById("pflanze").value = ar[value-1].pflanze;
+                document.getElementById("temperatur").value = ar[value-1].temperatur
+                document.getElementById("lichtstunden").value = ar[value-1].lichtstunden
+                document.getElementById("wassermenge").value = ar[value-1].wassermenge
+                document.getElementById("luftfeuchtigkeit").value = ar[value-1].luftfeuchtigkeit
+                document.getElementById("wert_temperatur").value = ar[value-1].temperatur
+                document.getElementById("wert_lichtstunden").value = ar[value-1].lichtstunden
+                document.getElementById("wert_wassermenge").value = ar[value-1].wassermenge
+                document.getElementById("wert_luftfeuchtigkeit").value = ar[value-1].luftfeuchtigkeit
+            }
 
-        var url = window.location.href;
-        var error_msg = document.getElementById('error_div');
-        var success_msg = document.getElementById('success_div');
-        if ( url.search( 'fehler' ) > 0 ) {
-            error_msg.style.display = "flex";
-            success_msg.style.display = "none";
-        }
-        else if ( url.search( 'erfolgreich' ) > 0 ) {
-            success_msg.style.display = "flex";
-            error_msg.style.display = "none";
-        }
+            var url = window.location.href;
+            var error_msg = document.getElementById('error_div');
+            var success_msg = document.getElementById('success_div');
+            if ( url.search( 'fehler' ) > 0 ) {
+                error_msg.style.display = "flex";
+                success_msg.style.display = "none";
+            }
+            else if ( url.search( 'erfolgreich' ) > 0 ) {
+                success_msg.style.display = "flex";
+                error_msg.style.display = "none";
+            }
         </script>
     </body>
 </html>
