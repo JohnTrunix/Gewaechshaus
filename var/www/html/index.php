@@ -28,16 +28,16 @@ require 'php/datenbank_download.php';
 		<div class="mitte">
 			<div id="select-dropdown" class="closed">
                 <div id="select-default" class="select default">Rezept auswählen</div>
-                <div class="select option" id="slot1" data-id="1">Leer</div>
-                <div class="select option" id="slot2" data-id="2">Leer</div>
-                <div class="select option" id="slot3" data-id="3">Leer</div>
-				<div class="select option" id="slot4" data-id="4">Leer</div>
-				<div class="select option" id="slot5" data-id="5">Leer</div>
-                <div class="select option" id="slot6" data-id="6">Leer</div>
-                <div class="select option" id="slot7" data-id="7">Leer</div>
-                <div class="select option" id="slot8" data-id="8">Leer</div>
-                <div class="select option" id="slot9" data-id="9">Leer</div>
-                <div class="select option" id="slot10" data-id="10">Leer</div>
+                <div class="select option" id="slot1" data-id="1"></div>
+                <div class="select option" id="slot2" data-id="2"></div>
+                <div class="select option" id="slot3" data-id="3"></div>
+				<div class="select option" id="slot4" data-id="4"></div>
+				<div class="select option" id="slot5" data-id="5"></div>
+                <div class="select option" id="slot6" data-id="6"></div>
+                <div class="select option" id="slot7" data-id="7"></div>
+                <div class="select option" id="slot8" data-id="8"></div>
+                <div class="select option" id="slot9" data-id="9"></div>
+                <div class="select option" id="slot10" data-id="10"></div>
 			</div>
             <div class="slot_parameter">
                 <p class=title_parameter>Soll-Werte:</p>
@@ -56,16 +56,16 @@ require 'php/datenbank_download.php';
 		</div>
 
         <script>
-        document.getElementById("slot1").innerHTML = pflanze1;
-        document.getElementById("slot2").innerHTML = pflanze2;
-        document.getElementById("slot3").innerHTML = pflanze3;
-        document.getElementById("slot4").innerHTML = pflanze4;
-        document.getElementById("slot5").innerHTML = pflanze5;
-        document.getElementById("slot6").innerHTML = pflanze6;
-        document.getElementById("slot7").innerHTML = pflanze7;
-        document.getElementById("slot8").innerHTML = pflanze8;
-        document.getElementById("slot9").innerHTML = pflanze9;
-        document.getElementById("slot10").innerHTML = pflanze10;
+        document.getElementById("slot1").innerHTML = '<?php echo $pflanze1 ?>';
+        document.getElementById("slot2").innerHTML = '<?php echo $pflanze2 ?>';
+        document.getElementById("slot3").innerHTML = '<?php echo $pflanze3 ?>';
+        document.getElementById("slot4").innerHTML = '<?php echo $pflanze4 ?>';
+        document.getElementById("slot5").innerHTML = '<?php echo $pflanze5 ?>';
+        document.getElementById("slot6").innerHTML = '<?php echo $pflanze6 ?>';
+        document.getElementById("slot7").innerHTML = '<?php echo $pflanze7 ?>';
+        document.getElementById("slot8").innerHTML = '<?php echo $pflanze8 ?>';
+        document.getElementById("slot9").innerHTML = '<?php echo $pflanze9 ?>';
+        document.getElementById("slot10").innerHTML = '<?php echo $pflanze10 ?>';
 
         function getComboA() {
             var value = window.dropdown;
