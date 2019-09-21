@@ -1,6 +1,5 @@
 <?php
 require 'php/parameter_download.php';
-require 'php/sensorwert_download.php';
 ?>
 <!DOCTYPE html>
 <html>
