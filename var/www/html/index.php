@@ -95,14 +95,58 @@ require 'php/sensorwert_download.php';
             document.getElementById("luftfeuchtigkeit").innerHTML = 'Luftfeuchtigkeit: ' + ar[value-1].luftfeuchtigkeit;
         }
 
-        function sensorwert_download() {
-            document.getElementById("lichtstaerke_wert").innerHTML = '<?php echo $sensor_licht_1 ?>' + ' Lux';
-            document.getElementById("luftfeuchtigkeit_wert").innerHTML = '<?php echo $sensor_luftfeuchtigkeit_1 ?>' + ' %';
-            document.getElementById("temperatur_wert").innerHTML = '<?php echo $sensor_temperatur_1 ?>' + ' °C';
-            setTimeout(sensorwert_download, 5000);
+        function lichtstaerke_download(){
+            var display = document.getElementById("lichtstaerke_wert");
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET", "php/lichtstaerke_download.php");
+            xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xmlhttp.send();
+            xmlhttp.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                display.innerHTML = this.responseText + ' Lux';
+            } else {
+                display.innerHTML = "Lade...";
+            };
+            }
         }
 
-        sensorwert_download()
+        function luftfeuchtigkeit_download(){
+            var display = document.getElementById("luftfeuchtigkeit_wert");
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET", "php/luftfeuchtigkeit_download.php");
+            xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xmlhttp.send();
+            xmlhttp.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                display.innerHTML = this.responseText + ' %';
+            } else {
+                display.innerHTML = "Lade...";
+            };
+            }
+        }
+
+        function temperatur_download(){
+            var display = document.getElementById("temperatur_wert");
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET", "php/temperatur_download.php");
+            xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xmlhttp.send();
+            xmlhttp.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                display.innerHTML = this.responseText + ' °C';
+            } else {
+                display.innerHTML = "Lade...";
+            };
+            }
+        }
+
+        function sensorwert_download(){
+            lichtstaerke_download();
+            luftfeuchtigkeit_download()
+            temperatur_download()
+            setTimeout(sensorwert_download, 5000);
+        }
+        sensorwert_download();
         </script>
     </body>
 </html>
