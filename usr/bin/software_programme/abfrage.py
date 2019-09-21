@@ -20,9 +20,6 @@ i2c = busio.I2C(board.SCL, board.SDA)
 sensor_temperatur_luftfeuchtigkeit = adafruit_si7021.SI7021(i2c)
 
 
-###########################################################################################################################################
-
-
 def systemzeit_abfrage():
     global lokale_zeit
     lokale_zeit = (int(time.time()))
@@ -77,10 +74,11 @@ def datenbank_temperatursensor_einfuegen():
     mydb.commit()
 
 
-###########################################################################################################################################
+def abfrage_pause():
+    time.sleep(10)
 
 
-while True:
+def abfrage_start():
     print("")
     print("----------------------------")
     print("Neue Sensorabfrage wird ausgeführt.")
@@ -104,7 +102,10 @@ while True:
         luftfeuchtigkeit_abfrage()
     except:
         print("Fehler bei luftfeuchtigkeit_abfrage()")
-    print("Die nächste Aktualisierung erfolgt in 10 Sekunden.")
+    try:
+        print("Aktualisierung beendet.")
+        abfrage_pause()
+    except:
+        print("Fehler bei abfrage_pause()")
     print("----------------------------")
     print("")
-    time.sleep(10)

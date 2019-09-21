@@ -1,0 +1,12 @@
+[Unit]
+Description=Gewaechshaus_Service
+After=multi-user.target
+Conflicts=getty@tty1.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /usr/bin/software_programme/run.py
+StandardInput=tty-force
+
+[Install]
+WantedBy=multi-user.target
