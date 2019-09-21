@@ -74,11 +74,7 @@ def datenbank_temperatursensor_einfuegen():
     mydb.commit()
 
 
-def abfrage_pause():
-    time.sleep(10)
-
-
-def abfrage_start():
+def start_sensorabfrage():
     print("")
     print("----------------------------")
     print("Neue Sensorabfrage wird ausgeführt.")
@@ -102,10 +98,6 @@ def abfrage_start():
         luftfeuchtigkeit_abfrage()
     except:
         print("Fehler bei luftfeuchtigkeit_abfrage()")
-    try:
-        print("Aktualisierung beendet.")
-        abfrage_pause()
-    except:
-        print("Fehler bei abfrage_pause()")
+    print("Sensorabfrage beendet.")
     print("----------------------------")
     print("")

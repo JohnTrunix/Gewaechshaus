@@ -11,7 +11,7 @@ rtc = adafruit_pcf8523.PCF8523(myI2C)
 t = rtc.datetime
 
 
-def connection_check():
+def start_connectioncheck():
     try:
         socket.create_connection(("www.google.com", 443))
         print("Verbunden mit Internet")
