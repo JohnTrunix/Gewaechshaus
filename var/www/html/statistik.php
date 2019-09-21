@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>Gewaechshaus Raspberry Pi 3B+</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 

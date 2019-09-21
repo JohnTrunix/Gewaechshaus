@@ -5,7 +5,7 @@ require 'php/parameter_download.php';
 <html>
     <head>
         <title>Gewaechshaus Raspberry Pi 3B+</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="css/style.css">
         <script src="js/jquery.min.js"></script>
     </head>
     <body style="background-color:white;">
