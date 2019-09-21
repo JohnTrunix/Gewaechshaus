@@ -145,16 +145,12 @@ body {
     color: #fff;
 }
 .default {
-    -webkit-transform-style: preserve-3d;
-    -webkit-backface-visibility: hidden;
-    -webkit-transform-origin: 50% 0%;
-    -webkit-transition: transform 0.3s;
-    -webkit-transform: perspective(600px) rotateX(0deg);
+    transform: perspective(600px) rotateX(0deg);
     z-index: 1000;
 }
 .default:active {
-    -webkit-transform: perspective(600px) rotateX(45deg);
-    -webkit-perspective: 600px;
+    transform: perspective(600px) rotateX(45deg);
+    perspective: 600px;
 }
 
 .statistik_iframe {
