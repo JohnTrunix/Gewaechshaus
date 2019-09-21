@@ -5,39 +5,39 @@ require 'php/parameter_download.php';
 <html>
     <head>
         <title>Gewaechshaus Raspberry Pi 3B+</title>
-		<link rel="stylesheet" href="css/style.css">
-        <script src="js/jquery.min.js"></script>
-		<script src="js/drop-down.js"></script>
+		<link rel="stylesheet" href="/css/style.css">
+        <script src="/js/jquery.min.js"></script>
+		<script src="/js/drop-down.js"></script>
     </head>
     <body>
         <div class="menu_rahmen">
             <div class="icon top aktiv" onclick="window.location='/';">
-                <img src="img/house.svg" class="menubild">
+                <img src="/img/house.svg" class="menubild">
             </div>
             <div class="icon middle" onclick="window.location='/statistik.php';">
-                <img src="img/pie-chart.svg" class="menubild">
+                <img src="/img/pie-chart.svg" class="menubild">
             </div>
             <div class="icon bottom" onclick="window.location='/einstellungen.php';">
-                <img src="img/settings.svg" class="menubild">
+                <img src="/img/settings.svg" class="menubild">
             </div>
-            <div class="icon shutdown" onclick="window.location='php/herunterfahren.php';">
-                <img src="img/logout.svg" class="menubild">
+            <div class="icon shutdown" onclick="window.location='/php/herunterfahren.php';">
+                <img src="/img/logout.svg" class="menubild">
             </div>
         </div>
 		<div class="menu_bar">
             <p class="menu_titel">Live Werte</p>
             <div class="sensorwert sensorwert_1">
-                <img src="img/idea.svg" class="sensor_icon">
+                <img src="/img/idea.svg" class="sensor_icon">
                 <a class='sensor_zahl' id='lichtstaerke_wert'></a>
                 <a class="sensor_beschreibung">Lichtstärke</a>
             </div>
             <div class="sensorwert sensorwert_2">
-                <img src="img/breeze.svg" class="sensor_icon">
+                <img src="/img/breeze.svg" class="sensor_icon">
                 <a class='sensor_zahl' id='luftfeuchtigkeit_wert'></a>
                 <a class="sensor_beschreibung">Luftfeuchtigkeit</a>
             </div>
             <div class="sensorwert sensorwert_3">
-                <img src="img/thermometer.svg" class="sensor_icon">
+                <img src="/img/thermometer.svg" class="sensor_icon">
                 <a class='sensor_zahl' id='temperatur_wert'></a>
                 <a class="sensor_beschreibung">Temperatur</a>
             </div>
@@ -97,7 +97,7 @@ require 'php/parameter_download.php';
         function lichtstaerke_download(){
             var display = document.getElementById("lichtstaerke_wert");
             var xmlhttp = new XMLHttpRequest();
-            xmlhttp.open("GET", "php/lichtstaerke_download.php");
+            xmlhttp.open("GET", "/php/lichtstaerke_download.php");
             xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xmlhttp.send();
             xmlhttp.onreadystatechange = function() {
@@ -112,7 +112,7 @@ require 'php/parameter_download.php';
         function luftfeuchtigkeit_download(){
             var display = document.getElementById("luftfeuchtigkeit_wert");
             var xmlhttp = new XMLHttpRequest();
-            xmlhttp.open("GET", "php/luftfeuchtigkeit_download.php");
+            xmlhttp.open("GET", "/php/luftfeuchtigkeit_download.php");
             xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xmlhttp.send();
             xmlhttp.onreadystatechange = function() {
@@ -127,7 +127,7 @@ require 'php/parameter_download.php';
         function temperatur_download(){
             var display = document.getElementById("temperatur_wert");
             var xmlhttp = new XMLHttpRequest();
-            xmlhttp.open("GET", "php/temperatur_download.php");
+            xmlhttp.open("GET", "/php/temperatur_download.php");
             xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xmlhttp.send();
             xmlhttp.onreadystatechange = function() {
