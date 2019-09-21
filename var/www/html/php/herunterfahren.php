@@ -1,3 +1,2 @@
 <?php
-   exec('sudo shutdown -h now');
-?>
+exec('sudo shutdown -h now');

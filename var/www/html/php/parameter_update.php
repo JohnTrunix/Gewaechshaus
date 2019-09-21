@@ -24,12 +24,10 @@ if ($slot < 1 || $number > 10) {
     die();
 }
 
-
 $sql1 = "DELETE FROM parameter WHERE slot = '$slot'";
 
 $sql2 .= "INSERT INTO parameter (slot, pflanze, temperatur, lichtstunden, wassermenge, luftfeuchtigkeit)
 VALUES ('$slot', '$pflanze', '$temperatur', '$lichtstunden', '$wassermenge', '$luftfeuchtigkeit')";
-
 
 if (mysqli_query($conn, $sql1) && mysqli_query($conn, $sql2)) {
     header("Location: /einstellungen.php?erfolgreich");
@@ -39,4 +37,3 @@ if (mysqli_query($conn, $sql1) && mysqli_query($conn, $sql2)) {
 }
 
 mysqli_close($conn);
-?> 
