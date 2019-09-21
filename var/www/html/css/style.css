@@ -27,17 +27,17 @@ body {
     justify-content: center;
 }
 .top {
-    top: 15px;
+    top: 0px;
 }
 .middle {
-    top: 110px;
+    top: 80px;
 }
 .bottom {
-    top: 205px;
+    top: 160px;
 }
 .menubild {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     color: white;
 }
 .aktiv {
@@ -45,7 +45,7 @@ body {
 }
 .shutdown {
     position: fixed;
-    bottom: 15px;
+    bottom: 0px;
 }
 
 .menu_bar {
@@ -96,7 +96,7 @@ body {
     top: 220px;
 }
 .sensor_icon {
-    height: 50px;
+    height: 40px;
 }
 .mitte {
     background-color: white;
