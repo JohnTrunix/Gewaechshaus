@@ -9,5 +9,9 @@ schedule.every().day.at("10:00").do(start_datenbegrenzung)
 schedule.every().day.at("10:00").do(start_zeit_update)
 
 while True:
-    schedule.run_pending()
-    time.sleep(10)
+    try:
+        print("Überprüfe auf Aufträge.")
+        schedule.run_pending()
+        time.sleep(10)
+    except:
+        print("Genereller Fehler!")
