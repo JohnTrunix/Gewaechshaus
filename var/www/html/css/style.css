@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Schrift_Bold";
-    src: url("font/EncodeSansExpanded-Bold.ttf");
+    src: url("/font/EncodeSansExpanded-Bold.ttf");
 }
 body {
     margin: 0;
