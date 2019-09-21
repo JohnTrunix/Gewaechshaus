@@ -39,19 +39,18 @@ def lichtsensor_abfrage():
 
 def temperatur_abfrage():
     global temperatur_gerundet
-    aktuelle_temperatur = (sensor_temperatur_luftfeuchtigkeit.temperature)
+    aktuelle_temperatur = (
+        sensor_temperatur_luftfeuchtigkeit.temperature)
     temperatur_gerundet = (round(aktuelle_temperatur, 1))
     datenbank_temperatursensor_einfuegen()
 
 
 def luftfeuchtigkeit_abfrage():
     global luftfeuchtigkeit_gerundet
-    aktuelle_luftfeuchtigkeit = (sensor_temperatur_luftfeuchtigkeit.relative_humidity)
+    aktuelle_luftfeuchtigkeit = (
+        sensor_temperatur_luftfeuchtigkeit.relative_humidity)
     luftfeuchtigkeit_gerundet = (round(aktuelle_luftfeuchtigkeit, 1))
     datenbank_luftfeuchtesensor_einfuegen()
-
-
-###########################################################################################################################################
 
 
 def datenbank_lichtsensor_einfuegen():
@@ -94,18 +93,18 @@ while True:
         print("Aktuelle Lichtstärke wird abgefragt und an Datenbank gesendet.")
         lichtsensor_abfrage()
     except:
-        print("Fehler bei lichtsensor_abfrage()") 
+        print("Fehler bei lichtsensor_abfrage()")
     try:
         print("Aktuelle Temperatur wird abgefragt und an Datenbank gesendet.")
         temperatur_abfrage()
     except:
-        print("Fehler bei temperatur_abfrage()") 
+        print("Fehler bei temperatur_abfrage()")
     try:
         print("Aktuelle Luftfeuchtigkeit wird abgefragt und an Datenbank gesendet.")
         luftfeuchtigkeit_abfrage()
     except:
-        print("Fehler bei luftfeuchtigkeit_abfrage()") 
-    print("Alle Sensorwerte wurden aktualisiert. Die nächste Aktualisierung erfolgt in 30 Sekunden.")
+        print("Fehler bei luftfeuchtigkeit_abfrage()")
+    print("Die nächste Aktualisierung erfolgt in 10 Sekunden.")
     print("----------------------------")
     print("")
-    time.sleep(30)
+    time.sleep(10)
