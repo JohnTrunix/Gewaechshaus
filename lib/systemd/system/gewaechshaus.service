@@ -1,5 +1,5 @@
 [Unit]
-Description=Gewaechshaus_Service
+Description=gewaechshaus.service
 After=multi-user.target
 Conflicts=getty@tty1.service
 
