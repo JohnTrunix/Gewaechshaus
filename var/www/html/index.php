@@ -1,5 +1,6 @@
 <?php
 require 'php/parameter_download.php';
+require 'php/sensorwert_download.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,17 +29,17 @@ require 'php/parameter_download.php';
             <p class="menu_titel">Live Werte</p>
             <div class="sensorwert sensorwert_1">
                 <img src="img/idea.svg" class="sensor_icon">
-                <a class='sensor_zahl'></a>
+                <a class='sensor_zahl' id='lichtstaerke_wert'></a>
                 <a class="sensor_beschreibung">Lichtstärke</a>
             </div>
             <div class="sensorwert sensorwert_2">
                 <img src="img/breeze.svg" class="sensor_icon">
-                <a class='sensor_zahl'></a>
+                <a class='sensor_zahl' id='luftfeuchtigkeit_wert'></a>
                 <a class="sensor_beschreibung">Luftfeuchtigkeit</a>
             </div>
             <div class="sensorwert sensorwert_3">
                 <img src="img/thermometer.svg" class="sensor_icon">
-                <a class='sensor_zahl'></a>
+                <a class='sensor_zahl' id='temperatur_wert'></a>
                 <a class="sensor_beschreibung">Temperatur</a>
             </div>
 		</div>
@@ -93,6 +94,15 @@ require 'php/parameter_download.php';
             document.getElementById("wassermenge").innerHTML = 'Wasser pro Tag: ' + ar[value-1].wassermenge;
             document.getElementById("luftfeuchtigkeit").innerHTML = 'Luftfeuchtigkeit: ' + ar[value-1].luftfeuchtigkeit;
         }
+
+        function sensorwert_download() {
+            document.getElementById("lichtstaerke_wert").innerHTML = '<?php echo $sensor_licht_1 ?>' + ' Lux';
+            document.getElementById("luftfeuchtigkeit_wert").innerHTML = '<?php echo $sensor_luftfeuchtigkeit_1 ?>' + ' %';
+            document.getElementById("temperatur_wert").innerHTML = '<?php echo $sensor_temperatur_1 ?>' + ' °C';
+            setTimeout(sensorwert_download, 5000);
+        }
+
+        sensorwert_download()
         </script>
     </body>
 </html>
