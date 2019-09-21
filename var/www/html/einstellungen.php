@@ -28,7 +28,7 @@ require 'php/parameter_download.php';
                 <input required type="text" name="name" placeholder="Name" id="pflanze">
                 <br>
                 <a>Slot: </a>
-                <select name="slot" onchange="getComboA(this)">
+                <select name="slot" onchange="selected_slot(this)">
                     <option value="" disabled selected>Nr.</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -103,7 +103,7 @@ require 'php/parameter_download.php';
             <div id="success_div">Erfolgreich!</div>
         </div>
         <script>
-        function getComboA(selectObject) {
+        function selected_slot(selectObject) {
             ar = <?php echo json_encode($arr) ?>;
             var value = selectObject.value;
             document.getElementById("pflanze").value = ar[value-1].pflanze;
