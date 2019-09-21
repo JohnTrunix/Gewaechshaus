@@ -103,110 +103,20 @@ require 'php/parameter_download.php';
             <div id="success_div">Erfolgreich!</div>
         </div>
         <script>
-            function getComboA(selectObject) {
-                var value = selectObject.value;
-                if (value == 1) {
-                    document.getElementById("pflanze").value = <?php echo $pflanze1 ?>;
-                    document.getElementById("temperatur").value = <?php echo $temperatur1 ?>;
-                    document.getElementById("lichtstunden").value = <?php echo $lichtstunden1 ?>;
-                    document.getElementById("wassermenge").value = <?php echo $wassermenge1 ?>;
-                    document.getElementById("luftfeuchtigkeit").value = <?php echo $luftfeuchtigkeit1 ?>;
-                    document.getElementById("wert_temperatur").innerHTML = <?php echo $temperatur1 ?>;
-                    document.getElementById("wert_lichtstunden").innerHTML = <?php echo $lichtstunden1 ?>;
-                    document.getElementById("wert_wassermenge").innerHTML = <?php echo $wassermenge1 ?>;
-                    document.getElementById("wert_luftfeuchtigkeit").innerHTML = <?php echo $luftfeuchtigkeit1 ?>;
-                } else if (value == 2) {
-                    document.getElementById("pflanze").value = <?php echo $pflanze2 ?>;
-                    document.getElementById("temperatur").value = <?php echo $temperatur2 ?>;
-                    document.getElementById("lichtstunden").value = <?php echo $lichtstunden2 ?>;
-                    document.getElementById("wassermenge").value = <?php echo $wassermenge2 ?>;
-                    document.getElementById("luftfeuchtigkeit").value = <?php echo $luftfeuchtigkeit2 ?>;
-                    document.getElementById("wert_temperatur").innerHTML = <?php echo $temperatur2 ?>;
-                    document.getElementById("wert_lichtstunden").innerHTML = <?php echo $lichtstunden2 ?>;
-                    document.getElementById("wert_wassermenge").innerHTML = <?php echo $wassermenge2 ?>;
-                    document.getElementById("wert_luftfeuchtigkeit").innerHTML = <?php echo $luftfeuchtigkeit2 ?>;
-                } else if (value == 3) {
-                    document.getElementById("pflanze").value = <?php echo $pflanze3 ?>;
-                    document.getElementById("temperatur").value = <?php echo $temperatur3 ?>;
-                    document.getElementById("lichtstunden").value = <?php echo $lichtstunden3 ?>;
-                    document.getElementById("wassermenge").value = <?php echo $wassermenge3 ?>;
-                    document.getElementById("luftfeuchtigkeit").value = <?php echo $luftfeuchtigkeit3 ?>;
-                    document.getElementById("wert_temperatur").innerHTML = <?php echo $temperatur3 ?>;
-                    document.getElementById("wert_lichtstunden").innerHTML = <?php echo $lichtstunden3 ?>;
-                    document.getElementById("wert_wassermenge").innerHTML = <?php echo $wassermenge3 ?>;
-                    document.getElementById("wert_luftfeuchtigkeit").innerHTML = <?php echo $luftfeuchtigkeit3 ?>;
-                } else if (value == 4) {
-                    document.getElementById("pflanze").value = <?php echo $pflanze4 ?>;
-                    document.getElementById("temperatur").value = <?php echo $temperatur4 ?>;
-                    document.getElementById("lichtstunden").value = <?php echo $lichtstunden4 ?>;
-                    document.getElementById("wassermenge").value = <?php echo $wassermenge4 ?>;
-                    document.getElementById("luftfeuchtigkeit").value = <?php echo $luftfeuchtigkeit4 ?>;
-                    document.getElementById("wert_temperatur").innerHTML = <?php echo $temperatur4 ?>;
-                    document.getElementById("wert_lichtstunden").innerHTML = <?php echo $lichtstunden4 ?>;
-                    document.getElementById("wert_wassermenge").innerHTML = <?php echo $wassermenge4 ?>;
-                    document.getElementById("wert_luftfeuchtigkeit").innerHTML = <?php echo $luftfeuchtigkeit4 ?>;
-                } else if (value == 5) {
-                    document.getElementById("pflanze").value = <?php echo $pflanze5 ?>;
-                    document.getElementById("temperatur").value = <?php echo $temperatur5 ?>;
-                    document.getElementById("lichtstunden").value = <?php echo $lichtstunden5 ?>;
-                    document.getElementById("wassermenge").value = <?php echo $wassermenge5 ?>;
-                    document.getElementById("luftfeuchtigkeit").value = <?php echo $luftfeuchtigkeit5 ?>;
-                    document.getElementById("wert_temperatur").innerHTML = <?php echo $temperatur5 ?>;
-                    document.getElementById("wert_lichtstunden").innerHTML = <?php echo $lichtstunden5 ?>;
-                    document.getElementById("wert_wassermenge").innerHTML = <?php echo $wassermenge5 ?>;
-                    document.getElementById("wert_luftfeuchtigkeit").innerHTML = <?php echo $luftfeuchtigkeit5 ?>;
-                } else if (value == 6) {
-                    document.getElementById("pflanze").value = <?php echo $pflanze6 ?>;
-                    document.getElementById("temperatur").value = <?php echo $temperatur6 ?>;
-                    document.getElementById("lichtstunden").value = <?php echo $lichtstunden6 ?>;
-                    document.getElementById("wassermenge").value = <?php echo $wassermenge6 ?>;
-                    document.getElementById("luftfeuchtigkeit").value = <?php echo $luftfeuchtigkeit6 ?>;
-                    document.getElementById("wert_temperatur").innerHTML = <?php echo $temperatur6 ?>;
-                    document.getElementById("wert_lichtstunden").innerHTML = <?php echo $lichtstunden6 ?>;
-                    document.getElementById("wert_wassermenge").innerHTML = <?php echo $wassermenge6 ?>;
-                    document.getElementById("wert_luftfeuchtigkeit").innerHTML = <?php echo $luftfeuchtigkeit6 ?>;
-                } else if (value == 7) {
-                    document.getElementById("pflanze").value = <?php echo $pflanze7 ?>;
-                    document.getElementById("temperatur").value = <?php echo $temperatur7 ?>;
-                    document.getElementById("lichtstunden").value = <?php echo $lichtstunden7 ?>;
-                    document.getElementById("wassermenge").value = <?php echo $wassermenge7 ?>;
-                    document.getElementById("luftfeuchtigkeit").value = <?php echo $luftfeuchtigkeit7 ?>;
-                    document.getElementById("wert_temperatur").innerHTML = <?php echo $temperatur7 ?>;
-                    document.getElementById("wert_lichtstunden").innerHTML = <?php echo $lichtstunden7 ?>;
-                    document.getElementById("wert_wassermenge").innerHTML = <?php echo $wassermenge7 ?>;
-                    document.getElementById("wert_luftfeuchtigkeit").innerHTML = <?php echo $luftfeuchtigkeit7 ?>;
-                } else if (value == 8) {
-                    document.getElementById("pflanze").value = <?php echo $pflanze8 ?>;
-                    document.getElementById("temperatur").value = <?php echo $temperatur8 ?>;
-                    document.getElementById("lichtstunden").value = <?php echo $lichtstunden8 ?>;
-                    document.getElementById("wassermenge").value = <?php echo $wassermenge8 ?>;
-                    document.getElementById("luftfeuchtigkeit").value = <?php echo $luftfeuchtigkeit8 ?>;
-                    document.getElementById("wert_temperatur").innerHTML = <?php echo $temperatur8 ?>;
-                    document.getElementById("wert_lichtstunden").innerHTML = <?php echo $lichtstunden8 ?>;
-                    document.getElementById("wert_wassermenge").innerHTML = <?php echo $wassermenge8 ?>;
-                    document.getElementById("wert_luftfeuchtigkeit").innerHTML = <?php echo $luftfeuchtigkeit8 ?>;
-                } else if (value == 9) {
-                    document.getElementById("pflanze").value = <?php echo $pflanze9 ?>;
-                    document.getElementById("temperatur").value = <?php echo $temperatur9 ?>;
-                    document.getElementById("lichtstunden").value = <?php echo $lichtstunden9 ?>;
-                    document.getElementById("wassermenge").value = <?php echo $wassermenge9 ?>;
-                    document.getElementById("luftfeuchtigkeit").value = <?php echo $luftfeuchtigkeit9 ?>;
-                    document.getElementById("wert_temperatur").innerHTML = <?php echo $temperatur9 ?>;
-                    document.getElementById("wert_lichtstunden").innerHTML = <?php echo $lichtstunden9 ?>;
-                    document.getElementById("wert_wassermenge").innerHTML = <?php echo $wassermenge9 ?>;
-                    document.getElementById("wert_luftfeuchtigkeit").innerHTML = <?php echo $luftfeuchtigkeit9 ?>;
-                } else if (value == 10) {
-                    document.getElementById("pflanze").value = <?php echo $pflanze10 ?>;
-                    document.getElementById("temperatur").value = <?php echo $temperatur10 ?>;
-                    document.getElementById("lichtstunden").value = <?php echo $lichtstunden10 ?>;
-                    document.getElementById("wassermenge").value = <?php echo $wassermenge10 ?>;
-                    document.getElementById("luftfeuchtigkeit").value = <?php echo $luftfeuchtigkeit10 ?>;
-                    document.getElementById("wert_temperatur").innerHTML = <?php echo $temperatur10 ?>;
-                    document.getElementById("wert_lichtstunden").innerHTML = <?php echo $lichtstunden10 ?>;
-                    document.getElementById("wert_wassermenge").innerHTML = <?php echo $wassermenge10 ?>;
-                    document.getElementById("wert_luftfeuchtigkeit").innerHTML = <?php echo $luftfeuchtigkeit10 ?>;
-                }
-            }
+        function getComboA(selectObject) {
+            ar = <?php echo json_encode($arr) ?>;
+            var value = selectObject.value;
+            document.getElementById("pflanze").value = ar[value-1].pflanze;
+            document.getElementById("temperatur").value = ar[value-1].temperatur
+            document.getElementById("lichtstunden").value = ar[value-1].lichtstunden
+            document.getElementById("wassermenge").value = ar[value-1].wassermenge
+            document.getElementById("luftfeuchtigkeit").value = ar[value-1].luftfeuchtigkeit
+            document.getElementById("wert_temperatur").value = ar[value-1].temperatur
+            document.getElementById("wert_lichtstunden").value = ar[value-1].lichtstunden
+            document.getElementById("wert_wassermenge").value = ar[value-1].wassermenge
+            document.getElementById("wert_luftfeuchtigkeit").value = ar[value-1].luftfeuchtigkeit
+        }
+
             var url = window.location.href;
             var error_msg = document.getElementById('error_div');
             var success_msg = document.getElementById('success_div');
