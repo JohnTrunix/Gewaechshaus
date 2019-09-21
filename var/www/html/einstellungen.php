@@ -19,12 +19,12 @@ require 'php/datenbank_download.php';
             <div class="icon bottom aktiv" onclick="window.location='/einstellungen.php';">
                 <img src="img/settings.svg" class="menubild">
             </div>
-            <div class="icon shutdown" onclick="window.location='/herunterfahren.php';">
+            <div class="icon shutdown" onclick="window.location='php/herunterfahren.php';">
                 <img src="img/logout.svg" class="menubild">
             </div>
         </div>
         <div class="mitte">
-            <form action="parameter-update.php">
+            <form action="php/datenbank_update.php">
                 <input required type="text" name="name" placeholder="Name" id="pflanze">
                 <br>
                 <a>Slot: </a>

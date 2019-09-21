@@ -91,7 +91,7 @@ require 'php/datenbank_download.php';
             <div class="icon bottom" onclick="window.location='/einstellungen.php';">
                 <img src="img/settings.svg" class="menubild">
             </div>
-            <div class="icon shutdown" onclick="window.location='/herunterfahren.php';">
+            <div class="icon shutdown" onclick="window.location='php/herunterfahren.php';">
                 <img src="img/logout.svg" class="menubild">
             </div>
         </div>

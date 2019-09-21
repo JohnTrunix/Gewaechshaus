@@ -20,13 +20,13 @@
     <img src="img/settings.svg" class="menubild">
   </div>
 
-  <div class="icon shutdown" onclick="window.location='/herunterfahren.php';">
+  <div class="icon shutdown" onclick="window.location='php/herunterfahren.php';">
     <img src="img/logout.svg" class="menubild">
   </div>
 </div>
 
   <div class="statistik_iframe">
-  <iframe src="http://<?php echo $_SERVER['HTTP_HOST'];?>:3000/d/MXB12HRgz/livewerte?orgId=1&refresh=5s&theme=light" width="100%" height="100%" frameborder="0"></iframe>
+  <iframe src="http://<?php echo $_SERVER['HTTP_HOST']; ?>:3000/d/MXB12HRgz/livewerte?orgId=1&refresh=5s&theme=light" width="100%" height="100%" frameborder="0"></iframe>
 	</div>
 </body>
 </html>
