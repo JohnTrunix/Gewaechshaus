@@ -1,183 +1,183 @@
 @font-face {
-    font-family: "Schrift_Bold";
-    src: url("/font/EncodeSansExpanded-Bold.ttf");
+	font-family: "Schrift_Bold";
+	src: url("/font/EncodeSansExpanded-Bold.ttf");
 }
 body {
-    margin: 0;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-color: #364366;
+	margin: 0;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-color: #364366;
 }
 .menu_rahmen {
-    position: fixed;
-    height: 100%;
-    width: 80px;
-    right: 0;
-    top: 0;
-    background-color: #364366;
-    display: flex;
-    justify-content: center;
+	position: fixed;
+	height: 100%;
+	width: 80px;
+	right: 0;
+	top: 0;
+	background-color: #364366;
+	display: flex;
+	justify-content: center;
 }
 .icon {
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	position: absolute;
+	width: 80px;
+	height: 80px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 .top {
-    top: 0px;
+	top: 0px;
 }
 .middle {
-    top: 80px;
+	top: 80px;
 }
 .bottom {
-    top: 160px;
+	top: 160px;
 }
 .menubild {
-    width: 40px;
-    height: 40px;
-    color: white;
+	width: 40px;
+	height: 40px;
+	color: white;
 }
 .aktiv {
-    background-color: #4660a7;
+	background-color: #4660a7;
 }
 .shutdown {
-    position: fixed;
-    bottom: 0px;
+	position: fixed;
+	bottom: 0px;
 }
 
 .menu_bar {
-    position: fixed;
-    height: 100%;
-    width: 200px;
-    left: 0;
-    top: 0;
-    background-color: #364366;
+	position: fixed;
+	height: 100%;
+	width: 200px;
+	left: 0;
+	top: 0;
+	background-color: #364366;
 }
 .menu_titel {
-    color: white;
-    font-size: 25px;
-    display: flex;
-    justify-content: center;
-    font-family: Schrift_Bold;
+	color: white;
+	font-size: 25px;
+	display: flex;
+	justify-content: center;
+	font-family: Schrift_Bold;
 }
 .sensorwert {
-    position: absolute;
-    height: 50px;
-    width: 150px;
-    left: 50%;
-    transform: translateX(-50%);
+	position: absolute;
+	height: 50px;
+	width: 150px;
+	left: 50%;
+	transform: translateX(-50%);
 }
 .sensor_zahl {
-    color: white;
-    font-family: Schrift_Bold;
-    font-size: 18px;
-    top: 0;
-    position: absolute;
-    left: 60px;
+	color: white;
+	font-family: Schrift_Bold;
+	font-size: 18px;
+	top: 0;
+	position: absolute;
+	left: 60px;
 }
 .sensor_beschreibung {
-    color: white;
-    font-family: Schrift_Bold;
-    font-size: 12px;
-    top: 25px;
-    position: absolute;
-    left: 60px;
+	color: white;
+	font-family: Schrift_Bold;
+	font-size: 12px;
+	top: 25px;
+	position: absolute;
+	left: 60px;
 }
 .sensorwert_1 {
-    top: 80px;
+	top: 80px;
 }
 .sensorwert_2 {
-    top: 150px;
+	top: 150px;
 }
 .sensorwert_3 {
-    top: 220px;
+	top: 220px;
 }
 .sensor_icon {
-    height: 40px;
+	height: 40px;
 }
 .mitte {
-    background-color: white;
-    height: 100%;
-    position: fixed;
-    left: 200px;
-    right: 80px;
+	background-color: white;
+	height: 100%;
+	position: fixed;
+	left: 200px;
+	right: 80px;
 }
 #select-dropdown {
-    color: white;
-    width: 250px;
-    font-family: Schrift_Bold;
-    font-size: 14px;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    cursor: pointer;
-    position: relative;
-    top: 10px;
+	color: white;
+	width: 250px;
+	font-family: Schrift_Bold;
+	font-size: 14px;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	cursor: pointer;
+	position: relative;
+	top: 10px;
 }
 .select {
-    background-color: #364366;
-    text-align: center;
-    font-weight: bold;
-    text-transform: uppercase;
-    line-height: 40px;
-    height: 40px;
-    -webkit-transition: top 0.2s, -webkit-transform 0.2s, color 0.2s,
-        background-color 0.2s;
-    width: 230px;
-    margin: auto;
-    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);
+	background-color: #364366;
+	text-align: center;
+	font-weight: bold;
+	text-transform: uppercase;
+	line-height: 40px;
+	height: 40px;
+	-webkit-transition: top 0.2s, -webkit-transform 0.2s, color 0.2s,
+		background-color 0.2s;
+	width: 230px;
+	margin: auto;
+	box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);
 
-    position: absolute;
-    left: 50%;
-    margin-left: -115px;
+	position: absolute;
+	left: 50%;
+	margin-left: -115px;
 }
 .select:last-child {
-    border-bottom: none;
+	border-bottom: none;
 }
 .open .option:hover {
-    background-color: #4660a7;
-    color: #fff;
+	background-color: #4660a7;
+	color: #fff;
 }
 .default {
-    transform: perspective(600px) rotateX(0deg);
-    z-index: 1000;
+	transform: perspective(600px) rotateX(0deg);
+	z-index: 1000;
 }
 .default:active {
-    transform: perspective(600px) rotateX(45deg);
-    perspective: 600px;
+	transform: perspective(600px) rotateX(45deg);
+	perspective: 600px;
 }
 
 .statistik_iframe {
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 80px;
-    height: 100%;
-    border: 0;
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 80px;
+	height: 100%;
+	border: 0;
 }
 
 #error_div {
-    display: none;
+	display: none;
 }
 
 #success_div {
-    display: none;
+	display: none;
 }
 
 .slot_parameter {
-    position: relative;
-    top: 80px;
-    left: 10px;
+	position: relative;
+	top: 80px;
+	left: 10px;
 }
 
 .betriebsmodus {
-    position: relative;
-    left: 10px;
-    top: 100px;
+	position: relative;
+	left: 10px;
+	top: 100px;
 }
