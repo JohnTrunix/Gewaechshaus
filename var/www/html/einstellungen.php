@@ -1,5 +1,5 @@
 <?php
-require 'php/datenbank_download.php';
+require 'php/parameter_download.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -24,7 +24,7 @@ require 'php/datenbank_download.php';
             </div>
         </div>
         <div class="mitte">
-            <form action="php/datenbank_update.php">
+            <form action="php/parameter_update.php">
                 <input required type="text" name="name" placeholder="Name" id="pflanze">
                 <br>
                 <a>Slot: </a>
