@@ -87,6 +87,7 @@ require 'php/parameter_download.php';
         function getComboA(selectObject) {
             ar = <?php echo json_encode($arr) ?>;
             var value = window.dropdown;
+            document.getElementById("parameter_slot").value = value;
             document.getElementById("temperatur").innerHTML = 'Temperatur: ' + ar[value-1].temperatur;
             document.getElementById("lichtstunden").innerHTML = 'Licht pro Tag: ' + ar[value-1].lichtstunden;
             document.getElementById("wassermenge").innerHTML = 'Wasser pro Tag: ' + ar[value-1].wassermenge;
