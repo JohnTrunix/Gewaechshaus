@@ -47,7 +47,7 @@ $(document).ready(function() {
             var data = $(this).data("id");
 
             window.dropdown = data;
-            getComboA();
+            selected_slot();
 
             collapse();
         } else {

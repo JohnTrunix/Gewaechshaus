@@ -84,7 +84,7 @@ require 'php/parameter_download.php';
         document.getElementById("slot9").innerHTML = '<?php echo $pflanze9 ?>';
         document.getElementById("slot10").innerHTML = '<?php echo $pflanze10 ?>';
 
-        function getComboA(selectObject) {
+        function selected_slot(selectObject) {
             ar = <?php echo json_encode($arr) ?>;
             var value = window.dropdown;
             document.getElementById("parameter_slot").value = value;
