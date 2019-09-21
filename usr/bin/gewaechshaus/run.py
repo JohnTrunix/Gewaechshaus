@@ -10,4 +10,4 @@ schedule.every().day.at("10:30").do(start_zeit_update)
 
 while True:
     schedule.run_pending()
-    time.sleep(1)
+    time.sleep(10)
