@@ -13,8 +13,8 @@ if (!$conn) {
 
 $parameter_slot = $_GET['parameter_slot'];
 $programm_status = $_GET['programm_status'];
-$start_zeit = time();
-$start_datum = $date = date('Y-m-d');
+$start_zeit = date("H:i:s");
+$start_datum = date('Y-m-d');
 
 if ($parameter_slot < 1 || $number > 10) {
     header("Location: /index.php?fehler");
