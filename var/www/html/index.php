@@ -64,10 +64,13 @@ require 'php/parameter_download.php';
                 <div class="parameter" id="luftfeuchtigkeit">Luftfeuchtigkeit:</div>
             </div>
             <div class="betriebsmodus">
-                <form action="betriebsmodus.php">
+                <form action="/php/betriebsmodus.php">
                     <input required type="hidden" name="parameter_slot" id="parameter_slot" value="0">
+					<input required type="hidden" name="programm_status" id="programm_status" value="start">
                     <input type="submit" value="Start">
                 </form>
+				<div id="error_div">Fehler!</div>
+            	<div id="success_div">Erfolgreich!</div>
             </div>
         </div>
         <script>
@@ -143,7 +146,19 @@ require 'php/parameter_download.php';
                 temperatur_download()
                 setTimeout(sensorwert_download, 5000);
             }
-            sensorwert_download();
+			sensorwert_download();
+
+			var url = window.location.href;
+            var error_msg = document.getElementById('error_div');
+            var success_msg = document.getElementById('success_div');
+            if ( url.search( 'fehler' ) > 0 ) {
+                error_msg.style.display = "flex";
+                success_msg.style.display = "none";
+            }
+            else if ( url.search( 'erfolgreich' ) > 0 ) {
+                success_msg.style.display = "flex";
+                error_msg.style.display = "none";
+            }
         </script>
     </body>
 </html>

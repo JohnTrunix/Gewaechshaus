@@ -4,9 +4,8 @@ $username = "datenbank";
 $password = "rasp";
 $dbname = "datenbank";
 
-// Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
+
 if (!$conn) {
     header("Location: /einstellungen.php?fehler");
     die();
