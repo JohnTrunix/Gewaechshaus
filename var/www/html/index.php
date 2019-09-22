@@ -101,27 +101,23 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
             document.getElementById("slot9").innerHTML = '<?php echo $pflanze9 ?>';
             document.getElementById("slot10").innerHTML = '<?php echo $pflanze10 ?>';
 
+            ar = <?php echo json_encode($get_betriebsmodus_daten) ?>;
+            parameter_slot = ar[0].parameter_slot;
+            parameter_name = ar[0].parameter_name;
+            programm_status = ar[0].programm_status;
+            datetime = ar[0].datetime;
+
             function selected_slot(selectObject) {
                 ar = <?php echo json_encode($get_parameter_daten) ?>;
                 var value = window.dropdown;
-            document.getElementById("parameter_slot").value = value;
-            parameter_name = document.getElementById('select-default').innerHTML;
-            document.getElementById("parameter_name").value = parameter_name;
+            	document.getElementById("parameter_slot").value = value;
+            	parameter_name = document.getElementById('select-default').innerHTML;
+            	document.getElementById("parameter_name").value = parameter_name;
                 document.getElementById("temperatur").innerHTML = 'Temperatur: ' + ar[value-1].temperatur;
                 document.getElementById("lichtstunden").innerHTML = 'Licht pro Tag: ' + ar[value-1].lichtstunden;
                 document.getElementById("wassermenge").innerHTML = 'Wasser pro Tag: ' + ar[value-1].wassermenge;
                 document.getElementById("luftfeuchtigkeit").innerHTML = 'Luftfeuchtigkeit: ' + ar[value-1].luftfeuchtigkeit;
             }
-
-            function get_betriebsmodus_daten() {
-            ar = <?php echo json_encode($get_betriebsmodus_daten) ?>;
-                parameter_slot = ar[0].parameter_slot;
-                parameter_name = ar[0].parameter_name;
-                programm_status = ar[0].programm_status;
-                datetime = ar[0].datetime;
-            }
-
-            get_betriebsmodus_daten();
 
         </script>
         <script src="/js/sensorwert_download.js"></script>
