@@ -9,6 +9,11 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+$parameter_slot = '0';
+$parameter_name = '0';
+$programm_status = '0';
+$datetime = '0';
+
 $sql = "SELECT parameter_slot, parameter_name, programm_status, datetime FROM betriebsmodus";
 $result = $conn->query($sql);
 

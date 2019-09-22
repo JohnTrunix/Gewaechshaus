@@ -4,4 +4,7 @@ if (programm_status == "start") {
 } else if (programm_status == "stop") {
 	document.getElementById("start").style.display = "inline";
 	document.getElementById("stop").style.display = "none";
+} else {
+	document.getElementById("start").style.display = "inline";
+	document.getElementById("stop").style.display = "none";
 }
