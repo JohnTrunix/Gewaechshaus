@@ -9,6 +9,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+$sensor_temperatur_1 = 'XX';
+
 $sql_sensor_temperatur_1 = "SELECT sensorwert FROM sensor_bodenfeuchtigkeit_1 ORDER BY datetime DESC LIMIT 1;";
 
 $result = $conn->query($sql_sensor_temperatur_1);
