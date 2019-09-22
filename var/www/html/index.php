@@ -41,6 +41,11 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
                 <img src="/img/thermometer.svg" class="sensor_icon">
                 <a class='sensor_zahl' id='temperatur_wert'></a>
                 <a class="sensor_beschreibung">Temperatur</a>
+			</div>
+			<div class="sensorwert sensorwert_4">
+                <img src="/img/wave.svg" class="sensor_icon">
+                <a class='sensor_zahl' id='bodenfeuchtigkeit_wert'></a>
+                <a class="sensor_beschreibung">Bodenfeuchtigkeit</a>
             </div>
         </div>
         <div class="mitte">
