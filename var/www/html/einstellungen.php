@@ -104,7 +104,7 @@ require 'api/parameter/parameter_download.php';
         </div>
         <script>
             function selected_slot(selectObject) {
-                ar = <?php echo json_encode($arr) ?>;
+                ar = <?php echo json_encode($get_parameter_daten) ?>;
                 var value = selectObject.value;
                 document.getElementById("pflanze").value = ar[value-1].pflanze;
                 document.getElementById("temperatur").value = ar[value-1].temperatur
