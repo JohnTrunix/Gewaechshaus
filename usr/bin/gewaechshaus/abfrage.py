@@ -3,7 +3,7 @@ import adafruit_si7021
 import board
 import busio
 import time
-from datetime import datetime
+import datetime
 import mysql.connector
 import subprocess
 
@@ -22,7 +22,7 @@ sensor_temperatur_luftfeuchtigkeit = adafruit_si7021.SI7021(i2c)
 
 def systemzeit_abfrage():
     global lokale_zeit
-    lokale_zeit = (int(time.time()))
+    lokale_zeit = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 
 def lichtsensor_abfrage():
@@ -52,7 +52,7 @@ def luftfeuchtigkeit_abfrage():
 
 def datenbank_lichtsensor_einfuegen():
     mycursor = mydb.cursor()
-    sql = "INSERT INTO sensor_licht_1 (zeit, sensorwert) VALUES (%s, %s)"
+    sql = "INSERT INTO sensor_licht_1 (zeit, sensorwert) VALUES ('%s', '%s')"
     val = (lokale_zeit, lux_gerundet)
     mycursor.execute(sql, val)
     mydb.commit()
@@ -60,7 +60,7 @@ def datenbank_lichtsensor_einfuegen():
 
 def datenbank_luftfeuchtesensor_einfuegen():
     mycursor = mydb.cursor()
-    sql = "INSERT INTO 	sensor_luftfeuchtigkeit_1 (zeit, sensorwert) VALUES (%s, %s)"
+    sql = "INSERT INTO 	sensor_luftfeuchtigkeit_1 (zeit, sensorwert) VALUES ('%s', '%s')"
     val = (lokale_zeit, luftfeuchtigkeit_gerundet)
     mycursor.execute(sql, val)
     mydb.commit()
@@ -68,7 +68,7 @@ def datenbank_luftfeuchtesensor_einfuegen():
 
 def datenbank_temperatursensor_einfuegen():
     mycursor = mydb.cursor()
-    sql = "INSERT INTO sensor_temperatur_1 (zeit, sensorwert) VALUES (%s, %s)"
+    sql = "INSERT INTO sensor_temperatur_1 (zeit, sensorwert) VALUES ('%s', '%s')"
     val = (lokale_zeit, temperatur_gerundet)
     mycursor.execute(sql, val)
     mydb.commit()
