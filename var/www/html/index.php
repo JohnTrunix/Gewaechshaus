@@ -8,7 +8,7 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
         <title>Gewaechshaus Raspberry Pi 3B+</title>
         <link rel="stylesheet" href="/css/style.css">
         <script src="/js/jquery.min.js"></script>
-        <script src="/js/drop-down.js"></script>
+		<script src="/js/drop-down.js"></script>
     </head>
     <body>
         <div class="menu_rahmen">
@@ -101,71 +101,6 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
                 document.getElementById("luftfeuchtigkeit").innerHTML = 'Luftfeuchtigkeit: ' + ar[value-1].luftfeuchtigkeit;
 			}
 
-            function lichtstaerke_download(){
-                var display = document.getElementById("lichtstaerke_wert");
-                var xmlhttp = new XMLHttpRequest();
-                xmlhttp.open("GET", "/api/sensorwerte/lichtstaerke_download.php");
-                xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                xmlhttp.send();
-                xmlhttp.onreadystatechange = function() {
-                if (this.readyState === 4 && this.status === 200) {
-                    display.innerHTML = this.responseText + ' Lux';
-                } else {
-                    display.innerHTML = "Lade...";
-                };
-                }
-            }
-
-            function luftfeuchtigkeit_download(){
-                var display = document.getElementById("luftfeuchtigkeit_wert");
-                var xmlhttp = new XMLHttpRequest();
-                xmlhttp.open("GET", "/api/sensorwerte/luftfeuchtigkeit_download.php");
-                xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                xmlhttp.send();
-                xmlhttp.onreadystatechange = function() {
-                if (this.readyState === 4 && this.status === 200) {
-                    display.innerHTML = this.responseText + ' %';
-                } else {
-                    display.innerHTML = "Lade...";
-                };
-                }
-            }
-
-            function temperatur_download(){
-                var display = document.getElementById("temperatur_wert");
-                var xmlhttp = new XMLHttpRequest();
-                xmlhttp.open("GET", "/api/sensorwerte/temperatur_download.php");
-                xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                xmlhttp.send();
-                xmlhttp.onreadystatechange = function() {
-                if (this.readyState === 4 && this.status === 200) {
-                    display.innerHTML = this.responseText + ' °C';
-                } else {
-                    display.innerHTML = "Lade...";
-                };
-                }
-            }
-
-            function sensorwert_download(){
-                lichtstaerke_download();
-                luftfeuchtigkeit_download()
-                temperatur_download()
-                setTimeout(sensorwert_download, 5000);
-            }
-            sensorwert_download();
-
-            var url = window.location.href;
-            var error_msg = document.getElementById('error_div');
-            var success_msg = document.getElementById('success_div');
-            if ( url.search( 'fehler' ) > 0 ) {
-                error_msg.style.display = "flex";
-                success_msg.style.display = "none";
-            }
-            else if ( url.search( 'erfolgreich' ) > 0 ) {
-                success_msg.style.display = "flex";
-                error_msg.style.display = "none";
-			}
-
 			function get_betriebsmodus_daten() {
 				ar = <?php echo json_encode($get_betriebsmodus_daten) ?>;
                 parameter_slot = ar[0].parameter_slot;
@@ -173,6 +108,8 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
                 programm_status = ar[0].programm_status;
                 datetime = ar[0].datetime;
 			}
-        </script>
+		</script>
+		<script src="/js/sensorwert_download.js"></script>
+		<script src="/js/error_message.js"></script>
     </body>
 </html>
