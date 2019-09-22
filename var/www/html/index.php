@@ -66,7 +66,8 @@ require 'api/parameter/parameter_download.php';
                 </div>
                 <div class="betriebsmodus">
                     <form action="/api/betriebsmodus/betriebsmodus_update.php">
-                        <input required type="hidden" name="parameter_slot" id="parameter_slot" value="0">
+						<input required type="hidden" name="parameter_slot" id="parameter_slot" value="0">
+						<input required type="hidden" name="parameter_name" id="parameter_name" value="0">
                         <input required type="hidden" name="programm_status" id="programm_status" value="start">
                         <input type="submit" value="Start">
                     </form>
@@ -90,12 +91,14 @@ require 'api/parameter/parameter_download.php';
             function selected_slot(selectObject) {
                 ar = <?php echo json_encode($arr) ?>;
                 var value = window.dropdown;
-                document.getElementById("parameter_slot").value = value;
+				document.getElementById("parameter_slot").value = value;
+				parameter_name = document.getElementById('select-default').innerHTML;
+				document.getElementById("parameter_name").value = parameter_name;
                 document.getElementById("temperatur").innerHTML = 'Temperatur: ' + ar[value-1].temperatur;
                 document.getElementById("lichtstunden").innerHTML = 'Licht pro Tag: ' + ar[value-1].lichtstunden;
                 document.getElementById("wassermenge").innerHTML = 'Wasser pro Tag: ' + ar[value-1].wassermenge;
                 document.getElementById("luftfeuchtigkeit").innerHTML = 'Luftfeuchtigkeit: ' + ar[value-1].luftfeuchtigkeit;
-            }
+			}
 
             function lichtstaerke_download(){
                 var display = document.getElementById("lichtstaerke_wert");
