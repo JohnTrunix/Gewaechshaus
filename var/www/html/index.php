@@ -90,7 +90,7 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
             document.getElementById("slot10").innerHTML = '<?php echo $pflanze10 ?>';
 
             function selected_slot(selectObject) {
-                ar = <?php echo json_encode($arr) ?>;
+                ar = <?php echo json_encode($get_parameter_daten) ?>;
                 var value = window.dropdown;
 				document.getElementById("parameter_slot").value = value;
 				parameter_name = document.getElementById('select-default').innerHTML;
