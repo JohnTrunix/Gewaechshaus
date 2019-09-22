@@ -1,5 +1,6 @@
 <?php
 require 'api/parameter/parameter_download.php';
+require 'api/betriebsmodus/betriebsmodus_download.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -163,7 +164,15 @@ require 'api/parameter/parameter_download.php';
             else if ( url.search( 'erfolgreich' ) > 0 ) {
                 success_msg.style.display = "flex";
                 error_msg.style.display = "none";
-            }
+			}
+
+			function get_betriebsmodus_daten() {
+				ar = <?php echo json_encode($get_betriebsmodus_daten) ?>;
+                parameter_slot = ar[0].parameter_slot;
+                parameter_name = ar[0].parameter_name;
+                programm_status = ar[0].programm_status;
+                datetime = ar[0].datetime;
+			}
         </script>
     </body>
 </html>
