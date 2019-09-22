@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="statistik_iframe">
-            <iframe src="http://<?php echo $_SERVER['HTTP_HOST']; ?>:3000" width="100%" height="100%" frameborder="0"></iframe>
+            <iframe src="http://<?php echo $_SERVER['HTTP_HOST']; ?>:3000/d/FLXpjTtWk/sensorwerte?orgId=1&kiosk=tv" width="100%" height="100%" frameborder="0"></iframe>
         </div>
     </body>
 </html>
