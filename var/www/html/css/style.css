@@ -169,6 +169,7 @@ body {
 }
 
 .mode_selector {
+	display: none;
 	position: absolute;
 	height: 100%;
 	width: 100%;

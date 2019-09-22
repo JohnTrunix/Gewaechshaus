@@ -44,7 +44,7 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
             </div>
         </div>
         <div class="mitte">
-            <div class="mode_selector">
+            <div class="mode_selector" id="starter">
                 <div id="select-dropdown" class="closed">
                     <div id="select-default" class="select default">Rezept auswählen</div>
                     <div class="select option" id="slot1" data-id="1"></div>
@@ -107,6 +107,12 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
                 parameter_name = ar[0].parameter_name;
                 programm_status = ar[0].programm_status;
                 datetime = ar[0].datetime;
+			}
+
+			get_betriebsmodus_daten();
+
+			if (programm_status == 'start') {
+				document.getElementById("starter").style.display = "none";
 			}
 		</script>
 		<script src="/js/sensorwert_download.js"></script>
