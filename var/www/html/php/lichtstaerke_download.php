@@ -9,7 +9,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql_sensor_licht_1 = "SELECT sensorwert FROM sensor_licht_1 ORDER BY zeit DESC LIMIT 1;";
+$sql_sensor_licht_1 = "SELECT sensorwert FROM sensor_licht_1 ORDER BY datetime DESC LIMIT 1;";
 
 $result = $conn->query($sql_sensor_licht_1);
 if ($result->num_rows > 0) {
