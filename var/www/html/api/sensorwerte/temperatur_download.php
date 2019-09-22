@@ -9,7 +9,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sensor_bodenfeuchtigkeit_1 = 'XX';
+$sensor_bodenfeuchtigkeit_1 = '0';
 
 $sql_sensor_bodenfeuchtigkeit_1 = "SELECT sensorwert FROM sensor_temperatur_1 ORDER BY datetime DESC LIMIT 1;";
 
