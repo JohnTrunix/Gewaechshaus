@@ -65,7 +65,7 @@ require 'php/parameter_download.php';
                     <div class="parameter" id="luftfeuchtigkeit">Luftfeuchtigkeit:</div>
                 </div>
                 <div class="betriebsmodus">
-                    <form action="/php/betriebsmodus.php">
+                    <form action="/php/betriebsmodus_update.php">
                         <input required type="hidden" name="parameter_slot" id="parameter_slot" value="0">
                         <input required type="hidden" name="programm_status" id="programm_status" value="start">
                         <input type="submit" value="Start">
