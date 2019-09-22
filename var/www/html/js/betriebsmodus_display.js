@@ -1,5 +1,7 @@
 if (programm_status == "start") {
-	document.getElementById("starter").style.display = "none";
+	document.getElementById("start").style.display = "none";
+	document.getElementById("stop").style.display = "inline";
 } else if (programm_status == "stop") {
-	document.getElementById("starter").style.display = "inline";
+	document.getElementById("start").style.display = "inline";
+	document.getElementById("stop").style.display = "none";
 }

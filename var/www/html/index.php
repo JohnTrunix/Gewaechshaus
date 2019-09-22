@@ -44,7 +44,7 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
             </div>
         </div>
         <div class="mitte">
-            <div class="mode_selector" id="starter">
+            <div class="mode_selector" id="start">
                 <div id="select-dropdown" class="closed">
                     <div id="select-default" class="select default">Rezept auswählen</div>
                     <div class="select option" id="slot1" data-id="1"></div>
@@ -71,6 +71,18 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
                         <input required type="hidden" name="parameter_name" id="parameter_name" value="0">
                         <input required type="hidden" name="programm_status" id="programm_status" value="start">
                         <input type="submit" value="Start">
+                    </form>
+                    <div id="error_div">Fehler!</div>
+                    <div id="success_div">Erfolgreich!</div>
+                </div>
+            </div>
+            <div class="mode_selector" id="stop">
+                <div class="betriebsmodus">
+                    <form action="/api/betriebsmodus/betriebsmodus_update.php">
+                        <input required type="hidden" name="parameter_slot" id="parameter_slot" value="1">
+                        <input required type="hidden" name="parameter_name" id="parameter_name" value="1">
+                        <input required type="hidden" name="programm_status" id="programm_status" value="stop">
+                        <input type="submit" value="Stop">
                     </form>
                     <div id="error_div">Fehler!</div>
                     <div id="success_div">Erfolgreich!</div>
