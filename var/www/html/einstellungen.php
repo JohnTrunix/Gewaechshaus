@@ -116,7 +116,7 @@ require 'api/parameter/parameter_download.php';
                 document.getElementById("wert_wassermenge").value = ar[value-1].wassermenge
                 document.getElementById("wert_luftfeuchtigkeit").value = ar[value-1].luftfeuchtigkeit
             }
-		</script>
-		<script src="/js/error_message.js"></script>
+        </script>
+        <script src="/js/error_message.js"></script>
     </body>
 </html>

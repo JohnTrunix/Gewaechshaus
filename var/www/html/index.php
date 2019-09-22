@@ -8,7 +8,7 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
         <title>Gewaechshaus Raspberry Pi 3B+</title>
         <link rel="stylesheet" href="/css/style.css">
         <script src="/js/jquery.min.js"></script>
-		<script src="/js/drop-down.js"></script>
+        <script src="/js/drop-down.js"></script>
     </head>
     <body>
         <div class="menu_rahmen">
@@ -67,8 +67,8 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
                 </div>
                 <div class="betriebsmodus">
                     <form action="/api/betriebsmodus/betriebsmodus_update.php">
-						<input required type="hidden" name="parameter_slot" id="parameter_slot" value="0">
-						<input required type="hidden" name="parameter_name" id="parameter_name" value="0">
+                        <input required type="hidden" name="parameter_slot" id="parameter_slot" value="0">
+                        <input required type="hidden" name="parameter_name" id="parameter_name" value="0">
                         <input required type="hidden" name="programm_status" id="programm_status" value="start">
                         <input type="submit" value="Start">
                     </form>
@@ -92,28 +92,28 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
             function selected_slot(selectObject) {
                 ar = <?php echo json_encode($get_parameter_daten) ?>;
                 var value = window.dropdown;
-				document.getElementById("parameter_slot").value = value;
-				parameter_name = document.getElementById('select-default').innerHTML;
-				document.getElementById("parameter_name").value = parameter_name;
+            document.getElementById("parameter_slot").value = value;
+            parameter_name = document.getElementById('select-default').innerHTML;
+            document.getElementById("parameter_name").value = parameter_name;
                 document.getElementById("temperatur").innerHTML = 'Temperatur: ' + ar[value-1].temperatur;
                 document.getElementById("lichtstunden").innerHTML = 'Licht pro Tag: ' + ar[value-1].lichtstunden;
                 document.getElementById("wassermenge").innerHTML = 'Wasser pro Tag: ' + ar[value-1].wassermenge;
                 document.getElementById("luftfeuchtigkeit").innerHTML = 'Luftfeuchtigkeit: ' + ar[value-1].luftfeuchtigkeit;
-			}
+            }
 
-			function get_betriebsmodus_daten() {
-				ar = <?php echo json_encode($get_betriebsmodus_daten) ?>;
+            function get_betriebsmodus_daten() {
+            ar = <?php echo json_encode($get_betriebsmodus_daten) ?>;
                 parameter_slot = ar[0].parameter_slot;
                 parameter_name = ar[0].parameter_name;
                 programm_status = ar[0].programm_status;
                 datetime = ar[0].datetime;
-			}
+            }
 
-			get_betriebsmodus_daten();
+            get_betriebsmodus_daten();
 
-		</script>
-		<script src="/js/sensorwert_download.js"></script>
-		<script src="/js/error_message.js"></script>
-		<script src="/js/betriebsmodus_display.js"></script>
+        </script>
+        <script src="/js/sensorwert_download.js"></script>
+        <script src="/js/error_message.js"></script>
+        <script src="/js/betriebsmodus_display.js"></script>
     </body>
 </html>
