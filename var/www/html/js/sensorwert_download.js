@@ -11,7 +11,7 @@ function lichtstaerke_download() {
 		if (this.readyState === 4 && this.status === 200) {
 			display.innerHTML = this.responseText + " Lux";
 		} else {
-			display.innerHTML = "Lade...";
+			display.innerHTML = "0";
 		}
 	};
 }
@@ -29,7 +29,7 @@ function luftfeuchtigkeit_download() {
 		if (this.readyState === 4 && this.status === 200) {
 			display.innerHTML = this.responseText + " %";
 		} else {
-			display.innerHTML = "Lade...";
+			display.innerHTML = "0";
 		}
 	};
 }
@@ -47,7 +47,7 @@ function temperatur_download() {
 		if (this.readyState === 4 && this.status === 200) {
 			display.innerHTML = this.responseText + " °C";
 		} else {
-			display.innerHTML = "Lade...";
+			display.innerHTML = "0";
 		}
 	};
 }
@@ -65,7 +65,7 @@ function bodenfeuchtigkeit_download() {
 		if (this.readyState === 4 && this.status === 200) {
 			display.innerHTML = this.responseText + " %";
 		} else {
-			display.innerHTML = "Lade...";
+			display.innerHTML = "0";
 		}
 	};
 }
