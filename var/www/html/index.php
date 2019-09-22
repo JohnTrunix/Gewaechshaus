@@ -1,5 +1,5 @@
 <?php
-require 'php/parameter_download.php';
+require 'api/parameter/parameter_download.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,7 +20,7 @@ require 'php/parameter_download.php';
             <div class="icon bottom" onclick="window.location='/einstellungen.php';">
                 <img src="/img/settings.svg" class="menubild">
             </div>
-            <div class="icon shutdown" onclick="window.location='/php/herunterfahren.php';">
+            <div class="icon shutdown" onclick="window.location='/api/herunterfahren/herunterfahren.php';">
                 <img src="/img/logout.svg" class="menubild">
             </div>
         </div>
@@ -65,7 +65,7 @@ require 'php/parameter_download.php';
                     <div class="parameter" id="luftfeuchtigkeit">Luftfeuchtigkeit:</div>
                 </div>
                 <div class="betriebsmodus">
-                    <form action="/php/betriebsmodus_update.php">
+                    <form action="/api/betriebsmodus/betriebsmodus_update.php">
                         <input required type="hidden" name="parameter_slot" id="parameter_slot" value="0">
                         <input required type="hidden" name="programm_status" id="programm_status" value="start">
                         <input type="submit" value="Start">
@@ -100,7 +100,7 @@ require 'php/parameter_download.php';
             function lichtstaerke_download(){
                 var display = document.getElementById("lichtstaerke_wert");
                 var xmlhttp = new XMLHttpRequest();
-                xmlhttp.open("GET", "/php/lichtstaerke_download.php");
+                xmlhttp.open("GET", "/api/sensorwerte/lichtstaerke_download.php");
                 xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xmlhttp.send();
                 xmlhttp.onreadystatechange = function() {
@@ -115,7 +115,7 @@ require 'php/parameter_download.php';
             function luftfeuchtigkeit_download(){
                 var display = document.getElementById("luftfeuchtigkeit_wert");
                 var xmlhttp = new XMLHttpRequest();
-                xmlhttp.open("GET", "/php/luftfeuchtigkeit_download.php");
+                xmlhttp.open("GET", "/api/sensorwerte/luftfeuchtigkeit_download.php");
                 xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xmlhttp.send();
                 xmlhttp.onreadystatechange = function() {
@@ -130,7 +130,7 @@ require 'php/parameter_download.php';
             function temperatur_download(){
                 var display = document.getElementById("temperatur_wert");
                 var xmlhttp = new XMLHttpRequest();
-                xmlhttp.open("GET", "/php/temperatur_download.php");
+                xmlhttp.open("GET", "/api/sensorwerte/temperatur_download.php");
                 xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xmlhttp.send();
                 xmlhttp.onreadystatechange = function() {

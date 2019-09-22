@@ -1,5 +1,5 @@
 <?php
-require 'php/parameter_download.php';
+require 'api/parameter/parameter_download.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,12 +19,12 @@ require 'php/parameter_download.php';
             <div class="icon bottom aktiv" onclick="window.location='/einstellungen.php';">
                 <img src="/img/settings.svg" class="menubild">
             </div>
-            <div class="icon shutdown" onclick="window.location='/php/herunterfahren.php';">
+            <div class="icon shutdown" onclick="window.location='/api/herunterfahren/herunterfahren.php';">
                 <img src="/img/logout.svg" class="menubild">
             </div>
         </div>
         <div class="mitte">
-            <form action="/php/parameter_update.php">
+            <form action="/api/parameter/parameter_update.php">
                 <input required type="text" name="name" placeholder="Name" id="pflanze">
                 <br>
                 <a>Slot: </a>
