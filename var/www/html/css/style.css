@@ -117,8 +117,6 @@ body {
 	-ms-user-select: none;
 	user-select: none;
 	cursor: pointer;
-	position: relative;
-	top: 10px;
 }
 .select {
 	background-color: #364366;
@@ -168,16 +166,4 @@ body {
 
 #success_div {
 	display: none;
-}
-
-.slot_parameter {
-	position: relative;
-	top: 80px;
-	left: 10px;
-}
-
-.betriebsmodus {
-	position: relative;
-	left: 10px;
-	top: 100px;
 }

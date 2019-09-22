@@ -43,34 +43,36 @@ require 'php/parameter_download.php';
             </div>
         </div>
         <div class="mitte">
-            <div id="select-dropdown" class="closed">
-                <div id="select-default" class="select default">Rezept auswählen</div>
-                <div class="select option" id="slot1" data-id="1"></div>
-                <div class="select option" id="slot2" data-id="2"></div>
-                <div class="select option" id="slot3" data-id="3"></div>
-                <div class="select option" id="slot4" data-id="4"></div>
-                <div class="select option" id="slot5" data-id="5"></div>
-                <div class="select option" id="slot6" data-id="6"></div>
-                <div class="select option" id="slot7" data-id="7"></div>
-                <div class="select option" id="slot8" data-id="8"></div>
-                <div class="select option" id="slot9" data-id="9"></div>
-                <div class="select option" id="slot10" data-id="10"></div>
-            </div>
-            <div class="slot_parameter">
-                <p class=title_parameter>Soll-Werte:</p>
-                <div class="parameter" id="temperatur">Temperatur:</div>
-                <div class="parameter" id="lichtstunden">Licht pro Tag:</div>
-                <div class="parameter" id="wassermenge">Wasser pro Tag:</div>
-                <div class="parameter" id="luftfeuchtigkeit">Luftfeuchtigkeit:</div>
-            </div>
-            <div class="betriebsmodus">
-                <form action="/php/betriebsmodus.php">
-                    <input required type="hidden" name="parameter_slot" id="parameter_slot" value="0">
-					<input required type="hidden" name="programm_status" id="programm_status" value="start">
-                    <input type="submit" value="Start">
-                </form>
-				<div id="error_div">Fehler!</div>
-            	<div id="success_div">Erfolgreich!</div>
+            <div class="mode_selector">
+                <div id="select-dropdown" class="closed">
+                    <div id="select-default" class="select default">Rezept auswählen</div>
+                    <div class="select option" id="slot1" data-id="1"></div>
+                    <div class="select option" id="slot2" data-id="2"></div>
+                    <div class="select option" id="slot3" data-id="3"></div>
+                    <div class="select option" id="slot4" data-id="4"></div>
+                    <div class="select option" id="slot5" data-id="5"></div>
+                    <div class="select option" id="slot6" data-id="6"></div>
+                    <div class="select option" id="slot7" data-id="7"></div>
+                    <div class="select option" id="slot8" data-id="8"></div>
+                    <div class="select option" id="slot9" data-id="9"></div>
+                    <div class="select option" id="slot10" data-id="10"></div>
+                </div>
+                <div class="slot_parameter">
+                    <p class=title_parameter>Soll-Werte:</p>
+                    <div class="parameter" id="temperatur">Temperatur:</div>
+                    <div class="parameter" id="lichtstunden">Licht pro Tag:</div>
+                    <div class="parameter" id="wassermenge">Wasser pro Tag:</div>
+                    <div class="parameter" id="luftfeuchtigkeit">Luftfeuchtigkeit:</div>
+                </div>
+                <div class="betriebsmodus">
+                    <form action="/php/betriebsmodus.php">
+                        <input required type="hidden" name="parameter_slot" id="parameter_slot" value="0">
+                        <input required type="hidden" name="programm_status" id="programm_status" value="start">
+                        <input type="submit" value="Start">
+                    </form>
+                    <div id="error_div">Fehler!</div>
+                    <div id="success_div">Erfolgreich!</div>
+                </div>
             </div>
         </div>
         <script>
@@ -146,9 +148,9 @@ require 'php/parameter_download.php';
                 temperatur_download()
                 setTimeout(sensorwert_download, 5000);
             }
-			sensorwert_download();
+            sensorwert_download();
 
-			var url = window.location.href;
+            var url = window.location.href;
             var error_msg = document.getElementById('error_div');
             var success_msg = document.getElementById('success_div');
             if ( url.search( 'fehler' ) > 0 ) {
