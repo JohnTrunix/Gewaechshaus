@@ -111,11 +111,9 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
 
 			get_betriebsmodus_daten();
 
-			if (programm_status == 'start') {
-				document.getElementById("starter").style.display = "none";
-			}
 		</script>
 		<script src="/js/sensorwert_download.js"></script>
 		<script src="/js/error_message.js"></script>
+		<script src="/js/betriebsmodus_display.js"></script>
     </body>
 </html>
