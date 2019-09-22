@@ -36,8 +36,8 @@ body {
 	top: 160px;
 }
 .menubild {
-	width: 40px;
-	height: 40px;
+	width: 30px;
+	height: 30px;
 	color: white;
 }
 .aktiv {
@@ -69,22 +69,24 @@ body {
 	width: 150px;
 	left: 50%;
 	transform: translateX(-50%);
+	display: flex;
+	align-items: center;
 }
 .sensor_zahl {
 	color: white;
 	font-family: Schrift_Bold;
 	font-size: 18px;
-	top: 0;
 	position: absolute;
-	left: 60px;
+	left: 50px;
+	transform: translateY(-10px);
 }
 .sensor_beschreibung {
 	color: white;
 	font-family: Schrift_Bold;
 	font-size: 12px;
-	top: 25px;
 	position: absolute;
-	left: 60px;
+	left: 50px;
+	transform: translateY(10px);
 }
 .sensorwert_1 {
 	top: 80px;
@@ -96,7 +98,7 @@ body {
 	top: 220px;
 }
 .sensor_icon {
-	height: 40px;
+	height: 30px;
 }
 .mitte {
 	background-color: white;
