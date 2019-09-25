@@ -1,7 +1,15 @@
-Sensorwert History/Details bei Klick auf Abschnitt Links
+Sw alles in einem Folder, 
 
+
+python to logfile -> show in Browser, delete log on start of sw
+
+
+Gesamtstatistik(betriebsstunden,etc)
+Sensorwert History/Details bei Klick auf Abschnitt Links
 Übersicht. SW Status, Alle Parameter, Restart der SW
 
+
 Code Comments, Doku Ablauf anhand Bild draw.io
+
 
 Betriebsmodus Start, Pause, Reset
