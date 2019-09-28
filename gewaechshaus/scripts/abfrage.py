@@ -19,7 +19,7 @@ import logging
 
 # Konfiguration des Logging Modul
 ############################################################
-logger = logging.getLogger('Gewaechshaus | abfrage.py')
+logger = logging.getLogger('abfrage')
 logger.setLevel(logging.DEBUG)
 ch = logging.FileHandler(
     'B:/SW Repos/Gewaechshaus/gewaechshaus/log/gewaechshaus.log')
