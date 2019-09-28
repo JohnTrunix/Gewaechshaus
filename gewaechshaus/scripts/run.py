@@ -4,6 +4,7 @@ from zeit_update import start_zeit_update
 import schedule
 import time
 import logging
+import os
 
 
 logger = logging.getLogger('Gewaechshaus | run.py')
@@ -15,6 +16,16 @@ formatter = logging.Formatter(
     '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 ch.setFormatter(formatter)
 logger.addHandler(ch)
+
+
+try:
+    if os.path.exists('B:/SW Repos/Gewaechshaus/gewaechshaus/log/gewaechshaus.log'):
+        logger.debug('Lösche vorhandene Log Datei')
+        os.remove('B:/SW Repos/Gewaechshaus/gewaechshaus/log/gewaechshaus.log')
+    else:
+        logger.debug('Log Datei nicht vorhanden')
+except:
+    logger.warning('Vorhandene Log Datei konnte nicht gelöscht werden')
 
 
 schedule.every(1).minutes.do(start_sensorabfrage)
