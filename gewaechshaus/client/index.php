@@ -98,7 +98,6 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
                     <div class="parameter datetime" id="betriebswahl_datetime"></div>
                     <div class="parameter programm_ende" id="betriebswahl_programm_ende"></div>
                 </div>
-                <progress id="fortschritt_balken" value="0" max="0"></progress>
             </div>
         </div>
         <script>
