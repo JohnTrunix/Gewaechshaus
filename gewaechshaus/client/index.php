@@ -31,18 +31,18 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
                 <img src="/img/idea.svg" class="sensor_icon">
                 <a class='sensor_zahl' id='lichtstaerke_wert'></a>
                 <a class="sensor_beschreibung">Lichtstärke</a>
-			</div>
-			<div class="sensorwert sensorwert_2">
+            </div>
+            <div class="sensorwert sensorwert_2">
                 <img src="/img/thermometer.svg" class="sensor_icon">
                 <a class='sensor_zahl' id='temperatur_wert'></a>
                 <a class="sensor_beschreibung">Temperatur</a>
-			</div>
+            </div>
             <div class="sensorwert sensorwert_3">
                 <img src="/img/breeze.svg" class="sensor_icon">
                 <a class='sensor_zahl' id='luftfeuchtigkeit_wert'></a>
                 <a class="sensor_beschreibung">Luftfeuchtigkeit</a>
             </div>
-			<div class="sensorwert sensorwert_4">
+            <div class="sensorwert sensorwert_4">
                 <img src="/img/wave.svg" class="sensor_icon">
                 <a class='sensor_zahl' id='bodenfeuchtigkeit_wert'></a>
                 <a class="sensor_beschreibung">Bodenfeuchtigkeit</a>
@@ -73,9 +73,9 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
                 <div class="betriebsmodus">
                     <form action="/api/betriebsmodus/betriebsmodus_update.php">
                         <input required type="hidden" name="parameter_slot" id="parameter_slot" value="0">
-						<input required type="hidden" name="parameter_name" id="parameter_name" value="0">
-						<input required type="date" name="programm_datum_ende" id="programm_datum_ende">
-						<input required type="time" name="programm_zeit_ende" value="14:00" id="programm_zeit_ende">
+                        <input required type="hidden" name="parameter_name" id="parameter_name" value="0">
+                        <input required type="date" name="programm_datum_ende" id="programm_datum_ende">
+                        <input required type="time" name="programm_zeit_ende" value="14:00" id="programm_zeit_ende">
                         <input required type="hidden" name="programm_status" id="programm_status" value="start">
                         <input type="submit" value="Start">
                     </form>
@@ -91,13 +91,14 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
                         <input required type="hidden" name="programm_status" id="programm_status" value="stop">
                         <input type="submit" value="Stop">
                     </form>
-				</div>
-				<div class="parameter_betriebswahl">
-				<div class="parameter slot" id="betriebswahl_slot"></div>
-				<div class="parameter name" id="betriebswahl_name"></div>
-				<div class="parameter datetime" id="betriebswahl_datetime"></div>
-				<div class="parameter programm_ende" id="betriebswahl_programm_ende"></div>
-				</div>
+                </div>
+                <div class="parameter_betriebswahl">
+                    <div class="parameter slot" id="betriebswahl_slot"></div>
+                    <div class="parameter name" id="betriebswahl_name"></div>
+                    <div class="parameter datetime" id="betriebswahl_datetime"></div>
+                    <div class="parameter programm_ende" id="betriebswahl_programm_ende"></div>
+                </div>
+                <progress id="fortschritt_balken" value="0" max="0"></progress>
             </div>
         </div>
         <script>
@@ -117,19 +118,13 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
             parameter_name = ar[0].parameter_name;
             programm_status = ar[0].programm_status;
             datetime = ar[0].datetime;
-			programm_datum_ende = ar[0].programm_datum_ende;
-			programm_zeit_ende = ar[0].programm_zeit_ende;
-			var programm_ende = (programm_datum_ende + ' ' + programm_zeit_ende);
-			document.getElementById("betriebswahl_slot").innerHTML = 'Gewählter Slot: ' + parameter_slot;
-			document.getElementById("betriebswahl_name").innerHTML = 'Aktuelles Programm: ' + parameter_name;
-			document.getElementById("betriebswahl_datetime").innerHTML = 'Programmstart: ' + datetime;
-			document.getElementById("betriebswahl_programm_ende").innerHTML = 'Programmende: ' + programm_ende;
-
-
-			var dateFirst = new Date();
-         	var dateSecond = new Date(programm_ende);
-         	var timeDiff = Math.abs(dateSecond.getTime() - dateFirst.getTime());
-         	alert(timeDiff);
+            programm_datum_ende = ar[0].programm_datum_ende;
+            programm_zeit_ende = ar[0].programm_zeit_ende;
+            var programm_ende = (programm_datum_ende + ' ' + programm_zeit_ende);
+            document.getElementById("betriebswahl_slot").innerHTML = 'Gewählter Slot: ' + parameter_slot;
+            document.getElementById("betriebswahl_name").innerHTML = 'Aktuelles Programm: ' + parameter_name;
+            document.getElementById("betriebswahl_datetime").innerHTML = 'Programmstart: ' + datetime;
+            document.getElementById("betriebswahl_programm_ende").innerHTML = 'Programmende: ' + programm_ende;
 
             function selected_slot(selectObject) {
                 ar = <?php echo json_encode($get_parameter_daten) ?>;
@@ -145,7 +140,7 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
         </script>
         <script src="/js/sensorwert_download.js"></script>
         <script src="/js/error_message.js"></script>
-		<script src="/js/betriebsmodus_display.js"></script>
-		<script src="/js/datumwahl.js"></script>
+        <script src="/js/betriebsmodus_display.js"></script>
+        <script src="/js/datumwahl.js"></script>
     </body>
 </html>
