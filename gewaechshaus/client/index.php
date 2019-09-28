@@ -73,7 +73,8 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
                 <div class="betriebsmodus">
                     <form action="/api/betriebsmodus/betriebsmodus_update.php">
                         <input required type="hidden" name="parameter_slot" id="parameter_slot" value="0">
-                        <input required type="hidden" name="parameter_name" id="parameter_name" value="0">
+						<input required type="hidden" name="parameter_name" id="parameter_name" value="0">
+						<input required type="date" name="programm_ende" id="programm_ende">
                         <input required type="hidden" name="programm_status" id="programm_status" value="start">
                         <input type="submit" value="Start">
                     </form>
