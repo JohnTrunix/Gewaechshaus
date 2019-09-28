@@ -91,9 +91,13 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
                         <input required type="hidden" name="programm_status" id="programm_status" value="stop">
                         <input type="submit" value="Stop">
                     </form>
-                    <div id="error_div">Fehler!</div>
-                    <div id="success_div">Erfolgreich!</div>
-                </div>
+				</div>
+				<div class="parameter_betriebswahl">
+				<div class="parameter slot" id="betriebswahl_slot"></div>
+				<div class="parameter name" id="betriebswahl_name"></div>
+				<div class="parameter datetime" id="betriebswahl_datetime"></div>
+				<div class="parameter programm_ende" id="betriebswahl_programm_ende"></div>
+				</div>
             </div>
         </div>
         <script>
@@ -116,6 +120,13 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
 			programm_datum_ende = ar[0].programm_datum_ende;
 			programm_zeit_ende = ar[0].programm_zeit_ende;
 
+			var programm_ende = (programm_datum_ende + ' ' + programm_zeit_ende);
+
+			document.getElementById("betriebswahl_slot").innerHTML = 'Gewählter Slot: ' + parameter_slot;
+			document.getElementById("betriebswahl_name").innerHTML = 'Aktuelles Programm: ' + parameter_name;
+			document.getElementById("betriebswahl_datetime").innerHTML = 'Programmstart: ' + datetime;
+			document.getElementById("betriebswahl_programm_ende").innerHTML = 'Programmende: ' + programm_ende;
+
             function selected_slot(selectObject) {
                 ar = <?php echo json_encode($get_parameter_daten) ?>;
                 var value = window.dropdown;
@@ -127,14 +138,10 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
                 document.getElementById("wassermenge").innerHTML = 'Wasser pro Tag: ' + ar[value-1].wassermenge;
                 document.getElementById("luftfeuchtigkeit").innerHTML = 'Luftfeuchtigkeit: ' + ar[value-1].luftfeuchtigkeit;
             }
-
-			var now = new Date(),
-    		minDate = now.toISOString().substring(0,10);
-			$('#programm_datum_ende').prop('min', minDate);
-
         </script>
         <script src="/js/sensorwert_download.js"></script>
         <script src="/js/error_message.js"></script>
-        <script src="/js/betriebsmodus_display.js"></script>
+		<script src="/js/betriebsmodus_display.js"></script>
+		<script src="/js/datumwahl.js"></script>
     </body>
 </html>
