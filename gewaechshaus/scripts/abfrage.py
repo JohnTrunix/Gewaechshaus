@@ -150,6 +150,6 @@ def start_sensorabfrage():
             'Aktuelle Luftfeuchtigkeit wird abgefragt und an Datenbank gesendet')
         luftfeuchtigkeit_abfrage()
     except:
-        logger.warning('Fehler bei schedule.run_pending()')
+        logger.warning('Fehler bei luftfeuchtigkeit_abfrage()')
     logger.debug('Sensorabfrage beendet')
 ############################################################
