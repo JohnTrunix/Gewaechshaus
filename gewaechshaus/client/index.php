@@ -119,13 +119,17 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
             datetime = ar[0].datetime;
 			programm_datum_ende = ar[0].programm_datum_ende;
 			programm_zeit_ende = ar[0].programm_zeit_ende;
-
 			var programm_ende = (programm_datum_ende + ' ' + programm_zeit_ende);
-
 			document.getElementById("betriebswahl_slot").innerHTML = 'Gewählter Slot: ' + parameter_slot;
 			document.getElementById("betriebswahl_name").innerHTML = 'Aktuelles Programm: ' + parameter_name;
 			document.getElementById("betriebswahl_datetime").innerHTML = 'Programmstart: ' + datetime;
 			document.getElementById("betriebswahl_programm_ende").innerHTML = 'Programmende: ' + programm_ende;
+
+
+			var dateFirst = new Date();
+         	var dateSecond = new Date(programm_ende);
+         	var timeDiff = Math.abs(dateSecond.getTime() - dateFirst.getTime());
+         	alert(timeDiff);
 
             function selected_slot(selectObject) {
                 ar = <?php echo json_encode($get_parameter_daten) ?>;
