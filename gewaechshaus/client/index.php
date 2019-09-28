@@ -74,7 +74,8 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
                     <form action="/api/betriebsmodus/betriebsmodus_update.php">
                         <input required type="hidden" name="parameter_slot" id="parameter_slot" value="0">
 						<input required type="hidden" name="parameter_name" id="parameter_name" value="0">
-						<input required type="datetime-local" name="programm_ende" id="programm_ende">
+						<input required type="date" name="programm_datum_ende" id="programm_datum_ende">
+						<input required type="time" name="programm_zeit_ende" value="14:00" id="programm_zeit_ende">
                         <input required type="hidden" name="programm_status" id="programm_status" value="start">
                         <input type="submit" value="Start">
                     </form>
@@ -124,6 +125,10 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
                 document.getElementById("wassermenge").innerHTML = 'Wasser pro Tag: ' + ar[value-1].wassermenge;
                 document.getElementById("luftfeuchtigkeit").innerHTML = 'Luftfeuchtigkeit: ' + ar[value-1].luftfeuchtigkeit;
             }
+
+			var now = new Date(),
+    		minDate = now.toISOString().substring(0,10);
+			$('#programm_datum_ende').prop('min', minDate);
 
         </script>
         <script src="/js/sensorwert_download.js"></script>
