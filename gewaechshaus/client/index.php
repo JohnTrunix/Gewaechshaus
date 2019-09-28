@@ -113,6 +113,8 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
             parameter_name = ar[0].parameter_name;
             programm_status = ar[0].programm_status;
             datetime = ar[0].datetime;
+			programm_datum_ende = ar[0].programm_datum_ende;
+			programm_zeit_ende = ar[0].programm_zeit_ende;
 
             function selected_slot(selectObject) {
                 ar = <?php echo json_encode($get_parameter_daten) ?>;
