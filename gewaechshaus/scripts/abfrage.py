@@ -1,3 +1,10 @@
+# Die Datei abfrage.py ist für die Sensorabfrage zuständig.
+# Wird start_sensorabfrage() ausgeführt, werden alle Sensorwerte
+# abgefragt und in die MYSQL Datenbank geschrieben.
+
+
+# Import von benötigten Modulen
+############################################################
 from python_tsl2591 import tsl2591
 import adafruit_si7021
 import board
@@ -6,25 +13,37 @@ import time
 import datetime
 import mysql.connector
 import subprocess
+############################################################
 
 
+# MYSQL Konfiguration
+############################################################
 mydb = mysql.connector.connect(
     host="localhost",
     user="datenbank",
     passwd="rasp",
     database="datenbank"
 )
+############################################################
 
 
+# I2C Bus Konfiguration
+############################################################
 i2c = busio.I2C(board.SCL, board.SDA)
 sensor_temperatur_luftfeuchtigkeit = adafruit_si7021.SI7021(i2c)
+############################################################
 
 
+# Die Systemzeit wird als Variable gespeichert
+############################################################
 def systemzeit_abfrage():
     global lokale_zeit
     lokale_zeit = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+############################################################
 
 
+# Lichtsensor wird abgefragt und die Datenbank Funktion wird aufgerufen
+############################################################
 def lichtsensor_abfrage():
     global lux_gerundet
     tsl = tsl2591()
@@ -32,48 +51,66 @@ def lichtsensor_abfrage():
     lux = tsl.calculate_lux(full, ir)
     lux_gerundet = (round(lux, 1))
     datenbank_lichtsensor_einfuegen()
+############################################################
 
 
+# Temperatursensor wird abgefragt und die Datenbank Funktion wird aufgerufen
+############################################################
 def temperatur_abfrage():
     global temperatur_gerundet
     aktuelle_temperatur = (
         sensor_temperatur_luftfeuchtigkeit.temperature)
     temperatur_gerundet = (round(aktuelle_temperatur, 1))
     datenbank_temperatursensor_einfuegen()
+############################################################
 
 
+# Luftfeuchtigkeitsensor wird abgefragt und die Datenbank Funktion wird aufgerufen
+############################################################
 def luftfeuchtigkeit_abfrage():
     global luftfeuchtigkeit_gerundet
     aktuelle_luftfeuchtigkeit = (
         sensor_temperatur_luftfeuchtigkeit.relative_humidity)
     luftfeuchtigkeit_gerundet = (round(aktuelle_luftfeuchtigkeit, 1))
     datenbank_luftfeuchtesensor_einfuegen()
+############################################################
 
 
+# Der Lichtsensor Wert wird in Datenbank geschrieben
+############################################################
 def datenbank_lichtsensor_einfuegen():
     mycursor = mydb.cursor()
     sql = "INSERT INTO sensor_licht_1 (datetime, sensorwert) VALUES ('%s', '%s')"
     val = (lokale_zeit, lux_gerundet)
     mycursor.execute(sql, val)
     mydb.commit()
+############################################################
 
 
+# Der Luftfeuchtigkeit Wert wird in Datenbank geschrieben
+############################################################
 def datenbank_luftfeuchtesensor_einfuegen():
     mycursor = mydb.cursor()
     sql = "INSERT INTO 	sensor_luftfeuchtigkeit_1 (datetime, sensorwert) VALUES ('%s', '%s')"
     val = (lokale_zeit, luftfeuchtigkeit_gerundet)
     mycursor.execute(sql, val)
     mydb.commit()
+############################################################
 
 
+# Der Temperatur Wert wird in Datenbank geschrieben
+############################################################
 def datenbank_temperatursensor_einfuegen():
     mycursor = mydb.cursor()
     sql = "INSERT INTO sensor_temperatur_1 (datetime, sensorwert) VALUES ('%s', '%s')"
     val = (lokale_zeit, temperatur_gerundet)
     mycursor.execute(sql, val)
     mydb.commit()
+############################################################
 
 
+# Starte alle Abfrage Funktionen
+############################################################
 def start_sensorabfrage():
     print("")
     print("----------------------------")
@@ -101,3 +138,4 @@ def start_sensorabfrage():
     print("Sensorabfrage beendet.")
     print("----------------------------")
     print("")
+############################################################
