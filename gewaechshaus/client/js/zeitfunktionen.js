@@ -2,7 +2,7 @@ var now = new Date(),
 	minDate = now.toISOString().substring(0, 10);
 $("#programm_datum_ende").prop("min", minDate);
 
-function datum_nach_sekunden(input_datumzeit1, input_datumzeit2, teiler) {
+function zeitrechner(input_datumzeit1, input_datumzeit2, teiler) {
 	var input_datumzeit1, input_datumzeit2, teiler;
 
 	var input_zeit1 = input_datumzeit1.substr(-8);
