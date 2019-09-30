@@ -9,6 +9,7 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
         <link rel="stylesheet" href="/css/style.css">
         <script src="/js/jquery.min.js"></script>
         <script src="/js/drop-down.js"></script>
+		<script src="/js/zeitfunktionen.js"></script>
     </head>
     <body>
         <div class="menu_rahmen">
@@ -138,12 +139,10 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
                 document.getElementById("luftfeuchtigkeit").innerHTML = 'Luftfeuchtigkeit: ' + ar[value-1].luftfeuchtigkeit;
 			}
 
-
+			start_countdown(programm_ende);
         </script>
         <script src="/js/sensorwert_download.js"></script>
         <script src="/js/error_message.js"></script>
         <script src="/js/betriebsmodus_display.js"></script>
-        <script src="/js/zeitfunktionen.js"></script>
-		<script>start_countdown(programm_ende);</script>
     </body>
 </html>
