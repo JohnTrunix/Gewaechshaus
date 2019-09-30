@@ -2,8 +2,8 @@ var now = new Date(),
 	minDate = now.toISOString().substring(0, 10);
 $("#programm_datum_ende").prop("min", minDate);
 
-function datum_nach_sekunden(input_datumzeit1, input_datumzeit2) {
-	var input_datumzeit1, input_datumzeit2;
+function datum_nach_sekunden(input_datumzeit1, input_datumzeit2, teiler) {
+	var input_datumzeit1, input_datumzeit2, teiler;
 
 	var input_zeit1 = input_datumzeit1.substr(-8);
 	var input_jahr1 = input_datumzeit1.substr(0, 4);
@@ -39,5 +39,7 @@ function datum_nach_sekunden(input_datumzeit1, input_datumzeit2) {
 	date1 = new Date(datum1_formatiert);
 	date2 = new Date(datum2_formatiert);
 	var seconds = Math.abs(date1 - date2) / 1000;
-	return seconds;
+
+	var ergebnis = seconds / teiler;
+	return ergebnis;
 }
