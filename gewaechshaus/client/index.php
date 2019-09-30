@@ -102,7 +102,7 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
 				<div class="countdown" id="countdown"></div>
 				<div class="fortschritt_balken">
 					<div class="meter">
-  						<span style="width: 25%"></span>
+  						<span style="width: 90%"></span>
 					</div>
 				</div>
             </div>
