@@ -2,44 +2,66 @@ var now = new Date(),
 	minDate = now.toISOString().substring(0, 10);
 $("#programm_datum_ende").prop("min", minDate);
 
+function formatiere_datum(datum) {
+	var datum;
+
+	var input_zeit = datum.substr(-8);
+	var input_jahr = datum.substr(0, 4);
+	var input_monat = datum.substr(5, 2);
+	var input_tag = datum.substr(8, 2);
+
+	var datum_formatiert =
+		input_monat +
+		" " +
+		input_tag +
+		"," +
+		" " +
+		input_jahr +
+		" " +
+		input_zeit;
+
+	return datum_formatiert;
+}
+
 function zeitrechner(input_datumzeit1, input_datumzeit2, teiler) {
-	var input_datumzeit1, input_datumzeit2, teiler;
-
-	var input_zeit1 = input_datumzeit1.substr(-8);
-	var input_jahr1 = input_datumzeit1.substr(0, 4);
-	var input_monat1 = input_datumzeit1.substr(5, 2);
-	var input_tag1 = input_datumzeit1.substr(8, 2);
-
-	var datum1_formatiert =
-		input_monat1 +
-		" " +
-		input_tag1 +
-		"," +
-		" " +
-		input_jahr1 +
-		" " +
-		input_zeit1;
-
-	var input_zeit2 = input_datumzeit2.substr(-8);
-	var input_jahr2 = input_datumzeit2.substr(0, 4);
-	var input_monat2 = input_datumzeit2.substr(5, 2);
-	var input_tag2 = input_datumzeit2.substr(8, 2);
-
-	var datum2_formatiert =
-		input_monat2 +
-		" " +
-		input_tag2 +
-		"," +
-		" " +
-		input_jahr2 +
-		" " +
-		input_zeit2;
+	formatiertes_datum1 = formatiere_datum(input_datumzeit1);
+	formatiertes_datum2 = formatiere_datum(input_datumzeit2);
+	var teiler;
 
 	var date1, date2;
-	date1 = new Date(datum1_formatiert);
-	date2 = new Date(datum2_formatiert);
+	date1 = new Date(formatiertes_datum1);
+	date2 = new Date(formatiertes_datum2);
 	var seconds = Math.abs(date1 - date2) / 1000;
 
 	var ergebnis = seconds / teiler;
 	return ergebnis;
 }
+
+/*
+function start_countdown(datum) {
+
+
+	var countDownDate = new Date("Jan 5, 2021 15:37:25")
+
+	var x = setInterval(function() {
+		var now = new Date().getTime();
+
+		var distance = countDownDate - now;
+
+		var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+		var hours = Math.floor(
+			(distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+		);
+		var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+		var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+		document.getElementById("demo").innerHTML =
+			days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+		if (distance < 0) {
+			clearInterval(x);
+			document.getElementById("demo").innerHTML = "EXPIRED";
+		}
+	}, 1000);
+}
+*/
