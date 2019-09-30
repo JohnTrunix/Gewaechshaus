@@ -37,11 +37,10 @@ function zeitrechner(input_datumzeit1, input_datumzeit2, teiler) {
 	return ergebnis;
 }
 
-/*
-function start_countdown(datum) {
+function start_countdown(input_datumzeit) {
+	formatiertes_datum = formatiere_datum(input_datumzeit);
 
-
-	var countDownDate = new Date("Jan 5, 2021 15:37:25")
+	var countDownDate = new Date(formatiertes_datum);
 
 	var x = setInterval(function() {
 		var now = new Date().getTime();
@@ -64,4 +63,3 @@ function start_countdown(datum) {
 		}
 	}, 1000);
 }
-*/
