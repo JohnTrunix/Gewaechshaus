@@ -140,6 +140,6 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
         <script src="/js/sensorwert_download.js"></script>
         <script src="/js/error_message.js"></script>
         <script src="/js/betriebsmodus_display.js"></script>
-        <script src="/js/datumwahl.js"></script>
+        <script src="/js/datumrechner.js"></script>
     </body>
 </html>
