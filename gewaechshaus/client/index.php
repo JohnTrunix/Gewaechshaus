@@ -98,6 +98,7 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
                     <div class="parameter datetime" id="betriebswahl_datetime"></div>
                     <div class="parameter programm_ende" id="betriebswahl_programm_ende"></div>
                 </div>
+				<div class="countdown" id="countdown"></div>
             </div>
         </div>
         <script>
@@ -136,10 +137,13 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
                 document.getElementById("wassermenge").innerHTML = 'Wasser pro Tag: ' + ar[value-1].wassermenge;
                 document.getElementById("luftfeuchtigkeit").innerHTML = 'Luftfeuchtigkeit: ' + ar[value-1].luftfeuchtigkeit;
 			}
+
+
         </script>
         <script src="/js/sensorwert_download.js"></script>
         <script src="/js/error_message.js"></script>
         <script src="/js/betriebsmodus_display.js"></script>
         <script src="/js/zeitfunktionen.js"></script>
+		<script>start_countdown(programm_ende);</script>
     </body>
 </html>

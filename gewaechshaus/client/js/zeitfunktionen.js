@@ -54,12 +54,20 @@ function start_countdown(input_datumzeit) {
 		var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 		var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-		document.getElementById("demo").innerHTML =
-			days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+		document.getElementById("countdown").innerHTML =
+			"Zeit Verbleibend: " +
+			days +
+			"d " +
+			hours +
+			"h " +
+			minutes +
+			"m " +
+			seconds +
+			"s ";
 
 		if (distance < 0) {
 			clearInterval(x);
-			document.getElementById("demo").innerHTML = "EXPIRED";
+			document.getElementById("countdown").innerHTML = "Fertig";
 		}
 	}, 1000);
 }
