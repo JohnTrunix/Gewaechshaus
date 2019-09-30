@@ -71,3 +71,42 @@ function start_countdown(input_datumzeit) {
 		}
 	}, 1000);
 }
+
+function berechne_zeit_verbleibend(input_startzeit, input_endzeit) {
+	var input_startzeit, input_endzeit;
+
+	var zeit_gesamt = zeitrechner(input_startzeit, input_endzeit, 1);
+
+	var zeit_jetzt = new Date()
+		.toISOString()
+		.substr(0, 19)
+		.replace("T", " ");
+
+	var zeit_erledigt = zeitrechner(zeit_jetzt, input_startzeit, 1);
+	var zeit_verbleibend = zeit_gesamt - zeit_erledigt;
+
+	console.log(zeit_gesamt);
+	console.log(zeit_erledigt);
+	console.log(zeit_verbleibend);
+
+	return zeit_verbleibend;
+}
+
+function berechne_prozent_verbleibend(input_startzeit, input_endzeit) {
+	var input_startzeit, input_endzeit;
+
+	var zeit_verbleibend = berechne_zeit_verbleibend(
+		input_startzeit,
+		input_endzeit
+	);
+
+	var zeit_gesamt = zeitrechner(input_startzeit, input_endzeit, 1);
+
+	var ein_prozent = zeit_gesamt / 100;
+
+	var prozent_roh = zeit_verbleibend / ein_prozent;
+
+	var prozentangabe = 100 - prozent_roh;
+
+	console.log(prozentangabe);
+}
