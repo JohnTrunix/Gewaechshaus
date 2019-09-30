@@ -179,3 +179,32 @@ body {
 	height: 100%;
 	width: 100%;
 }
+
+.meter {
+	height: 20px;
+	position: relative;
+	border: 2px solid #364366;
+	border-radius: 25px;
+	padding: 10px;
+}
+
+.meter > span {
+	display: block;
+	height: 100%;
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
+	background-color: rgb(43, 194, 83);
+	position: relative;
+	overflow: hidden;
+}
+
+.fortschritt_balken {
+	position: fixed;
+	bottom: 50px;
+	width: 680px;
+	left: 200px;
+	margin-left: 10px;
+	margin-right: 10px;
+}

@@ -100,6 +100,11 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
                     <div class="parameter programm_ende" id="betriebswahl_programm_ende"></div>
                 </div>
 				<div class="countdown" id="countdown"></div>
+				<div class="fortschritt_balken">
+					<div class="meter">
+  						<span style="width: 25%"></span>
+					</div>
+				</div>
             </div>
         </div>
         <script>
