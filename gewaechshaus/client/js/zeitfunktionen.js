@@ -120,18 +120,14 @@ function berechne_zeit_verbleibend(input_endzeit) {
 function berechne_prozent_verbleibend(input_startzeit, input_endzeit) {
 	var input_startzeit, input_endzeit;
 
-	var zeit_verbleibend = berechne_zeit_verbleibend(
-		input_startzeit,
-		input_endzeit
-	);
+	var zeit_verbleibend = berechne_zeit_verbleibend(input_endzeit);
 
 	var zeit_gesamt = zeitrechner(input_startzeit, input_endzeit, 1);
 
 	var ein_prozent = zeit_gesamt / 100;
+	var prozent_gesamt = zeit_verbleibend / ein_prozent;
+    var prozent_resultat = 100 - prozent_gesamt;
+    var prozent_gerundet = Math.round(prozent_resultat);
 
-	var prozent_roh = zeit_verbleibend / ein_prozent;
-
-	var prozentangabe = 100 - prozent_roh;
-
-	console.log(prozentangabe);
+	return prozent_gerundet;
 }
