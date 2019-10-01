@@ -151,6 +151,6 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
         </script>
         <script src="/js/sensorwert_download.js"></script>
         <script src="/js/error_message.js"></script>
-        <script src="/js/datenbank_display.js"></script>
+        <script src="/js/betriebsmodus.js"></script>
     </body>
 </html>
