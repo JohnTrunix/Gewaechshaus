@@ -195,9 +195,11 @@ body {
 	border-bottom-right-radius: 5px;
 	border-top-left-radius: 20px;
 	border-bottom-left-radius: 20px;
-	background-color: rgb(43, 194, 83);
 	position: relative;
 	overflow: hidden;
+	background: linear-gradient(90deg, #ccfd47, #24fe41);
+	background-size: 400% 400%;
+	animation: gradientBG 5s ease infinite;
 }
 
 .fortschritt_rahmen {
@@ -218,4 +220,16 @@ body {
 .prozent_fortschritt {
 	transition: 1s;
 	width: 0%;
+}
+
+@keyframes gradientBG {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
