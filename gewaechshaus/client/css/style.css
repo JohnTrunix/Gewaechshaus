@@ -277,3 +277,22 @@ body {
 	font-family: Schrift_Bold;
 	font-size: 14px;
 }
+
+.button_primary {
+	display: block;
+	overflow: hidden;
+	width: 100px;
+	height: 50px;
+	max-width: 250px;
+	text-transform: uppercase;
+	border: 1px solid currentColor;
+	background-color: transparent;
+}
+
+.button_abbrechen {
+	position: absolute;
+	bottom: 40px;
+	left: 50%;
+	transform: translateX(-50%);
+	color: red;
+}
