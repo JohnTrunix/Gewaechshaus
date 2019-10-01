@@ -90,7 +90,7 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
                         <input required type="hidden" name="parameter_slot" id="parameter_slot" value="1">
                         <input required type="hidden" name="parameter_name" id="parameter_name" value="1">
                         <input required type="hidden" name="programm_status" id="programm_status" value="stop">
-                        <input class="button_primary button_abbrechen" id="button_abbrechen" type="submit" value="beenden">
+                        <input class="button_primary button_abbrechen" id="button_abbrechen" type="submit" value="Beenden">
                     </form>
                 </div>
                 <div class="parameter_betriebswahl">
