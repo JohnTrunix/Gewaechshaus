@@ -101,7 +101,7 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
                     <div class="fortschritt_balken">
                         <div class="countdown" id="countdown"></div>
                         <div id="prozent_meter" class="meter">
-                            <span class="prozent_fortschritt" id="prozent_fortschritt"><a class="prozent_jetzt" id="prozent_jetzt">0%</a><a class="text_fertig" id="text_fertig">Programm abgeschlossen</a></span>
+                            <span class="prozent_fortschritt" id="prozent_fortschritt"><a class="prozent_jetzt" id="prozent_jetzt">0%</a><a class="text_fertig" id="text_fertig">✓</a></span>
                         </div>
                         <div class="datumzeit_anzeige parameter_datetime" id="betriebswahl_datetime"></div>
                         <div class="datumzeit_anzeige parameter_programm_ende" id="betriebswahl_programm_ende"></div>
