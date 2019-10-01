@@ -19,20 +19,19 @@ function start_countdown(input_datumzeit) {
 		var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 		var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-		document.getElementById("countdown").innerHTML =
-			"Zeit Verbleibend: " +
-			days +
-			"d " +
-			hours +
-			"h " +
-			minutes +
-			"m " +
-			seconds +
-			"s ";
-
-		if (distance < 0) {
-			clearInterval(x);
-			document.getElementById("countdown").innerHTML = "Fertig";
+		if (days > 0) {
+			document.getElementById("countdown").innerHTML =
+				days + "t " + hours + "h " + minutes + "m " + seconds + "s ";
+		} else if (days == 0 && hours > 0) {
+			document.getElementById("countdown").innerHTML =
+				hours + "h " + minutes + "m " + seconds + "s ";
+		} else if (hours == 0 && minutes > 0) {
+			document.getElementById("countdown").innerHTML =
+				minutes + "m " + seconds + "s ";
+		} else if (minutes == 0) {
+			document.getElementById("countdown").innerHTML = seconds + "s ";
+		} else {
+			document.getElementById("countdown").innerHTML = "";
 		}
 	}, 1000);
 }

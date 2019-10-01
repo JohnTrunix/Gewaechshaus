@@ -251,3 +251,12 @@ body {
 	top: 50%;
 	transform: translateY(-50%);
 }
+
+.countdown {
+	position: absolute;
+	bottom: 50px;
+	color: #364366;
+	font-family: Schrift_Bold;
+	left: 10px;
+	font-size: 13px;
+}
