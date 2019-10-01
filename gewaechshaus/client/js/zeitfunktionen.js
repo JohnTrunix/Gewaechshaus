@@ -1,4 +1,3 @@
-<script>
 var now = new Date(),
 	minDate = now.toISOString().substring(0, 10);
 $("#programm_datum_ende").prop("min", minDate);
@@ -106,11 +105,7 @@ function zeitrechner(input_datumzeit1, input_datumzeit2, teiler) {
 
 function berechne_zeit_verbleibend(input_endzeit) {
 	var input_endzeit;
-
     var zeit_jetzt = datumzeit_jetzt();
-
-    console.log("Ende", input_endzeit);
-    console.log("Jetzt", zeit_jetzt);
 
     if (input_endzeit < zeit_jetzt) {
         return 0;
@@ -140,4 +135,3 @@ function berechne_prozent_verbleibend(input_startzeit, input_endzeit) {
 
 	console.log(prozentangabe);
 }
-</script>
