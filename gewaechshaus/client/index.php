@@ -96,15 +96,15 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
                 <div class="parameter_betriebswahl">
                     <div class="parameter slot" id="betriebswahl_slot"></div>
                     <div class="parameter name" id="betriebswahl_name"></div>
-                    <div class="parameter datetime" id="betriebswahl_datetime"></div>
-                    <div class="parameter programm_ende" id="betriebswahl_programm_ende"></div>
                 </div>
                 <div class="fortschritt_rahmen">
                     <div class="fortschritt_balken">
-					<div class="countdown" id="countdown"></div>
+                        <div class="countdown" id="countdown"></div>
                         <div id="prozent_meter" class="meter">
                             <span class="prozent_fortschritt" id="prozent_fortschritt"><a class="prozent_jetzt" id="prozent_jetzt">0%</a><a class="text_fertig" id="text_fertig">Programm abgeschlossen</a></span>
                         </div>
+                        <div class="datumzeit_anzeige parameter_datetime" id="betriebswahl_datetime"></div>
+                        <div class="datumzeit_anzeige parameter_programm_ende" id="betriebswahl_programm_ende"></div>
                     </div>
                 </div>
             </div>
@@ -131,8 +131,6 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
             var programm_ende = (programm_datum_ende + ' ' + programm_zeit_ende);
             document.getElementById("betriebswahl_slot").innerHTML = 'Gewählter Slot: ' + parameter_slot;
             document.getElementById("betriebswahl_name").innerHTML = 'Aktuelles Programm: ' + parameter_name;
-            document.getElementById("betriebswahl_datetime").innerHTML = 'Programmstart: ' + datetime;
-            document.getElementById("betriebswahl_programm_ende").innerHTML = 'Programmende: ' + programm_ende;
 
             function selected_slot(selectObject) {
                 array_parameter = <?php echo json_encode($get_parameter_daten) ?>;
@@ -145,6 +143,9 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
                 document.getElementById("wassermenge").innerHTML = 'Wasser pro Tag: ' + array_parameter[value-1].wassermenge;
                 document.getElementById("luftfeuchtigkeit").innerHTML = 'Luftfeuchtigkeit: ' + array_parameter[value-1].luftfeuchtigkeit;
             }
+
+			document.getElementById("betriebswahl_datetime").innerHTML = datetime;
+			document.getElementById("betriebswahl_programm_ende").innerHTML = programm_ende;
 
             start_countdown(programm_ende);
             balken_berechnung(datetime, programm_ende);
