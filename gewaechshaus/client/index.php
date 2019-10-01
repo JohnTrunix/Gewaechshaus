@@ -121,13 +121,13 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
             document.getElementById("slot9").innerHTML = '<?php echo $pflanze9 ?>';
             document.getElementById("slot10").innerHTML = '<?php echo $pflanze10 ?>';
 
-            ar = <?php echo json_encode($get_betriebsmodus_daten) ?>;
-            parameter_slot = ar[0].parameter_slot;
-            parameter_name = ar[0].parameter_name;
-            programm_status = ar[0].programm_status;
-            datetime = ar[0].datetime;
-            programm_datum_ende = ar[0].programm_datum_ende;
-            programm_zeit_ende = ar[0].programm_zeit_ende;
+            array_betriebsmodus = <?php echo json_encode($get_betriebsmodus_daten) ?>;
+            parameter_slot = array_betriebsmodus[0].parameter_slot;
+            parameter_name = array_betriebsmodus[0].parameter_name;
+            programm_status = array_betriebsmodus[0].programm_status;
+            datetime = array_betriebsmodus[0].datetime;
+            programm_datum_ende = array_betriebsmodus[0].programm_datum_ende;
+            programm_zeit_ende = array_betriebsmodus[0].programm_zeit_ende;
             var programm_ende = (programm_datum_ende + ' ' + programm_zeit_ende);
             document.getElementById("betriebswahl_slot").innerHTML = 'Gewählter Slot: ' + parameter_slot;
             document.getElementById("betriebswahl_name").innerHTML = 'Aktuelles Programm: ' + parameter_name;
@@ -135,15 +135,15 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
             document.getElementById("betriebswahl_programm_ende").innerHTML = 'Programmende: ' + programm_ende;
 
             function selected_slot(selectObject) {
-                ar = <?php echo json_encode($get_parameter_daten) ?>;
+                array_parameter = <?php echo json_encode($get_parameter_daten) ?>;
                 var value = window.dropdown;
             	document.getElementById("parameter_slot").value = value;
             	parameter_name = document.getElementById('select-default').innerHTML;
             	document.getElementById("parameter_name").value = parameter_name;
-                document.getElementById("temperatur").innerHTML = 'Temperatur: ' + ar[value-1].temperatur;
-                document.getElementById("lichtstunden").innerHTML = 'Licht pro Tag: ' + ar[value-1].lichtstunden;
-                document.getElementById("wassermenge").innerHTML = 'Wasser pro Tag: ' + ar[value-1].wassermenge;
-                document.getElementById("luftfeuchtigkeit").innerHTML = 'Luftfeuchtigkeit: ' + ar[value-1].luftfeuchtigkeit;
+                document.getElementById("temperatur").innerHTML = 'Temperatur: ' + array_parameter[value-1].temperatur;
+                document.getElementById("lichtstunden").innerHTML = 'Licht pro Tag: ' + array_parameter[value-1].lichtstunden;
+                document.getElementById("wassermenge").innerHTML = 'Wasser pro Tag: ' + array_parameter[value-1].wassermenge;
+                document.getElementById("luftfeuchtigkeit").innerHTML = 'Luftfeuchtigkeit: ' + array_parameter[value-1].luftfeuchtigkeit;
             }
 
             start_countdown(programm_ende);
@@ -151,6 +151,6 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
         </script>
         <script src="/js/sensorwert_download.js"></script>
         <script src="/js/error_message.js"></script>
-        <script src="/js/betriebsmodus_display.js"></script>
+        <script src="/js/datenbank_display.js"></script>
     </body>
 </html>
