@@ -238,3 +238,16 @@ body {
 	color: #364366;
 	font-family: Schrift_Bold;
 }
+
+.prozent_jetzt {
+	display: flex;
+	padding-right: 5px;
+	justify-content: flex-end;
+	color: #364366;
+	font-family: Schrift_Bold;
+	font-size: 13px;
+	background-color: transparent;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}

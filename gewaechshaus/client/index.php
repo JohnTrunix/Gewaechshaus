@@ -9,7 +9,7 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
         <link rel="stylesheet" href="/css/style.css">
         <script src="/js/jquery.min.js"></script>
         <script src="/js/drop-down.js"></script>
-		<script src="/js/zeitfunktionen.js"></script>
+        <script src="/js/zeitfunktionen.js"></script>
     </head>
     <body>
         <div class="menu_rahmen">
@@ -99,14 +99,14 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
                     <div class="parameter datetime" id="betriebswahl_datetime"></div>
                     <div class="parameter programm_ende" id="betriebswahl_programm_ende"></div>
                 </div>
-				<div class="countdown" id="countdown"></div>
-				<div class="fortschritt_rahmen">
-					<div class="fortschritt_balken">
-						<div id="prozent_meter" class="meter">
-  							<span class="prozent_fortschritt" id="prozent_fortschritt"><a class="text_fertig" id="text_fertig">Programm abgeschlossen</a></span>
-						</div>
-					</div>
-				</div>
+                <div class="countdown" id="countdown"></div>
+                <div class="fortschritt_rahmen">
+                    <div class="fortschritt_balken">
+                        <div id="prozent_meter" class="meter">
+                            <span class="prozent_fortschritt" id="prozent_fortschritt"><a class="prozent_jetzt" id="prozent_jetzt">0%</a><a class="text_fertig" id="text_fertig">Programm abgeschlossen</a></span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <script>
@@ -144,24 +144,10 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
                 document.getElementById("lichtstunden").innerHTML = 'Licht pro Tag: ' + ar[value-1].lichtstunden;
                 document.getElementById("wassermenge").innerHTML = 'Wasser pro Tag: ' + ar[value-1].wassermenge;
                 document.getElementById("luftfeuchtigkeit").innerHTML = 'Luftfeuchtigkeit: ' + ar[value-1].luftfeuchtigkeit;
-			}
+            }
 
-			start_countdown(programm_ende);
-
-			function balken_berechnung() {
-  				setInterval(function(){
-					var prozent_verbleibend = berechne_prozent_verbleibend(datetime, programm_ende)
-					document.getElementById("prozent_fortschritt").style.width = prozent_verbleibend;
-					if (prozent_verbleibend == '100%') {
-						document.getElementById("prozent_meter").style.backgroundColor = '#24fe41';
-						document.getElementById("prozent_fortschritt").style.background = 'transparent';
-						document.getElementById("text_fertig").style.display = 'block';
-					}
-					},
-				1000);
-			}
-
-			balken_berechnung();
+            start_countdown(programm_ende);
+            balken_berechnung(datetime, programm_ende);
         </script>
         <script src="/js/sensorwert_download.js"></script>
         <script src="/js/error_message.js"></script>

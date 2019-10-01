@@ -129,3 +129,35 @@ function berechne_prozent_verbleibend(input_startzeit, input_endzeit) {
 		return prozent_gerundet + "%";
 	}
 }
+
+function balken_berechnung(datetime, programm_ende) {
+	var datetime, programm_ende;
+	setInterval(function() {
+		var prozent_verbleibend = berechne_prozent_verbleibend(
+			datetime,
+			programm_ende
+		);
+		var str = prozent_verbleibend;
+		var prozent = str.substring(0, str.length - 1);
+
+		document.getElementById(
+			"prozent_fortschritt"
+		).style.width = prozent_verbleibend;
+		document.getElementById(
+			"prozent_jetzt"
+		).innerHTML = prozent_verbleibend;
+
+		if (prozent < 4) {
+			document.getElementById("prozent_jetzt").style.display = "none";
+		} else if (prozent > 4 && prozent != 100) {
+			document.getElementById("prozent_jetzt").style.display = "flex";
+		} else if (prozent == 100) {
+			document.getElementById("prozent_meter").style.backgroundColor =
+				"#24fe41";
+			document.getElementById("prozent_fortschritt").style.background =
+				"transparent";
+			document.getElementById("text_fertig").style.display = "block";
+			document.getElementById("prozent_jetzt").style.display = "none";
+		}
+	}, 1000);
+}
