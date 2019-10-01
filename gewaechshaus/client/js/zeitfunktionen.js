@@ -157,6 +157,7 @@ function balken_berechnung(datetime, programm_ende) {
 				"transparent";
 			document.getElementById("text_fertig").style.display = "block";
 			document.getElementById("prozent_jetzt").style.display = "none";
+			document.getElementById("button_abbrechen").style.color = "#05c11e";
 		}
 	}, 1000);
 }

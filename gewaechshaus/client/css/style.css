@@ -287,6 +287,7 @@ body {
 	text-transform: uppercase;
 	border: 1px solid currentColor;
 	background-color: transparent;
+	transition: 0.4s;
 }
 
 .button_abbrechen {
