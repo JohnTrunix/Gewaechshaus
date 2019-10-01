@@ -201,7 +201,7 @@ body {
 
 .fortschritt_rahmen {
 	position: absolute;
-	bottom: 0;
+	bottom: 100px;
 	left: 0;
 	height: 100px;
 	width: 100%;
@@ -254,9 +254,9 @@ body {
 
 .countdown {
 	position: absolute;
-	bottom: 50px;
+	bottom: 35px;
 	color: #364366;
 	font-family: Schrift_Bold;
-	left: 10px;
+	left: 0px;
 	font-size: 13px;
 }
