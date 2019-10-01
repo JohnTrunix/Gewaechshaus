@@ -183,19 +183,14 @@ body {
 .meter {
 	height: 20px;
 	position: relative;
-	border: 2px solid #364366;
-	border-radius: 25px;
-	padding: 10px;
+	border: 1px solid #364366;
+	padding: 5px;
 	transition: 1s;
 }
 
 .meter > span {
 	display: block;
 	height: 100%;
-	border-top-right-radius: 5px;
-	border-bottom-right-radius: 5px;
-	border-top-left-radius: 20px;
-	border-bottom-left-radius: 20px;
 	position: relative;
 	overflow: hidden;
 	background: linear-gradient(90deg, #ccfd47, #24fe41);
@@ -208,7 +203,7 @@ body {
 	position: absolute;
 	bottom: 0;
 	left: 0;
-	height: 150px;
+	height: 100px;
 	width: 100%;
 	transition: 1s;
 }
