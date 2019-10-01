@@ -151,7 +151,6 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
 			function balken_berechnung() {
   				setInterval(function(){
 					var prozent_verbleibend = berechne_prozent_verbleibend(datetime, programm_ende)
-					console.log(prozent_verbleibend);
 					document.getElementById("prozent_fortschritt").style.width = prozent_verbleibend;
 					},
 				1000);
