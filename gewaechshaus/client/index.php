@@ -102,8 +102,8 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
 				<div class="countdown" id="countdown"></div>
 				<div class="fortschritt_rahmen">
 					<div class="fortschritt_balken">
-						<div class="meter">
-  							<span class="prozent_fortschritt" id="prozent_fortschritt"></span>
+						<div id="prozent_meter" class="meter">
+  							<span class="prozent_fortschritt" id="prozent_fortschritt"><a class="text_fertig" id="text_fertig">Programm abgeschlossen</a></span>
 						</div>
 					</div>
 				</div>
@@ -152,6 +152,11 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
   				setInterval(function(){
 					var prozent_verbleibend = berechne_prozent_verbleibend(datetime, programm_ende)
 					document.getElementById("prozent_fortschritt").style.width = prozent_verbleibend;
+					if (prozent_verbleibend == '100%') {
+						document.getElementById("prozent_meter").style.backgroundColor = '#24fe41';
+						document.getElementById("prozent_fortschritt").style.background = 'transparent';
+						document.getElementById("text_fertig").style.display = 'block';
+					}
 					},
 				1000);
 			}
