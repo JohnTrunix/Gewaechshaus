@@ -104,24 +104,22 @@ function zeitrechner(input_datumzeit1, input_datumzeit2, teiler) {
 	return ergebnis;
 }
 
-function berechne_zeit_verbleibend(input_startzeit, input_endzeit) {
-	var input_startzeit, input_endzeit;
+function berechne_zeit_verbleibend(input_endzeit) {
+	var input_endzeit;
 
-	var zeit_gesamt = zeitrechner(input_startzeit, input_endzeit, 1);
+    var zeit_jetzt = datumzeit_jetzt();
 
-    console.log(input_startzeit);
-    console.log(zeit_jetzt);
-	var zeit_verbleibend = zeitrechner(zeit_gesamt, zeit_jetzt, 1);
+    console.log("Ende", input_endzeit);
+    console.log("Jetzt", zeit_jetzt);
 
-
-    
-	/*var zeit_erledigt = zeitrechner(zeit_jetzt, input_startzeit, 1);*/
-
-	console.log("Gesamt:", zeit_gesamt);
-	/*console.log("Erledigt:",zeit_erledigt);*/
-	console.log("Verbleibend:",zeit_verbleibend);
-
-	return zeit_verbleibend;
+    if (input_endzeit < zeit_jetzt) {
+        return 0;
+    } else if (input_endzeit > zeit_jetzt) {
+        var zeit_verbleibend = zeitrechner(input_endzeit, zeit_jetzt, 1);
+        return zeit_verbleibend;
+    } else {
+        return 0;
+    }
 }
 
 function berechne_prozent_verbleibend(input_startzeit, input_endzeit) {
