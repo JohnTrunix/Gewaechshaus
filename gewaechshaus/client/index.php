@@ -100,9 +100,11 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
                     <div class="parameter programm_ende" id="betriebswahl_programm_ende"></div>
                 </div>
 				<div class="countdown" id="countdown"></div>
-				<div class="fortschritt_balken">
-					<div class="meter">
-  						<span style="width: 90%"></span>
+				<div class="fortschritt_rahmen">
+					<div class="fortschritt_balken">
+						<div class="meter">
+  							<span class="prozent_fortschritt" id="prozent_fortschritt"></span>
+						</div>
 					</div>
 				</div>
             </div>
@@ -145,6 +147,17 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
 			}
 
 			start_countdown(programm_ende);
+
+			function balken_berechnung() {
+  				setInterval(function(){
+					var prozent_verbleibend = berechne_prozent_verbleibend(datetime, programm_ende)
+					console.log(prozent_verbleibend);
+					document.getElementById("prozent_fortschritt").style.width = prozent_verbleibend;
+					},
+				1000);
+			}
+
+			balken_berechnung();
         </script>
         <script src="/js/sensorwert_download.js"></script>
         <script src="/js/error_message.js"></script>

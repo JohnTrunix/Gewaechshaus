@@ -38,34 +38,28 @@ function start_countdown(input_datumzeit) {
 }
 
 function datumzeit_jetzt() {
+	var date = new Date();
+	var aaaa = date.getFullYear();
+	var gg = date.getDate();
+	var mm = date.getMonth() + 1;
 
-var date = new Date();
-var aaaa = date.getFullYear();
-var gg = date.getDate();
-var mm = (date.getMonth() + 1);
+	if (gg < 10) gg = "0" + gg;
 
-if (gg < 10)
-    gg = "0" + gg;
+	if (mm < 10) mm = "0" + mm;
 
-if (mm < 10)
-    mm = "0" + mm;
+	var cur_day = aaaa + "-" + mm + "-" + gg;
 
-var cur_day = aaaa + "-" + mm + "-" + gg;
+	var hours = date.getHours();
+	var minutes = date.getMinutes();
+	var seconds = date.getSeconds();
 
-var hours = date.getHours()
-var minutes = date.getMinutes()
-var seconds = date.getSeconds();
+	if (hours < 10) hours = "0" + hours;
 
-if (hours < 10)
-    hours = "0" + hours;
+	if (minutes < 10) minutes = "0" + minutes;
 
-if (minutes < 10)
-    minutes = "0" + minutes;
+	if (seconds < 10) seconds = "0" + seconds;
 
-if (seconds < 10)
-    seconds = "0" + seconds;
-
-return cur_day + " " + hours + ":" + minutes + ":" + seconds;
+	return cur_day + " " + hours + ":" + minutes + ":" + seconds;
 }
 
 function formatiere_datum(datum) {
@@ -105,16 +99,16 @@ function zeitrechner(input_datumzeit1, input_datumzeit2, teiler) {
 
 function berechne_zeit_verbleibend(input_endzeit) {
 	var input_endzeit;
-    var zeit_jetzt = datumzeit_jetzt();
+	var zeit_jetzt = datumzeit_jetzt();
 
-    if (input_endzeit < zeit_jetzt) {
-        return 0;
-    } else if (input_endzeit > zeit_jetzt) {
-        var zeit_verbleibend = zeitrechner(input_endzeit, zeit_jetzt, 1);
-        return zeit_verbleibend;
-    } else {
-        return 0;
-    }
+	if (input_endzeit < zeit_jetzt) {
+		return 0;
+	} else if (input_endzeit > zeit_jetzt) {
+		var zeit_verbleibend = zeitrechner(input_endzeit, zeit_jetzt, 1);
+		return zeit_verbleibend;
+	} else {
+		return 0;
+	}
 }
 
 function berechne_prozent_verbleibend(input_startzeit, input_endzeit) {
@@ -126,8 +120,12 @@ function berechne_prozent_verbleibend(input_startzeit, input_endzeit) {
 
 	var ein_prozent = zeit_gesamt / 100;
 	var prozent_gesamt = zeit_verbleibend / ein_prozent;
-    var prozent_resultat = 100 - prozent_gesamt;
-    var prozent_gerundet = Math.round(prozent_resultat);
+	var prozent_resultat = 100 - prozent_gesamt;
+	var prozent_gerundet = Math.round(prozent_resultat);
 
-	return prozent_gerundet;
+	if (prozent_gerundet <= 2) {
+		return 2 + "%";
+	} else {
+		return prozent_gerundet + "%";
+	}
 }

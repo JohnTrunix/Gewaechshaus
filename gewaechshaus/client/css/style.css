@@ -191,8 +191,8 @@ body {
 .meter > span {
 	display: block;
 	height: 100%;
-	border-top-right-radius: 20px;
-	border-bottom-right-radius: 20px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
 	border-top-left-radius: 20px;
 	border-bottom-left-radius: 20px;
 	background-color: rgb(43, 194, 83);
@@ -200,11 +200,22 @@ body {
 	overflow: hidden;
 }
 
+.fortschritt_rahmen {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 150px;
+	width: 100%;
+}
+
 .fortschritt_balken {
-	position: fixed;
-	bottom: 50px;
-	width: 680px;
-	left: 200px;
+	position: relative;
 	margin-left: 10px;
 	margin-right: 10px;
+	margin-top: 50px;
+}
+
+.prozent_fortschritt {
+	transition: 1s;
+	width: 0%;
 }
