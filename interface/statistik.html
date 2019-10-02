@@ -3,6 +3,7 @@
 	<head>
 		<title>Gewaechshaus Raspberry Pi 3B+</title>
 		<link rel="stylesheet" href="/css/style.css" />
+		<script src="/js/ip_adresse.js"></script>
 	</head>
 	<body>
 		<div class="menu_rahmen">
@@ -23,18 +24,22 @@
 			</div>
 			<div
 				class="icon shutdown"
-				onclick="window.location='/api/herunterfahren/herunterfahren.html';"
+				onclick="window.location='/api/sonstiges/herunterfahren.html';"
 			>
 				<img src="/img/logout.svg" class="menubild" />
 			</div>
 		</div>
 		<div class="statistik_iframe">
 			<iframe
-				src="http://<?php echo $_SERVER['HTTP_HOST']; ?>:3000/d/FLXpjTtWk/sensorwerte?orgId=1&kiosk=tv"
+				src=""
 				width="100%"
 				height="100%"
 				frameborder="0"
+				id="iframe"
 			></iframe>
+			<script>
+				get_ip_adresse();
+			</script>
 		</div>
 	</body>
 </html>
