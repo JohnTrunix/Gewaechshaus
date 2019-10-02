@@ -128,13 +128,13 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
             datetime = array_betriebsmodus[0].datetime;
             programm_datum_ende = array_betriebsmodus[0].programm_datum_ende;
             programm_zeit_ende = array_betriebsmodus[0].programm_zeit_ende;
-            var programm_ende = (programm_datum_ende + ' ' + programm_zeit_ende);
+            programm_ende = (programm_datum_ende + ' ' + programm_zeit_ende);
             document.getElementById("betriebswahl_slot").innerHTML = 'Gewählter Slot: ' + parameter_slot;
             document.getElementById("betriebswahl_name").innerHTML = 'Aktuelles Programm: ' + parameter_name;
 
             function selected_slot(selectObject) {
                 array_parameter = <?php echo json_encode($get_parameter_daten) ?>;
-                var value = window.dropdown;
+                value = window.dropdown;
             	document.getElementById("parameter_slot").value = value;
             	parameter_name = document.getElementById('select-default').innerHTML;
             	document.getElementById("parameter_name").value = parameter_name;
