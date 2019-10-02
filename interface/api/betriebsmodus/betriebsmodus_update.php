@@ -19,7 +19,7 @@ $programm_status = $_GET['programm_status'];
 $datetime = date('Y-m-d H:i:s');
 
 if ($parameter_slot < 1 || $number > 10) {
-    header("Location: /index.php?fehler");
+    header("Location: /index.html?fehler");
     die();
 }
 
