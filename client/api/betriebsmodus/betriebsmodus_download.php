@@ -32,3 +32,5 @@ $conn->close();
 $get_betriebsmodus_daten = [
     ['parameter_slot' => $parameter_slot, 'parameter_name' => $parameter_name, 'programm_status' => $programm_status, 'datetime' => $datetime, 'programm_datum_ende' => $programm_datum_ende, 'programm_zeit_ende' => $programm_zeit_ende],
 ];
+
+echo json_encode($get_betriebsmodus_daten);

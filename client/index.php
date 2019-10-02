@@ -1,6 +1,5 @@
 <?php
 require 'api/parameter/parameter_download.php';
-require 'api/betriebsmodus/betriebsmodus_download.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -8,7 +7,7 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
         <title>Gewaechshaus Raspberry Pi 3B+</title>
         <link rel="stylesheet" href="/css/style.css">
         <script src="/js/jquery.min.js"></script>
-        <script src="/js/drop-down.js"></script>
+        <script src="/js/parameter.js"></script>
         <script src="/js/zeitfunktionen.js"></script>
     </head>
     <body>
@@ -121,8 +120,17 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
             document.getElementById("slot9").innerHTML = '<?php echo $pflanze9 ?>';
             document.getElementById("slot10").innerHTML = '<?php echo $pflanze10 ?>';
 
-            array_betriebsmodus = <?php echo json_encode($get_betriebsmodus_daten) ?>;
-            parameter_slot = array_betriebsmodus[0].parameter_slot;
+
+			function get_betriebsmodus(){
+    			var xhr = new XMLHttpRequest();
+    			xhr.open( 'POST', '/api/betriebsmodus/betriebsmodus_download.php', true );
+    			xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+    			xhr.onreadystatechange  = function(){
+        			if(this.readyState == 4 && this.status == 200)
+        			{
+						array_betriebsmodus = JSON.parse(xhr.responseText);
+						parameter_slot = array_betriebsmodus[0].parameter_slot;
             parameter_name = array_betriebsmodus[0].parameter_name;
             programm_status = array_betriebsmodus[0].programm_status;
             datetime = array_betriebsmodus[0].datetime;
@@ -130,25 +138,26 @@ require 'api/betriebsmodus/betriebsmodus_download.php';
             programm_zeit_ende = array_betriebsmodus[0].programm_zeit_ende;
             programm_ende = (programm_datum_ende + ' ' + programm_zeit_ende);
             document.getElementById("betriebswahl_slot").innerHTML = 'Gewählter Slot: ' + parameter_slot;
-            document.getElementById("betriebswahl_name").innerHTML = 'Aktuelles Programm: ' + parameter_name;
-
-            function selected_slot(selectObject) {
-                array_parameter = <?php echo json_encode($get_parameter_daten) ?>;
-                value = window.dropdown;
-            	document.getElementById("parameter_slot").value = value;
-            	parameter_name = document.getElementById('select-default').innerHTML;
-            	document.getElementById("parameter_name").value = parameter_name;
-                document.getElementById("temperatur").innerHTML = 'Temperatur: ' + array_parameter[value-1].temperatur;
-                document.getElementById("lichtstunden").innerHTML = 'Licht pro Tag: ' + array_parameter[value-1].lichtstunden;
-                document.getElementById("wassermenge").innerHTML = 'Wasser pro Tag: ' + array_parameter[value-1].wassermenge;
-                document.getElementById("luftfeuchtigkeit").innerHTML = 'Luftfeuchtigkeit: ' + array_parameter[value-1].luftfeuchtigkeit;
-            }
-
+			document.getElementById("betriebswahl_name").innerHTML = 'Aktuelles Programm: ' + parameter_name;
 			document.getElementById("betriebswahl_datetime").innerHTML = datetime;
 			document.getElementById("betriebswahl_programm_ende").innerHTML = programm_ende;
-
-            start_countdown(programm_ende);
+			start_countdown(programm_ende);
             balken_berechnung(datetime, programm_ende);
+        			}
+    			}
+
+    			xhr.send();
+			}
+
+
+
+
+
+
+
+
+			get_betriebsmodus();
+
         </script>
         <script src="/js/sensorwert_download.js"></script>
         <script src="/js/error_message.js"></script>
