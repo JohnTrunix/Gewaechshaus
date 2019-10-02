@@ -1,4 +1,4 @@
-function get_ip_adresse() {
+function grafana_adresse() {
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", "/api/sonstiges/ip_adresse.php", true);
 	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
