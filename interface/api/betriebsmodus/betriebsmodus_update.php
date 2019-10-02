@@ -7,7 +7,7 @@ $dbname = "datenbank";
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
 if (!$conn) {
-    header("Location: /index.php?fehler");
+    header("Location: /index.html?fehler");
     die();
 }
 
@@ -29,9 +29,9 @@ $sql2 .= "INSERT INTO betriebsmodus (ID, parameter_slot, parameter_name, program
 VALUES ('1', '$parameter_slot', '$parameter_name', '$programm_status', '$datetime', '$programm_datum_ende', '$programm_zeit_ende')";
 
 if (mysqli_query($conn, $sql1) && mysqli_query($conn, $sql2)) {
-    header("Location: /index.php?erfolgreich");
+    header("Location: /index.html");
 } else {
-    header("Location: /index.php?fehler");
+    header("Location: /index.html?fehler");
     die();
 }
 

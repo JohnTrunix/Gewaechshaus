@@ -7,7 +7,7 @@ $dbname = "datenbank";
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
 if (!$conn) {
-    header("Location: /einstellungen.php?fehler");
+    header("Location: /einstellungen.html?fehler");
     die();
 }
 
@@ -29,9 +29,9 @@ $sql2 .= "INSERT INTO parameter (slot, pflanze, temperatur, lichtstunden, wasser
 VALUES ('$slot', '$pflanze', '$temperatur', '$lichtstunden', '$wassermenge', '$luftfeuchtigkeit')";
 
 if (mysqli_query($conn, $sql1) && mysqli_query($conn, $sql2)) {
-    header("Location: /einstellungen.php?erfolgreich");
+    header("Location: /einstellungen.html");
 } else {
-    header("Location: /einstellungen.php?fehler");
+    header("Location: /einstellungen.html?fehler");
     die();
 }
 
