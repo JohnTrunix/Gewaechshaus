@@ -1,6 +1,3 @@
-<?php
-require 'api/parameter/parameter_download.php';
-?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,6 +6,7 @@ require 'api/parameter/parameter_download.php';
         <script src="/js/jquery.min.js"></script>
         <script src="/js/parameter.js"></script>
         <script src="/js/zeitfunktionen.js"></script>
+		<script src="/js/betriebsmodus.js"></script>
     </head>
     <body>
         <div class="menu_rahmen">
@@ -109,16 +107,7 @@ require 'api/parameter/parameter_download.php';
             </div>
         </div>
         <script>
-            document.getElementById("slot1").innerHTML = '<?php echo $pflanze1 ?>';
-            document.getElementById("slot2").innerHTML = '<?php echo $pflanze2 ?>';
-            document.getElementById("slot3").innerHTML = '<?php echo $pflanze3 ?>';
-            document.getElementById("slot4").innerHTML = '<?php echo $pflanze4 ?>';
-            document.getElementById("slot5").innerHTML = '<?php echo $pflanze5 ?>';
-            document.getElementById("slot6").innerHTML = '<?php echo $pflanze6 ?>';
-            document.getElementById("slot7").innerHTML = '<?php echo $pflanze7 ?>';
-            document.getElementById("slot8").innerHTML = '<?php echo $pflanze8 ?>';
-            document.getElementById("slot9").innerHTML = '<?php echo $pflanze9 ?>';
-            document.getElementById("slot10").innerHTML = '<?php echo $pflanze10 ?>';
+
 
 
 			function get_betriebsmodus(){
@@ -142,7 +131,8 @@ require 'api/parameter/parameter_download.php';
 			document.getElementById("betriebswahl_datetime").innerHTML = datetime;
 			document.getElementById("betriebswahl_programm_ende").innerHTML = programm_ende;
 			start_countdown(programm_ende);
-            balken_berechnung(datetime, programm_ende);
+			balken_berechnung(datetime, programm_ende);
+			aktueller_betriebsmodus(programm_status);
         			}
     			}
 
@@ -161,6 +151,6 @@ require 'api/parameter/parameter_download.php';
         </script>
         <script src="/js/sensorwert_download.js"></script>
         <script src="/js/error_message.js"></script>
-        <script src="/js/betriebsmodus.js"></script>
+
     </body>
 </html>

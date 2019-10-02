@@ -66,6 +66,36 @@ function get_parameter() {
 	xhr.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			array_parameter = JSON.parse(xhr.responseText);
+
+			document.getElementById("slot1").innerHTML =
+				array_parameter[0].pflanze;
+
+			document.getElementById("slot2").innerHTML =
+				array_parameter[1].pflanze;
+
+			document.getElementById("slot3").innerHTML =
+				array_parameter[2].pflanze;
+
+			document.getElementById("slot4").innerHTML =
+				array_parameter[3].pflanze;
+
+			document.getElementById("slot5").innerHTML =
+				array_parameter[4].pflanze;
+
+			document.getElementById("slot6").innerHTML =
+				array_parameter[5].pflanze;
+
+			document.getElementById("slot7").innerHTML =
+				array_parameter[6].pflanze;
+
+			document.getElementById("slot8").innerHTML =
+				array_parameter[7].pflanze;
+
+			document.getElementById("slot9").innerHTML =
+				array_parameter[8].pflanze;
+
+			document.getElementById("slot10").innerHTML =
+				array_parameter[9].pflanze;
 		}
 	};
 
