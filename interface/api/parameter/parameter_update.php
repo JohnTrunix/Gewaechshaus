@@ -19,7 +19,7 @@ $wassermenge = $_GET['wassermenge'];
 $luftfeuchtigkeit = $_GET['luftfeuchtigkeit'];
 
 if ($slot < 1 || $number > 10) {
-    header("Location: /einstellungen.php?fehler");
+    header("Location: /einstellungen.html?fehler");
     die();
 }
 
