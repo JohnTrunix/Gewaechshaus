@@ -1,7 +1,7 @@
 function lichtstaerke_download() {
 	var display = document.getElementById("lichtstaerke_wert");
 	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.open("GET", "/api/sensorwerte/lichtstaerke_download.php");
+	xmlhttp.open("GET", "/api/api.php?lichtstaerke_read");
 	xmlhttp.setRequestHeader(
 		"Content-Type",
 		"application/x-www-form-urlencoded"
@@ -19,7 +19,7 @@ function lichtstaerke_download() {
 function luftfeuchtigkeit_download() {
 	var display = document.getElementById("luftfeuchtigkeit_wert");
 	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.open("GET", "/api/sensorwerte/luftfeuchtigkeit_download.php");
+	xmlhttp.open("GET", "/api/api.php?luftfeuchtigkeit_read");
 	xmlhttp.setRequestHeader(
 		"Content-Type",
 		"application/x-www-form-urlencoded"
@@ -37,7 +37,7 @@ function luftfeuchtigkeit_download() {
 function temperatur_download() {
 	var display = document.getElementById("temperatur_wert");
 	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.open("GET", "/api/sensorwerte/temperatur_download.php");
+	xmlhttp.open("GET", "/api/api.php?temperatur_read");
 	xmlhttp.setRequestHeader(
 		"Content-Type",
 		"application/x-www-form-urlencoded"
@@ -55,7 +55,7 @@ function temperatur_download() {
 function bodenfeuchtigkeit_download() {
 	var display = document.getElementById("bodenfeuchtigkeit_wert");
 	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.open("GET", "/api/sensorwerte/bodenfeuchtigkeit_download.php");
+	xmlhttp.open("GET", "/api/api.php?bodenfeuchtigkeit_read");
 	xmlhttp.setRequestHeader(
 		"Content-Type",
 		"application/x-www-form-urlencoded"

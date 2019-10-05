@@ -68,4 +68,4 @@ $luftfeuchtigkeit10 = 0;
 $sensor_bodenfeuchtigkeit_1 = 0;
 $sensor_licht_1 = 0;
 $sensor_luftfeuchtigkeit_1 = 0;
-$sensor_bodenfeuchtigkeit_1 = 0;
+$sensor_temperatur_1 = 0;

@@ -1,6 +1,6 @@
 function grafana_adresse() {
 	var xhr = new XMLHttpRequest();
-	xhr.open("POST", "/api/sonstiges/ip_adresse.php", true);
+	xhr.open("POST", "/api/api.php?ip_adresse_read", true);
 	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
 	xhr.onreadystatechange = function() {

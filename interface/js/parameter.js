@@ -60,7 +60,7 @@ $(document).ready(function() {
 
 function get_parameter() {
 	var xhr = new XMLHttpRequest();
-	xhr.open("POST", "/api/parameter/parameter_download.php", true);
+	xhr.open("POST", "/api/api.php?parameter_read", true);
 	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
 	xhr.onreadystatechange = function() {

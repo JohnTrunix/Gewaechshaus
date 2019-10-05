@@ -28,7 +28,7 @@
 			</div>
 			<div
 				class="icon shutdown"
-				onclick="window.location='/api/sonstiges/herunterfahren.php';"
+				onclick="window.location='/api/api.php?herunterfahren_write';"
 			>
 				<img src="/img/logout.svg" class="menubild" />
 			</div>
@@ -87,7 +87,13 @@
 					</div>
 				</div>
 				<div class="betriebsmodus">
-					<form action="/api/betriebsmodus/betriebsmodus_update.php">
+					<form action="/api/api.php">
+						<input
+							required
+							type="hidden"
+							name="betriebsmodus_write"
+							id="betriebsmodus_write"
+						/>
 						<input
 							required
 							type="hidden"
@@ -129,7 +135,13 @@
 			</div>
 			<div class="mode_selector" id="stop">
 				<div class="betriebsmodus">
-					<form action="/api/betriebsmodus/betriebsmodus_update.php">
+					<form action="/api/api.php">
+						<input
+							required
+							type="hidden"
+							name="betriebsmodus_write"
+							id="betriebsmodus_write"
+						/>
 						<input
 							required
 							type="hidden"
@@ -192,11 +204,7 @@
 		<script>
 			function get_betriebsmodus() {
 				var xhr = new XMLHttpRequest();
-				xhr.open(
-					"POST",
-					"/api/betriebsmodus/betriebsmodus_download.php",
-					true
-				);
+				xhr.open("POST", "/api/api.php?betriebsmodus_read", true);
 				xhr.setRequestHeader(
 					"Content-type",
 					"application/x-www-form-urlencoded"
