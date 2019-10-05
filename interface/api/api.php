@@ -20,9 +20,7 @@ if (isset($_GET['betriebsmodus_read'])) {
         ['parameter_slot' => $parameter_slot, 'parameter_name' => $parameter_name, 'programm_status' => $programm_status, 'datetime' => $datetime, 'programm_datum_ende' => $programm_datum_ende, 'programm_zeit_ende' => $programm_zeit_ende],
     ];
     echo json_encode($get_betriebsmodus_daten);
-}
-
-if (isset($_GET['betriebsmodus_write'])) {
+} elseif (isset($_GET['betriebsmodus_write'])) {
     $parameter_slot = $_GET['parameter_slot'];
     $parameter_name = $_GET['parameter_name'];
     $programm_datum_ende = $_GET['programm_datum_ende'];
@@ -43,9 +41,7 @@ if (isset($_GET['betriebsmodus_write'])) {
         die();
     }
     mysqli_close($conn);
-}
-
-if (isset($_GET['parameter_read'])) {
+} elseif (isset($_GET['parameter_read'])) {
     $sql = "SELECT slot, pflanze, temperatur, lichtstunden, wassermenge, luftfeuchtigkeit FROM parameter ORDER BY slot";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
@@ -137,9 +133,7 @@ if (isset($_GET['parameter_read'])) {
         ['pflanze' => $pflanze10, 'temperatur' => $temperatur10, 'lichtstunden' => $lichtstunden10, 'wassermenge' => $wassermenge10, 'luftfeuchtigkeit' => $luftfeuchtigkeit10],
     ];
     echo json_encode($get_parameter_daten);
-}
-
-if (isset($_GET['parameter_write'])) {
+} elseif (isset($_GET['parameter_write'])) {
     $slot = $_GET['slot'];
     $pflanze = $_GET['name'];
     $temperatur = $_GET['temperatur'];
@@ -160,9 +154,7 @@ if (isset($_GET['parameter_write'])) {
         die();
     }
     mysqli_close($conn);
-}
-
-if (isset($_GET['bodenfeuchtigkeit_read'])) {
+} elseif (isset($_GET['bodenfeuchtigkeit_read'])) {
     $sql_sensor_bodenfeuchtigkeit_1 = "SELECT sensorwert FROM sensor_bodenfeuchtigkeit_1 ORDER BY datetime DESC LIMIT 1;";
     $result = $conn->query($sql_sensor_bodenfeuchtigkeit_1);
     if ($result->num_rows > 0) {
@@ -171,9 +163,7 @@ if (isset($_GET['bodenfeuchtigkeit_read'])) {
         }
     }
     echo "$sensor_bodenfeuchtigkeit_1";
-}
-
-if (isset($_GET['lichtstaerke_read'])) {
+} elseif (isset($_GET['lichtstaerke_read'])) {
     $sql_sensor_licht_1 = "SELECT sensorwert FROM sensor_licht_1 ORDER BY datetime DESC LIMIT 1;";
     $result = $conn->query($sql_sensor_licht_1);
     if ($result->num_rows > 0) {
@@ -182,9 +172,7 @@ if (isset($_GET['lichtstaerke_read'])) {
         }
     }
     echo "$sensor_licht_1";
-}
-
-if (isset($_GET['luftfeuchtigkeit_read'])) {
+} elseif (isset($_GET['luftfeuchtigkeit_read'])) {
     $sql_sensor_luftfeuchtigkeit_1 = "SELECT sensorwert FROM sensor_luftfeuchtigkeit_1 ORDER BY datetime DESC LIMIT 1;";
     $result = $conn->query($sql_sensor_luftfeuchtigkeit_1);
     if ($result->num_rows > 0) {
@@ -193,9 +181,7 @@ if (isset($_GET['luftfeuchtigkeit_read'])) {
         }
     }
     echo "$sensor_luftfeuchtigkeit_1";
-}
-
-if (isset($_GET['temperatur_read'])) {
+} elseif (isset($_GET['temperatur_read'])) {
     $sql_sensor_temperatur_1 = "SELECT sensorwert FROM sensor_temperatur_1 ORDER BY datetime DESC LIMIT 1;";
     $result = $conn->query($sql_sensor_temperatur_1);
     if ($result->num_rows > 0) {
@@ -204,12 +190,10 @@ if (isset($_GET['temperatur_read'])) {
         }
     }
     echo "$sensor_temperatur_1";
-}
-
-if (isset($_GET['herunterfahren_write'])) {
+} elseif (isset($_GET['herunterfahren_write'])) {
     exec('sudo shutdown -h now');
-}
-
-if (isset($_GET['ip_adresse_read'])) {
+} elseif (isset($_GET['ip_adresse_read'])) {
     echo $_SERVER['HTTP_HOST'];
+} else {
+    echo "falscher api request!";
 }
