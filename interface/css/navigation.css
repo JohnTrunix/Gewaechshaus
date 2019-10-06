@@ -1,0 +1,46 @@
+.navigation {
+	position: fixed;
+	height: 100%;
+	width: 80px;
+	right: 0;
+	top: 0;
+	background-color: #364366;
+	display: flex;
+	justify-content: center;
+}
+
+.icon {
+	position: absolute;
+	width: 80px;
+	height: 80px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.top {
+	top: 0px;
+}
+
+.middle {
+	top: 80px;
+}
+
+.bottom {
+	top: 160px;
+}
+
+.menubild {
+	width: 30px;
+	height: 30px;
+	color: white;
+}
+
+.aktiv {
+	background-color: #4660a7;
+}
+
+.shutdown {
+	position: fixed;
+	bottom: 0px;
+}

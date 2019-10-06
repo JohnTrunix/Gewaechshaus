@@ -1,0 +1,11 @@
+@font-face {
+	font-family: "Schrift_Bold";
+	src: url("/font/EncodeSansExpanded-Bold.ttf");
+}
+
+body {
+	margin: 0;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-color: #364366;
+}

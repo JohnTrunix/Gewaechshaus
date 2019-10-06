@@ -1,0 +1,15 @@
+body {
+	margin: 0;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-color: white;
+}
+
+.statistik_iframe {
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 80px;
+	height: 100%;
+	border: 0;
+}
