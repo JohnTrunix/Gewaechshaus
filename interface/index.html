@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="/css/navigation.css" />
 		<link rel="stylesheet" href="/css/livewerte.css" />
 		<link rel="stylesheet" href="/css/mitte.css" />
+		<link rel="stylesheet" href="/css/fehlermeldung.css" />
 		<script src="/js/jquery.min.js"></script>
 		<script src="/js/parameter.js"></script>
 		<script src="/js/zeitfunktionen.js"></script>
@@ -133,7 +134,6 @@
 						/>
 						<input type="submit" value="Start" />
 					</form>
-					<div id="error_div">Fehler!</div>
 				</div>
 			</div>
 			<div class="mode_selector" id="stop">
@@ -204,6 +204,7 @@
 				</div>
 			</div>
 		</div>
+		<div id="error_message">Es ist ein Fehler aufgetreten!</div>
 		<script>
 			function get_betriebsmodus() {
 				var xhr = new XMLHttpRequest();

@@ -1,5 +1,12 @@
 var url = window.location.href;
-var error_msg = document.getElementById("error_div");
 if (url.search("fehler") > 0) {
-	error_msg.style.display = "flex";
+	display_message();
+}
+
+function display_message() {
+	var x = document.getElementById("error_message");
+	x.className = "show";
+	setTimeout(function() {
+		x.className = x.className.replace("show", "");
+	}, 2800);
 }
