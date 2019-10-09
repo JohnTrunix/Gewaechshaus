@@ -43,6 +43,17 @@ except:
 ############################################################
 
 
+# Bei Start die Zeit updaten und Datenbegrenzung ausführen
+############################################################
+try:
+    logger.debug('Zeit wird aktualisiert und Datenbegrenzung wird ausgeführt')
+    start_zeit_update()
+    start_datenbegrenzung()
+except:
+    logger.warning('Zeitupdate und Datenbegrenzung fehlgeschlagen')
+############################################################
+
+
 # Alle Aufträge mit Startintervall definiert
 ############################################################
 schedule.every(1).minutes.do(start_sensorabfrage)
