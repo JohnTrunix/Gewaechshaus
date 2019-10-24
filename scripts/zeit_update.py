@@ -14,21 +14,6 @@ import datetime
 import board
 import socket
 import os
-import logging
-############################################################
-
-
-# Konfiguration des Logging Modul
-############################################################
-logger = logging.getLogger('datenbegrenzung')
-logger.setLevel(logging.DEBUG)
-ch = logging.FileHandler(
-    '/etc/gewaechshaus/log/gewaechshaus.log')
-ch.setLevel(logging.DEBUG)
-formatter = logging.Formatter(
-    '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-ch.setFormatter(formatter)
-logger.addHandler(ch)
 ############################################################
 
 
@@ -40,7 +25,7 @@ t = rtc.datetime
 ############################################################
 
 
-logger.debug('Zeit Update wird ausgeführt')
+print('Zeit Update wird ausgeführt')
 
 
 # Überprüfe Internetverbindung
@@ -48,10 +33,10 @@ logger.debug('Zeit Update wird ausgeführt')
 def start_zeit_update():
     try:
         socket.create_connection(("www.google.com", 443))
-        logger.debug('Verbunden mit Internet')
+        print('Verbunden mit Internet')
         rtc_update()
     except:
-        logger.warning('Keine Internetverbindung')
+        print('Keine Internetverbindung')
         systemzeit_schreiben()
 ############################################################
 
@@ -60,12 +45,12 @@ def start_zeit_update():
 ############################################################
 def rtc_abfrage():
     try:
-        logger.debug('Aktuelle RTC Zeit wird abgefragt')
-        logger.debug('RTC Datum: %d/%d/%d' % (t.tm_mday, t.tm_mon, t.tm_year))
-        logger.debug('RTC Zeit: %d:%02d:%02d' %
-                     (t.tm_hour, t.tm_min, t.tm_sec))
+        print('Aktuelle RTC Zeit wird abgefragt')
+        print('RTC Datum: %d/%d/%d' % (t.tm_mday, t.tm_mon, t.tm_year))
+        print('RTC Zeit: %d:%02d:%02d' %
+              (t.tm_hour, t.tm_min, t.tm_sec))
     except:
-        logger.warning('Fehler bei rtc_abfrage()')
+        print('Fehler bei rtc_abfrage()')
 ############################################################
 
 
@@ -73,14 +58,14 @@ def rtc_abfrage():
 ############################################################
 def rtc_update():
     try:
-        logger.debug('RTC wird aktualisiert')
+        print('RTC wird aktualisiert')
         now = datetime.datetime.now()
         t = time.struct_time((now.year, now.month, now.day,
                               now.hour, now.minute, now.second, 0, 0, 0))
         rtc.datetime = t
-        logger.debug('%s Zeit auf RTC', t)
+        print('%s Zeit auf RTC', t)
     except:
-        logger.warning('Fehler bei rtc_update()')
+        print('Fehler bei rtc_update()')
 ############################################################
 
 
@@ -88,7 +73,7 @@ def rtc_update():
 ############################################################
 def systemzeit_schreiben():
     try:
-        logger.debug('Systemzeit wird aktualisiert')
+        print('Systemzeit wird aktualisiert')
         rtc_abfrage()
         os.system("sudo timedatectl set-ntp false")
         time.sleep(1)
@@ -97,8 +82,8 @@ def systemzeit_schreiben():
         time.sleep(1)
         os.system("sudo timedatectl set-ntp true")
     except:
-        logger.warning('Fehler bei systemzeit_schreiben()')
+        print('Fehler bei systemzeit_schreiben()')
 ############################################################
 
 
-logger.debug('Zeit Update beendet')
+print('Zeit Update beendet')

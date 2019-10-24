@@ -13,21 +13,6 @@ import time
 import datetime
 import mysql.connector
 import subprocess
-import logging
-############################################################
-
-
-# Konfiguration des Logging Modul
-############################################################
-logger = logging.getLogger('abfrage')
-logger.setLevel(logging.DEBUG)
-ch = logging.FileHandler(
-    '/etc/gewaechshaus/log/gewaechshaus.log')
-ch.setLevel(logging.DEBUG)
-formatter = logging.Formatter(
-    '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-ch.setFormatter(formatter)
-logger.addHandler(ch)
 ############################################################
 
 
@@ -127,29 +112,26 @@ def datenbank_temperatursensor_einfuegen():
 # Starte alle Abfrage Funktionen
 ############################################################
 def start_sensorabfrage():
-    logger.debug('Start der Sensorabfrage')
+    print('Start der Sensorabfrage')
     try:
-        logger.debug('Aktuelle Zeit wird abgefragt')
+        print('Aktuelle Zeit wird abgefragt')
         systemzeit_abfrage()
     except:
-        logger.warning('Fehler bei systemzeit_abfrage()')
+        print('Fehler bei systemzeit_abfrage()')
     try:
-        logger.debug(
-            'Aktuelle Lichtstärke wird abgefragt und an Datenbank gesendet')
+        print('Aktuelle Lichtstärke wird abgefragt und an Datenbank gesendet')
         lichtsensor_abfrage()
     except:
-        logger.warning('Fehler bei lichtsensor_abfrage()')
+        print('Fehler bei lichtsensor_abfrage()')
     try:
-        logger.debug(
-            'Aktuelle Temperatur wird abgefragt und an Datenbank gesendet')
+        print('Aktuelle Temperatur wird abgefragt und an Datenbank gesendet')
         temperatur_abfrage()
     except:
-        logger.warning('Fehler bei temperatur_abfrage()')
+        print('Fehler bei temperatur_abfrage()')
     try:
-        logger.debug(
-            'Aktuelle Luftfeuchtigkeit wird abgefragt und an Datenbank gesendet')
+        print('Aktuelle Luftfeuchtigkeit wird abgefragt und an Datenbank gesendet')
         luftfeuchtigkeit_abfrage()
     except:
-        logger.warning('Fehler bei luftfeuchtigkeit_abfrage()')
-    logger.debug('Sensorabfrage beendet')
+        print('Fehler bei luftfeuchtigkeit_abfrage()')
+    print('Sensorabfrage beendet')
 ############################################################

@@ -8,21 +8,6 @@ import time
 from datetime import datetime
 import mysql.connector
 import subprocess
-import logging
-############################################################
-
-
-# Konfiguration des Logging Modul
-############################################################
-logger = logging.getLogger('datenbegrenzung')
-logger.setLevel(logging.DEBUG)
-ch = logging.FileHandler(
-    '/etc/gewaechshaus/log/gewaechshaus.log')
-ch.setLevel(logging.DEBUG)
-formatter = logging.Formatter(
-    '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-ch.setFormatter(formatter)
-logger.addHandler(ch)
 ############################################################
 
 
@@ -70,24 +55,21 @@ def begrenzung_sensor_luftfeuchtigkeit_1():
 # Start Datenbegrenzung
 ############################################################
 def start_datenbegrenzung():
-    logger.debug('Start der Sensorabfrage')
+    print('Start der Sensorabfrage')
     try:
-        logger.debug(
-            'Daten von sensor_licht_1 älter als 30 Tage werden gelöscht')
+        print('Daten von sensor_licht_1 älter als 30 Tage werden gelöscht')
         begrenzung_sensor_licht_1()
     except:
-        logger.warning('Fehler bei begrenzung_sensor_licht_1()')
+        print('Fehler bei begrenzung_sensor_licht_1()')
     try:
-        logger.debug(
-            'Daten von sensor_temperatur_1 älter als 30 Tage werden gelöscht')
+        print('Daten von sensor_temperatur_1 älter als 30 Tage werden gelöscht')
         begrenzung_sensor_temperatur_1()
     except:
-        logger.warning('Fehler bei begrenzung_sensor_temperatur_1()')
+        print('Fehler bei begrenzung_sensor_temperatur_1()')
     try:
-        logger.debug(
-            'Daten von sensor_luftfeuchtigkeit_1 älter als 30 Tage werden gelöscht')
+        print('Daten von sensor_luftfeuchtigkeit_1 älter als 30 Tage werden gelöscht')
         begrenzung_sensor_luftfeuchtigkeit_1()
     except:
-        logger.warning('Fehler bei begrenzung_sensor_luftfeuchtigkeit_1')
-    logger.debug('Datenbegrenzung beendet')
+        print('Fehler bei begrenzung_sensor_luftfeuchtigkeit_1')
+    print('Datenbegrenzung beendet')
 ############################################################
