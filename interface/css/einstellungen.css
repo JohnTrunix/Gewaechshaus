@@ -53,7 +53,7 @@
 	line-height: 1;
 	border-radius: 5px;
 	height: 35px;
-	background: url('/img/br_down.png') no-repeat right #fff;
+	background: url("/img/br_down.png") no-repeat right #fff;
 	background-position-x: right;
 	background-position-x: right;
 	background-position-x: right;
@@ -72,19 +72,18 @@
 	width: 200px;
 }
 
-
 .slider {
 	-webkit-appearance: none;
-    width: 330px;
-    height: 25px;
-    background: #fff;
-    outline: none;
-    border: 2px solid #364366;
+	width: 330px;
+	height: 25px;
+	background: #fff;
+	outline: none;
+	border: 2px solid #364366;
 	border-radius: 5px;
 	margin-left: 10px;
 	margin-right: 10px;
 }
-  
+
 .slider::-webkit-slider-thumb {
 	-webkit-appearance: none;
 	width: 25px;
@@ -94,7 +93,7 @@
 	border-radius: 4px;
 	outline: none;
 }
-  
+
 .slider::-moz-range-thumb {
 	width: 25px;
 	height: 25px;
@@ -121,12 +120,12 @@
 	transform: translateX(-50%);
 	bottom: 30px;
 	width: 100px;
-    height: 40px;
-    background-color: #36436600;
-    border: 2px solid #364366;
-    border-radius: 5px;
-    outline: none;
-    color: #364366;
-    font-size: 15px;
-    font-family: Schrift_Bold;
+	height: 40px;
+	background-color: #36436600;
+	border: 2px solid #364366;
+	border-radius: 5px;
+	outline: none;
+	color: #364366;
+	font-size: 15px;
+	font-family: Schrift_Bold;
 }
