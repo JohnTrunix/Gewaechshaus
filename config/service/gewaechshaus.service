@@ -5,7 +5,7 @@ Conflicts=getty@tty1.service
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/python3 /etc/gewaechshaus/scripts/run.py
+ExecStart=/usr/bin/python3 /etc/gewaechshaus/run.py
 StandardInput=tty-force
 
 [Install]

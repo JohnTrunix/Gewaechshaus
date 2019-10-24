@@ -22,7 +22,7 @@ import logging
 logger = logging.getLogger('abfrage')
 logger.setLevel(logging.DEBUG)
 ch = logging.FileHandler(
-    'B:/SW Repos/Gewaechshaus/gewaechshaus/log/gewaechshaus.log')
+    '/etc/gewaechshaus/log/gewaechshaus.log')
 ch.setLevel(logging.DEBUG)
 formatter = logging.Formatter(
     '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -95,7 +95,7 @@ def luftfeuchtigkeit_abfrage():
 ############################################################
 def datenbank_lichtsensor_einfuegen():
     mycursor = mydb.cursor()
-    sql = "INSERT INTO sensor_licht_1 (datetime, sensorwert) VALUES ('%s', '%s')"
+    sql = "INSERT INTO sensor_licht_1 (datetime, sensorwert) VALUES (%s, %s)"
     val = (lokale_zeit, lux_gerundet)
     mycursor.execute(sql, val)
     mydb.commit()
@@ -106,7 +106,7 @@ def datenbank_lichtsensor_einfuegen():
 ############################################################
 def datenbank_luftfeuchtesensor_einfuegen():
     mycursor = mydb.cursor()
-    sql = "INSERT INTO 	sensor_luftfeuchtigkeit_1 (datetime, sensorwert) VALUES ('%s', '%s')"
+    sql = "INSERT INTO 	sensor_luftfeuchtigkeit_1 (datetime, sensorwert) VALUES (%s, %s)"
     val = (lokale_zeit, luftfeuchtigkeit_gerundet)
     mycursor.execute(sql, val)
     mydb.commit()
@@ -117,7 +117,7 @@ def datenbank_luftfeuchtesensor_einfuegen():
 ############################################################
 def datenbank_temperatursensor_einfuegen():
     mycursor = mydb.cursor()
-    sql = "INSERT INTO sensor_temperatur_1 (datetime, sensorwert) VALUES ('%s', '%s')"
+    sql = "INSERT INTO sensor_temperatur_1 (datetime, sensorwert) VALUES (%s, %s)"
     val = (lokale_zeit, temperatur_gerundet)
     mycursor.execute(sql, val)
     mydb.commit()

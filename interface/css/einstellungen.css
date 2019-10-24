@@ -5,3 +5,128 @@
 	left: 0;
 	right: 80px;
 }
+
+.titel {
+	color: #364366;
+	text-align: center;
+	font-size: 40px;
+	font-family: Schrift_Bold;
+	margin-top: 10px;
+}
+
+.slot_name_wahl {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 60px;
+	width: 400px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 50px;
+}
+
+.name {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-40px);
+	text-align: center;
+	border: 2px solid #364366;
+	border-radius: 5px;
+	height: 29px;
+	font-size: 15px;
+	font-family: Schrift_Bold;
+	color: #364366;
+	max-width: 150px;
+}
+
+.name::placeholder {
+	color: #364366;
+	font-size: 15px;
+	font-family: Schrift_Bold;
+}
+
+.slot {
+	width: 60px;
+	padding: 5px;
+	font-size: 16px;
+	line-height: 1;
+	border-radius: 5px;
+	height: 35px;
+	background: url('/img/br_down.png') no-repeat right #fff;
+	background-position-x: right;
+	background-position-x: right;
+	background-position-x: right;
+	-webkit-appearance: none;
+	background-position-x: 30px;
+	border: 2px solid #364366;
+	border-radius: 5px;
+	font-size: 15px;
+	font-family: Schrift_Bold;
+	color: #364366;
+	transform: translateX(-80px);
+}
+
+.aktueller_wert_regler {
+	margin-left: 50px;
+	width: 200px;
+}
+
+
+.slider {
+	-webkit-appearance: none;
+    width: 330px;
+    height: 25px;
+    background: #fff;
+    outline: none;
+    border: 2px solid #364366;
+	border-radius: 5px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+  
+.slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	width: 25px;
+	height: 25px;
+	background: #364366;
+	cursor: pointer;
+	border-radius: 4px;
+	outline: none;
+}
+  
+.slider::-moz-range-thumb {
+	width: 25px;
+	height: 25px;
+	background: #364366;
+	cursor: pointer;
+	border-radius: 4px;
+	outline: none;
+}
+
+.tabelle {
+	font-size: 15px;
+	font-family: Schrift_Bold;
+	color: #364366;
+	margin-top: 15px;
+}
+
+.tabelle_top {
+	margin-top: 70px;
+}
+
+.speichern {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 30px;
+	width: 100px;
+    height: 40px;
+    background-color: #36436600;
+    border: 2px solid #364366;
+    border-radius: 5px;
+    outline: none;
+    color: #364366;
+    font-size: 15px;
+    font-family: Schrift_Bold;
+}

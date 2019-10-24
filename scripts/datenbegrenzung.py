@@ -17,7 +17,7 @@ import logging
 logger = logging.getLogger('datenbegrenzung')
 logger.setLevel(logging.DEBUG)
 ch = logging.FileHandler(
-    'B:/SW Repos/Gewaechshaus/gewaechshaus/log/gewaechshaus.log')
+    '/etc/gewaechshaus/log/gewaechshaus.log')
 ch.setLevel(logging.DEBUG)
 formatter = logging.Formatter(
     '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
