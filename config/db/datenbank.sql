@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6deb4
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Erstellungszeit: 23. Okt 2019 um 20:44
--- Server-Version: 10.1.38-MariaDB-0+deb9u1
--- PHP-Version: 7.0.33-0+deb9u5
+-- Host: 127.0.0.1
+-- Erstellungszeit: 24. Okt 2019 um 20:20
+-- Server-Version: 10.4.6-MariaDB
+-- PHP-Version: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -39,6 +41,13 @@ CREATE TABLE `betriebsmodus` (
   `licht_gegeben_heute` int(11) NOT NULL,
   `licht_gegeben_total` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Daten für Tabelle `betriebsmodus`
+--
+
+INSERT INTO `betriebsmodus` (`ID`, `parameter_slot`, `parameter_name`, `programm_status`, `datetime`, `programm_datum_ende`, `programm_zeit_ende`, `wasser_gegeben_heute`, `wasser_gegeben_total`, `licht_gegeben_heute`, `licht_gegeben_total`) VALUES
+(1, 1, '1', 'Stop', '0000-00-00 00:00:00', '0000-00-00', '00:00:00', 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -98,6 +107,7 @@ CREATE TABLE `sensor_temperatur_1` (
   `sensorwert` text COLLATE utf8_bin NOT NULL,
   `datetime` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
