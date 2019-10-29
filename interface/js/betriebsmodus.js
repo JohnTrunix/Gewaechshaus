@@ -1,7 +1,7 @@
 // Die Datei Betriebsmodus kommuniziert mit der API
 // und liest alle aktuellen Daten zum Betriebsmodus aus.
 
-// get_betriebsmodus liest alle relevanten Betriebsmodus Daten durch die API aus der Datenbank.
+// get_betriebsmodus liest alle relevanten Daten durch die API aus der Datenbank.
 //======================================================================
 function get_betriebsmodus() {
 	// Neuer XMLHttpRequest erstellen
@@ -55,7 +55,7 @@ function betriebsmodus_display(programm_status) {
 }
 //======================================================================
 
-// Die Funktion set_betriebsmodus ist für alle allgemeinen Zuweisungen von Betriebsmodus Daten zuständig.
+// Die Funktion set_betriebsmodus ist für alle allgemeinen Zuweisungen von Betriebsmodusdaten zuständig.
 //======================================================================
 function set_betriebsmodus(
 	parameter_slot,

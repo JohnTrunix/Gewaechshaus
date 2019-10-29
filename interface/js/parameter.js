@@ -1,3 +1,8 @@
+// Die Datei parameter.js kommuniziert über die API mit der Datenbank und liest
+// alle relevanten Parameterdaten aus.
+
+// get_parameter liest alle relevanten Daten durch die API aus der Datenbank.
+//======================================================================
 function get_parameter() {
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", "/api/api.php?parameter_read", true);
@@ -13,7 +18,10 @@ function get_parameter() {
 	xhr.send();
 }
 get_parameter();
+//======================================================================
 
+// set_dropdown_names schreibt die Slotnamen in das HTML Dropdown
+//======================================================================
 function set_dropdown_names() {
 	document.getElementById("slot1").innerHTML = array_parameter[0].pflanze;
 	document.getElementById("slot2").innerHTML = array_parameter[1].pflanze;
@@ -26,14 +34,17 @@ function set_dropdown_names() {
 	document.getElementById("slot9").innerHTML = array_parameter[8].pflanze;
 	document.getElementById("slot10").innerHTML = array_parameter[9].pflanze;
 }
+//======================================================================
 
-function selected_slot(dropdown) {
-	parameter_slot = dropdown;
-	parameter_name = array_parameter[dropdown - 1].pflanze;
-	parameter_temperatur = array_parameter[dropdown - 1].temperatur;
-	parameter_lichtstunden = array_parameter[dropdown - 1].lichtstunden;
-	parameter_wassermenge = array_parameter[dropdown - 1].wassermenge;
-	parameter_luftfeuchtigkeit = array_parameter[dropdown - 1].luftfeuchtigkeit;
+// Die Funktion selected_slot ist für alle allgemeinen Zuweisungen von Parameterdaten zuständig.
+//======================================================================
+function selected_slot(slot) {
+	parameter_slot = slot;
+	parameter_name = array_parameter[slot - 1].pflanze;
+	parameter_temperatur = array_parameter[slot - 1].temperatur;
+	parameter_lichtstunden = array_parameter[slot - 1].lichtstunden;
+	parameter_wassermenge = array_parameter[slot - 1].wassermenge;
+	parameter_luftfeuchtigkeit = array_parameter[slot - 1].luftfeuchtigkeit;
 
 	document.getElementById("parameter_slot").value = parameter_slot;
 	document.getElementById("parameter_name").value = parameter_name;
@@ -47,3 +58,4 @@ function selected_slot(dropdown) {
 	document.getElementById("luftfeuchtigkeit").innerHTML =
 		"Luftfeuchtigkeit: " + parameter_luftfeuchtigkeit;
 }
+//======================================================================
