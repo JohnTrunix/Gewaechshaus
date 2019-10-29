@@ -3,57 +3,57 @@
 
 
 # Import von benötigten Modulen
-############################################################
+# ======================================================================
 import time
 from datetime import datetime
 import mysql.connector
 import subprocess
-############################################################
+# ======================================================================
 
 
 # MYSQL Konfiguration
-############################################################
+# ======================================================================
 mydb = mysql.connector.connect(
     host="localhost",
     user="datenbank",
     passwd="rasp",
     database="datenbank"
 )
-############################################################
+# ======================================================================
 
 
 # Lichtsensor Begrenzung
-############################################################
+# ======================================================================
 def begrenzung_sensor_licht_1():
     mycursor = mydb.cursor()
     sql = "DELETE FROM sensor_licht_1 WHERE DATE(datetime) = CURDATE() - INTERVAL 30 DAY"
     mycursor.execute(sql)
     mydb.commit()
-############################################################
+# ======================================================================
 
 
 # Temperatursensor Begrenzung
-############################################################
+# ======================================================================
 def begrenzung_sensor_temperatur_1():
     mycursor = mydb.cursor()
     sql = "DELETE FROM sensor_temperatur_1 WHERE DATE(datetime) = CURDATE() - INTERVAL 30 DAY"
     mycursor.execute(sql)
     mydb.commit()
-############################################################
+# ======================================================================
 
 
 # Luftfeuchtigkeitsensor Begrenzung
-############################################################
+# ======================================================================
 def begrenzung_sensor_luftfeuchtigkeit_1():
     mycursor = mydb.cursor()
     sql = "DELETE FROM sensor_luftfeuchtigkeit_1 WHERE DATE(datetime) = CURDATE() - INTERVAL 30 DAY"
     mycursor.execute(sql)
     mydb.commit()
-############################################################
+# ======================================================================
 
 
 # Start Datenbegrenzung
-############################################################
+# ======================================================================
 def start_datenbegrenzung():
     print('Start der Sensorabfrage')
     try:
@@ -72,4 +72,4 @@ def start_datenbegrenzung():
     except:
         print('Fehler bei begrenzung_sensor_luftfeuchtigkeit_1')
     print('Datenbegrenzung beendet')
-############################################################
+# ======================================================================
