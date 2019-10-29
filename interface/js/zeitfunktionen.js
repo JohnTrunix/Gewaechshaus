@@ -146,9 +146,9 @@ function balken_berechnung(datetime, programm_ende) {
 			"prozent_jetzt"
 		).innerHTML = prozent_verbleibend;
 
-		if (prozent < 4) {
+		if (prozent < 5) {
 			document.getElementById("prozent_jetzt").style.display = "none";
-		} else if (prozent > 4 && prozent != 100) {
+		} else if (prozent > 5 && prozent != 100) {
 			document.getElementById("prozent_jetzt").style.display = "flex";
 		} else if (prozent == 100) {
 			document.getElementById("prozent_meter").style.backgroundColor =
