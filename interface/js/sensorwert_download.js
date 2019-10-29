@@ -1,3 +1,8 @@
+// In der Datei sensorwert_download befinden sich die Funktionen
+// um mit der API die neuesten Sensorwerte zu lesen.
+
+// Lese die neueste Lichtstärke
+//======================================================================
 function lichtstaerke_download() {
 	var display = document.getElementById("lichtstaerke_wert");
 	var xmlhttp = new XMLHttpRequest();
@@ -15,7 +20,10 @@ function lichtstaerke_download() {
 		}
 	};
 }
+//======================================================================
 
+// Lese die neueste Luftfeuchtigkeit
+//======================================================================
 function luftfeuchtigkeit_download() {
 	var display = document.getElementById("luftfeuchtigkeit_wert");
 	var xmlhttp = new XMLHttpRequest();
@@ -33,7 +41,10 @@ function luftfeuchtigkeit_download() {
 		}
 	};
 }
+//======================================================================
 
+// Lese die neueste Temperatur
+//======================================================================
 function temperatur_download() {
 	var display = document.getElementById("temperatur_wert");
 	var xmlhttp = new XMLHttpRequest();
@@ -51,7 +62,10 @@ function temperatur_download() {
 		}
 	};
 }
+//======================================================================
 
+// Lese die neueste Bodenfeuchtigkeit
+//======================================================================
 function bodenfeuchtigkeit_download() {
 	var display = document.getElementById("bodenfeuchtigkeit_wert");
 	var xmlhttp = new XMLHttpRequest();
@@ -69,7 +83,9 @@ function bodenfeuchtigkeit_download() {
 		}
 	};
 }
+//======================================================================
 
+// Alle download Funktionen im 5s Takt ausführen.
 function sensorwert_download() {
 	lichtstaerke_download();
 	luftfeuchtigkeit_download();
@@ -78,3 +94,4 @@ function sensorwert_download() {
 	setTimeout(sensorwert_download, 5000);
 }
 sensorwert_download();
+//======================================================================

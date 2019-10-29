@@ -1,6 +1,15 @@
+// dropdown_parameter.js steuert die Logik und Animationen
+// des HTML Dropdown.
+
+// Steuerung
+//======================================================================
+
+// Sobald die Seite geladen ist -->
 $(document).ready(function() {
+	// Event Listener auf #select-default
 	$("#select-default").bind("click", toggle);
 
+	// Toggle Funktionen
 	function toggle() {
 		if ($("#select-dropdown").hasClass("open")) {
 			collapse();
@@ -8,6 +17,8 @@ $(document).ready(function() {
 			expand();
 		}
 	}
+
+	// Menu ausklappen
 	function expand() {
 		$("#select-dropdown")
 			.removeClass("closed")
@@ -22,6 +33,8 @@ $(document).ready(function() {
 			$(this).css("margin-left", -115);
 		});
 	}
+
+	// Menu einklappen
 	function collapse() {
 		$("#select-dropdown")
 			.removeClass("open")
@@ -40,6 +53,7 @@ $(document).ready(function() {
 
 	$(".option").bind("click", select);
 
+	// Wenn Slot ausgewählt wurde -->
 	function select() {
 		if ($("#select-dropdown").hasClass("open")) {
 			var selection = $(this).text();
@@ -47,6 +61,8 @@ $(document).ready(function() {
 			var data = $(this).data("id");
 
 			window.dropdown = data;
+
+			// Funktion an parameter.js weiterleiten.
 			selected_slot(window.dropdown);
 
 			collapse();
@@ -57,3 +73,4 @@ $(document).ready(function() {
 
 	collapse();
 });
+//======================================================================

@@ -4,10 +4,12 @@
 // get_parameter liest alle relevanten Daten durch die API aus der Datenbank.
 //======================================================================
 function get_parameter() {
+	// Neuer XMLHttpRequest erstellen
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", "/api/api.php?parameter_read", true);
 	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
+	// Wenn Bereit --> XMLHttpRequest ausführen
 	xhr.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			array_parameter = JSON.parse(xhr.responseText);
