@@ -14,7 +14,6 @@ function get_parameter() {
 		if (this.readyState == 4 && this.status == 200) {
 			array_parameter = JSON.parse(xhr.responseText);
 			return array_parameter;
-			set_dropdown_names();
 		}
 	};
 
@@ -26,6 +25,7 @@ get_parameter();
 // set_dropdown_names schreibt die Slotnamen in das HTML Dropdown
 //======================================================================
 function set_dropdown_names() {
+	get_parameter();
 	document.getElementById("slot1").innerHTML = array_parameter[0].pflanze;
 	document.getElementById("slot2").innerHTML = array_parameter[1].pflanze;
 	document.getElementById("slot3").innerHTML = array_parameter[2].pflanze;

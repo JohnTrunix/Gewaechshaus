@@ -49,6 +49,7 @@ function betriebsmodus_display(programm_status) {
 	} else if (programm_status == "stop") {
 		document.getElementById("start").style.display = "inline";
 		document.getElementById("stop").style.display = "none";
+		set_dropdown_names();
 	} else {
 		document.getElementById("start").style.display = "inline";
 		document.getElementById("stop").style.display = "none";
