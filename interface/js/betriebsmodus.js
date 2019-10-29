@@ -39,7 +39,7 @@ function get_betriebsmodus() {
 }
 //======================================================================
 
-// Die Funktion aktueller_betriebsmodus regelt CSS Regeln je nach Status. [Start, Stop]
+// Die Funktion aktueller_betriebsmodus regelt ob das Start oder Stop Display angezeigt werden soll.
 //======================================================================
 function betriebsmodus_display(programm_status) {
 	if (programm_status == "start") {
