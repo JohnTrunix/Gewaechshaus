@@ -1,7 +1,16 @@
 <?php
+// Die API regelt die gesamte Kommunikation von Front- und Backend der Software.
+// Requests welche Daten lesen enden mit _read
+// Requests welche Daten schreiben enden mit _write
+
+// Import der Datenbank Verbindungskonfiguration und der Variablen.
+//======================================================================
 require 'db_config.php';
 require 'variablen.php';
+//======================================================================
 
+// Lese Betriebsmodus Daten
+//======================================================================
 if (isset($_GET['betriebsmodus_read'])) {
     $sql = "SELECT parameter_slot, parameter_name, programm_status, datetime, programm_datum_ende, programm_zeit_ende FROM betriebsmodus";
     $result = $conn->query($sql);
@@ -20,7 +29,12 @@ if (isset($_GET['betriebsmodus_read'])) {
         ['parameter_slot' => $parameter_slot, 'parameter_name' => $parameter_name, 'programm_status' => $programm_status, 'datetime' => $datetime, 'programm_datum_ende' => $programm_datum_ende, 'programm_zeit_ende' => $programm_zeit_ende],
     ];
     echo json_encode($get_betriebsmodus_daten);
-} elseif (isset($_GET['betriebsmodus_write'])) {
+}
+//======================================================================
+
+// Schreibe Betriebsmodus Daten
+//======================================================================
+elseif (isset($_GET['betriebsmodus_write'])) {
     $parameter_slot = $_GET['parameter_slot'];
     $parameter_name = $_GET['parameter_name'];
     $programm_datum_ende = $_GET['programm_datum_ende'];
@@ -41,7 +55,12 @@ if (isset($_GET['betriebsmodus_read'])) {
         die();
     }
     mysqli_close($conn);
-} elseif (isset($_GET['parameter_read'])) {
+}
+//======================================================================
+
+// Lese Parameter
+//======================================================================
+elseif (isset($_GET['parameter_read'])) {
     $sql = "SELECT slot, pflanze, temperatur, lichtstunden, wassermenge, luftfeuchtigkeit FROM parameter ORDER BY slot";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
@@ -133,7 +152,12 @@ if (isset($_GET['betriebsmodus_read'])) {
         ['pflanze' => $pflanze10, 'temperatur' => $temperatur10, 'lichtstunden' => $lichtstunden10, 'wassermenge' => $wassermenge10, 'luftfeuchtigkeit' => $luftfeuchtigkeit10],
     ];
     echo json_encode($get_parameter_daten);
-} elseif (isset($_GET['parameter_write'])) {
+}
+//======================================================================
+
+// Schreibe Parameter
+//======================================================================
+elseif (isset($_GET['parameter_write'])) {
     $slot = $_GET['slot'];
     $pflanze = $_GET['name'];
     $temperatur = $_GET['temperatur'];
@@ -154,7 +178,12 @@ if (isset($_GET['betriebsmodus_read'])) {
         die();
     }
     mysqli_close($conn);
-} elseif (isset($_GET['bodenfeuchtigkeit_read'])) {
+}
+//======================================================================
+
+// Lese neueste Bodenfeuchtigkeit
+//======================================================================
+elseif (isset($_GET['bodenfeuchtigkeit_read'])) {
     $sql_sensor_bodenfeuchtigkeit_1 = "SELECT sensorwert FROM sensor_bodenfeuchtigkeit_1 ORDER BY datetime DESC LIMIT 1;";
     $result = $conn->query($sql_sensor_bodenfeuchtigkeit_1);
     if ($result->num_rows > 0) {
@@ -163,7 +192,12 @@ if (isset($_GET['betriebsmodus_read'])) {
         }
     }
     echo "$sensor_bodenfeuchtigkeit_1";
-} elseif (isset($_GET['lichtstaerke_read'])) {
+}
+//======================================================================
+
+// Lese neueste Lichtstärke
+//======================================================================
+elseif (isset($_GET['lichtstaerke_read'])) {
     $sql_sensor_licht_1 = "SELECT sensorwert FROM sensor_licht_1 ORDER BY datetime DESC LIMIT 1;";
     $result = $conn->query($sql_sensor_licht_1);
     if ($result->num_rows > 0) {
@@ -172,7 +206,12 @@ if (isset($_GET['betriebsmodus_read'])) {
         }
     }
     echo "$sensor_licht_1";
-} elseif (isset($_GET['luftfeuchtigkeit_read'])) {
+}
+//======================================================================
+
+// Lese neueste Luftfeuchtigkeit
+//======================================================================
+elseif (isset($_GET['luftfeuchtigkeit_read'])) {
     $sql_sensor_luftfeuchtigkeit_1 = "SELECT sensorwert FROM sensor_luftfeuchtigkeit_1 ORDER BY datetime DESC LIMIT 1;";
     $result = $conn->query($sql_sensor_luftfeuchtigkeit_1);
     if ($result->num_rows > 0) {
@@ -181,7 +220,12 @@ if (isset($_GET['betriebsmodus_read'])) {
         }
     }
     echo "$sensor_luftfeuchtigkeit_1";
-} elseif (isset($_GET['temperatur_read'])) {
+}
+//======================================================================
+
+// Lese neueste Temperatur
+//======================================================================
+elseif (isset($_GET['temperatur_read'])) {
     $sql_sensor_temperatur_1 = "SELECT sensorwert FROM sensor_temperatur_1 ORDER BY datetime DESC LIMIT 1;";
     $result = $conn->query($sql_sensor_temperatur_1);
     if ($result->num_rows > 0) {
@@ -190,10 +234,26 @@ if (isset($_GET['betriebsmodus_read'])) {
         }
     }
     echo "$sensor_temperatur_1";
-} elseif (isset($_GET['herunterfahren_write'])) {
+}
+//======================================================================
+
+// System Herunterfahren
+//======================================================================
+elseif (isset($_GET['herunterfahren_write'])) {
     exec('sudo shutdown -h now');
-} elseif (isset($_GET['ip_adresse_read'])) {
+}
+//======================================================================
+
+// Lese IP Adresse
+//======================================================================
+elseif (isset($_GET['ip_adresse_read'])) {
     echo $_SERVER['HTTP_HOST'];
-} else {
+}
+//======================================================================
+
+// Falscher API Request
+//======================================================================
+else {
     echo "falscher api request!";
 }
+//======================================================================
