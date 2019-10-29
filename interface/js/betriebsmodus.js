@@ -45,6 +45,7 @@ function betriebsmodus_display(programm_status) {
 	if (programm_status == "start") {
 		document.getElementById("start").style.display = "none";
 		document.getElementById("stop").style.display = "inline";
+		get_active_parameter(parameter_slot);
 	} else if (programm_status == "stop") {
 		document.getElementById("start").style.display = "inline";
 		document.getElementById("stop").style.display = "none";

@@ -13,6 +13,7 @@ function get_parameter() {
 	xhr.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			array_parameter = JSON.parse(xhr.responseText);
+			return array_parameter;
 			set_dropdown_names();
 		}
 	};
@@ -61,3 +62,20 @@ function selected_slot(slot) {
 		"Luftfeuchtigkeit: " + parameter_luftfeuchtigkeit;
 }
 //======================================================================
+
+function get_active_parameter(slot) {
+	get_parameter();
+	active_temperatur = array_parameter[slot - 1].temperatur;
+	active_lichtstunden = array_parameter[slot - 1].lichtstunden;
+	active_wassermenge = array_parameter[slot - 1].wassermenge;
+	active_luftfeuchtigkeit = array_parameter[slot - 1].luftfeuchtigkeit;
+
+	document.getElementById("act_param_temperatur").innerHTML =
+		"Temperatur: " + active_temperatur;
+	document.getElementById("act_param_lichtstunden").innerHTML =
+		"Licht pro Tag: " + active_lichtstunden;
+	document.getElementById("act_param_wassermenge").innerHTML =
+		"Wasser pro Tag: " + active_wassermenge;
+	document.getElementById("act_param_luftfeuchtigkeit").innerHTML =
+		"Luftfeuchtigkeit: " + active_luftfeuchtigkeit;
+}
