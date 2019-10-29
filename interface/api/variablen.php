@@ -1,9 +1,13 @@
 <?php
+// In dieser Datei werden alle Variablen auf 0 gesetzt,
+// dami bei einem unvollständigen API Request keine Fehlermeldung entsteht.
+
+// Variablen
+//======================================================================
 $parameter_slot = 0;
 $parameter_name = 0;
 $programm_status = 0;
 $datetime = 0;
-
 $slot1 = 1;
 $pflanze1 = 0;
 $temperatur1 = 0;
@@ -64,8 +68,8 @@ $temperatur10 = 0;
 $lichtstunden10 = 0;
 $wassermenge10 = 0;
 $luftfeuchtigkeit10 = 0;
-
 $sensor_bodenfeuchtigkeit_1 = 0;
 $sensor_licht_1 = 0;
 $sensor_luftfeuchtigkeit_1 = 0;
 $sensor_temperatur_1 = 0;
+//======================================================================
