@@ -48,7 +48,7 @@ function start_countdown(input_datumzeit) {
 }
 //======================================================================
 
-// Gibt die aktuelle datumzeit aus. z.b ["2019-10-29 21:02:21"]
+// Gibt die aktuelle Datumzeit aus. z.b ["2019-10-29 21:02:21"]
 //======================================================================
 function datumzeit_jetzt() {
 	var date = new Date();
