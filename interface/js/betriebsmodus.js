@@ -39,7 +39,7 @@ function get_betriebsmodus() {
 }
 //======================================================================
 
-// Die Funktion aktueller_betriebsmodus regelt ob das Start oder Stop Display angezeigt werden soll.
+// Die Funktion aktueller_betriebsmodus regelt ob das Start Stop Verhalten.
 //======================================================================
 function betriebsmodus_display(programm_status) {
 	if (programm_status == "start") {

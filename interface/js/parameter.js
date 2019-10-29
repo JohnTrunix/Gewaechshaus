@@ -63,6 +63,8 @@ function selected_slot(slot) {
 }
 //======================================================================
 
+// Wenn Betriebsmodus Start werden hier die aktiven Parameter gesetzt.
+//======================================================================
 function get_active_parameter(slot) {
 	get_parameter();
 	active_temperatur = array_parameter[slot - 1].temperatur;
@@ -79,3 +81,4 @@ function get_active_parameter(slot) {
 	document.getElementById("act_param_luftfeuchtigkeit").innerHTML =
 		"Luftfeuchtigkeit: " + active_luftfeuchtigkeit;
 }
+//======================================================================
