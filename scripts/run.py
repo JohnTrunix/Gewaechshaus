@@ -1,7 +1,6 @@
 # Die Datei run.py ist der Hauptbestandteil der Python Programme.
 # Run.py führt periodisch mittels scheduling die vordefinierten
-# Abläufe aus. Das logging Modul von Python protokolliert Fehlermeldungen
-# und Debug informationen. Die Log Datei wird bei jedem Programstart gelöscht.
+# Abläufe aus.
 
 
 # Import von benötigten Modulen
