@@ -29,8 +29,8 @@ except:
 # Alle Aufträge mit Startintervall definiert
 # ======================================================================
 schedule.every(0.5).minutes.do(start_sensorabfrage)
-schedule.every().day.at("10:00").do(start_datenbegrenzung)
-schedule.every().day.at("10:00").do(start_zeit_update)
+schedule.every(120).minutes.do(start_datenbegrenzung)
+schedule.every(120).minutes.do(start_zeit_update)
 # ======================================================================
 
 
