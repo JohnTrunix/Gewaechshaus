@@ -25,7 +25,6 @@ get_parameter();
 // set_dropdown_names schreibt die Slotnamen in das HTML Dropdown
 //======================================================================
 function set_dropdown_names() {
-	get_parameter();
 	document.getElementById("slot1").innerHTML = array_parameter[0].pflanze;
 	document.getElementById("slot2").innerHTML = array_parameter[1].pflanze;
 	document.getElementById("slot3").innerHTML = array_parameter[2].pflanze;
@@ -66,7 +65,6 @@ function selected_slot(slot) {
 // Wenn Betriebsmodus Start werden hier die aktiven Parameter gesetzt.
 //======================================================================
 function get_active_parameter(slot) {
-	get_parameter();
 	active_temperatur = array_parameter[slot - 1].temperatur;
 	active_lichtstunden = array_parameter[slot - 1].lichtstunden;
 	active_wassermenge = array_parameter[slot - 1].wassermenge;
