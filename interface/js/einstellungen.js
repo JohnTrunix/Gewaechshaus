@@ -1,3 +1,8 @@
+// Die Datei parameter.js kommuniziert über die API mit der Datenbank und liest
+// alle relevanten Parameterdaten für die Datei einstellungen.html aus.
+
+// Sobald ein Slot gewählt wurde die Daten anfordern.
+//======================================================================
 function selected_slot(selectObject) {
 	var slot = selectObject.value;
 	parameter_download(slot);
@@ -38,3 +43,4 @@ function selected_slot(selectObject) {
 		xhr.send();
 	}
 }
+//======================================================================

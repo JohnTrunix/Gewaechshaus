@@ -1,5 +1,5 @@
 // Die Datei parameter.js kommuniziert über die API mit der Datenbank und liest
-// alle relevanten Parameterdaten aus.
+// alle relevanten Parameterdaten für die Datei index.html aus.
 
 // get_parameter liest alle relevanten Daten durch die API aus der Datenbank.
 //======================================================================
