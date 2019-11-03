@@ -1,261 +1,230 @@
 <!DOCTYPE html>
 <html lang="de">
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <title>Gewaechshaus Raspberry Pi 3B+</title>
-        <link rel="stylesheet" href="/css/index.css" />
-        <link rel="stylesheet" href="/css/navigation.css" />
-        <link rel="stylesheet" href="/css/einstellungen.css" />
-        <link rel="stylesheet" href="/css/livewerte.css" />
-        <link rel="stylesheet" href="/css/fehlermeldung.css" />
-        <script src="/js/jquery.min.js"></script>
-    </head>
-    <body style="background-color:white;">
-        <div class="navigation">
-            <div class="icon top" onclick="window.location='/';">
-                <img src="/img/house.svg" class="menubild" />
-            </div>
-            <div
-                class="icon middle"
-                onclick="window.location='/statistik.html';"
-                >
-                <img src="/img/pie-chart.svg" class="menubild" />
-            </div>
-            <div
-                class="icon bottom aktiv"
-                onclick="window.location='/einstellungen.html';"
-                >
-                <img src="/img/settings.svg" class="menubild" />
-            </div>
-            <div
-                class="icon shutdown"
-                onclick="window.location='/api/api.php?herunterfahren_write';"
-                >
-                <img src="/img/logout.svg" class="menubild" />
-            </div>
-        </div>
-        <div class="einstellungen">
-            <p class="titel">Parameter</p>
-            <form action="/api/api.php">
-                <input
-                    required
-                    type="hidden"
-                    name="parameter_write"
-                    id="parameter_write"
-                    />
-                <div class="slot_name_wahl">
-                    <input
-                        required
-                        type="text"
-                        name="name"
-                        placeholder="Name"
-                        id="pflanze"
-                        class="name"
-                        />
-                    <select name="slot" class="slot" onchange="selected_slot(this)">
-                        <option value="" disabled selected>Nr.</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                    </select>
-                </div>
-                <div class="regler regler_temperatur">
-                    <table class="tabelle tabelle_top">
-                        <tr>
-                            <td>
-                                <p class="aktueller_wert_regler">Temperatur: <span id="wert_temperatur"></span> °C</p>
-                            </td>
-                            <td>
-                                0
-                            </td>
-                            <td>                  
-                                <input
-                                    type="range"
-                                    id="temperatur"
-                                    name="temperatur"
-                                    min="0"
-                                    max="30"
-                                    value="15"
-                                    class="slider"
-                                    />
-                            </td>
-                            <td>
-                                30
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <script>
-                    var slider_1 = document.getElementById("temperatur");
-                    var output_1 = document.getElementById("wert_temperatur");
-                    output_1.innerHTML = slider_1.value;
-                    
-                    slider_1.oninput = function() {
-                    	output_1.innerHTML = this.value;
-                    };
-                </script>
-                <div class="regler regler_licht">
-                    <table class="tabelle">
-                        <tr>
-                            <td>
-                                <p class="aktueller_wert_regler">Licht: <span id="wert_lichtstunden"></span> h/Tag</p>
-                            </td>
-                            <td>0</td>
-                            <td>
-                                <input
-                                    type="range"
-                                    id="lichtstunden"
-                                    name="lichtstunden"
-                                    min="0.0"
-                                    max="24.0"
-                                    value="12.0"
-                                    step="0.1"
-                                    class="slider"
-                                    />
-                            </td>
-                            <td>
-                                30
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <script>
-                    var slider_2 = document.getElementById("lichtstunden");
-                    var output_2 = document.getElementById("wert_lichtstunden");
-                    output_2.innerHTML = slider_2.value;
-                    
-                    slider_2.oninput = function() {
-                    	output_2.innerHTML = this.value;
-                    };
-                </script>
-                <div class="regler regler_wasser">
-                    <table class="tabelle">
-                        <tr>
-                            <td>
-                                <p class="aktueller_wert_regler">Wassermenge: <span id="wert_wassermenge"></span> l/Tag</p>
-                            </td>
-                            <td>0</td>
-                            <td>
-                                <input
-                                    type="range"
-                                    id="wassermenge"
-                                    name="wassermenge"
-                                    min="0.0"
-                                    max="10.0"
-                                    value="5.0"
-                                    step="0.1"
-                                    class="slider"
-                                    />
-                            </td>
-                            <td>
-                                10
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <script>
-                    var slider_3 = document.getElementById("wassermenge");
-                    var output_3 = document.getElementById("wert_wassermenge");
-                    output_3.innerHTML = slider_3.value;
-                    
-                    slider_3.oninput = function() {
-                    	output_3.innerHTML = this.value;
-                    };
-                </script>
-                <div class="regler regler_luftfeuchtigkeit">
-                    <table class="tabelle">
-                        <tr>
-                            <td>
-                                <p class="aktueller_wert_regler">Luftfeuchtigkeit: <span id="wert_luftfeuchtigkeit"></span> %</p>
-                            </td>
-                            <td>0</td>
-                            <td>
-                                <input
-                                    type="range"
-                                    id="luftfeuchtigkeit"
-                                    name="luftfeuchtigkeit"
-                                    min="0"
-                                    max="100"
-                                    value="50"
-                                    class="slider"
-                                    />
-                            </td>
-                            <td>
-                                100
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <script>
-                    var slider_4 = document.getElementById("luftfeuchtigkeit");
-                    var output_4 = document.getElementById("wert_luftfeuchtigkeit");
-                    output_4.innerHTML = slider_4.value;
-                    
-                    slider_4.oninput = function() {
-                    	output_4.innerHTML = this.value;
-                    };
-                </script>
-                <input class="speichern" type="submit" value="Speichern" />
-            </form>
-        </div>
-        <div id="error_message">Es ist ein Fehler aufgetreten!</div>
-        <script>
-            function selected_slot(selectObject) {
-            	var slot = selectObject.value;
-            	parameter_download(slot);
-            
-            	function parameter_download(slot) {
-            		value = slot;
-            		var xhr = new XMLHttpRequest();
-            		xhr.open("POST", "/api/api.php?parameter_read", true);
-            		xhr.setRequestHeader(
-            			"Content-type",
-            			"application/x-www-form-urlencoded"
-            		);
-            
-            		xhr.onreadystatechange = function() {
-            			if (this.readyState == 4 && this.status == 200) {
-            				array_parameter = JSON.parse(xhr.responseText);
-            				document.getElementById("pflanze").value =
-            					array_parameter[value - 1].pflanze;
-            				document.getElementById("temperatur").value =
-            					array_parameter[value - 1].temperatur;
-            				document.getElementById("lichtstunden").value =
-            					array_parameter[value - 1].lichtstunden;
-            				document.getElementById("wassermenge").value =
-            					array_parameter[value - 1].wassermenge;
-            				document.getElementById("luftfeuchtigkeit").value =
-            					array_parameter[value - 1].luftfeuchtigkeit;
-            				document.getElementById(
-            					"wert_temperatur"
-            				).innerHTML = array_parameter[value - 1].temperatur;
-            				document.getElementById(
-            					"wert_lichtstunden"
-            				).innerHTML =
-            					array_parameter[value - 1].lichtstunden;
-            				document.getElementById(
-            					"wert_wassermenge"
-            				).innerHTML =
-            					array_parameter[value - 1].wassermenge;
-            				document.getElementById(
-            					"wert_luftfeuchtigkeit"
-            				).innerHTML =
-            					array_parameter[value - 1].luftfeuchtigkeit;
-            			}
-            		};
-            
-            		xhr.send();
-            	}
-            }
-        </script>
-        <script src="/js/error_message.js"></script>
-    </body>
-</html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>Gewaechshaus Raspberry Pi 3B+</title>
+		<link rel="stylesheet" href="/css/index.css" />
+		<link rel="stylesheet" href="/css/navigation.css" />
+		<link rel="stylesheet" href="/css/einstellungen.css" />
+		<link rel="stylesheet" href="/css/livewerte.css" />
+		<link rel="stylesheet" href="/css/fehlermeldung.css" />
+		<script src="/js/jquery.min.js"></script>
+	</head>
+	<body style="background-color:white;">
+		<div class="navigation">
+			<div class="icon top" onclick="window.location='/';">
+				<img src="/img/house.svg" class="menubild" />
+			</div>
+			<div
+				class="icon middle"
+				onclick="window.location='/statistik.html';"
+			>
+				<img src="/img/pie-chart.svg" class="menubild" />
+			</div>
+			<div
+				class="icon bottom aktiv"
+				onclick="window.location='/einstellungen.html';"
+			>
+				<img src="/img/settings.svg" class="menubild" />
+			</div>
+			<div
+				class="icon shutdown"
+				onclick="window.location='/api/api.php?herunterfahren_write';"
+			>
+				<img src="/img/logout.svg" class="menubild" />
+			</div>
+		</div>
+		<div class="einstellungen">
+			<p class="titel">Parameter</p>
+			<form action="/api/api.php">
+				<input
+					required
+					type="hidden"
+					name="parameter_write"
+					id="parameter_write"
+				/>
+				<div class="slot_name_wahl">
+					<input
+						required
+						type="text"
+						name="name"
+						placeholder="Name"
+						id="pflanze"
+						class="name"
+					/>
+					<select
+						name="slot"
+						class="slot"
+						onchange="selected_slot(this)"
+					>
+						<option value="" disabled selected>Nr.</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+				<div class="regler regler_temperatur">
+					<table class="tabelle tabelle_top">
+						<tr>
+							<td>
+								<p class="aktueller_wert_regler">
+									Temperatur:
+									<span id="wert_temperatur"></span> °C
+								</p>
+							</td>
+							<td>
+								0
+							</td>
+							<td>
+								<input
+									type="range"
+									id="temperatur"
+									name="temperatur"
+									min="0"
+									max="30"
+									value="15"
+									class="slider"
+								/>
+							</td>
+							<td>
+								30
+							</td>
+						</tr>
+					</table>
+				</div>
+				<script>
+					var slider_1 = document.getElementById("temperatur");
+					var output_1 = document.getElementById("wert_temperatur");
+					output_1.innerHTML = slider_1.value;
 
+					slider_1.oninput = function() {
+						output_1.innerHTML = this.value;
+					};
+				</script>
+				<div class="regler regler_licht">
+					<table class="tabelle">
+						<tr>
+							<td>
+								<p class="aktueller_wert_regler">
+									Licht:
+									<span id="wert_lichtstunden"></span> h/Tag
+								</p>
+							</td>
+							<td>0</td>
+							<td>
+								<input
+									type="range"
+									id="lichtstunden"
+									name="lichtstunden"
+									min="0.0"
+									max="24.0"
+									value="12.0"
+									step="0.1"
+									class="slider"
+								/>
+							</td>
+							<td>
+								30
+							</td>
+						</tr>
+					</table>
+				</div>
+				<script>
+					var slider_2 = document.getElementById("lichtstunden");
+					var output_2 = document.getElementById("wert_lichtstunden");
+					output_2.innerHTML = slider_2.value;
+
+					slider_2.oninput = function() {
+						output_2.innerHTML = this.value;
+					};
+				</script>
+				<div class="regler regler_wasser">
+					<table class="tabelle">
+						<tr>
+							<td>
+								<p class="aktueller_wert_regler">
+									Wassermenge:
+									<span id="wert_wassermenge"></span> l/Tag
+								</p>
+							</td>
+							<td>0</td>
+							<td>
+								<input
+									type="range"
+									id="wassermenge"
+									name="wassermenge"
+									min="0.0"
+									max="10.0"
+									value="5.0"
+									step="0.1"
+									class="slider"
+								/>
+							</td>
+							<td>
+								10
+							</td>
+						</tr>
+					</table>
+				</div>
+				<script>
+					var slider_3 = document.getElementById("wassermenge");
+					var output_3 = document.getElementById("wert_wassermenge");
+					output_3.innerHTML = slider_3.value;
+
+					slider_3.oninput = function() {
+						output_3.innerHTML = this.value;
+					};
+				</script>
+				<div class="regler regler_luftfeuchtigkeit">
+					<table class="tabelle">
+						<tr>
+							<td>
+								<p class="aktueller_wert_regler">
+									Luftfeuchtigkeit:
+									<span id="wert_luftfeuchtigkeit"></span> %
+								</p>
+							</td>
+							<td>0</td>
+							<td>
+								<input
+									type="range"
+									id="luftfeuchtigkeit"
+									name="luftfeuchtigkeit"
+									min="0"
+									max="100"
+									value="50"
+									class="slider"
+								/>
+							</td>
+							<td>
+								100
+							</td>
+						</tr>
+					</table>
+				</div>
+				<script>
+					var slider_4 = document.getElementById("luftfeuchtigkeit");
+					var output_4 = document.getElementById(
+						"wert_luftfeuchtigkeit"
+					);
+					output_4.innerHTML = slider_4.value;
+
+					slider_4.oninput = function() {
+						output_4.innerHTML = this.value;
+					};
+				</script>
+				<input class="speichern" type="submit" value="Speichern" />
+			</form>
+		</div>
+		<div id="error_message">Es ist ein Fehler aufgetreten!</div>
+		<script src="/js/einstellungen.js"></script>
+		<script src="/js/error_message.js"></script>
+	</body>
+</html>
