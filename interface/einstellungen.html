@@ -99,15 +99,6 @@
 						</tr>
 					</table>
 				</div>
-				<script>
-					var slider_1 = document.getElementById("temperatur");
-					var output_1 = document.getElementById("wert_temperatur");
-					output_1.innerHTML = slider_1.value;
-
-					slider_1.oninput = function() {
-						output_1.innerHTML = this.value;
-					};
-				</script>
 				<div class="regler regler_licht">
 					<table class="tabelle">
 						<tr>
@@ -136,15 +127,6 @@
 						</tr>
 					</table>
 				</div>
-				<script>
-					var slider_2 = document.getElementById("lichtstunden");
-					var output_2 = document.getElementById("wert_lichtstunden");
-					output_2.innerHTML = slider_2.value;
-
-					slider_2.oninput = function() {
-						output_2.innerHTML = this.value;
-					};
-				</script>
 				<div class="regler regler_wasser">
 					<table class="tabelle">
 						<tr>
@@ -173,15 +155,6 @@
 						</tr>
 					</table>
 				</div>
-				<script>
-					var slider_3 = document.getElementById("wassermenge");
-					var output_3 = document.getElementById("wert_wassermenge");
-					output_3.innerHTML = slider_3.value;
-
-					slider_3.oninput = function() {
-						output_3.innerHTML = this.value;
-					};
-				</script>
 				<div class="regler regler_luftfeuchtigkeit">
 					<table class="tabelle">
 						<tr>
@@ -209,17 +182,6 @@
 						</tr>
 					</table>
 				</div>
-				<script>
-					var slider_4 = document.getElementById("luftfeuchtigkeit");
-					var output_4 = document.getElementById(
-						"wert_luftfeuchtigkeit"
-					);
-					output_4.innerHTML = slider_4.value;
-
-					slider_4.oninput = function() {
-						output_4.innerHTML = this.value;
-					};
-				</script>
 				<input class="speichern" type="submit" value="Speichern" />
 			</form>
 		</div>
