@@ -1,4 +1,4 @@
-// Die Datei parameter.js kommuniziert über die API mit der Datenbank und liest
+// Die Datei einstellungen.js kommuniziert über die API mit der Datenbank und liest
 // alle relevanten Parameterdaten für die Datei einstellungen.html aus.
 
 // get_parameter liest alle relevanten Daten durch die API aus der Datenbank.
