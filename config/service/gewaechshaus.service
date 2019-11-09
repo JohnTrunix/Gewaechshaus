@@ -7,6 +7,8 @@ Conflicts=getty@tty1.service
 Type=simple
 ExecStart=/usr/bin/python3 /etc/gewaechshaus/run.py
 StandardInput=tty-force
+Restart=always
+RestartSec=5s
 
 [Install]
 WantedBy=multi-user.target
