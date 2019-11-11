@@ -1,12 +1,12 @@
 [Unit]
 Description=gewaechshaus.service
 After=multi-user.target
-Conflicts=getty@tty1.service
 
 [Service]
 Type=simple
+User=pi
+Group=pi
 ExecStart=/usr/bin/python3 /etc/gewaechshaus/run.py
-StandardInput=tty-force
 Restart=always
 RestartSec=5s
 
