@@ -49,7 +49,6 @@
 .slot {
 	width: 60px;
 	padding: 5px;
-	font-size: 16px;
 	line-height: 1;
 	border-radius: 5px;
 	height: 35px;
@@ -82,6 +81,24 @@
 	border-radius: 5px;
 	margin-left: 10px;
 	margin-right: 10px;
+}
+
+.td1 {
+	width: 252px;
+}
+
+.td2 {
+	width: 45px;
+	text-align: right;
+}
+
+.td3 {
+	width: 356px;
+}
+
+.td4 {
+	width: 45px;
+	text-align: left;
 }
 
 .slider::-webkit-slider-thumb {

@@ -73,28 +73,28 @@
 				<div class="regler regler_temperatur">
 					<table class="tabelle tabelle_top">
 						<tr>
-							<td>
+							<td class="td1">
 								<p class="aktueller_wert_regler">
 									Temperatur:
 									<span id="wert_temperatur"></span> °C
 								</p>
 							</td>
-							<td>
-								0
+							<td class="td2">
+								20°C
 							</td>
-							<td>
+							<td class="td3">
 								<input
 									type="range"
 									id="temperatur"
 									name="temperatur"
-									min="0"
-									max="30"
-									value="15"
+									min="20"
+									max="36"
+									value="28"
 									class="slider"
 								/>
 							</td>
-							<td>
-								30
+							<td class="td4">
+								36°C
 							</td>
 						</tr>
 					</table>
@@ -102,14 +102,14 @@
 				<div class="regler regler_licht">
 					<table class="tabelle">
 						<tr>
-							<td>
+							<td class="td1">
 								<p class="aktueller_wert_regler">
 									Licht:
 									<span id="wert_lichtstunden"></span> h/Tag
 								</p>
 							</td>
-							<td>0</td>
-							<td>
+							<td class="td2">0h</td>
+							<td class="td3">
 								<input
 									type="range"
 									id="lichtstunden"
@@ -121,8 +121,8 @@
 									class="slider"
 								/>
 							</td>
-							<td>
-								30
+							<td class="td4">
+								24h
 							</td>
 						</tr>
 					</table>
@@ -130,27 +130,27 @@
 				<div class="regler regler_wasser">
 					<table class="tabelle">
 						<tr>
-							<td>
+							<td class="td1">
 								<p class="aktueller_wert_regler">
 									Wassermenge:
 									<span id="wert_wassermenge"></span> l/Tag
 								</p>
 							</td>
-							<td>0</td>
-							<td>
+							<td class="td2">0l</td>
+							<td class="td3">
 								<input
 									type="range"
 									id="wassermenge"
 									name="wassermenge"
 									min="0.0"
-									max="10.0"
-									value="5.0"
+									max="1.0"
+									value="0.5"
 									step="0.1"
 									class="slider"
 								/>
 							</td>
-							<td>
-								10
+							<td class="td4">
+								1l
 							</td>
 						</tr>
 					</table>
@@ -158,26 +158,26 @@
 				<div class="regler regler_luftfeuchtigkeit">
 					<table class="tabelle">
 						<tr>
-							<td>
+							<td class="td1">
 								<p class="aktueller_wert_regler">
 									Luftfeuchtigkeit:
 									<span id="wert_luftfeuchtigkeit"></span> %
 								</p>
 							</td>
-							<td>0</td>
-							<td>
+							<td class="td2">50%</td>
+							<td class="td3">
 								<input
 									type="range"
 									id="luftfeuchtigkeit"
 									name="luftfeuchtigkeit"
-									min="0"
-									max="100"
-									value="50"
+									min="50"
+									max="80"
+									value="65"
 									class="slider"
 								/>
 							</td>
-							<td>
-								100
+							<td class="td4">
+								80%
 							</td>
 						</tr>
 					</table>

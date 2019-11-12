@@ -66,9 +66,9 @@ function set_betriebsmodus(
 	programm_ende
 ) {
 	document.getElementById("betriebswahl_slot").innerHTML =
-		"Gewählter Slot: " + parameter_slot;
+		parameter_slot;
 	document.getElementById("betriebswahl_name").innerHTML =
-		"Aktuelles Programm: " + parameter_name;
+		parameter_name;
 	document.getElementById("betriebswahl_datetime").innerHTML = datetime;
 	document.getElementById(
 		"betriebswahl_programm_ende"

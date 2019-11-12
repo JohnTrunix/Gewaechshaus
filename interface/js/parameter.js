@@ -52,13 +52,13 @@ function selected_slot(slot) {
 	document.getElementById("parameter_name").value = parameter_name;
 
 	document.getElementById("temperatur").innerHTML =
-		"Temperatur: " + parameter_temperatur;
+		parameter_temperatur + "°C";
 	document.getElementById("lichtstunden").innerHTML =
-		"Licht pro Tag: " + parameter_lichtstunden;
+		parameter_lichtstunden + "h";
 	document.getElementById("wassermenge").innerHTML =
-		"Wasser pro Tag: " + parameter_wassermenge;
+		parameter_wassermenge + "l";
 	document.getElementById("luftfeuchtigkeit").innerHTML =
-		"Luftfeuchtigkeit: " + parameter_luftfeuchtigkeit;
+		parameter_luftfeuchtigkeit + "%";
 }
 //======================================================================
 
@@ -71,12 +71,12 @@ function get_active_parameter(slot) {
 	active_luftfeuchtigkeit = array_parameter[slot - 1].luftfeuchtigkeit;
 
 	document.getElementById("act_param_temperatur").innerHTML =
-		"Temperatur: " + active_temperatur;
+		active_temperatur + "°C";
 	document.getElementById("act_param_lichtstunden").innerHTML =
-		"Licht pro Tag: " + active_lichtstunden;
+		active_lichtstunden + "h";
 	document.getElementById("act_param_wassermenge").innerHTML =
-		"Wasser pro Tag: " + active_wassermenge;
+		active_wassermenge + "l";
 	document.getElementById("act_param_luftfeuchtigkeit").innerHTML =
-		"Luftfeuchtigkeit: " + active_luftfeuchtigkeit;
+		active_luftfeuchtigkeit + "%";
 }
 //======================================================================

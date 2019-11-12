@@ -45,9 +45,7 @@ $(document).ready(function() {
 		options.each(function(index) {
 			var layer = options.length - index;
 			$(this).css("z-index", layer);
-			$(this).css("top", 2 * index + "px");
-			$(this).css("width", 230 - 2 * index);
-			$(this).css("margin-left", -115 + index);
+			$(this).css("top", 0 * index + "px");
 		});
 	}
 
