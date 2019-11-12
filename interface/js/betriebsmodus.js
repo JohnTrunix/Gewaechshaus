@@ -65,10 +65,8 @@ function set_betriebsmodus(
 	datetime,
 	programm_ende
 ) {
-	document.getElementById("betriebswahl_slot").innerHTML =
-		parameter_slot;
-	document.getElementById("betriebswahl_name").innerHTML =
-		parameter_name;
+	document.getElementById("betriebswahl_slot").innerHTML = parameter_slot;
+	document.getElementById("betriebswahl_name").innerHTML = parameter_name;
 	document.getElementById("betriebswahl_datetime").innerHTML = datetime;
 	document.getElementById(
 		"betriebswahl_programm_ende"

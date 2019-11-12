@@ -187,7 +187,8 @@ function balken_berechnung(datetime, programm_ende) {
 			document.getElementById("text_fertig").style.display = "block";
 			document.getElementById("prozent_jetzt").style.display = "none";
 			document.getElementById("button_abbrechen").style.color = "#364366";
-			document.getElementById("button_abbrechen").style.borderColor = "#364366";
+			document.getElementById("button_abbrechen").style.borderColor =
+				"#364366";
 			document.getElementById("button_abbrechen").value = "Startseite";
 		}
 	}, 1000);
