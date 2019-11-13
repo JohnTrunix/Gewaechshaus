@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 24. Okt 2019 um 20:20
+-- Erstellungszeit: 13. Nov 2019 um 19:49
 -- Server-Version: 10.4.6-MariaDB
 -- PHP-Version: 7.3.9
 
@@ -31,23 +31,18 @@ SET time_zone = "+00:00";
 CREATE TABLE `betriebsmodus` (
   `ID` int(11) NOT NULL,
   `parameter_slot` int(11) NOT NULL,
-  `parameter_name` text COLLATE utf8_bin NOT NULL,
   `programm_status` text COLLATE utf8_bin NOT NULL,
   `datetime` datetime NOT NULL,
   `programm_datum_ende` date NOT NULL,
-  `programm_zeit_ende` time NOT NULL,
-  `wasser_gegeben_heute` int(11) NOT NULL,
-  `wasser_gegeben_total` int(11) NOT NULL,
-  `licht_gegeben_heute` int(11) NOT NULL,
-  `licht_gegeben_total` int(11) NOT NULL
+  `programm_zeit_ende` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Daten für Tabelle `betriebsmodus`
 --
 
-INSERT INTO `betriebsmodus` (`ID`, `parameter_slot`, `parameter_name`, `programm_status`, `datetime`, `programm_datum_ende`, `programm_zeit_ende`, `wasser_gegeben_heute`, `wasser_gegeben_total`, `licht_gegeben_heute`, `licht_gegeben_total`) VALUES
-(1, 1, '1', 'Stop', '0000-00-00 00:00:00', '0000-00-00', '00:00:00', 0, 0, 0, 0);
+INSERT INTO `betriebsmodus` (`ID`, `parameter_slot`, `programm_status`, `datetime`, `programm_datum_ende`, `programm_zeit_ende`) VALUES
+(1, 1, 'stop', '2019-11-03 20:35:06', '0000-00-00', '00:00:00');
 
 -- --------------------------------------------------------
 
@@ -63,6 +58,15 @@ CREATE TABLE `parameter` (
   `wassermenge` int(11) NOT NULL,
   `luftfeuchtigkeit` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Daten für Tabelle `parameter`
+--
+
+INSERT INTO `parameter` (`slot`, `pflanze`, `temperatur`, `lichtstunden`, `wassermenge`, `luftfeuchtigkeit`) VALUES
+(10, '5zh5ugeeg', 30, 0, 0, 0),
+(1, 'hjieg', 0, 0, 6, 0),
+(5, 'test', 30, 24, 10, 100);
 
 -- --------------------------------------------------------
 
