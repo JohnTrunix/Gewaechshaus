@@ -1,5 +1,2 @@
-Endzeitpunkt placeholder
-
-
 Rechte Ausschalten und RTC Zeit
 Test Datenbegrenzeung und RTC
