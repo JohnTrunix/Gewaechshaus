@@ -1,6 +1,8 @@
-Datenbank aufräumen unnötiges löschen
+-Datenbank aufräumen unnötiges löschen
 Laufendes Programm Namen änderbar machen
 Endzeitpunkt placeholder
 aufräumen und optimieren
+
+
 Rechte Ausschalten und RTC Zeit
 Test Datenbegrenzeung und RTC
