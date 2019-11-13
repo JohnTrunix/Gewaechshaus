@@ -16,19 +16,12 @@ function get_betriebsmodus() {
 			array_betriebsmodus = JSON.parse(xhr.responseText);
 			// JSON Daten Variablen zuweisen.
 			parameter_slot = array_betriebsmodus[0].parameter_slot;
-			parameter_name = array_betriebsmodus[0].parameter_name;
 			programm_status = array_betriebsmodus[0].programm_status;
 			datetime = array_betriebsmodus[0].datetime;
 			programm_datum_ende = array_betriebsmodus[0].programm_datum_ende;
 			programm_zeit_ende = array_betriebsmodus[0].programm_zeit_ende;
 			programm_ende = programm_datum_ende + " " + programm_zeit_ende;
 			// Weitere Funktionen ausführen.
-			set_betriebsmodus(
-				parameter_slot,
-				parameter_name,
-				datetime,
-				programm_ende
-			);
 			start_countdown(programm_ende);
 			balken_berechnung(datetime, programm_ende);
 			betriebsmodus_display(programm_status);
@@ -54,22 +47,5 @@ function betriebsmodus_display(programm_status) {
 		document.getElementById("start").style.display = "inline";
 		document.getElementById("stop").style.display = "none";
 	}
-}
-//======================================================================
-
-// Die Funktion set_betriebsmodus ist für alle allgemeinen Zuweisungen von Betriebsmodusdaten zuständig.
-//======================================================================
-function set_betriebsmodus(
-	parameter_slot,
-	parameter_name,
-	datetime,
-	programm_ende
-) {
-	document.getElementById("betriebswahl_slot").innerHTML = parameter_slot;
-	document.getElementById("betriebswahl_name").innerHTML = parameter_name;
-	document.getElementById("betriebswahl_datetime").innerHTML = datetime;
-	document.getElementById(
-		"betriebswahl_programm_ende"
-	).innerHTML = programm_ende;
 }
 //======================================================================

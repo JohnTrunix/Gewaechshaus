@@ -49,7 +49,6 @@ function selected_slot(slot) {
 	parameter_luftfeuchtigkeit = array_parameter[slot - 1].luftfeuchtigkeit;
 
 	document.getElementById("parameter_slot").value = parameter_slot;
-	document.getElementById("parameter_name").value = parameter_name;
 
 	document.getElementById("temperatur").innerHTML =
 		parameter_temperatur + "°C";
@@ -65,10 +64,15 @@ function selected_slot(slot) {
 // Wenn Betriebsmodus Start werden hier die aktiven Parameter gesetzt.
 //======================================================================
 function get_active_parameter(slot) {
+	parameter_slot = slot;
+	parameter_name = array_parameter[slot - 1].pflanze;
 	active_temperatur = array_parameter[slot - 1].temperatur;
 	active_lichtstunden = array_parameter[slot - 1].lichtstunden;
 	active_wassermenge = array_parameter[slot - 1].wassermenge;
 	active_luftfeuchtigkeit = array_parameter[slot - 1].luftfeuchtigkeit;
+
+	document.getElementById("betriebswahl_name").innerHTML = parameter_slot;
+	document.getElementById("betriebswahl_slot").innerHTML = parameter_name;
 
 	document.getElementById("act_param_temperatur").innerHTML =
 		active_temperatur + "°C";
@@ -78,5 +82,10 @@ function get_active_parameter(slot) {
 		active_wassermenge + "l";
 	document.getElementById("act_param_luftfeuchtigkeit").innerHTML =
 		active_luftfeuchtigkeit + "%";
+
+	document.getElementById("betriebswahl_datetime").innerHTML = datetime;
+	document.getElementById(
+		"betriebswahl_programm_ende"
+	).innerHTML = programm_ende;
 }
 //======================================================================
