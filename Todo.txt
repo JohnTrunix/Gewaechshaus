@@ -1,7 +1,6 @@
--Datenbank aufräumen unnötiges löschen
-Laufendes Programm Namen änderbar machen
-Endzeitpunkt placeholder
 aufräumen und optimieren
+
+Endzeitpunkt placeholder
 
 
 Rechte Ausschalten und RTC Zeit
