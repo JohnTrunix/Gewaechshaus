@@ -35,10 +35,10 @@ if (isset($_GET['betriebsmodus_read'])) {
 //======================================================================
 elseif (isset($_GET['betriebsmodus_write'])) {
     $parameter_slot = $_GET['parameter_slot'];
-    $programm_datum_ende = $_GET['programm_datum_ende'];
-    $programm_zeit_ende = $_GET['programm_zeit_ende'];
     $programm_status = $_GET['programm_status'];
     $datetime = date('Y-m-d H:i:s');
+    $programm_datum_ende = $_GET['programm_datum_ende'];
+    $programm_zeit_ende = $_GET['programm_zeit_ende'];
     if ($parameter_slot < 1 || $number > 10) {
         header("Location: /index.html?fehler");
         die();
