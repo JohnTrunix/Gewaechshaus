@@ -12,12 +12,11 @@ require 'variablen.php';
 // Lese Betriebsmodus Daten
 //======================================================================
 if (isset($_GET['betriebsmodus_read'])) {
-    $sql = "SELECT parameter_slot, parameter_name, programm_status, datetime, programm_datum_ende, programm_zeit_ende FROM betriebsmodus";
+    $sql = "SELECT parameter_slot, programm_status, datetime, programm_datum_ende, programm_zeit_ende FROM betriebsmodus";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             $parameter_slot = $row["parameter_slot"];
-            $parameter_name = $row["parameter_name"];
             $programm_status = $row["programm_status"];
             $datetime = $row["datetime"];
             $programm_datum_ende = $row["programm_datum_ende"];
@@ -26,7 +25,7 @@ if (isset($_GET['betriebsmodus_read'])) {
     }
     $conn->close();
     $get_betriebsmodus_daten = [
-        ['parameter_slot' => $parameter_slot, 'parameter_name' => $parameter_name, 'programm_status' => $programm_status, 'datetime' => $datetime, 'programm_datum_ende' => $programm_datum_ende, 'programm_zeit_ende' => $programm_zeit_ende],
+        ['parameter_slot' => $parameter_slot, 'programm_status' => $programm_status, 'datetime' => $datetime, 'programm_datum_ende' => $programm_datum_ende, 'programm_zeit_ende' => $programm_zeit_ende],
     ];
     echo json_encode($get_betriebsmodus_daten);
 }
@@ -36,7 +35,6 @@ if (isset($_GET['betriebsmodus_read'])) {
 //======================================================================
 elseif (isset($_GET['betriebsmodus_write'])) {
     $parameter_slot = $_GET['parameter_slot'];
-    $parameter_name = $_GET['parameter_name'];
     $programm_datum_ende = $_GET['programm_datum_ende'];
     $programm_zeit_ende = $_GET['programm_zeit_ende'];
     $programm_status = $_GET['programm_status'];
@@ -46,8 +44,8 @@ elseif (isset($_GET['betriebsmodus_write'])) {
         die();
     }
     $sql1 = "DELETE FROM betriebsmodus WHERE ID = '1'";
-    $sql2 .= "INSERT INTO betriebsmodus (ID, parameter_slot, parameter_name, programm_status, datetime, programm_datum_ende, programm_zeit_ende)
-	VALUES ('1', '$parameter_slot', '$parameter_name', '$programm_status', '$datetime', '$programm_datum_ende', '$programm_zeit_ende')";
+    $sql2 .= "INSERT INTO betriebsmodus (ID, parameter_slot, programm_status, datetime, programm_datum_ende, programm_zeit_ende)
+	VALUES ('1', '$parameter_slot', '$programm_status', '$datetime', '$programm_datum_ende', '$programm_zeit_ende')";
     if (mysqli_query($conn, $sql1) && mysqli_query($conn, $sql2)) {
         header("Location: /index.html");
     } else {
