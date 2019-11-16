@@ -21,6 +21,29 @@
 	animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 
+#success_message {
+	visibility: hidden;
+	min-width: 250px;
+	margin-left: -125px;
+	background-color: #05c11e;
+	color: #fff;
+	text-align: center;
+	border-radius: 2px;
+	padding: 16px;
+	position: fixed;
+	z-index: 1;
+	left: 50%;
+	bottom: 30px;
+	font-family: Schrift_Bold;
+	font-size: 14px;
+	z-index: 9999;
+}
+
+#success_message.show {
+	visibility: visible;
+	animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
 @-webkit-keyframes fadein {
 	from {
 		bottom: 0;
