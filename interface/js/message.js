@@ -1,5 +1,5 @@
-// In error_message.js wird die Logik und Animation des Error Popup
-// gesteuert, welches bei ?fehler in der URL erscheint.
+// In message.js wird die Logik und Animation der Popups
+// gesteuert.
 
 // URL check auf ?fehler
 //======================================================================
