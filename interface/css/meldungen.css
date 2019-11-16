@@ -13,7 +13,7 @@
 	bottom: 30px;
 	font-family: Schrift_Bold;
 	font-size: 14px;
-	z-index: 9999;
+	z-index: 999999;
 }
 
 #error_message.show {
@@ -36,7 +36,7 @@
 	bottom: 30px;
 	font-family: Schrift_Bold;
 	font-size: 14px;
-	z-index: 9999;
+	z-index: 999999;
 }
 
 #success_message.show {
