@@ -47,7 +47,7 @@ elseif (isset($_GET['betriebsmodus_write'])) {
     $sql2 .= "INSERT INTO betriebsmodus (ID, parameter_slot, programm_status, datetime, programm_datum_ende, programm_zeit_ende)
 	VALUES ('1', '$parameter_slot', '$programm_status', '$datetime', '$programm_datum_ende', '$programm_zeit_ende')";
     if (mysqli_query($conn, $sql1) && mysqli_query($conn, $sql2)) {
-        header("Location: /index.html");
+        header("Location: /index.html?erfolgreich");
     } else {
         header("Location: /index.html?fehler");
         die();
@@ -170,7 +170,7 @@ elseif (isset($_GET['parameter_write'])) {
     $sql2 .= "INSERT INTO parameter (slot, pflanze, temperatur, lichtstunden, wassermenge, luftfeuchtigkeit)
 	VALUES ('$slot', '$pflanze', '$temperatur', '$lichtstunden', '$wassermenge', '$luftfeuchtigkeit')";
     if (mysqli_query($conn, $sql1) && mysqli_query($conn, $sql2)) {
-        header("Location: /einstellungen.html");
+        header("Location: /einstellungen.html?erfolgreich");
     } else {
         header("Location: /einstellungen.html?fehler");
         die();
