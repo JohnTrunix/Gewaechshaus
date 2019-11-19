@@ -93,9 +93,10 @@ def luftfeuchtigkeit_abfrage():
 # ======================================================================
 def bodenfeuchtigkeit_abfrage():
     global bodenfeuchtigkeit_endwert
-    sensor_durchschnitt = ((sensor1.voltage + sensor2.voltage + sensor3.voltage +sensor4.voltage) / 4)
-    sensor_prozentual = (((sensor_durchschnitt -1.45) / 1.55) * 100)
-    sensor_korrigiert = (100 -sensor_prozentual)
+    sensor_durchschnitt = (
+        (sensor1.voltage + sensor2.voltage + sensor3.voltage + sensor4.voltage) / 4)
+    sensor_prozentual = (((sensor_durchschnitt - 1.45) / 1.55) * 100)
+    sensor_korrigiert = (100 - sensor_prozentual)
     sensor_gerundet = round(sensor_korrigiert, 1)
     if sensor_gerundet >= 100:
         bodenfeuchtigkeit_endwert = 100

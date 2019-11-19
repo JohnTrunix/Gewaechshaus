@@ -60,7 +60,8 @@ def rtc_update():
     try:
         print('RTC wird aktualisiert')
         now = datetime.datetime.now()
-        t = time.struct_time((now.year, now.month, now.day, now.hour, now.minute, now.second, 0, 0, 0))
+        t = time.struct_time(
+            (now.year, now.month, now.day, now.hour, now.minute, now.second, 0, 0, 0))
         rtc.datetime = t
         print('Zeit auf RTC:', t)
         print('RTC wurde aktualisiert')
