@@ -47,8 +47,8 @@ def rtc_abfrage():
     try:
         print('Aktuelle RTC Zeit wird abgefragt')
         print('RTC Datum: %d/%d/%d' % (t.tm_mday, t.tm_mon, t.tm_year))
-        print('RTC Zeit: %d:%02d:%02d' %
-              (t.tm_hour, t.tm_min, t.tm_sec))
+        print('RTC Zeit: %d:%02d:%02d' % (t.tm_hour, t.tm_min, t.tm_sec))
+        print('Aktuelle RTC Zeit wurde abgefragt')
     except:
         print('Fehler bei rtc_abfrage()')
 # ======================================================================
@@ -60,10 +60,10 @@ def rtc_update():
     try:
         print('RTC wird aktualisiert')
         now = datetime.datetime.now()
-        t = time.struct_time((now.year, now.month, now.day,
-                              now.hour, now.minute, now.second, 0, 0, 0))
+        t = time.struct_time((now.year, now.month, now.day, now.hour, now.minute, now.second, 0, 0, 0))
         rtc.datetime = t
-        print('%s Zeit auf RTC', t)
+        print('Zeit auf RTC:', t)
+        print('RTC wurde aktualisiert')
     except:
         print('Fehler bei rtc_update()')
 # ======================================================================
@@ -81,9 +81,7 @@ def systemzeit_schreiben():
                   ":" + str(t.tm_min) + ":" + str(t.tm_sec))
         time.sleep(1)
         os.system("sudo timedatectl set-ntp true")
+        print('Systemzeit wurde aktualisiert')
     except:
         print('Fehler bei systemzeit_schreiben()')
 # ======================================================================
-
-
-print('Zeit Update beendet')

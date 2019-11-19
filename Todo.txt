@@ -1,2 +1,1 @@
-Rechte Ausschalten und RTC Zeit
-Test Datenbegrenzeung und RTC
+Datenbegrenzung Bodenfeuchtigkeit

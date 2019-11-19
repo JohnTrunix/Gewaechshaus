@@ -26,7 +26,7 @@ mydb = mysql.connector.connect(
 # ======================================================================
 def begrenzung_sensor_licht_1():
     mycursor = mydb.cursor()
-    sql = "DELETE FROM sensor_licht_1 WHERE DATE(datetime) = CURDATE() - INTERVAL 30 DAY"
+    sql = "DELETE FROM sensor_licht_1 WHERE datetime < NOW() - INTERVAL 30 DAY;"
     mycursor.execute(sql)
     mydb.commit()
 # ======================================================================
@@ -36,7 +36,7 @@ def begrenzung_sensor_licht_1():
 # ======================================================================
 def begrenzung_sensor_temperatur_1():
     mycursor = mydb.cursor()
-    sql = "DELETE FROM sensor_temperatur_1 WHERE DATE(datetime) = CURDATE() - INTERVAL 30 DAY"
+    sql = "DELETE FROM sensor_temperatur_1 WHERE datetime < NOW() - INTERVAL 30 DAY;"
     mycursor.execute(sql)
     mydb.commit()
 # ======================================================================
@@ -46,7 +46,17 @@ def begrenzung_sensor_temperatur_1():
 # ======================================================================
 def begrenzung_sensor_luftfeuchtigkeit_1():
     mycursor = mydb.cursor()
-    sql = "DELETE FROM sensor_luftfeuchtigkeit_1 WHERE DATE(datetime) = CURDATE() - INTERVAL 30 DAY"
+    sql = "DELETE FROM sensor_luftfeuchtigkeit_1 WHERE datetime < NOW() - INTERVAL 30 DAY;"
+    mycursor.execute(sql)
+    mydb.commit()
+# ======================================================================
+
+
+# Bodenfeuchtigkeitsensor Begrenzung
+# ======================================================================
+def begrenzung_sensor_bodenfeuchtigkeit_1():
+    mycursor = mydb.cursor()
+    sql = "DELETE FROM sensor_bodenfeuchtigkeit_1 WHERE datetime < NOW() - INTERVAL 30 DAY;"
     mycursor.execute(sql)
     mydb.commit()
 # ======================================================================
@@ -55,7 +65,7 @@ def begrenzung_sensor_luftfeuchtigkeit_1():
 # Start Datenbegrenzung
 # ======================================================================
 def start_datenbegrenzung():
-    print('Start der Sensorabfrage')
+    print('Start der Datenbegrenzung')
     try:
         print('Daten von sensor_licht_1 älter als 30 Tage werden gelöscht')
         begrenzung_sensor_licht_1()
@@ -71,5 +81,10 @@ def start_datenbegrenzung():
         begrenzung_sensor_luftfeuchtigkeit_1()
     except:
         print('Fehler bei begrenzung_sensor_luftfeuchtigkeit_1')
+    try:
+        print('Daten von sensor_bodenfeuchtigkeit_1 älter als 30 Tage werden gelöscht')
+        begrenzung_sensor_bodenfeuchtigkeit_1()
+    except:
+        print('Fehler bei begrenzung_sensor_bodentfeuchtigkeit_1')
     print('Datenbegrenzung beendet')
 # ======================================================================

@@ -7,6 +7,8 @@
 # ======================================================================
 from python_tsl2591 import tsl2591
 import adafruit_si7021
+import adafruit_ads1x15.ads1115 as ADS
+from adafruit_ads1x15.analog_in import AnalogIn
 import board
 import busio
 import time
@@ -31,6 +33,17 @@ mydb = mysql.connector.connect(
 # ======================================================================
 i2c = busio.I2C(board.SCL, board.SDA)
 sensor_temperatur_luftfeuchtigkeit = adafruit_si7021.SI7021(i2c)
+ads = ADS.ADS1115(i2c)
+# ======================================================================
+
+
+# A/D Wandler Konfiguration
+# ======================================================================
+ads.gain = 1
+sensor1 = AnalogIn(ads, ADS.P0)
+sensor2 = AnalogIn(ads, ADS.P1)
+sensor3 = AnalogIn(ads, ADS.P2)
+sensor4 = AnalogIn(ads, ADS.P3)
 # ======================================================================
 
 
@@ -76,6 +89,26 @@ def luftfeuchtigkeit_abfrage():
 # ======================================================================
 
 
+# Bodenfeuchtigkeitsensoren werden abgefragt und die Datenbank Funktion wird aufgerufen
+# ======================================================================
+def bodenfeuchtigkeit_abfrage():
+    global bodenfeuchtigkeit_endwert
+    sensor_durchschnitt = ((sensor1.voltage + sensor2.voltage + sensor3.voltage +sensor4.voltage) / 4)
+    sensor_prozentual = (((sensor_durchschnitt -1.45) / 1.55) * 100)
+    sensor_korrigiert = (100 -sensor_prozentual)
+    sensor_gerundet = round(sensor_korrigiert, 1)
+    if sensor_gerundet >= 100:
+        bodenfeuchtigkeit_endwert = 100
+        datenbank_bodenfeuchtigkeitsensor_einfuegen()
+    elif sensor_gerundet <= 0:
+        bodenfeuchtigkeit_endwert = 0
+        datenbank_bodenfeuchtigkeitsensor_einfuegen()
+    else:
+        bodenfeuchtigkeit_endwert = sensor_gerundet
+        datenbank_bodenfeuchtigkeitsensor_einfuegen()
+# ======================================================================
+
+
 # Der Lichtsensor Wert wird in Datenbank geschrieben
 # ======================================================================
 def datenbank_lichtsensor_einfuegen():
@@ -109,6 +142,17 @@ def datenbank_temperatursensor_einfuegen():
 # ======================================================================
 
 
+# Der Bodenfeuchtigkeits Wert wird in Datenbank geschrieben
+# ======================================================================
+def datenbank_bodenfeuchtigkeitsensor_einfuegen():
+    mycursor = mydb.cursor()
+    sql = "INSERT INTO sensor_bodenfeuchtigkeit_1 (datetime, sensorwert) VALUES (%s, %s)"
+    val = (lokale_zeit, bodenfeuchtigkeit_endwert)
+    mycursor.execute(sql, val)
+    mydb.commit()
+# ======================================================================
+
+
 # Starte alle Abfrage Funktionen
 # ======================================================================
 def start_sensorabfrage():
@@ -133,5 +177,10 @@ def start_sensorabfrage():
         luftfeuchtigkeit_abfrage()
     except:
         print('Fehler bei luftfeuchtigkeit_abfrage()')
+    try:
+        print('Aktuelle Bodenfeuchtigkeit wird abgefragt und an Datenbank gesendet')
+        bodenfeuchtigkeit_abfrage()
+    except:
+        print('Fehler bei bodenfeuchtigkeit_abfrage()')
     print('Sensorabfrage beendet')
 # ======================================================================
