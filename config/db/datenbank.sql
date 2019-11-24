@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 24. Nov 2019 um 10:59
+-- Erstellungszeit: 24. Nov 2019 um 11:42
 -- Server-Version: 10.4.6-MariaDB
 -- PHP-Version: 7.3.9
 
@@ -27,9 +27,6 @@ SET time_zone = "+00:00";
 --
 -- Tabellenstruktur für Tabelle `betriebsmodus`
 --
--- Erstellt am: 24. Nov 2019 um 09:56
--- Zuletzt aktualisiert: 24. Nov 2019 um 09:58
---
 
 CREATE TABLE `betriebsmodus` (
   `ID` int(11) NOT NULL,
@@ -52,17 +49,14 @@ INSERT INTO `betriebsmodus` (`ID`, `parameter_slot`, `programm_status`, `datetim
 --
 -- Tabellenstruktur für Tabelle `parameter`
 --
--- Erstellt am: 24. Nov 2019 um 09:50
--- Zuletzt aktualisiert: 24. Nov 2019 um 09:50
---
 
 CREATE TABLE `parameter` (
   `slot` int(11) NOT NULL,
-  `pflanze` text COLLATE utf8_bin NOT NULL,
-  `temperatur` text COLLATE utf8_bin NOT NULL,
-  `lichtstunden` text COLLATE utf8_bin NOT NULL,
-  `wassermenge` text COLLATE utf8_bin NOT NULL,
-  `luftfeuchtigkeit` text COLLATE utf8_bin NOT NULL
+  `pflanze` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `temperatur` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lichtstunden` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `wassermenge` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `luftfeuchtigkeit` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
@@ -86,11 +80,9 @@ INSERT INTO `parameter` (`slot`, `pflanze`, `temperatur`, `lichtstunden`, `wasse
 --
 -- Tabellenstruktur für Tabelle `sensor_bodenfeuchtigkeit_1`
 --
--- Erstellt am: 24. Nov 2019 um 09:50
---
 
 CREATE TABLE `sensor_bodenfeuchtigkeit_1` (
-  `sensorwert` text COLLATE utf8_bin NOT NULL,
+  `sensorwert` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `datetime` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -99,11 +91,9 @@ CREATE TABLE `sensor_bodenfeuchtigkeit_1` (
 --
 -- Tabellenstruktur für Tabelle `sensor_licht_1`
 --
--- Erstellt am: 24. Nov 2019 um 09:50
---
 
 CREATE TABLE `sensor_licht_1` (
-  `sensorwert` text COLLATE utf8_bin NOT NULL,
+  `sensorwert` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `datetime` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -112,11 +102,9 @@ CREATE TABLE `sensor_licht_1` (
 --
 -- Tabellenstruktur für Tabelle `sensor_luftfeuchtigkeit_1`
 --
--- Erstellt am: 24. Nov 2019 um 09:50
---
 
 CREATE TABLE `sensor_luftfeuchtigkeit_1` (
-  `sensorwert` text COLLATE utf8_bin NOT NULL,
+  `sensorwert` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `datetime` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -125,11 +113,9 @@ CREATE TABLE `sensor_luftfeuchtigkeit_1` (
 --
 -- Tabellenstruktur für Tabelle `sensor_temperatur_1`
 --
--- Erstellt am: 24. Nov 2019 um 09:50
---
 
 CREATE TABLE `sensor_temperatur_1` (
-  `sensorwert` text COLLATE utf8_bin NOT NULL,
+  `sensorwert` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `datetime` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 COMMIT;

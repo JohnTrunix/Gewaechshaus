@@ -42,3 +42,25 @@ print(programm_status)
 print(datetime)
 print(programm_datum_ende)
 print(programm_zeit_ende)
+
+
+# Abfrage der Aktiven Parameter wenn Betrieb Aktiv
+# ======================================================================
+if programm_status == 1:
+    sql_select_Query = (
+        "SELECT `slot`, `pflanze`, `temperatur`, `lichtstunden`, `wassermenge`, `luftfeuchtigkeit` FROM `parameter` WHERE slot = %s" % parameter_slot)
+    cursor = connection.cursor()
+    cursor.execute(sql_select_Query)
+    records = cursor.fetchall()
+    for row in records:
+        pflanze = (row[0])
+        temperatur = (row[1])
+        lichtstunden = (row[2])
+        wassermenge = (row[3])
+        luftfeuchtigkeit = (row[4])
+
+        print(pflanze)
+        print(temperatur)
+        print(lichtstunden)
+        print(wassermenge)
+        print(luftfeuchtigkeit)
