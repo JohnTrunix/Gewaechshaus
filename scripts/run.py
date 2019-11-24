@@ -9,6 +9,7 @@
 from datenbegrenzung import start_datenbegrenzung
 #from zeit_update import start_zeit_update
 from datenbank_abfrage import start_datenbank_abfrage
+from aktor_ansteuerung import start_aktor_ansteuerung
 import schedule
 import time
 import os
@@ -51,16 +52,17 @@ except:
 schedule.every(120).minutes.do(start_datenbegrenzung)
 # schedule.every(120).minutes.do(start_zeit_update)
 schedule.every(4).hours.do(start_datenbank_abfrage)
+schedule.every(10).seconds.do(start_aktor_ansteuerung)
 # ======================================================================
 
 
-# Alle 4 Sekunden auf ausstehende Aufträge überprüfen
+# Alle 5 Sekunden auf ausstehende Aufträge überprüfen
 # ======================================================================
 while True:
     try:
         print('Starte ausstehende Aufträge')
         schedule.run_pending()
-        time.sleep(4)
+        time.sleep(10)
     except:
         print('Fehler bei schedule.run_pending()')
 # ======================================================================
