@@ -17,7 +17,7 @@ connection = mysql.connector.connect(
 # ======================================================================
 
 
-# Abfrage der Betriebsmodus Daten
+# Abfragefunktion der Betriebsmodus Daten
 # ======================================================================
 def get_betriebsmodus():
     global id
@@ -40,7 +40,7 @@ def get_betriebsmodus():
 # ======================================================================
 
 
-# Abfrage der Aktiven Parameter
+# Abfragefunktion der Aktiven Parameter
 # ======================================================================
 def get_parameter():
     global slot
@@ -64,7 +64,49 @@ def get_parameter():
 # ======================================================================
 
 
+# Ausführen der Abfragefunktion der Betriebsmodus Daten
+# ======================================================================
+def start_get_betriebsmodus():
+    try:
+        print('Aktive Betriebsmodusdaten werden von Datenbank geladen.')
+        get_betriebsmodus()
+        print('ID:', id)
+        print('Slot:', parameter_slot)
+        print('Status:', programm_status)
+        print('Start:', datetime)
+        print('Enddatum:', programm_datum_ende)
+        print('Endzeit:', programm_zeit_ende)
+    except:
+        print('Fehler bei start_get_betriebsmodus()')
+# ======================================================================
+
+
+# Ausführen der Abfragefunktion der Betriebsmodus Daten
+# ======================================================================
+def start_get_parameter():
+    try:
+        print('Aktive Parameterdaten werden von Datenbank geladen.')
+        get_parameter()
+        print('Slot:', slot)
+        print('Pflanze:', pflanze)
+        print('Temperatur:', temperatur)
+        print('Lichtstunden:', lichtstunden)
+        print('Wassermenge:', wassermenge)
+        print('Luftfeuchtigkeit:', luftfeuchtigkeit)
+    except:
+        print('Fehler bei start_get_parameter()')
+# ======================================================================
+
+
 # Start Datenbank Abfrage
 # ======================================================================
 def start_datenbank_abfrage():
-    # ======================================================================
+    try:
+        start_get_betriebsmodus()
+    except:
+        print('Fehler bei start_get_betriebsmodus()')
+    try:
+        start_get_parameter()
+    except:
+        print('Fehler bei start_get_parameter()')
+# ======================================================================
