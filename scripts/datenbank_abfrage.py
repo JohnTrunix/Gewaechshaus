@@ -1,4 +1,4 @@
-# Die Datei ausgabe.py ist für die Aktoransteuerung zuständig.
+# Die Datei datenbank_abfrage.py ist für die Abfrage von Parameter- und Betriebsmodus Daten zuständig.
 
 # Import von benötigten Modulen
 # ======================================================================
