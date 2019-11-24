@@ -61,3 +61,4 @@ def get_parameter():
         lichtstunden = (row[3])
         wassermenge = (row[4])
         luftfeuchtigkeit = (row[5])
+# ======================================================================
