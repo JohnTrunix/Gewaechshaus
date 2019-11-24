@@ -2,7 +2,7 @@
 
 # Import von benötigten Modulen
 # ======================================================================
-from datenbank import *
+from datenbank_abfrage import *
 # ======================================================================
 
 get_betriebsmodus()
