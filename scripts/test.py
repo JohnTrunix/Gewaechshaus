@@ -1,5 +1,4 @@
-from datenbank_abfrage import get_betriebsmodus
-from datenbank_abfrage import get_parameter
+from datenbank_abfrage import get_betriebsmodus, get_parameter
 import datenbank_abfrage
 
 
