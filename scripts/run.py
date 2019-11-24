@@ -15,18 +15,28 @@ import os
 # ======================================================================
 
 
-# Bei Start die Zeit updaten, Datenbegrenzung ausführen und die Aktiven Parameter laden.
+# Zeit Aktualisierung bei Start
 # ======================================================================
 try:
     print('Zeit wird aktualisiert')
     start_zeit_update()
 except:
     print('Fehler bei start_zeit_update()')
+# ======================================================================
+
+
+# Datenbegrenzung bei Start
+# ======================================================================
 try:
     print('Datenbegrenzung wird ausgeführt')
     start_datenbegrenzung()
 except:
     print('Fehler bei start_datenbegrenzung()')
+# ======================================================================
+
+
+# Datenbankabfrage bei Start
+# ======================================================================
 try:
     print('Betriebs- und Parameterdaten werden geladen')
     start_datenbank_abfrage()
@@ -44,7 +54,7 @@ schedule.every(4).hours.do(start_datenbank_abfrage)
 # ======================================================================
 
 
-# Alle 30 Sekunden auf ausstehende Aufträge überprüfen
+# Alle 4 Sekunden auf ausstehende Aufträge überprüfen
 # ======================================================================
 while True:
     try:
