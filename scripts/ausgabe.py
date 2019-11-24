@@ -23,31 +23,36 @@ connection = mysql.connector.connect(
 
 # Abfrage der Betriebsmodus Daten
 # ======================================================================
-sql_select_Query = "select * from betriebsmodus"
-cursor = connection.cursor()
-cursor.execute(sql_select_Query)
-records = cursor.fetchall()
-for row in records:
-    id = (row[0])
-    parameter_slot = (row[1])
-    programm_status = (row[2])
-    datetime = (row[3])
-    programm_datum_ende = (row[4])
-    programm_zeit_ende = (row[5])
+def get_betriebsmodus():
+    global id
+    global parameter_slot
+    global programm_status
+    global datetime
+    global programm_datum_ende
+    global programm_zeit_ende
+    sql_select_Query = "select * from betriebsmodus"
+    cursor = connection.cursor()
+    cursor.execute(sql_select_Query)
+    records = cursor.fetchall()
+    for row in records:
+        id = (row[0])
+        parameter_slot = (row[1])
+        programm_status = (row[2])
+        datetime = (row[3])
+        programm_datum_ende = (row[4])
+        programm_zeit_ende = (row[5])
 # ======================================================================
-
-print(id)
-print(parameter_slot)
-print(programm_status)
-print(datetime)
-print(programm_datum_ende)
-print(programm_zeit_ende)
-print('---------------------')
 
 
 # Abfrage der Aktiven Parameter wenn Betrieb Aktiv
 # ======================================================================
-if programm_status == 1:
+def get_parameter():
+    global slot
+    global pflanze
+    global temperatur
+    global lichtstunden
+    global wassermenge
+    global luftfeuchtigkeit
     sql_select_Query = (
         "SELECT `slot`, `pflanze`, `temperatur`, `lichtstunden`, `wassermenge`, `luftfeuchtigkeit` FROM `parameter` WHERE slot = %s" % parameter_slot)
     cursor = connection.cursor()
@@ -61,9 +66,20 @@ if programm_status == 1:
         wassermenge = (row[4])
         luftfeuchtigkeit = (row[5])
 
-        print(slot)
-        print(pflanze)
-        print(temperatur)
-        print(lichtstunden)
-        print(wassermenge)
-        print(luftfeuchtigkeit)
+
+get_betriebsmodus()
+if programm_status == 1:
+    get_parameter()
+
+print(parameter_slot)
+print(programm_status)
+print(datetime)
+print(programm_datum_ende)
+print(programm_zeit_ende)
+print('##################')
+print(slot)
+print(pflanze)
+print(temperatur)
+print(lichtstunden)
+print(wassermenge)
+print(luftfeuchtigkeit)
