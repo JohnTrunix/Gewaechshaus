@@ -101,12 +101,6 @@ def start_get_parameter():
 # Start Datenbank Abfrage
 # ======================================================================
 def start_datenbank_abfrage():
-    try:
-        start_get_betriebsmodus()
-    except:
-        print('Fehler bei start_get_betriebsmodus()')
-    try:
-        start_get_parameter()
-    except:
-        print('Fehler bei start_get_parameter()')
+    start_get_betriebsmodus()
+    start_get_parameter()
 # ======================================================================
