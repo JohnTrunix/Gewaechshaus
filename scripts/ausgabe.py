@@ -44,7 +44,7 @@ def get_betriebsmodus():
 # ======================================================================
 
 
-# Abfrage der Aktiven Parameter wenn Betrieb Aktiv
+# Abfrage der Aktiven Parameter
 # ======================================================================
 def get_parameter():
     global slot
