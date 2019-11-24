@@ -49,7 +49,7 @@ while True:
     try:
         print('Starte ausstehende Aufträge')
         schedule.run_pending()
-        time.sleep(15)
+        time.sleep(4)
     except:
         print('Fehler bei schedule.run_pending()')
 # ======================================================================
