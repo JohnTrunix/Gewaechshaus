@@ -42,6 +42,7 @@ print(programm_status)
 print(datetime)
 print(programm_datum_ende)
 print(programm_zeit_ende)
+print('---------------------')
 
 
 # Abfrage der Aktiven Parameter wenn Betrieb Aktiv
@@ -53,12 +54,14 @@ if programm_status == 1:
     cursor.execute(sql_select_Query)
     records = cursor.fetchall()
     for row in records:
-        pflanze = (row[0])
-        temperatur = (row[1])
-        lichtstunden = (row[2])
-        wassermenge = (row[3])
-        luftfeuchtigkeit = (row[4])
+        slot = (row[0])
+        pflanze = (row[1])
+        temperatur = (row[2])
+        lichtstunden = (row[3])
+        wassermenge = (row[4])
+        luftfeuchtigkeit = (row[5])
 
+        print(slot)
         print(pflanze)
         print(temperatur)
         print(lichtstunden)
