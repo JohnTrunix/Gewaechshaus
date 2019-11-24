@@ -8,20 +8,30 @@
 from sensor_abfrage import start_sensorabfrage
 from datenbegrenzung import start_datenbegrenzung
 from zeit_update import start_zeit_update
+from datenbank_abfrage import start_datenbank_abfrage
 import schedule
 import time
 import os
 # ======================================================================
 
 
-# Bei Start die Zeit updaten und Datenbegrenzung ausführen
+# Bei Start die Zeit updaten, Datenbegrenzung ausführen und die Aktiven Parameter laden.
 # ======================================================================
 try:
-    print('Zeit wird aktualisiert und Datenbegrenzung wird ausgeführt')
+    print('Zeit wird aktualisiert')
     start_zeit_update()
+except:
+    print('Fehler bei start_zeit_update()')
+try:
+    print('Datenbegrenzung wird ausgeführt')
     start_datenbegrenzung()
 except:
-    print('Zeitupdate und Datenbegrenzung fehlgeschlagen')
+    print('Fehler bei start_datenbegrenzung()')
+try:
+    print('Betriebs- und Parameterdaten werden geladen')
+    start_datenbank_abfrage()
+except:
+    print('Fehler bei start_datenbank_abfrage()')
 # ======================================================================
 
 
