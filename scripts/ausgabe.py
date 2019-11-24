@@ -70,16 +70,3 @@ def get_parameter():
 get_betriebsmodus()
 if programm_status == 1:
     get_parameter()
-
-print(parameter_slot)
-print(programm_status)
-print(datetime)
-print(programm_datum_ende)
-print(programm_zeit_ende)
-print('##################')
-print(slot)
-print(pflanze)
-print(temperatur)
-print(lichtstunden)
-print(wassermenge)
-print(luftfeuchtigkeit)
