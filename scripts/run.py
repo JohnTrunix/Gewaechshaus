@@ -5,7 +5,7 @@
 
 # Import von benötigten Modulen
 # ======================================================================
-from abfrage import start_sensorabfrage
+from sensor_abfrage import start_sensorabfrage
 from datenbegrenzung import start_datenbegrenzung
 from zeit_update import start_zeit_update
 import schedule
