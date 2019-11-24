@@ -104,5 +104,5 @@ def start_datenbank_abfrage():
 	print('Start der Datenbankabfrage')
 	start_get_betriebsmodus()
 	start_get_parameter()
-	print('Datenbankabfrage Beendet')
+	print('Datenbankabfrage beendet')
 # ======================================================================
