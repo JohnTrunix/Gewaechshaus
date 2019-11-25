@@ -65,32 +65,26 @@ def begrenzung_sensor_bodenfeuchtigkeit_1():
 # Start Datenbegrenzung
 # ======================================================================
 def start_datenbegrenzung():
+    print('Start der Datenbegrenzung')
     try:
-        print("Daten von sensor_licht_1 älter als 30 Tage werden gelöscht... ",
-              end="", flush="True")
+        print('Daten von sensor_licht_1 älter als 30 Tage werden gelöscht')
         begrenzung_sensor_licht_1()
-        print("Fertig!")
     except:
         print('Fehler bei begrenzung_sensor_licht_1()')
     try:
-        print("Daten von sensor_temperatur_1 älter als 30 Tage werden gelöscht... ",
-              end="", flush="True")
+        print('Daten von sensor_temperatur_1 älter als 30 Tage werden gelöscht')
         begrenzung_sensor_temperatur_1()
-        print("Fertig!")
     except:
         print('Fehler bei begrenzung_sensor_temperatur_1()')
     try:
-        print("Daten von sensor_luftfeuchtigkeit_1 älter als 30 Tage werden gelöscht... ",
-              end="", flush="True")
+        print('Daten von sensor_luftfeuchtigkeit_1 älter als 30 Tage werden gelöscht')
         begrenzung_sensor_luftfeuchtigkeit_1()
-        print("Fertig!")
     except:
         print('Fehler bei begrenzung_sensor_luftfeuchtigkeit_1')
     try:
-        print("Daten von sensor_bodenfeuchtigkeit_1 älter als 30 Tage werden gelöscht... ",
-              end="", flush="True")
+        print('Daten von sensor_bodenfeuchtigkeit_1 älter als 30 Tage werden gelöscht')
         begrenzung_sensor_bodenfeuchtigkeit_1()
-        print("Fertig!")
     except:
         print('Fehler bei begrenzung_sensor_bodentfeuchtigkeit_1')
+    print('Datenbegrenzung beendet')
 # ======================================================================

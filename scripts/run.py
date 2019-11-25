@@ -18,16 +18,18 @@ import os
 
 # Zeit Aktualisierung bei Start
 # ======================================================================
-# try:
-#    start_zeit_update()
-# except:
-#    print('Fehler bei start_zeit_update()')
+try:
+    print('Zeit wird aktualisiert')
+    # start_zeit_update()
+except:
+    print('Fehler bei start_zeit_update()')
 # ======================================================================
 
 
 # Datenbegrenzung bei Start
 # ======================================================================
 try:
+    print('Datenbegrenzung wird ausgeführt')
     start_datenbegrenzung()
 except:
     print('Fehler bei start_datenbegrenzung()')
@@ -37,6 +39,7 @@ except:
 # Datenbankabfrage bei Start
 # ======================================================================
 try:
+    print('Betriebs- und Parameterdaten werden geladen')
     start_datenbank_abfrage()
 except:
     print('Fehler bei start_datenbank_abfrage()')
