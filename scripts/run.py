@@ -5,9 +5,9 @@
 
 # Import von benötigten Modulen
 # ======================================================================
-from sensor_abfrage import start_sensorabfrage
+#from sensor_abfrage import start_sensorabfrage
 from datenbegrenzung import start_datenbegrenzung
-from zeit_update import start_zeit_update
+#from zeit_update import start_zeit_update
 from datenbank_abfrage import start_datenbank_abfrage
 from aktor_ansteuerung import start_aktor_ansteuerung
 import schedule
@@ -18,10 +18,10 @@ import os
 
 # Zeit Aktualisierung bei Start
 # ======================================================================
-try:
-    start_zeit_update()
-except:
-    print('Fehler bei start_zeit_update()')
+# try:
+#    start_zeit_update()
+# except:
+#    print('Fehler bei start_zeit_update()')
 # ======================================================================
 
 
@@ -45,9 +45,9 @@ except:
 
 # Alle Aufträge mit Startintervall definiert
 # ======================================================================
-schedule.every(30).seconds.do(start_sensorabfrage)
+# schedule.every(30).seconds.do(start_sensorabfrage)
 schedule.every(2).hours.do(start_datenbegrenzung)
-schedule.every(2).hours.do(start_zeit_update)
+# schedule.every(2).hours.do(start_zeit_update)
 schedule.every(4).hours.do(start_datenbank_abfrage)
 schedule.every(10).seconds.do(start_aktor_ansteuerung)
 # ======================================================================
