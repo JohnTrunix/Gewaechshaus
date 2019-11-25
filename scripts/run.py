@@ -60,9 +60,8 @@ schedule.every(10).seconds.do(start_aktor_ansteuerung)
 # ======================================================================
 while True:
     try:
-        print('Starte ausstehende Aufträge')
         schedule.run_pending()
-        time.sleep(5)
+        time.sleep(2)
     except:
         print('Fehler bei schedule.run_pending()')
 # ======================================================================
