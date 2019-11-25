@@ -68,7 +68,7 @@ def get_parameter():
 # ======================================================================
 def start_get_betriebsmodus():
     try:
-        print('Aktive Betriebsmodusdaten werden von Datenbank geladen.')
+        print('Aktive Betriebsmodusdaten werden von Datenbank geladen')
         get_betriebsmodus()
         print('ID:', id)
         print('Slot:', parameter_slot)
@@ -85,7 +85,7 @@ def start_get_betriebsmodus():
 # ======================================================================
 def start_get_parameter():
     try:
-        print('Aktive Parameterdaten werden von Datenbank geladen.')
+        print('Aktive Parameterdaten werden von Datenbank geladen')
         get_parameter()
         print('Slot:', slot)
         print('Pflanze:', pflanze)
@@ -101,8 +101,8 @@ def start_get_parameter():
 # Start Datenbank Abfrage
 # ======================================================================
 def start_datenbank_abfrage():
-	print('Start der Datenbankabfrage')
-	start_get_betriebsmodus()
-	start_get_parameter()
-	print('Datenbankabfrage beendet')
+    print('Start der Datenbankabfrage')
+    start_get_betriebsmodus()
+    start_get_parameter()
+    print('Datenbankabfrage beendet')
 # ======================================================================
