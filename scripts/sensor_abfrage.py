@@ -6,7 +6,7 @@
 # Import von benötigten Modulen
 # ======================================================================
 from python_tsl2591 import tsl2591
-import adafruit_si7021
+import adafruit_sht31d
 import adafruit_ads1x15.ads1115 as ADS
 from adafruit_ads1x15.analog_in import AnalogIn
 import board
@@ -32,7 +32,7 @@ mydb = mysql.connector.connect(
 # I2C Bus Konfiguration
 # ======================================================================
 i2c = busio.I2C(board.SCL, board.SDA)
-sensor_temperatur_luftfeuchtigkeit = adafruit_si7021.SI7021(i2c)
+sensor_temperatur_luftfeuchtigkeit = adafruit_sht31d.SHT31D(i2c)
 ads = ADS.ADS1115(i2c)
 # ======================================================================
 
@@ -71,20 +71,16 @@ def lichtsensor_abfrage():
 # ======================================================================
 def temperatur_abfrage():
     global temperatur_gerundet
-    aktuelle_temperatur = (
-        sensor_temperatur_luftfeuchtigkeit.temperature)
-    temperatur_gerundet = (round(aktuelle_temperatur, 1))
+    temperatur_gerundet = (round(sensor_temperatur_luftfeuchtigkeit.temperature, 1))
     datenbank_temperatursensor_einfuegen()
 # ======================================================================
 
 
-# Luftfeuchtigkeitsensor wird abgefragt und die Datenbank Funktion wird aufgerufen
+# Luftfeuchtigkeitssensor wird abgefragt und die Datenbank Funktion wird aufgerufen
 # ======================================================================
 def luftfeuchtigkeit_abfrage():
     global luftfeuchtigkeit_gerundet
-    aktuelle_luftfeuchtigkeit = (
-        sensor_temperatur_luftfeuchtigkeit.relative_humidity)
-    luftfeuchtigkeit_gerundet = (round(aktuelle_luftfeuchtigkeit, 1))
+    luftfeuchtigkeit_gerundet = (round(sensor_temperatur_luftfeuchtigkeit.relative_humidity, 1))
     datenbank_luftfeuchtesensor_einfuegen()
 # ======================================================================
 

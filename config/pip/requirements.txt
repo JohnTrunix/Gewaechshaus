@@ -4,8 +4,14 @@ adafruit-blinka
 
 adafruit-circuitpython-ads1x15
 adafruit-circuitpython-tsl2591
-adafruit-circuitpython-si7021
 adafruit-circuitpython-pcf8523
+adafruit-circuitpython-sht31d
+adafruit-circuitpython-pca9685
+
+adafruit-circuitpython-busdevice
+adafruit-circuitpython-register
+adafruit-circuitpython-motor
+adafruit-circuitpython-servokit
 
 mysql-connector
 schedule

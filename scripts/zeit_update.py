@@ -25,9 +25,6 @@ t = rtc.datetime
 # ======================================================================
 
 
-print('Zeit Update wird ausgeführt')
-
-
 # Überprüfe Internetverbindung
 # ======================================================================
 def start_zeit_update():

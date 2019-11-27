@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.6.6deb4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Erstellungszeit: 24. Nov 2019 um 11:42
--- Server-Version: 10.4.6-MariaDB
--- PHP-Version: 7.3.9
+-- Host: localhost:3306
+-- Erstellungszeit: 27. Nov 2019 um 23:30
+-- Server-Version: 10.1.38-MariaDB-0+deb9u1
+-- PHP-Version: 7.0.33-0+deb9u6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -42,7 +40,7 @@ CREATE TABLE `betriebsmodus` (
 --
 
 INSERT INTO `betriebsmodus` (`ID`, `parameter_slot`, `programm_status`, `datetime`, `programm_datum_ende`, `programm_zeit_ende`) VALUES
-(1, 1, 0, '0000-00-00 00:00:00', '0000-00-00', '00:00:00');
+(1, 2, 1, '2019-11-27 23:27:47', '2019-11-28', '14:00:00');
 
 -- --------------------------------------------------------
 
@@ -64,16 +62,16 @@ CREATE TABLE `parameter` (
 --
 
 INSERT INTO `parameter` (`slot`, `pflanze`, `temperatur`, `lichtstunden`, `wassermenge`, `luftfeuchtigkeit`) VALUES
-(1, 'Default1', '27', '4.8', '0.3', '56'),
-(2, 'Default2', '26', '5.3', '1', '56'),
-(3, 'Default3', '30', '19.1', '0.3', '70'),
-(4, 'Default4', '25', '5.9', '0.2', '55'),
-(5, 'Default5', '25', '5.2', '0.2', '59'),
-(6, 'Default6', '24', '23.6', '0.2', '63'),
-(7, 'Default7', '24', '19', '0.3', '60'),
-(8, 'Default8', '27', '6.3', '1', '61'),
-(9, 'Default9', '27', '5.2', '0.1', '54'),
-(10, 'Default10', '28', '7.8', '0.1', '68');
+(3, 'Default3', '26', '8', '6', '56'),
+(4, 'Default4', '31', '15', '6', '51'),
+(5, 'Default5', '29', '15', '6', '64'),
+(7, 'Default7', '28', '6', '6', '54'),
+(2, 'Default2', '31', '14', '4', '64'),
+(1, 'Default1', '30', '14', '3', '64'),
+(6, 'Default6', '32', '16', '4', '65'),
+(8, 'Default8', '33', '14', '7', '71'),
+(9, 'Default9', '29', '13', '8', '52'),
+(10, 'Default10', '27', '12', '9', '77');
 
 -- --------------------------------------------------------
 
@@ -118,7 +116,23 @@ CREATE TABLE `sensor_temperatur_1` (
   `sensorwert` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `datetime` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-COMMIT;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `zwischenspeicher`
+--
+
+CREATE TABLE `zwischenspeicher` (
+  `licht_zaehler` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Daten für Tabelle `zwischenspeicher`
+--
+
+INSERT INTO `zwischenspeicher` (`licht_zaehler`) VALUES
+(2);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
