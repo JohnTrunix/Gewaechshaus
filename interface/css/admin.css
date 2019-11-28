@@ -39,5 +39,7 @@
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
-	background-color: rgba(0, 128, 0, 0.13);
+	font-size: 11px;
+	font-family: Schrift_Bold;
+	color: #364366;
 }
