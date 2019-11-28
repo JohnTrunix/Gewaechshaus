@@ -4,3 +4,5 @@ i2c Status
 Grundtsellung bei Start
 php herunterfahren -> DB Eintrag -> grundstellung -> herunterfahren
 db aufräumen
+Licht Parameter im 0.5h Takt
+Alle Stunde Lüfter Gross und Tür auf -> lüften
