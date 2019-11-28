@@ -1,9 +1,9 @@
-// Mit der Funktion grafana_adresse wird die IFRAME Adresse für die Seite
-// Statistik.html generiert.
+// Mit der Funktion ip_adresse wird die IFRAME Adresse für die Seite
+// Statistik.html generiert. Zudem kann die Ip Adresse abgefragt werden.
 
-// Adress generieren
+//  IP Adresse abfragen und Grafana Adresse definieren
 //======================================================================
-function grafana_adresse() {
+function ip_adresse() {
 	// Neuer XMLHttpRequest erstellen
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", "/api/api.php?ip_adresse_read", true);
