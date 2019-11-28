@@ -40,7 +40,7 @@ CREATE TABLE `betriebsmodus` (
 --
 
 INSERT INTO `betriebsmodus` (`ID`, `parameter_slot`, `programm_status`, `datetime`, `programm_datum_ende`, `programm_zeit_ende`) VALUES
-(1, 2, 1, '2019-11-27 23:27:47', '2019-11-28', '14:00:00');
+(1, 1, 0, '', '', '');
 
 -- --------------------------------------------------------
 
@@ -62,16 +62,16 @@ CREATE TABLE `parameter` (
 --
 
 INSERT INTO `parameter` (`slot`, `pflanze`, `temperatur`, `lichtstunden`, `wassermenge`, `luftfeuchtigkeit`) VALUES
-(3, 'Default3', '26', '8', '6', '56'),
-(4, 'Default4', '31', '15', '6', '51'),
-(5, 'Default5', '29', '15', '6', '64'),
-(7, 'Default7', '28', '6', '6', '54'),
-(2, 'Default2', '31', '14', '4', '64'),
-(1, 'Default1', '30', '14', '3', '64'),
-(6, 'Default6', '32', '16', '4', '65'),
-(8, 'Default8', '33', '14', '7', '71'),
-(9, 'Default9', '29', '13', '8', '52'),
-(10, 'Default10', '27', '12', '9', '77');
+(1, 'Slot1', '28', '12', '5', '60'),
+(2, 'Slot2', '28', '12', '5', '60'),
+(3, 'Slot3', '28', '12', '5', '60'),
+(4, 'Slot4', '28', '12', '5', '60'),
+(5, 'Slot5', '28', '12', '5', '60'),
+(6, 'Slot6', '28', '12', '5', '60'),
+(7, 'Slot7', '28', '12', '5', '60'),
+(8, 'Slot8', '28', '12', '5', '60'),
+(9, 'Slot9', '28', '12', '5', '60'),
+(10, 'Slot10', '28', '12', '5', '60');
 
 -- --------------------------------------------------------
 
@@ -132,7 +132,7 @@ CREATE TABLE `zwischenspeicher` (
 --
 
 INSERT INTO `zwischenspeicher` (`licht_zaehler`) VALUES
-(2);
+(0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
