@@ -5,6 +5,8 @@
 		<title>Gewaechshaus Raspberry Pi 3B+</title>
 		<link rel="stylesheet" href="/css/index.css" />
 		<link rel="stylesheet" href="/css/navigation.css" />
+		<link rel="stylesheet" href="/css/admin.css" />
+		<script src="/js/jquery.min.js"></script>
 		<script src="/js/jquery.min.js"></script>
 	</head>
 	<body style="background-color:white;">
@@ -29,6 +31,49 @@
 				onclick="window.location='/admin.html';"
 			>
 				<img src="/img/dots.svg" class="menubild" />
+			</div>
+		</div>
+
+		<div class="button_box">
+			<button class="button" type="button" onclick="">
+				Herunterfahren
+			</button>
+
+			<button class="button" type="button" onclick="">
+				Grundstellung
+			</button>
+
+			<button class="button" type="button" onclick="">
+				System Stop
+			</button>
+
+			<button class="button" type="button" onclick="">
+				System Start
+			</button>
+
+			<button class="button" type="button" onclick="">
+				Parameter Reset
+			</button>
+
+			<button class="button" type="button" onclick="">
+				I2C Liste
+			</button>
+
+			<button class="button" type="button" onclick="">
+				Fehlerlog reset
+			</button>
+		</div>
+
+		<div class="fehlerlog_box"></div>
+
+		<div class="informationen_box">
+			<div class="ip_adresse_box">
+				<a class="info_titel">IP Adresse:</a>
+				<a class="ip_adress"></a>
+			</div>
+			<div class="zeit_box">
+				<a class="info_titel">Systemzeit:</a>
+				<a class="zeit"></a>
 			</div>
 		</div>
 	</body>
