@@ -1,7 +1,7 @@
-// Mit der Funktion ip_adresse wird die IFRAME Adresse für die Seite
-// Statistik.html generiert. Zudem kann die Ip Adresse abgefragt werden.
+// Mit der Funktion ip_adresse wird die Grafana Adresse für die Statistik
+// und die IP Adresse für das Admin Panel definiert.
 
-//  IP Adresse abfragen und Grafana Adresse definieren
+//  IP Adresse definieren
 //======================================================================
 function ip_adresse() {
 	// Neuer XMLHttpRequest erstellen
@@ -15,12 +15,17 @@ function ip_adresse() {
 			// Die empfangene IP Adresse der Variable zuweisen
 			ip_adresse = xhr.responseText;
 
-			// Die IFRAME Adresse generieren
-			document.getElementById("iframe").src =
-				"http://" +
-				ip_adresse +
-				":3000/d/FLXpjTtWk/sensorwerte?orgId=1&kiosk=tv";
-			return ip_adresse;
+			var url = window.location.href;
+			if (url.search("statistik") > 0) {
+				// IP Adresse für die Statistikseite
+				document.getElementById("iframe").src =
+					"http://" +
+					ip_adresse +
+					":3000/d/FLXpjTtWk/sensorwerte?orgId=1&kiosk=tv";
+			} else if (url.search("admin") > 0) {
+				// IP Adresse für das Adminpanel
+				document.getElementById("ip_adress").innerHTML = ip_adresse;
+			}
 		}
 	};
 
