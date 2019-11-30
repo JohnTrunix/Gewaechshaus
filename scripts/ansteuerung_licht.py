@@ -22,7 +22,7 @@ def reset_licht_zaehler():
         mydb.commit()
     except:
         neue_fehlermeldung(
-            "Lichtzähler in Datenbank konnte nicht zurückgesetzt werden.")
+            "[ansteuerung_licht] Lichtzähler in Datenbank konnte nicht zurückgesetzt werden.")
 
 
 def aktueller_fortschritt():
@@ -43,7 +43,7 @@ def aktueller_fortschritt():
         update_licht_zaehler()
     except:
         neue_fehlermeldung(
-            "Aktueller Fortschritt bei der Lichtsteuerung konnte nicht ermittelt werden.")
+            "[ansteuerung_licht] Aktueller Fortschritt bei der Lichtsteuerung konnte nicht ermittelt werden.")
     finally:
         if (connection.is_connected()):
             connection.close()
@@ -60,7 +60,7 @@ def update_licht_zaehler():
         mydb.commit()
     except:
         neue_fehlermeldung(
-            "Der Fortschritt der Lichtsteuerung konnte nicht an die Datenbank übermittelt werden.")
+            "[ansteuerung_licht] Der Fortschritt der Lichtsteuerung konnte nicht an die Datenbank übermittelt werden.")
 
 
 def start_lichtsteuerung():
@@ -83,4 +83,4 @@ def start_lichtsteuerung():
             grundstellung()
     except:
         neue_fehlermeldung(
-            "Die Lichtsteuerung konnte die Ausgänge nicht ansteuern.")
+            "[ansteuerung_licht] Die Lichtsteuerung konnte die Ausgänge nicht ansteuern.")
