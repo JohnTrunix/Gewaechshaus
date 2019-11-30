@@ -47,7 +47,7 @@ def tuer_offen():
         kit.servo[1].angle = 90
     except:
         neue_fehlermeldung(
-            "[ansteuerung_pwm_shield] Türen können nicht geöffnet werden.")
+            "[ansteuerung_pwm_shield] Türen konnten nicht geöffnet werden.")
 
 
 def tuer_geschlossen():
@@ -56,7 +56,7 @@ def tuer_geschlossen():
         kit.servo[1].angle = 0
     except:
         neue_fehlermeldung(
-            "[ansteuerung_pwm_shield] Türen können nicht geschlossen werden.")
+            "[ansteuerung_pwm_shield] Türen konnten nicht geschlossen werden.")
 
 
 def luefter_gross_ein():
