@@ -4,6 +4,7 @@ from ansteuerung_pwm_shield import licht_ein, licht_aus, grundstellung
 import time
 import datetime
 import mysql.connector
+from fehlermeldungen import neue_fehlermeldung
 
 mydb = mysql.connector.connect(
     host="localhost",
@@ -12,6 +13,7 @@ mydb = mysql.connector.connect(
     database="datenbank"
 )
 
+
 def reset_licht_zaehler():
     try:
         mycursor = mydb.cursor()
@@ -19,7 +21,9 @@ def reset_licht_zaehler():
         mycursor.execute(sql)
         mydb.commit()
     except:
-        print("Fehler bei reset_licht_zaehler()")
+        neue_fehlermeldung(
+            "Lichtzähler in Datenbank konnte nicht zurückgesetzt werden.")
+
 
 def aktueller_fortschritt():
     try:
@@ -38,22 +42,26 @@ def aktueller_fortschritt():
             licht_zaehler = (row[0])
         update_licht_zaehler()
     except:
-        print("Fehler bei aktueller_fortschritt()")
+        neue_fehlermeldung(
+            "Aktueller Fortschritt bei der Lichtsteuerung konnte nicht ermittelt werden.")
     finally:
         if (connection.is_connected()):
             connection.close()
             cursor.close()
 
+
 def update_licht_zaehler():
     try:
         global neue_zaehler_zeit
-        neue_zaehler_zeit = (licht_zaehler + 30)      
+        neue_zaehler_zeit = (licht_zaehler + 30)
         mycursor = mydb.cursor()
         sql = "update zwischenspeicher set licht_zaehler = %s" % neue_zaehler_zeit
         mycursor.execute(sql)
         mydb.commit()
     except:
-        print("Fehler bei update_licht_zaehler()")
+        neue_fehlermeldung(
+            "Der Fortschritt der Lichtsteuerung konnte nicht an die Datenbank übermittelt werden.")
+
 
 def start_lichtsteuerung():
     try:
@@ -74,4 +82,5 @@ def start_lichtsteuerung():
         else:
             grundstellung()
     except:
-        print("Fehler bei start_lichtsteuerung()")
+        neue_fehlermeldung(
+            "Die Lichtsteuerung konnte die Ausgänge nicht ansteuern.")
