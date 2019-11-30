@@ -251,10 +251,8 @@ elseif (isset($_GET['fehlermeldungen_read'])) {
     if (mysqli_num_rows($result) > 0) {
         // output data of each row
         while ($row = mysqli_fetch_assoc($result)) {
-            echo $row["datetime"] . " - " . $row["meldung"] . "<br>";
+            echo "<a>" . $row["datetime"] . " - " . $row["meldung"] . "</a>" . "<br>";
         }
-    } else {
-        echo "Keine Meldungen";
     }
 
     mysqli_close($conn);

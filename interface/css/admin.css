@@ -37,10 +37,30 @@
 	left: 50%;
 	transform: translateX(-50%);
 	height: 353px;
-	width: 500px;
+	width: 480px;
 	border: 2px solid #364366;
 	border-bottom-right-radius: 5px;
 	border-bottom-left-radius: 5px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+.meldungen::-webkit-scrollbar {
+	width: 5px;
+}
+
+.meldungen::-webkit-scrollbar-thumb {
+	border-radius: 5px;
+	background-color: #364366;
+}
+
+.meldungen a {
+	color: #364366;
+	font-size: 12px;
+	font-family: Schrift_Bold;
+	padding: 5px;
+	display: inline-block;
+	word-break: break-all;
 }
 
 .meldungen-titel {
@@ -48,7 +68,7 @@
 	left: 50%;
 	transform: translateX(-50%);
 	top: 23px;
-	width: 500px;
+	width: 480px;
 	height: 35px;
 	font-size: 15px;
 	font-family: Schrift_Bold;
