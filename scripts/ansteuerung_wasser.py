@@ -1,13 +1,21 @@
-import datenbank_abfrage
-import sensor_abfrage
-from ansteuerung_pwm_shield import ventil_wasserpumpe_offen, ventil_wasserpumpe_geschlossen, ventil_befeuchter_offen, ventil_befeuchter_geschlossen, wasserpumpe_ein, wasserpumpe_aus, grundstellung
 from fehlermeldungen import neue_fehlermeldung
-import time
-import RPi.GPIO as GPIO
+try:
+    import datenbank_abfrage
+    import sensor_abfrage
+    from ansteuerung_pwm_shield import ventil_wasserpumpe_offen, ventil_wasserpumpe_geschlossen, ventil_befeuchter_offen, ventil_befeuchter_geschlossen, wasserpumpe_ein, wasserpumpe_aus, grundstellung
+    import time
+    import RPi.GPIO as GPIO
+except:
+    neue_fehlermeldung(
+        "[ansteuerung_wasser] Fehler bei der importierung von Modulen.")
 
-GPIO.setwarnings(False)
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(21, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+try:
+    GPIO.setwarnings(False)
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(21, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+except:
+    neue_fehlermeldung(
+        "[ansteuerung_wasser] Fehler bei der GPIO definierung.")
 
 
 def start_ansteuerung_wasser():

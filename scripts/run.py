@@ -3,21 +3,27 @@
 # Abläufe aus.
 
 
+from fehlermeldungen import neue_fehlermeldung
+
+
 # Import von benötigten Modulen
 # ======================================================================
-from sensor_abfrage import start_sensorabfrage
-from datenbegrenzung import start_datenbegrenzung
-from zeit_update import start_zeit_update
-from datenbank_abfrage import start_datenbank_abfrage
-from ansteuerung_temp_luft import start_ansteuerung_temp_luft
-from ansteuerung_licht import reset_licht_zaehler
-from ansteuerung_wasser import start_ansteuerung_wasser, start_auffuellen_befeuchter
-from ansteuerung_pwm_shield import grundstellung
-from ansteuerung_licht import start_lichtsteuerung
-from fehlermeldungen import neue_fehlermeldung
-import schedule
-import time
-import os
+try:
+    from sensor_abfrage import start_sensorabfrage
+    from datenbegrenzung import start_datenbegrenzung
+    from zeit_update import start_zeit_update
+    from datenbank_abfrage import start_datenbank_abfrage
+    from ansteuerung_temp_luft import start_ansteuerung_temp_luft
+    from ansteuerung_licht import reset_licht_zaehler
+    from ansteuerung_wasser import start_ansteuerung_wasser, start_auffuellen_befeuchter
+    from ansteuerung_pwm_shield import grundstellung
+    from ansteuerung_licht import start_lichtsteuerung
+    import schedule
+    import time
+    import os
+except:
+    neue_fehlermeldung(
+        "[run] Fehler bei der importierung von Modulen.")
 # ======================================================================
 
 

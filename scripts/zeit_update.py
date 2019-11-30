@@ -5,24 +5,34 @@
 # und als Systemzeit geschrieben.
 
 
+from fehlermeldungen import neue_fehlermeldung
+
+
 # Import von benötigten Modulen
 # ======================================================================
-import busio
-import adafruit_pcf8523
-import time
-import datetime
-import board
-import socket
-import os
-from fehlermeldungen import neue_fehlermeldung
+try:
+    import busio
+    import adafruit_pcf8523
+    import time
+    import datetime
+    import board
+    import socket
+    import os
+except:
+    neue_fehlermeldung(
+        "[zeit_update] Fehler bei der importierung von Modulen.")
 # ======================================================================
 
 
 # I2C Bus Konfiguration
 # ======================================================================
-myI2C = busio.I2C(board.SCL, board.SDA)
-rtc = adafruit_pcf8523.PCF8523(myI2C)
-t = rtc.datetime
+try:
+    myI2C = busio.I2C(board.SCL, board.SDA)
+    rtc = adafruit_pcf8523.PCF8523(myI2C)
+    t = rtc.datetime
+except:
+    neue_fehlermeldung(
+        "[zeit_update] Fehler bei der initialen I2C Bus Konfiguration.")
 # ======================================================================
 
 

@@ -1,28 +1,33 @@
-from adafruit_servokit import ServoKit
-import board
-import busio
-import time
-import adafruit_pca9685
 from fehlermeldungen import neue_fehlermeldung
-i2c = busio.I2C(board.SCL, board.SDA)
-shield = adafruit_pca9685.PCA9685(i2c)
+try:
+    from adafruit_servokit import ServoKit
+    import board
+    import busio
+    import time
+    import adafruit_pca9685
+except:
+    neue_fehlermeldung(
+        "[ansteuerung_pwm_shield] Fehler bei der importierung von Modulen.")
 
-shield.frequency = 60
-
-kit = ServoKit(channels=16)
-
-kit.servo[0].actuation_range = 180
-kit.servo[1].actuation_range = 180
-
-luefter_gross = shield.channels[4]
-luefter_klein = shield.channels[5]
-wasserpumpe = shield.channels[6]
-ventil_wasserpumpe = shield.channels[7]
-ventil_befeuchter = shield.channels[8]
-licht = shield.channels[9]
-heizung1 = shield.channels[10]
-heizung2 = shield.channels[11]
-befeuchter = shield.channels[12]
+try:
+    i2c = busio.I2C(board.SCL, board.SDA)
+    shield = adafruit_pca9685.PCA9685(i2c)
+    shield.frequency = 60
+    kit = ServoKit(channels=16)
+    kit.servo[0].actuation_range = 180
+    kit.servo[1].actuation_range = 180
+    luefter_gross = shield.channels[4]
+    luefter_klein = shield.channels[5]
+    wasserpumpe = shield.channels[6]
+    ventil_wasserpumpe = shield.channels[7]
+    ventil_befeuchter = shield.channels[8]
+    licht = shield.channels[9]
+    heizung1 = shield.channels[10]
+    heizung2 = shield.channels[11]
+    befeuchter = shield.channels[12]
+except:
+    neue_fehlermeldung(
+        "[ansteuerung_pwm_shield] Fehler bei der initialen definierung.")
 
 
 def grundstellung():

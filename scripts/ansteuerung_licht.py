@@ -1,17 +1,25 @@
-import datenbank_abfrage
-import sensor_abfrage
-from ansteuerung_pwm_shield import licht_ein, licht_aus, grundstellung
-import time
-import datetime
-import mysql.connector
 from fehlermeldungen import neue_fehlermeldung
+try:
+    import datenbank_abfrage
+    import sensor_abfrage
+    from ansteuerung_pwm_shield import licht_ein, licht_aus, grundstellung
+    import time
+    import datetime
+    import mysql.connector
+except:
+    neue_fehlermeldung(
+        "[ansteuerung_licht] Fehler bei der importierung von Modulen.")
 
-mydb = mysql.connector.connect(
-    host="localhost",
-    user="datenbank",
-    passwd="rasp",
-    database="datenbank"
-)
+try:
+    mydb = mysql.connector.connect(
+        host="localhost",
+        user="datenbank",
+        passwd="rasp",
+        database="datenbank"
+    )
+except:
+    neue_fehlermeldung(
+        "[ansteuerung_licht] Fehler bei der Datenbankverbindung.")
 
 
 def reset_licht_zaehler():

@@ -3,48 +3,53 @@
 # abgefragt und in die MYSQL Datenbank geschrieben.
 
 
+from fehlermeldungen import neue_fehlermeldung
+
+
 # Import von benötigten Modulen
 # ======================================================================
-from python_tsl2591 import tsl2591
-import adafruit_sht31d
-import adafruit_ads1x15.ads1115 as ADS
-from adafruit_ads1x15.analog_in import AnalogIn
-import board
-import busio
-import time
-import datetime
-import mysql.connector
-from fehlermeldungen import neue_fehlermeldung
-import subprocess
+try:
+    from python_tsl2591 import tsl2591
+    import adafruit_sht31d
+    import adafruit_ads1x15.ads1115 as ADS
+    from adafruit_ads1x15.analog_in import AnalogIn
+    import board
+    import busio
+    import time
+    import datetime
+    import mysql.connector
+except:
+    neue_fehlermeldung(
+        "[sensor_abfrage] Fehler bei der importierung von Modulen.")
 # ======================================================================
 
 
-# MYSQL Konfiguration
-# ======================================================================
-mydb = mysql.connector.connect(
-    host="localhost",
-    user="datenbank",
-    passwd="rasp",
-    database="datenbank"
-)
-# ======================================================================
+try:
+    mydb = mysql.connector.connect(
+        host="localhost",
+        user="datenbank",
+        passwd="rasp",
+        database="datenbank"
+    )
+except:
+    neue_fehlermeldung(
+        "[sensor_abfrage] Fehler bei der Datenbankverbindung.")
 
 
 # I2C Bus Konfiguration
 # ======================================================================
-i2c = busio.I2C(board.SCL, board.SDA)
-sensor_temperatur_luftfeuchtigkeit = adafruit_sht31d.SHT31D(i2c)
-ads = ADS.ADS1115(i2c)
-# ======================================================================
-
-
-# A/D Wandler Konfiguration
-# ======================================================================
-ads.gain = 1
-sensor1 = AnalogIn(ads, ADS.P0)
-sensor2 = AnalogIn(ads, ADS.P1)
-sensor3 = AnalogIn(ads, ADS.P2)
-sensor4 = AnalogIn(ads, ADS.P3)
+try:
+    i2c = busio.I2C(board.SCL, board.SDA)
+    sensor_temperatur_luftfeuchtigkeit = adafruit_sht31d.SHT31D(i2c)
+    ads = ADS.ADS1115(i2c)
+    ads.gain = 1
+    sensor1 = AnalogIn(ads, ADS.P0)
+    sensor2 = AnalogIn(ads, ADS.P1)
+    sensor3 = AnalogIn(ads, ADS.P2)
+    sensor4 = AnalogIn(ads, ADS.P3)
+except:
+    neue_fehlermeldung(
+        "[sensor_abfrage] Fehler bei der initialen I2C Bus Konfiguration.")
 # ======================================================================
 
 

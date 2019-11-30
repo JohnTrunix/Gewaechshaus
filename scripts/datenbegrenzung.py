@@ -2,24 +2,34 @@
 # welche älter als 30 Tage alt sind automatisch.
 
 
+from fehlermeldungen import neue_fehlermeldung
+
+
 # Import von benötigten Modulen
 # ======================================================================
-import time
-from datetime import datetime
-import mysql.connector
-import subprocess
-from fehlermeldungen import neue_fehlermeldung
+try:
+    import time
+    from datetime import datetime
+    import mysql.connector
+    import subprocess
+except:
+    neue_fehlermeldung(
+        "[datenbegrenzung] Fehler bei der importierung von Modulen.")
 # ======================================================================
 
 
 # MYSQL Konfiguration
 # ======================================================================
-mydb = mysql.connector.connect(
-    host="localhost",
-    user="datenbank",
-    passwd="rasp",
-    database="datenbank"
-)
+try:
+    mydb = mysql.connector.connect(
+        host="localhost",
+        user="datenbank",
+        passwd="rasp",
+        database="datenbank"
+    )
+except:
+    neue_fehlermeldung(
+        "[datenbegrenzung] Fehler bei der Datenbankverbindung.")
 # ======================================================================
 
 

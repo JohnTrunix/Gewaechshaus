@@ -1,9 +1,16 @@
 # Die Datei datenbank_abfrage.py ist für die Abfrage von Parameter- und Betriebsmodus Daten zuständig.
 
+
+from fehlermeldungen import neue_fehlermeldung
+
+
 # Import von benötigten Modulen
 # ======================================================================
-import mysql.connector
-from fehlermeldungen import neue_fehlermeldung
+try:
+    import mysql.connector
+except:
+    neue_fehlermeldung(
+        "[datenbank_abfrage] Fehler bei der importierung von Modulen.")
 # ======================================================================
 
 
