@@ -14,6 +14,7 @@ import busio
 import time
 import datetime
 import mysql.connector
+from fehlermeldungen import neue_fehlermeldung
 import subprocess
 # ======================================================================
 
@@ -71,7 +72,8 @@ def lichtsensor_abfrage():
 # ======================================================================
 def temperatur_abfrage():
     global temperatur_gerundet
-    temperatur_gerundet = (round(sensor_temperatur_luftfeuchtigkeit.temperature, 1))
+    temperatur_gerundet = (
+        round(sensor_temperatur_luftfeuchtigkeit.temperature, 1))
     datenbank_temperatursensor_einfuegen()
 # ======================================================================
 
@@ -80,7 +82,8 @@ def temperatur_abfrage():
 # ======================================================================
 def luftfeuchtigkeit_abfrage():
     global luftfeuchtigkeit_gerundet
-    luftfeuchtigkeit_gerundet = (round(sensor_temperatur_luftfeuchtigkeit.relative_humidity, 1))
+    luftfeuchtigkeit_gerundet = (
+        round(sensor_temperatur_luftfeuchtigkeit.relative_humidity, 1))
     datenbank_luftfeuchtesensor_einfuegen()
 # ======================================================================
 
@@ -153,31 +156,29 @@ def datenbank_bodenfeuchtigkeitsensor_einfuegen():
 # Starte alle Abfrage Funktionen
 # ======================================================================
 def start_sensorabfrage():
-    print('Start der Sensorabfrage')
     try:
-        print('Aktuelle Zeit wird abgefragt')
         systemzeit_abfrage()
     except:
-        print('Fehler bei systemzeit_abfrage()')
+        neue_fehlermeldung(
+            "[sensor_abfrage] Fehler bei der Systemzeitabfrage.")
     try:
-        print('Aktuelle Lichtstärke wird abgefragt und an Datenbank gesendet')
         lichtsensor_abfrage()
     except:
-        print('Fehler bei lichtsensor_abfrage()')
+        neue_fehlermeldung(
+            "[sensor_abfrage] Fehler bei der Abfrage des Lichtsensor.")
     try:
-        print('Aktuelle Temperatur wird abgefragt und an Datenbank gesendet')
         temperatur_abfrage()
     except:
-        print('Fehler bei temperatur_abfrage()')
+        neue_fehlermeldung(
+            "[sensor_abfrage] Fehler bei der Abfrage des Temperatursensor.")
     try:
-        print('Aktuelle Luftfeuchtigkeit wird abgefragt und an Datenbank gesendet')
         luftfeuchtigkeit_abfrage()
     except:
-        print('Fehler bei luftfeuchtigkeit_abfrage()')
+        neue_fehlermeldung(
+            "[sensor_abfrage] Fehler bei der Abfrage des Luftfeuchtigkeitssensor.")
     try:
-        print('Aktuelle Bodenfeuchtigkeit wird abgefragt und an Datenbank gesendet')
         bodenfeuchtigkeit_abfrage()
     except:
-        print('Fehler bei bodenfeuchtigkeit_abfrage()')
-    print('Sensorabfrage beendet')
+        neue_fehlermeldung(
+            "[sensor_abfrage] Fehler bei der Abfrage des Bodenfeuchtigkeitssensor.")
 # ======================================================================
