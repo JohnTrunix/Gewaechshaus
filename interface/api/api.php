@@ -296,6 +296,21 @@ elseif (isset($_GET['datenbank_reset_write'])) {
 }
 //======================================================================
 
+// Fehlermeldungen löschen
+//======================================================================
+elseif (isset($_GET['fehlermeldung_reset_write'])) {
+    $sql1 = "DELETE FROM `fehlermeldungen`";
+
+    if (mysqli_query($conn, $sql1)) {
+        header("Location: /admin.html?erfolgreich");
+    } else {
+        header("Location: /admin.html?fehler");
+        die();
+    }
+    mysqli_close($conn);
+}
+//======================================================================
+
 // Falscher API Request
 //======================================================================
 else {
