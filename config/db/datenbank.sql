@@ -25,7 +25,7 @@ INSERT INTO `betriebsmodus` (`ID`, `parameter_slot`, `programm_status`, `datetim
 
 CREATE TABLE `fehlermeldungen` (
   `datetime` datetime NOT NULL,
-  `meldung` text COLLATE utf8mb4_unicode_ci NOT NULL
+  `meldung` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `parameter` (
