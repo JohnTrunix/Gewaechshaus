@@ -15,4 +15,3 @@ adafruit-circuitpython-servokit
 
 mysql-connector
 schedule
-argparse
