@@ -60,7 +60,7 @@
 	font-family: Schrift_Bold;
 	padding: 5px;
 	display: inline-block;
-	word-break: break-all;
+	word-break: break-word;
 }
 
 .meldungen-titel {
