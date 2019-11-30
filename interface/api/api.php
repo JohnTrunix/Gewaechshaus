@@ -286,17 +286,12 @@ elseif (isset($_GET['datenbank_reset_write'])) {
     $sql11 = "INSERT INTO `zwischenspeicher` (`licht_zaehler`) VALUES
 	(0);";
 
-    mysqli_query($conn, $sql1);
-    mysqli_query($conn, $sql2);
-    mysqli_query($conn, $sql3);
-    mysqli_query($conn, $sql4);
-    mysqli_query($conn, $sql5);
-    mysqli_query($conn, $sql6);
-    mysqli_query($conn, $sql7);
-    mysqli_query($conn, $sql8);
-    mysqli_query($conn, $sql9);
-    mysqli_query($conn, $sql10);
-    mysqli_query($conn, $sql11);
+    if (mysqli_query($conn, $sql1) && mysqli_query($conn, $sql2) && mysqli_query($conn, $sql3) && mysqli_query($conn, $sql4) && mysqli_query($conn, $sql5) && mysqli_query($conn, $sql6) && mysqli_query($conn, $sql7) && mysqli_query($conn, $sql8) && mysqli_query($conn, $sql9) && mysqli_query($conn, $sql10) && mysqli_query($conn, $sql11)) {
+        header("Location: /admin.html?erfolgreich");
+    } else {
+        header("Location: /admin.html?fehler");
+        die();
+    }
     mysqli_close($conn);
 }
 //======================================================================
