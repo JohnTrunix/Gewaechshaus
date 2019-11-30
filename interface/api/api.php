@@ -259,6 +259,48 @@ elseif (isset($_GET['fehlermeldungen_read'])) {
 }
 //======================================================================
 
+// Datenbank reset
+//======================================================================
+elseif (isset($_GET['datenbank_reset_write'])) {
+    $sql1 = "DELETE FROM `betriebsmodus`";
+    $sql2 = "DELETE FROM `fehlermeldungen`";
+    $sql3 = "DELETE FROM `parameter`";
+    $sql4 = "DELETE FROM `sensor_bodenfeuchtigkeit_1`";
+    $sql5 = "DELETE FROM `sensor_licht_1`";
+    $sql6 = "DELETE FROM `sensor_luftfeuchtigkeit_1`";
+    $sql7 = "DELETE FROM `sensor_temperatur_1`";
+    $sql8 = "DELETE FROM `zwischenspeicher`";
+    $sql9 = "INSERT INTO `betriebsmodus` (`ID`, `parameter_slot`, `programm_status`, `datetime`, `programm_datum_ende`, `programm_zeit_ende`) VALUES
+	(1, 1, 0, '0000-00-00 00:00:00', '0000-00-00', '00:00:00');";
+    $sql10 = "INSERT INTO `parameter` (`slot`, `pflanze`, `temperatur`, `lichtstunden`, `wassermenge`, `luftfeuchtigkeit`) VALUES
+	(1, 'Slot1', '28', '12', '5', '60'),
+	(2, 'Slot2', '28', '12', '5', '60'),
+	(3, 'Slot3', '28', '12', '5', '60'),
+	(4, 'Slot4', '28', '12', '5', '60'),
+	(5, 'Slot5', '28', '12', '5', '60'),
+	(6, 'Slot6', '28', '12', '5', '60'),
+	(7, 'Slot7', '28', '12', '5', '60'),
+	(8, 'Slot8', '28', '12', '5', '60'),
+	(9, 'Slot9', '28', '12', '5', '60'),
+	(10, 'Slot10', '28', '12', '5', '60');";
+    $sql11 = "INSERT INTO `zwischenspeicher` (`licht_zaehler`) VALUES
+	(0);";
+
+    mysqli_query($conn, $sql1);
+    mysqli_query($conn, $sql2);
+    mysqli_query($conn, $sql3);
+    mysqli_query($conn, $sql4);
+    mysqli_query($conn, $sql5);
+    mysqli_query($conn, $sql6);
+    mysqli_query($conn, $sql7);
+    mysqli_query($conn, $sql8);
+    mysqli_query($conn, $sql9);
+    mysqli_query($conn, $sql10);
+    mysqli_query($conn, $sql11);
+    mysqli_close($conn);
+}
+//======================================================================
+
 // Falscher API Request
 //======================================================================
 else {
