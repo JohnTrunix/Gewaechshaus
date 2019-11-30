@@ -242,6 +242,25 @@ elseif (isset($_GET['ip_adresse_read'])) {
 }
 //======================================================================
 
+// Lese Fehlermeldungen
+//======================================================================
+elseif (isset($_GET['fehlermeldungen_read'])) {
+    $sql = "SELECT `datetime`, `meldung` FROM `fehlermeldungen` ORDER BY datetime";
+    $result = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($result) > 0) {
+        // output data of each row
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo $row["datetime"] . " - " . $row["meldung"] . "<br>";
+        }
+    } else {
+        echo "Keine Meldungen";
+    }
+
+    mysqli_close($conn);
+}
+//======================================================================
+
 // Falscher API Request
 //======================================================================
 else {

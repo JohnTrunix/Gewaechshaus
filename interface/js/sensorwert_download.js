@@ -86,6 +86,7 @@ function bodenfeuchtigkeit_download() {
 //======================================================================
 
 // Alle download Funktionen im 5s Takt ausführen.
+//======================================================================
 function sensorwert_download() {
 	lichtstaerke_download();
 	luftfeuchtigkeit_download();
