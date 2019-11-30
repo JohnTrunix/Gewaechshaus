@@ -3,6 +3,7 @@
 # Import von benötigten Modulen
 # ======================================================================
 import mysql.connector
+from fehlermeldungen import neue_fehlermeldung
 # ======================================================================
 
 
@@ -35,21 +36,13 @@ def get_betriebsmodus():
             datetime = (row[3])
             programm_datum_ende = (row[4])
             programm_zeit_ende = (row[5])
-
-        print('Aktive Betriebsmodusdaten werden von Datenbank geladen')
-        print('ID:', id)
-        print('Slot:', parameter_slot)
-        print('Status:', programm_status)
-        print('Start:', datetime)
-        print('Enddatum:', programm_datum_ende)
-        print('Endzeit:', programm_zeit_ende)
     except:
-        print("Fehler bei get_betriebsmodus()")
+        neue_fehlermeldung(
+            "[datenbank_abfrage] Daten zum Betriebsmodus konnten nicht aus der Datenbank gelesen werden.")
     finally:
         if (connection.is_connected()):
             connection.close()
             cursor.close()
-            print("Betriebsmodusdaten Abfrage beendet")
 # ======================================================================
 
 
@@ -70,7 +63,7 @@ def get_parameter():
         global lichtstunden
         global wassermenge
         global luftfeuchtigkeit
-        
+
         sql_select_Query = (
             "SELECT `slot`, `pflanze`, `temperatur`, `lichtstunden`, `wassermenge`, `luftfeuchtigkeit` FROM `parameter` WHERE slot = %s" % parameter_slot)
         cursor = connection.cursor()
@@ -83,29 +76,19 @@ def get_parameter():
             lichtstunden = (row[3])
             wassermenge = (row[4])
             luftfeuchtigkeit = (row[5])
-
-        print('Aktive Parameterdaten werden von Datenbank geladen')
-        print('Slot:', slot)
-        print('Pflanze:', pflanze)
-        print('Temperatur:', temperatur)
-        print('Lichtstunden:', lichtstunden)
-        print('Wassermenge:', wassermenge)
-        print('Luftfeuchtigkeit:', luftfeuchtigkeit)
     except:
-        print("Fehler bei get_parameter()")
+        neue_fehlermeldung(
+            "[datenbank_abfrage] Parameterdaten konnten nicht aus der Datenbank gelesen werden.")
     finally:
         if (connection.is_connected()):
             connection.close()
             cursor.close()
-            print("Betriebsmodusdaten Abfrage beendet")
 # ======================================================================
 
 
 # Start Datenbank Abfrage
 # ======================================================================
 def start_datenbank_abfrage():
-    print('Start der Datenbankabfrage')
     get_betriebsmodus()
     get_parameter()
-    print('Datenbankabfrage beendet')
 # ======================================================================
