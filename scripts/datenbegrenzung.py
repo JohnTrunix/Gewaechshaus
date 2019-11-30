@@ -70,20 +70,20 @@ def start_datenbegrenzung():
         begrenzung_sensor_licht_1()
     except:
         neue_fehlermeldung(
-            "[datenbegrenzung] Fehler bei der Begrenzung von Lichtsensordaten")
+            "[datenbegrenzung] Fehler bei der Begrenzung von Lichtsensordaten.")
     try:
         begrenzung_sensor_temperatur_1()
     except:
         neue_fehlermeldung(
-            "[datenbegrenzung] Fehler bei der Begrenzung von Temperatursensordaten")
+            "[datenbegrenzung] Fehler bei der Begrenzung von Temperatursensordaten.")
     try:
         begrenzung_sensor_luftfeuchtigkeit_1()
     except:
         neue_fehlermeldung(
-            "[datenbegrenzung] Fehler bei der Begrenzung von Luftfeuchtigkeitssensordaten")
+            "[datenbegrenzung] Fehler bei der Begrenzung von Luftfeuchtigkeitssensordaten.")
     try:
         begrenzung_sensor_bodenfeuchtigkeit_1()
     except:
         neue_fehlermeldung(
-            "[datenbegrenzung] Fehler bei der Begrenzung von Bodenfeuchtigkeitssensordaten")
+            "[datenbegrenzung] Fehler bei der Begrenzung von Bodenfeuchtigkeitssensordaten.")
 # ======================================================================

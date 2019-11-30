@@ -14,6 +14,7 @@ from ansteuerung_licht import reset_licht_zaehler
 from ansteuerung_wasser import start_ansteuerung_wasser, start_auffuellen_befeuchter
 from ansteuerung_pwm_shield import grundstellung
 from ansteuerung_licht import start_lichtsteuerung
+from fehlermeldungen import neue_fehlermeldung
 import schedule
 import time
 import os
@@ -23,30 +24,30 @@ import os
 # Zeit Aktualisierung bei Start
 # ======================================================================
 try:
-    print('Zeit wird aktualisiert')
     start_zeit_update()
 except:
-    print('Fehler bei start_zeit_update()')
+    neue_fehlermeldung(
+        "[run] Fehler bei der Anforderung der Zeitaktualisierung.")
 # ======================================================================
 
 
 # Datenbegrenzung bei Start
 # ======================================================================
 try:
-    print('Datenbegrenzung wird ausgeführt')
     start_datenbegrenzung()
 except:
-    print('Fehler bei start_datenbegrenzung()')
+    neue_fehlermeldung(
+        "[run] Fehler bei der Anforderung der Datenbegrenzung.")
 # ======================================================================
 
 
 # Datenbankabfrage bei Start
 # ======================================================================
 try:
-    print('Betriebs- und Parameterdaten werden geladen')
     start_datenbank_abfrage()
 except:
-    print('Fehler bei start_datenbank_abfrage()')
+    neue_fehlermeldung(
+        "[run] Fehler bei der Anforderung der Datenbankabfrage.")
 # ======================================================================
 
 
@@ -55,7 +56,8 @@ except:
 try:
     grundstellung()
 except:
-    print('Fehler bei grundstellung()')
+    neue_fehlermeldung(
+        "[run] Fehler bei der Anforderung der Grundstellung.")
 # ======================================================================
 
 
@@ -81,5 +83,6 @@ while True:
         schedule.run_pending()
         time.sleep(2)
     except:
-        print('Fehler bei schedule.run_pending()')
+        neue_fehlermeldung(
+            "[run] Kritischer Fehler bei der Ausführung der ausstehenden Aufträge (Evtl. Busfehler).")
 # ======================================================================
