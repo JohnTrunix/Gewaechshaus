@@ -1,5 +1,5 @@
-# Die Datei abfrage.py ist für die Sensorabfrage zuständig.
-# Wird start_sensorabfrage() ausgeführt, werden alle Sensorwerte
+# Die Datei abfrage.py ist fuer die Sensorabfrage zustaendig.
+# Wird start_sensorabfrage() ausgefuehrt, werden alle Sensorwerte
 # abgefragt und in die MYSQL Datenbank geschrieben.
 
 

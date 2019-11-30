@@ -52,7 +52,7 @@ def tuer_offen():
         kit.servo[1].angle = 90
     except:
         neue_fehlermeldung(
-            "[ansteuerung_pwm_shield] Türen konnten nicht geöffnet werden.")
+            "[ansteuerung_pwm_shield] Tueren konnten nicht geöffnet werden.")
 
 
 def tuer_geschlossen():
@@ -61,7 +61,7 @@ def tuer_geschlossen():
         kit.servo[1].angle = 0
     except:
         neue_fehlermeldung(
-            "[ansteuerung_pwm_shield] Türen konnten nicht geschlossen werden.")
+            "[ansteuerung_pwm_shield] Tueren konnten nicht geschlossen werden.")
 
 
 def luefter_gross_ein():
@@ -69,7 +69,7 @@ def luefter_gross_ein():
         luefter_gross.duty_cycle = 0
     except:
         neue_fehlermeldung(
-            "[ansteuerung_pwm_shield] Grosse Lüfter konnten nicht eingeschaltet werden.")
+            "[ansteuerung_pwm_shield] Grosse Luefter konnten nicht eingeschaltet werden.")
 
 
 def luefter_gross_aus():
@@ -77,7 +77,7 @@ def luefter_gross_aus():
         luefter_gross.duty_cycle = 0xffff
     except:
         neue_fehlermeldung(
-            "[ansteuerung_pwm_shield] Grosse Lüfter konnten nicht ausgeschaltet werden.")
+            "[ansteuerung_pwm_shield] Grosse Luefter konnten nicht ausgeschaltet werden.")
 
 
 def luefter_klein_ein():
@@ -85,7 +85,7 @@ def luefter_klein_ein():
         luefter_klein.duty_cycle = 0
     except:
         neue_fehlermeldung(
-            "[ansteuerung_pwm_shield] Kleine Lüfter konnten nicht eingeschaltet werden.")
+            "[ansteuerung_pwm_shield] Kleine Luefter konnten nicht eingeschaltet werden.")
 
 
 def luefter_klein_aus():
@@ -93,7 +93,7 @@ def luefter_klein_aus():
         luefter_klein.duty_cycle = 0xffff
     except:
         neue_fehlermeldung(
-            "[ansteuerung_pwm_shield] Kleine Lüfter konnten nicht ausgeschaltet werden.")
+            "[ansteuerung_pwm_shield] Kleine Luefter konnten nicht ausgeschaltet werden.")
 
 
 def wasserpumpe_ein():

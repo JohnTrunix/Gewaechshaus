@@ -1,6 +1,6 @@
 # Die Datei run.py ist der Hauptbestandteil der Python Programme.
-# Run.py führt periodisch mittels scheduling die vordefinierten
-# Abläufe aus.
+# Run.py fuehrt periodisch mittels scheduling die vordefinierten
+# Ablaeufe aus.
 
 
 from fehlermeldungen import neue_fehlermeldung
@@ -67,7 +67,7 @@ except:
 # ======================================================================
 
 
-# Alle Aufträge mit Startintervall definiert
+# Alle Auftraege mit Startintervall definiert
 # ======================================================================
 schedule.every(10).seconds.do(start_datenbank_abfrage)
 schedule.every(10).seconds.do(start_sensorabfrage)
@@ -82,7 +82,7 @@ schedule.every().day.at("08:00").do(reset_licht_zaehler)
 # ======================================================================
 
 
-# Alle 5 Sekunden auf ausstehende Aufträge überprüfen
+# Alle 5 Sekunden auf ausstehende Auftraege ueberpruefen
 # ======================================================================
 while True:
     try:
@@ -90,5 +90,5 @@ while True:
         time.sleep(2)
     except:
         neue_fehlermeldung(
-            "[run] Kritischer Fehler bei der Ausführung der ausstehenden Aufträge (Evtl. Busfehler).")
+            "[run] Kritischer Fehler bei der Ausfuehrung der ausstehenden Auftraege (Evtl. Busfehler).")
 # ======================================================================

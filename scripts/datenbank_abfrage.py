@@ -1,4 +1,4 @@
-# Die Datei datenbank_abfrage.py ist für die Abfrage von Parameter- und Betriebsmodus Daten zuständig.
+# Die Datei datenbank_abfrage.py ist fuer die Abfrage von Parameter- und Betriebsmodus Daten zustaendig.
 
 
 from fehlermeldungen import neue_fehlermeldung

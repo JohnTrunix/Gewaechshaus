@@ -1,5 +1,5 @@
 # Die Datei datenbegrenzung.py löscht alle Sensorwerte,
-# welche älter als 30 Tage alt sind automatisch.
+# welche aelter als 30 Tage alt sind automatisch.
 
 
 from fehlermeldungen import neue_fehlermeldung

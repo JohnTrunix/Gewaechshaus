@@ -36,7 +36,7 @@ except:
 # ======================================================================
 
 
-# Überprüfe Internetverbindung
+# ueberpruefe Internetverbindung
 # ======================================================================
 def start_zeit_update():
     try:

@@ -66,4 +66,4 @@ def start_auffuellen_befeuchter():
             grundstellung()
     except:
         neue_fehlermeldung(
-            "[ansteuerung_wasser] Fehler bei der Auffüllung des Befeuchters.")
+            "[ansteuerung_wasser] Fehler bei der Auffuellung des Befeuchters.")
