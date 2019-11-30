@@ -8,6 +8,7 @@ import time
 from datetime import datetime
 import mysql.connector
 import subprocess
+from fehlermeldungen import neue_fehlermeldung
 # ======================================================================
 
 
@@ -65,26 +66,24 @@ def begrenzung_sensor_bodenfeuchtigkeit_1():
 # Start Datenbegrenzung
 # ======================================================================
 def start_datenbegrenzung():
-    print('Start der Datenbegrenzung')
     try:
-        print('Daten von sensor_licht_1 älter als 30 Tage werden gelöscht')
         begrenzung_sensor_licht_1()
     except:
-        print('Fehler bei begrenzung_sensor_licht_1()')
+        neue_fehlermeldung(
+            "[datenbegrenzung] Fehler bei der Begrenzung von Lichtsensordaten")
     try:
-        print('Daten von sensor_temperatur_1 älter als 30 Tage werden gelöscht')
         begrenzung_sensor_temperatur_1()
     except:
-        print('Fehler bei begrenzung_sensor_temperatur_1()')
+        neue_fehlermeldung(
+            "[datenbegrenzung] Fehler bei der Begrenzung von Temperatursensordaten")
     try:
-        print('Daten von sensor_luftfeuchtigkeit_1 älter als 30 Tage werden gelöscht')
         begrenzung_sensor_luftfeuchtigkeit_1()
     except:
-        print('Fehler bei begrenzung_sensor_luftfeuchtigkeit_1')
+        neue_fehlermeldung(
+            "[datenbegrenzung] Fehler bei der Begrenzung von Luftfeuchtigkeitssensordaten")
     try:
-        print('Daten von sensor_bodenfeuchtigkeit_1 älter als 30 Tage werden gelöscht')
         begrenzung_sensor_bodenfeuchtigkeit_1()
     except:
-        print('Fehler bei begrenzung_sensor_bodentfeuchtigkeit_1')
-    print('Datenbegrenzung beendet')
+        neue_fehlermeldung(
+            "[datenbegrenzung] Fehler bei der Begrenzung von Bodenfeuchtigkeitssensordaten")
 # ======================================================================
