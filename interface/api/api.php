@@ -245,7 +245,7 @@ elseif (isset($_GET['ip_adresse_read'])) {
 // Lese Fehlermeldungen
 //======================================================================
 elseif (isset($_GET['fehlermeldungen_read'])) {
-    $sql = "SELECT `datetime`, `meldung` FROM `fehlermeldungen` ORDER BY datetime";
+    $sql = "SELECT `datetime`, `meldung` FROM `fehlermeldungen` ORDER BY datetime DESC LIMIT 50";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
