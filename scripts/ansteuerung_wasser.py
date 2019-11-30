@@ -1,6 +1,7 @@
 import datenbank_abfrage
 import sensor_abfrage
 from ansteuerung_pwm_shield import ventil_wasserpumpe_offen, ventil_wasserpumpe_geschlossen, ventil_befeuchter_offen, ventil_befeuchter_geschlossen, wasserpumpe_ein, wasserpumpe_aus, grundstellung
+from fehlermeldungen import neue_fehlermeldung
 import time
 import RPi.GPIO as GPIO
 
@@ -8,11 +9,13 @@ GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(21, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
+
 def start_ansteuerung_wasser():
     try:
         if datenbank_abfrage.programm_status == 1:
             if int(datenbank_abfrage.wassermenge) > 0:
-                ausgabe_wassermenge_mililiter = ((int(datenbank_abfrage.wassermenge) / 24) * 100)
+                ausgabe_wassermenge_mililiter = (
+                    (int(datenbank_abfrage.wassermenge) / 24) * 100)
                 pumpe_mililiter_pro_sekunde = 5
                 einschaltdauer_pumpe = ausgabe_wassermenge_mililiter / pumpe_mililiter_pro_sekunde
                 ventil_wasserpumpe_offen()
@@ -27,7 +30,9 @@ def start_ansteuerung_wasser():
         else:
             grundstellung()
     except:
-        print("Fehler bei start_ansteuerung_wasser()")
+        neue_fehlermeldung(
+            "[ansteuerung_wasser] Fehler bei der Zyklusberechnung der Wasseransteuerung.")
+
 
 def start_auffuellen_befeuchter():
     try:
@@ -52,6 +57,5 @@ def start_auffuellen_befeuchter():
         else:
             grundstellung()
     except:
-        print("Fehler bei start_auffuellen_befeuchter()")
-
-        
+        neue_fehlermeldung(
+            "[ansteuerung_wasser] Fehler bei der Auffüllung des Befeuchters.")
