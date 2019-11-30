@@ -14,6 +14,7 @@ import datetime
 import board
 import socket
 import os
+from fehlermeldungen import neue_fehlermeldung
 # ======================================================================
 
 
@@ -30,24 +31,9 @@ t = rtc.datetime
 def start_zeit_update():
     try:
         socket.create_connection(("www.google.com", 443))
-        print('Verbunden mit Internet')
         rtc_update()
     except:
-        print('Keine Internetverbindung')
         systemzeit_schreiben()
-# ======================================================================
-
-
-# RTC Abfrage
-# ======================================================================
-def rtc_abfrage():
-    try:
-        print('Aktuelle RTC Zeit wird abgefragt')
-        print('RTC Datum: %d/%d/%d' % (t.tm_mday, t.tm_mon, t.tm_year))
-        print('RTC Zeit: %d:%02d:%02d' % (t.tm_hour, t.tm_min, t.tm_sec))
-        print('Aktuelle RTC Zeit wurde abgefragt')
-    except:
-        print('Fehler bei rtc_abfrage()')
 # ======================================================================
 
 
@@ -55,15 +41,13 @@ def rtc_abfrage():
 # ======================================================================
 def rtc_update():
     try:
-        print('RTC wird aktualisiert')
         now = datetime.datetime.now()
         t = time.struct_time(
             (now.year, now.month, now.day, now.hour, now.minute, now.second, 0, 0, 0))
         rtc.datetime = t
-        print('Zeit auf RTC:', t)
-        print('RTC wurde aktualisiert')
     except:
-        print('Fehler bei rtc_update()')
+        neue_fehlermeldung(
+            "[zeit_update] Die RTC konnte nicht aktualisiert werden.")
 # ======================================================================
 
 
@@ -71,15 +55,13 @@ def rtc_update():
 # ======================================================================
 def systemzeit_schreiben():
     try:
-        print('Systemzeit wird aktualisiert')
-        rtc_abfrage()
         os.system("sudo timedatectl set-ntp false")
         time.sleep(1)
         os.system("sudo timedatectl set-time " + str(t.tm_hour) +
                   ":" + str(t.tm_min) + ":" + str(t.tm_sec))
         time.sleep(1)
         os.system("sudo timedatectl set-ntp true")
-        print('Systemzeit wurde aktualisiert')
     except:
-        print('Fehler bei systemzeit_schreiben()')
+        neue_fehlermeldung(
+            "[zeit_update] Die Systemzeit konnte nicht durch die RTC aktualisiert werden.")
 # ======================================================================
