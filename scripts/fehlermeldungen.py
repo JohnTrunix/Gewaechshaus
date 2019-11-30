@@ -67,9 +67,7 @@ def begrenzung_fehlermeldung():
 def neue_fehlermeldung(meldung):
     systemzeit_abfrage()
     abfrage_anzahl_fehlermeldungen()
-    print(anzahl_fehlermeldungen)
     if anzahl_fehlermeldungen >= 50:
-        print("löschen...")
         begrenzung_fehlermeldung()
     else:
         pass
