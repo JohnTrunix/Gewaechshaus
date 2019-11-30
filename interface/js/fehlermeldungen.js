@@ -23,7 +23,7 @@ function download() {
 //======================================================================
 function fehlermeldungen_download() {
 	download();
-	//setTimeout(fehlermeldungen_download, 5000);
+	setTimeout(fehlermeldungen_download, 5000);
 }
 fehlermeldungen_download();
 //======================================================================
