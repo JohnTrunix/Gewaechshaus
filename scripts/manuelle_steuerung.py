@@ -22,9 +22,9 @@ print(arguments.start)
 print(arguments.herunterfahren)
 
 if arguments.stop == 1:
-    grundstellung()
-    time.sleep(2)
     os.system("sudo service gewaechshaus stop")
+    time.sleep(2)
+    grundstellung()
 elif arguments.start == 1:
     os.system("sudo service gewaechshaus stop")
     time.sleep(2)
