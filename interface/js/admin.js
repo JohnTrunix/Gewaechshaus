@@ -44,3 +44,30 @@ function datumzeit(id) {
 	setTimeout('datumzeit("' + id + '");', "1000");
 	return true;
 }
+
+function systemuebersicht() {
+	var systemuebersicht = document.getElementById("systemuebersicht");
+	var betriebsmeldungen = document.getElementById("betriebsmeldungen");
+	var manuelle_aktorsteuerung = document.getElementById("aktorsteuerung");
+	systemuebersicht.style.display = "initial";
+	betriebsmeldungen.style.display = "none";
+	manuelle_aktorsteuerung.style.display = "none";
+}
+
+function betriebsmeldungen() {
+	var systemuebersicht = document.getElementById("systemuebersicht");
+	var betriebsmeldungen = document.getElementById("betriebsmeldungen");
+	var manuelle_aktorsteuerung = document.getElementById("aktorsteuerung");
+	systemuebersicht.style.display = "none";
+	betriebsmeldungen.style.display = "initial";
+	manuelle_aktorsteuerung.style.display = "none";
+}
+
+function manuelle_aktorsteuerung() {
+	var systemuebersicht = document.getElementById("systemuebersicht");
+	var betriebsmeldungen = document.getElementById("betriebsmeldungen");
+	var manuelle_aktorsteuerung = document.getElementById("aktorsteuerung");
+	systemuebersicht.style.display = "none";
+	betriebsmeldungen.style.display = "none";
+	manuelle_aktorsteuerung.style.display = "initial";
+}

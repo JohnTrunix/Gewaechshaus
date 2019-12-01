@@ -52,11 +52,15 @@
 				System Starten
 			</button>
 
-			<button class="button" type="button" onclick="">
+			<button
+				class="button"
+				type="button"
+				onclick="manuelle_aktorsteuerung()"
+			>
 				Manuelle Aktorsteuerung
 			</button>
 
-			<button class="button" type="button" onclick="">
+			<button class="button" type="button" onclick="systemuebersicht()">
 				Systemübersicht
 			</button>
 
@@ -85,9 +89,33 @@
 			</button>
 		</div>
 
-		<div class="log_box">
-			<div class="meldungen-titel">Betriebsmeldungen</div>
-			<div class="meldungen" id="meldungen"></div>
+		<div class="hmi_box betriebsmeldungen" id="betriebsmeldungen">
+			<div class="hmi_titel">Betriebsmeldungen</div>
+			<div class="hmi" id="meldungen"></div>
+		</div>
+
+		<div class="hmi_box manuelle_aktorsteuerung" id="aktorsteuerung">
+			<div class="hmi_titel">
+				Manuelle Aktorsteuerung
+				<img
+					class="hmi_close"
+					src="/img/close.svg"
+					onclick="betriebsmeldungen()"
+				/>
+			</div>
+			<div class="hmi"></div>
+		</div>
+
+		<div class="hmi_box systemuebersicht" id="systemuebersicht">
+			<div class="hmi_titel">
+				Systemübersicht
+				<img
+					class="hmi_close"
+					src="/img/close.svg"
+					onclick="betriebsmeldungen()"
+				/>
+			</div>
+			<div class="hmi"></div>
 		</div>
 
 		<div class="informationen_box">

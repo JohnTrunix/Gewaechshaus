@@ -23,7 +23,7 @@
 	font-family: Schrift_Bold;
 }
 
-.log_box {
+.hmi_box {
 	position: absolute;
 	right: 80px;
 	top: 0;
@@ -31,7 +31,7 @@
 	width: 520px;
 }
 
-.meldungen {
+.hmi {
 	position: absolute;
 	top: 60px;
 	left: 50%;
@@ -45,16 +45,16 @@
 	overflow-x: hidden;
 }
 
-.meldungen::-webkit-scrollbar {
+.hmi::-webkit-scrollbar {
 	width: 5px;
 }
 
-.meldungen::-webkit-scrollbar-thumb {
+.hmi::-webkit-scrollbar-thumb {
 	border-radius: 5px;
 	background-color: #364366;
 }
 
-.meldungen a {
+.hmi a {
 	color: #364366;
 	font-size: 12px;
 	font-family: Schrift_Bold;
@@ -63,7 +63,7 @@
 	word-break: break-word;
 }
 
-.meldungen-titel {
+.hmi_titel {
 	position: absolute;
 	left: 50%;
 	transform: translateX(-50%);
@@ -81,6 +81,12 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+
+.hmi_close {
+	width: 15px;
+	position: absolute;
+	right: 10px;
 }
 
 .informationen_box {
@@ -104,4 +110,16 @@
 .zeit_box {
 	position: fixed;
 	left: 55%;
+}
+
+.betriebsmeldungen {
+	display: initial;
+}
+
+.manuelle_aktorsteuerung {
+	display: none;
+}
+
+.systemuebersicht {
+	display: none;
 }
