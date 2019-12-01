@@ -43,12 +43,15 @@ if arguments.stop == 1:
     neue_betriebsmeldung(
         "[manuelle_steuerung] System wird gestoppt.")
     os.system("sudo service gewaechshaus stop")
+    os.system("sudo killall python3")
     time.sleep(2)
     grundstellung()
+    os.system("sudo killall python3")
 elif arguments.start == 1:
     neue_betriebsmeldung(
         "[manuelle_steuerung] System wird gestartet.")
     os.system("sudo service gewaechshaus stop")
+    os.system("sudo killall python3")
     time.sleep(2)
     os.system("sudo service gewaechshaus start")
 elif arguments.herunterfahren == 1:
