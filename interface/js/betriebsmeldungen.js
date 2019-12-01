@@ -1,9 +1,9 @@
-// Lese die neuesten Fehlermeldungen
+// Lese die neuesten Betriebsmeldungen
 //======================================================================
 function download() {
 	var display = document.getElementById("meldungen");
 	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.open("GET", "/api/api.php?fehlermeldungen_read");
+	xmlhttp.open("GET", "/api/api.php?betriebsmeldungen_read");
 	xmlhttp.setRequestHeader(
 		"Content-Type",
 		"application/x-www-form-urlencoded"
@@ -19,11 +19,11 @@ function download() {
 }
 //======================================================================
 
-// Fehlermeldungen im 5s Takt downloaden.
+// Betriebsmeldungen im 5s Takt downloaden.
 //======================================================================
-function fehlermeldungen_download() {
+function betriebsmeldungen_download() {
 	download();
-	setTimeout(fehlermeldungen_download, 5000);
+	setTimeout(betriebsmeldungen_download, 5000);
 }
-fehlermeldungen_download();
+betriebsmeldungen_download();
 //======================================================================

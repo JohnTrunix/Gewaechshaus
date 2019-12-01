@@ -254,10 +254,10 @@ elseif (isset($_GET['ip_adresse_read'])) {
 }
 //======================================================================
 
-// Lese Fehlermeldungen
+// Lese Betriebsmeldungen
 //======================================================================
-elseif (isset($_GET['fehlermeldungen_read'])) {
-    $sql = "SELECT `datetime`, `meldung` FROM `fehlermeldungen` ORDER BY datetime DESC LIMIT 50";
+elseif (isset($_GET['betriebsmeldungen_read'])) {
+    $sql = "SELECT `datetime`, `meldung` FROM `betriebsmeldungen` ORDER BY datetime DESC LIMIT 50";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
@@ -308,10 +308,10 @@ elseif (isset($_GET['datenbank_reset_write'])) {
 }
 //======================================================================
 
-// Fehlermeldungen löschen
+// Betriebsmeldungen löschen
 //======================================================================
-elseif (isset($_GET['fehlermeldung_reset_write'])) {
-    $sql1 = "DELETE FROM `fehlermeldungen`";
+elseif (isset($_GET['betriebsmeldung_reset_write'])) {
+    $sql1 = "DELETE FROM `betriebsmeldungen`";
 
     if (mysqli_query($conn, $sql1)) {
         header("Location: /admin.html?erfolgreich");
