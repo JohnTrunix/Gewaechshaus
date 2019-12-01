@@ -46,8 +46,6 @@ if arguments.stop == 1:
     time.sleep(2)
     grundstellung()
 elif arguments.start == 1:
-    neue_betriebsmeldung(
-        "[manuelle_steuerung] System wird gestartet.")
     os.system("sudo service gewaechshaus stop")
     time.sleep(2)
     os.system("sudo service gewaechshaus start")
