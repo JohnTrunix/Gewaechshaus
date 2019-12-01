@@ -36,8 +36,8 @@ def grundstellung():
         luefter_gross_aus()
         luefter_klein_aus()
         wasserpumpe_aus()
-        ventil_wasserpumpe_geschlossen()
-        ventil_befeuchter_geschlossen()
+        ventil_wasserpumpe_schliessen()
+        ventil_befeuchter_schliessen()
         licht_aus()
         heizung_aus()
         befeuchter_aus()
@@ -112,7 +112,7 @@ def wasserpumpe_aus():
             "[ansteuerung_pwm_shield] Wasserpumpe konnte nicht ausgeschaltet werden.")
 
 
-def ventil_wasserpumpe_offen():
+def ventil_wasserpumpe_oeffnen():
     try:
         ventil_wasserpumpe.duty_cycle = 0
     except:
@@ -120,7 +120,7 @@ def ventil_wasserpumpe_offen():
             "[ansteuerung_pwm_shield] Das Ventil der Wasserpumpe konnte nicht geoeffnet werden.")
 
 
-def ventil_wasserpumpe_geschlossen():
+def ventil_wasserpumpe_schliessen():
     try:
         ventil_wasserpumpe.duty_cycle = 0xffff
     except:
@@ -128,7 +128,7 @@ def ventil_wasserpumpe_geschlossen():
             "[ansteuerung_pwm_shield] Das Ventil der Wasserpumpe konnte nicht geschlossen werden.")
 
 
-def ventil_befeuchter_offen():
+def ventil_befeuchter_oeffnen():
     try:
         ventil_befeuchter.duty_cycle = 0
     except:
@@ -136,7 +136,7 @@ def ventil_befeuchter_offen():
             "[ansteuerung_pwm_shield] Das Ventil des Befeuchters konnte nicht geoeffnet werden.")
 
 
-def ventil_befeuchter_geschlossen():
+def ventil_befeuchter_schliessen():
     try:
         ventil_befeuchter.duty_cycle = 0xffff
     except:

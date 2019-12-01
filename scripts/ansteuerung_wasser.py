@@ -2,7 +2,7 @@ from betriebsmeldungen import neue_betriebsmeldung
 try:
     import datenbank_abfrage
     import sensor_abfrage
-    from ansteuerung_pwm_shield import ventil_wasserpumpe_offen, ventil_wasserpumpe_geschlossen, ventil_befeuchter_offen, ventil_befeuchter_geschlossen, wasserpumpe_ein, wasserpumpe_aus, grundstellung
+    from ansteuerung_pwm_shield import ventil_wasserpumpe_oeffnen, ventil_wasserpumpe_schliessen, ventil_befeuchter_oeffnen, ventil_befeuchter_schliessen, wasserpumpe_ein, wasserpumpe_aus, grundstellung
     import time
     import RPi.GPIO as GPIO
 except:
@@ -26,13 +26,13 @@ def start_ansteuerung_wasser():
                     (int(datenbank_abfrage.wassermenge) / 24) * 100)
                 pumpe_mililiter_pro_sekunde = 5
                 einschaltdauer_pumpe = ausgabe_wassermenge_mililiter / pumpe_mililiter_pro_sekunde
-                ventil_wasserpumpe_offen()
+                ventil_wasserpumpe_oeffnen()
                 time.sleep(1)
                 wasserpumpe_ein()
                 time.sleep(einschaltdauer_pumpe)
                 wasserpumpe_aus()
                 time.sleep(1)
-                ventil_wasserpumpe_geschlossen()
+                ventil_wasserpumpe_schliessen()
             else:
                 pass
         else:
@@ -50,7 +50,7 @@ def start_auffuellen_befeuchter():
             while auffuellen_fertig == 0 and GPIO.input(21) == GPIO.LOW:
 
                 if GPIO.input(21) == GPIO.LOW and pumpe_gestartet == 0:
-                    ventil_befeuchter_offen()
+                    ventil_befeuchter_oeffnen()
                     time.sleep(1)
                     wasserpumpe_ein()
                     pumpe_gestartet = 1
@@ -58,7 +58,7 @@ def start_auffuellen_befeuchter():
                 if GPIO.input(21) == GPIO.HIGH:
                     wasserpumpe_aus()
                     time.sleep(1)
-                    ventil_befeuchter_geschlossen()
+                    ventil_befeuchter_schliessen()
                     auffuellen_fertig = 1
             else:
                 pass
