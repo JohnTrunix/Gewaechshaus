@@ -5,6 +5,8 @@
 
 from betriebsmeldungen import neue_betriebsmeldung
 
+neue_betriebsmeldung(
+    "[run] System wird gestartet.")
 
 # Import von benötigten Modulen
 # ======================================================================
