@@ -6,7 +6,7 @@ try:
     import argparse
     import os
     import time
-    from ansteuerung_pwm_shield import grundstellung
+    from ansteuerung_pwm_shield import grundstellung, tuer_oeffnen, tuer_schliessen, luefter_gross_ein, luefter_gross_aus, luefter_klein_ein, luefter_klein_aus, wasserpumpe_ein, wasserpumpe_aus, ventil_wasserpumpe_oeffnen, ventil_wasserpumpe_schliessen, ventil_befeuchter_oeffnen, ventil_befeuchter_schliessen, licht_ein, licht_aus, heizung_ein, heizung_aus, befeuchter_ein, befeuchter_aus
 except:
     neue_betriebsmeldung(
         "[manuelle_steuerung] Fehler bei der importierung von Modulen.")
@@ -76,7 +76,7 @@ def shutdown():
 # ======================================================================
 def manuelle_aktorsteuerung():
     neue_betriebsmeldung(
-        "[manuelle_steuerung] System wird für manuelle Aktorsteuerung gestoppt.")
+        "[manuelle_steuerung] System wird für die manuelle Aktorsteuerung gestoppt.")
     os.system("sudo service gewaechshaus stop")
     time.sleep(2)
 # ======================================================================
@@ -84,13 +84,148 @@ def manuelle_aktorsteuerung():
 
 # Tuersteuerung
 # ======================================================================
-def tuer_oeffnen():
+def manuell_tuer_oeffnen():
     manuelle_aktorsteuerung()
     neue_betriebsmeldung(
         "[manuelle_steuerung] Tueren werden geoeffnet.")
+    tuer_oeffnen()
 
 
+def manuell_tuer_schliessen():
+    manuelle_aktorsteuerung()
+    neue_betriebsmeldung(
+        "[manuelle_steuerung] Tueren werden geschlossen.")
+    tuer_schliessen()
 # ======================================================================
+
+
+# Lueftersteuerung
+# ======================================================================
+def manuell_luefter_gross_ein():
+    manuelle_aktorsteuerung()
+    neue_betriebsmeldung(
+        "[manuelle_steuerung] Luefter gross werden eingeschaltet.")
+    luefter_gross_ein()
+
+
+def manuell_luefter_gross_aus():
+    manuelle_aktorsteuerung()
+    neue_betriebsmeldung(
+        "[manuelle_steuerung] Luefter gross werden ausgeschaltet.")
+    luefter_gross_aus()
+
+
+def manuell_luefter_klein_ein():
+    manuelle_aktorsteuerung()
+    neue_betriebsmeldung(
+        "[manuelle_steuerung] Luefter klein werden eingeschaltet.")
+    luefter_klein_ein()
+
+
+def manuell_luefter_klein_aus():
+    manuelle_aktorsteuerung()
+    neue_betriebsmeldung(
+        "[manuelle_steuerung] Luefter klein werden ausgeschaltet.")
+    luefter_klein_aus()
+# ======================================================================
+
+
+# Wassersteuerung
+# ======================================================================
+def manuell_wasserpumpe_ein():
+    manuelle_aktorsteuerung()
+    neue_betriebsmeldung(
+        "[manuelle_steuerung] Wasserpumpe wird eingeschaltet.")
+    wasserpumpe_ein()
+
+
+def manuell_wasserpumpe_aus():
+    manuelle_aktorsteuerung()
+    neue_betriebsmeldung(
+        "[manuelle_steuerung] Wasserpumpe wird ausgeschaltet.")
+    wasserpumpe_aus()
+
+
+def manuell_ventil_wasserpumpe_oeffnen():
+    manuelle_aktorsteuerung()
+    neue_betriebsmeldung(
+        "[manuelle_steuerung] Ventil der Wasserpumpe wird geoeffnet.")
+    ventil_wasserpumpe_oeffnen()
+
+
+def manuell_ventil_wasserpumpe_schliessen():
+    manuelle_aktorsteuerung()
+    neue_betriebsmeldung(
+        "[manuelle_steuerung] Ventil der Wasserpumpe wird geschlossen.")
+    ventil_wasserpumpe_schliessen()
+
+
+def manuell_ventil_befeuchter_oeffnen():
+    manuelle_aktorsteuerung()
+    neue_betriebsmeldung(
+        "[manuelle_steuerung] Ventil des Befeuchters wird geoeffnet.")
+    ventil_befeuchter_oeffnen()
+
+
+def manuell_ventil_befeuchter_schliessen():
+    manuelle_aktorsteuerung()
+    neue_betriebsmeldung(
+        "[manuelle_steuerung] Ventil des Befeuchters wird geschlossen.")
+    ventil_befeuchter_schliessen()
+# ======================================================================
+
+
+# Lichtsteuerung
+# ======================================================================
+def manuell_licht_ein():
+    manuelle_aktorsteuerung()
+    neue_betriebsmeldung(
+        "[manuelle_steuerung] Licht wird eingeschaltet.")
+    licht_ein()
+
+
+def manuell_licht_aus():
+    manuelle_aktorsteuerung()
+    neue_betriebsmeldung(
+        "[manuelle_steuerung] Licht wird ausgeschaltet.")
+    licht_aus()
+# ======================================================================
+
+
+# Heizungssteuerung
+# ======================================================================
+def manuell_heizung_ein():
+    manuelle_aktorsteuerung()
+    neue_betriebsmeldung(
+        "[manuelle_steuerung] Heizung wird eingeschaltet.")
+    heizung_ein()
+
+
+def manuell_heizung_aus():
+    manuelle_aktorsteuerung()
+    neue_betriebsmeldung(
+        "[manuelle_steuerung] Heizung wird ausgeschaltet.")
+    heizung_aus()
+# ======================================================================
+
+
+# Befeuchtersteuerung
+# ======================================================================
+def manuell_befeuchter_ein():
+    manuelle_aktorsteuerung()
+    neue_betriebsmeldung(
+        "[manuelle_steuerung] Befeuchter wird eingeschaltet.")
+    befeuchter_ein()
+
+
+def manuell_befeuchter_aus():
+    manuelle_aktorsteuerung()
+    neue_betriebsmeldung(
+        "[manuelle_steuerung] Befeuchter wird ausgeschaltet.")
+    befeuchter_aus()
+# ======================================================================
+
+
 if arguments.stop == 1:
     stop()
 elif arguments.start == 1:
