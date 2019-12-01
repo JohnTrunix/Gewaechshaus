@@ -5,7 +5,7 @@
 # und als Systemzeit geschrieben.
 
 
-from fehlermeldungen import neue_fehlermeldung
+from betriebsmeldungen import neue_betriebsmeldung
 
 
 # Import von benötigten Modulen
@@ -19,7 +19,7 @@ try:
     import socket
     import os
 except:
-    neue_fehlermeldung(
+    neue_betriebsmeldung(
         "[zeit_update] Fehler bei der importierung von Modulen.")
 # ======================================================================
 
@@ -31,7 +31,7 @@ try:
     rtc = adafruit_pcf8523.PCF8523(myI2C)
     t = rtc.datetime
 except:
-    neue_fehlermeldung(
+    neue_betriebsmeldung(
         "[zeit_update] Fehler bei der initialen I2C Bus Konfiguration.")
 # ======================================================================
 
@@ -56,7 +56,7 @@ def rtc_update():
             (now.year, now.month, now.day, now.hour, now.minute, now.second, 0, 0, 0))
         rtc.datetime = t
     except:
-        neue_fehlermeldung(
+        neue_betriebsmeldung(
             "[zeit_update] Die RTC konnte nicht aktualisiert werden.")
 # ======================================================================
 
@@ -72,6 +72,6 @@ def systemzeit_schreiben():
         time.sleep(1)
         os.system("sudo timedatectl set-ntp true")
     except:
-        neue_fehlermeldung(
+        neue_betriebsmeldung(
             "[zeit_update] Die Systemzeit konnte nicht durch die RTC aktualisiert werden.")
 # ======================================================================

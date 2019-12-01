@@ -3,7 +3,7 @@
 # abgefragt und in die MYSQL Datenbank geschrieben.
 
 
-from fehlermeldungen import neue_fehlermeldung
+from betriebsmeldungen import neue_betriebsmeldung
 
 
 # Import von benötigten Modulen
@@ -19,7 +19,7 @@ try:
     import datetime
     import mysql.connector
 except:
-    neue_fehlermeldung(
+    neue_betriebsmeldung(
         "[sensor_abfrage] Fehler bei der importierung von Modulen.")
 # ======================================================================
 
@@ -32,7 +32,7 @@ try:
         database="datenbank"
     )
 except:
-    neue_fehlermeldung(
+    neue_betriebsmeldung(
         "[sensor_abfrage] Fehler bei der Datenbankverbindung.")
 
 
@@ -48,7 +48,7 @@ try:
     sensor3 = AnalogIn(ads, ADS.P2)
     sensor4 = AnalogIn(ads, ADS.P3)
 except:
-    neue_fehlermeldung(
+    neue_betriebsmeldung(
         "[sensor_abfrage] Fehler bei der initialen I2C Bus Konfiguration.")
 # ======================================================================
 
@@ -164,26 +164,26 @@ def start_sensorabfrage():
     try:
         systemzeit_abfrage()
     except:
-        neue_fehlermeldung(
+        neue_betriebsmeldung(
             "[sensor_abfrage] Fehler bei der Systemzeitabfrage.")
     try:
         lichtsensor_abfrage()
     except:
-        neue_fehlermeldung(
+        neue_betriebsmeldung(
             "[sensor_abfrage] Fehler bei der Abfrage des Lichtsensor.")
     try:
         temperatur_abfrage()
     except:
-        neue_fehlermeldung(
+        neue_betriebsmeldung(
             "[sensor_abfrage] Fehler bei der Abfrage des Temperatursensor.")
     try:
         luftfeuchtigkeit_abfrage()
     except:
-        neue_fehlermeldung(
+        neue_betriebsmeldung(
             "[sensor_abfrage] Fehler bei der Abfrage des Luftfeuchtigkeitssensor.")
     try:
         bodenfeuchtigkeit_abfrage()
     except:
-        neue_fehlermeldung(
+        neue_betriebsmeldung(
             "[sensor_abfrage] Fehler bei der Abfrage des Bodenfeuchtigkeitssensor.")
 # ======================================================================

@@ -1,4 +1,4 @@
-# Die Datei fehlermeldungen.py schreibt Fehlermeldungen
+# Die Datei betriebsmeldungen.py schreibt Betriebsmeldungen
 # in die Datenbank.
 
 
@@ -29,47 +29,47 @@ def systemzeit_abfrage():
 # ======================================================================
 
 
-# Die Fehlermeldung wird in Datenbank geschrieben
+# Die Betriebsmeldung wird in Datenbank geschrieben
 # ======================================================================
-def fehlermeldung_einfuegen(meldung):
+def betriebsmeldung_einfuegen(meldung):
     mycursor = mydb.cursor()
-    sql = "INSERT INTO fehlermeldungen (datetime, meldung) VALUES (%s, %s)"
+    sql = "INSERT INTO betriebsmeldungen (datetime, meldung) VALUES (%s, %s)"
     val = (lokale_zeit, meldung)
     mycursor.execute(sql, val)
     mydb.commit()
 # ======================================================================
 
 
-# Abfrage anzahl vorhandener Fehlermeldungen
+# Abfrage anzahl vorhandener Betriebsmeldungen
 # ======================================================================
-def abfrage_anzahl_fehlermeldungen():
-    global anzahl_fehlermeldungen
+def abfrage_anzahl_betriebsmeldungen():
+    global anzahl_betriebsmeldungen
     mycursor = mydb.cursor()
     mycursor.execute(
-        "SELECT COUNT(*) FROM fehlermeldungen")
+        "SELECT COUNT(*) FROM betriebsmeldungen")
     result = mycursor.fetchone()
-    anzahl_fehlermeldungen = int(result[0])
+    anzahl_betriebsmeldungen = int(result[0])
 # ======================================================================
 
 
-# Letzte 50 Fehlermeldungen löschen
+# Letzte 50 Betriebsmeldungen löschen
 # ======================================================================
-def begrenzung_fehlermeldung():
+def begrenzung_betriebsmeldung():
     mycursor = mydb.cursor()
-    sql = "DELETE FROM fehlermeldungen ORDER BY meldung DESC LIMIT 20;"
+    sql = "DELETE FROM betriebsmeldungen ORDER BY meldung DESC LIMIT 20;"
     mycursor.execute(sql)
     mydb.commit()
 # ======================================================================
 
 
-# Fehlermeldung einfuegen
+# Betriebsmeldung einfuegen
 # ======================================================================
-def neue_fehlermeldung(meldung):
+def neue_betriebsmeldung(meldung):
     systemzeit_abfrage()
-    abfrage_anzahl_fehlermeldungen()
-    if anzahl_fehlermeldungen >= 50:
-        begrenzung_fehlermeldung()
+    abfrage_anzahl_betriebsmeldungen()
+    if anzahl_betriebsmeldungen >= 50:
+        begrenzung_betriebsmeldung()
     else:
         pass
-    fehlermeldung_einfuegen(meldung)
+    betriebsmeldung_einfuegen(meldung)
 # ======================================================================

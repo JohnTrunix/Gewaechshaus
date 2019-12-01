@@ -3,7 +3,7 @@
 # Ablaeufe aus.
 
 
-from fehlermeldungen import neue_fehlermeldung
+from betriebsmeldungen import neue_betriebsmeldung
 
 
 # Import von benötigten Modulen
@@ -22,7 +22,7 @@ try:
     import time
     import os
 except:
-    neue_fehlermeldung(
+    neue_betriebsmeldung(
         "[run] Fehler bei der importierung von Modulen.")
 # ======================================================================
 
@@ -32,7 +32,7 @@ except:
 try:
     start_zeit_update()
 except:
-    neue_fehlermeldung(
+    neue_betriebsmeldung(
         "[run] Fehler bei der Anforderung der Zeitaktualisierung.")
 # ======================================================================
 
@@ -42,7 +42,7 @@ except:
 try:
     start_datenbegrenzung()
 except:
-    neue_fehlermeldung(
+    neue_betriebsmeldung(
         "[run] Fehler bei der Anforderung der Datenbegrenzung.")
 # ======================================================================
 
@@ -52,7 +52,7 @@ except:
 try:
     start_datenbank_abfrage()
 except:
-    neue_fehlermeldung(
+    neue_betriebsmeldung(
         "[run] Fehler bei der Anforderung der Datenbankabfrage.")
 # ======================================================================
 
@@ -62,7 +62,7 @@ except:
 try:
     grundstellung()
 except:
-    neue_fehlermeldung(
+    neue_betriebsmeldung(
         "[run] Fehler bei der Anforderung der Grundstellung.")
 # ======================================================================
 
@@ -89,6 +89,6 @@ while True:
         schedule.run_pending()
         time.sleep(2)
     except:
-        neue_fehlermeldung(
+        neue_betriebsmeldung(
             "[run] Kritischer Fehler bei der Ausfuehrung der ausstehenden Auftraege (Evtl. Busfehler).")
 # ======================================================================

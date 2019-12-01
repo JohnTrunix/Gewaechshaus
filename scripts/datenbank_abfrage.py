@@ -1,7 +1,7 @@
 # Die Datei datenbank_abfrage.py ist fuer die Abfrage von Parameter- und Betriebsmodus Daten zustaendig.
 
 
-from fehlermeldungen import neue_fehlermeldung
+from betriebsmeldungen import neue_betriebsmeldung
 
 
 # Import von benötigten Modulen
@@ -9,7 +9,7 @@ from fehlermeldungen import neue_fehlermeldung
 try:
     import mysql.connector
 except:
-    neue_fehlermeldung(
+    neue_betriebsmeldung(
         "[datenbank_abfrage] Fehler bei der importierung von Modulen.")
 # ======================================================================
 
@@ -44,7 +44,7 @@ def get_betriebsmodus():
             programm_datum_ende = (row[4])
             programm_zeit_ende = (row[5])
     except:
-        neue_fehlermeldung(
+        neue_betriebsmeldung(
             "[datenbank_abfrage] Daten zum Betriebsmodus konnten nicht aus der Datenbank gelesen werden.")
     finally:
         if (connection.is_connected()):
@@ -84,7 +84,7 @@ def get_parameter():
             wassermenge = (row[4])
             luftfeuchtigkeit = (row[5])
     except:
-        neue_fehlermeldung(
+        neue_betriebsmeldung(
             "[datenbank_abfrage] Parameterdaten konnten nicht aus der Datenbank gelesen werden.")
     finally:
         if (connection.is_connected()):

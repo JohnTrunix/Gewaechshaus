@@ -1,4 +1,4 @@
-from fehlermeldungen import neue_fehlermeldung
+from betriebsmeldungen import neue_betriebsmeldung
 try:
     import datenbank_abfrage
     import sensor_abfrage
@@ -7,7 +7,7 @@ try:
     import datetime
     import mysql.connector
 except:
-    neue_fehlermeldung(
+    neue_betriebsmeldung(
         "[ansteuerung_licht] Fehler bei der importierung von Modulen.")
 
 try:
@@ -18,7 +18,7 @@ try:
         database="datenbank"
     )
 except:
-    neue_fehlermeldung(
+    neue_betriebsmeldung(
         "[ansteuerung_licht] Fehler bei der Datenbankverbindung.")
 
 
@@ -29,7 +29,7 @@ def reset_licht_zaehler():
         mycursor.execute(sql)
         mydb.commit()
     except:
-        neue_fehlermeldung(
+        neue_betriebsmeldung(
             "[ansteuerung_licht] Lichtzaehler in Datenbank konnte nicht zurueckgesetzt werden.")
 
 
@@ -50,7 +50,7 @@ def aktueller_fortschritt():
             licht_zaehler = (row[0])
         update_licht_zaehler()
     except:
-        neue_fehlermeldung(
+        neue_betriebsmeldung(
             "[ansteuerung_licht] Aktueller Fortschritt bei der Lichtsteuerung konnte nicht ermittelt werden.")
     finally:
         if (connection.is_connected()):
@@ -67,7 +67,7 @@ def update_licht_zaehler():
         mycursor.execute(sql)
         mydb.commit()
     except:
-        neue_fehlermeldung(
+        neue_betriebsmeldung(
             "[ansteuerung_licht] Der Fortschritt der Lichtsteuerung konnte nicht an die Datenbank uebermittelt werden.")
 
 
@@ -90,5 +90,5 @@ def start_lichtsteuerung():
         else:
             grundstellung()
     except:
-        neue_fehlermeldung(
+        neue_betriebsmeldung(
             "[ansteuerung_licht] Die Lichtsteuerung konnte die Ausgaenge nicht ansteuern.")

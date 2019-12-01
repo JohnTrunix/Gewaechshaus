@@ -1,4 +1,4 @@
-from fehlermeldungen import neue_fehlermeldung
+from betriebsmeldungen import neue_betriebsmeldung
 try:
     import datenbank_abfrage
     import sensor_abfrage
@@ -6,7 +6,7 @@ try:
     import time
     import RPi.GPIO as GPIO
 except:
-    neue_fehlermeldung(
+    neue_betriebsmeldung(
         "[ansteuerung_wasser] Fehler bei der importierung von Modulen.")
 
 try:
@@ -14,7 +14,7 @@ try:
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(21, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 except:
-    neue_fehlermeldung(
+    neue_betriebsmeldung(
         "[ansteuerung_wasser] Fehler bei der GPIO definierung.")
 
 
@@ -38,7 +38,7 @@ def start_ansteuerung_wasser():
         else:
             grundstellung()
     except:
-        neue_fehlermeldung(
+        neue_betriebsmeldung(
             "[ansteuerung_wasser] Fehler bei der Zyklusberechnung der Wasseransteuerung.")
 
 
@@ -65,5 +65,5 @@ def start_auffuellen_befeuchter():
         else:
             grundstellung()
     except:
-        neue_fehlermeldung(
+        neue_betriebsmeldung(
             "[ansteuerung_wasser] Fehler bei der Auffuellung des Befeuchters.")

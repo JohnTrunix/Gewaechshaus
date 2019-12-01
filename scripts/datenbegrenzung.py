@@ -2,7 +2,7 @@
 # welche aelter als 30 Tage alt sind automatisch.
 
 
-from fehlermeldungen import neue_fehlermeldung
+from betriebsmeldungen import neue_betriebsmeldung
 
 
 # Import von benötigten Modulen
@@ -13,7 +13,7 @@ try:
     import mysql.connector
     import subprocess
 except:
-    neue_fehlermeldung(
+    neue_betriebsmeldung(
         "[datenbegrenzung] Fehler bei der importierung von Modulen.")
 # ======================================================================
 
@@ -28,7 +28,7 @@ try:
         database="datenbank"
     )
 except:
-    neue_fehlermeldung(
+    neue_betriebsmeldung(
         "[datenbegrenzung] Fehler bei der Datenbankverbindung.")
 # ======================================================================
 
@@ -79,21 +79,21 @@ def start_datenbegrenzung():
     try:
         begrenzung_sensor_licht_1()
     except:
-        neue_fehlermeldung(
+        neue_betriebsmeldung(
             "[datenbegrenzung] Fehler bei der Begrenzung von Lichtsensordaten.")
     try:
         begrenzung_sensor_temperatur_1()
     except:
-        neue_fehlermeldung(
+        neue_betriebsmeldung(
             "[datenbegrenzung] Fehler bei der Begrenzung von Temperatursensordaten.")
     try:
         begrenzung_sensor_luftfeuchtigkeit_1()
     except:
-        neue_fehlermeldung(
+        neue_betriebsmeldung(
             "[datenbegrenzung] Fehler bei der Begrenzung von Luftfeuchtigkeitssensordaten.")
     try:
         begrenzung_sensor_bodenfeuchtigkeit_1()
     except:
-        neue_fehlermeldung(
+        neue_betriebsmeldung(
             "[datenbegrenzung] Fehler bei der Begrenzung von Bodenfeuchtigkeitssensordaten.")
 # ======================================================================
