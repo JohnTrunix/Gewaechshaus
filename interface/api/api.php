@@ -275,7 +275,7 @@ elseif (isset($_GET['betriebsmeldungen_read'])) {
 //======================================================================
 elseif (isset($_GET['datenbank_reset_write'])) {
     $sql1 = "DELETE FROM `betriebsmodus`";
-    $sql2 = "DELETE FROM `fehlermeldungen`";
+    $sql2 = "DELETE FROM `betriebsmeldungen`";
     $sql3 = "DELETE FROM `parameter`";
     $sql4 = "DELETE FROM `sensor_bodenfeuchtigkeit_1`";
     $sql5 = "DELETE FROM `sensor_licht_1`";
