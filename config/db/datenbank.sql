@@ -23,7 +23,7 @@ CREATE TABLE `betriebsmodus` (
 INSERT INTO `betriebsmodus` (`ID`, `parameter_slot`, `programm_status`, `datetime`, `programm_datum_ende`, `programm_zeit_ende`) VALUES
 (1, 1, 0, '0000-00-00 00:00:00', '0000-00-00', '00:00:00');
 
-CREATE TABLE `fehlermeldungen` (
+CREATE TABLE `betriebsmeldungen` (
   `datetime` datetime NOT NULL,
   `meldung` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
