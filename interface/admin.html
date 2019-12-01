@@ -1,202 +1,204 @@
 <!DOCTYPE html>
 <html lang="de">
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <title>Gewaechshaus Raspberry Pi 3B+</title>
-        <link rel="stylesheet" href="/css/index.css" />
-        <link rel="stylesheet" href="/css/navigation.css" />
-        <link rel="stylesheet" href="/css/meldungen.css" />
-        <link rel="stylesheet" href="/css/admin.css" />
-        <script src="/js/jquery.min.js"></script>
-        <script src="/js/ip_adresse.js"></script>
-    </head>
-    <body style="background-color:white;">
-        <div class="navigation">
-            <div class="icon top" onclick="window.location='/';">
-                <img src="/img/house.svg" class="menubild" />
-            </div>
-            <div
-                class="icon middle"
-                onclick="window.location='/statistik.html';"
-                >
-                <img src="/img/pie-chart.svg" class="menubild" />
-            </div>
-            <div
-                class="icon bottom"
-                onclick="window.location='/einstellungen.html';"
-                >
-                <img src="/img/settings.svg" class="menubild" />
-            </div>
-            <div
-                class="icon admin aktiv"
-                onclick="window.location='/admin.html';"
-                >
-                <img src="/img/dots.svg" class="menubild" />
-            </div>
-        </div>
-        <div class="button_box">
-            <button
-                class="button"
-                type="button"
-                onclick="location.href='/api/api.php?system_stop_write'"
-                >
-            System Stoppen + Grundstellung
-            </button>
-            <button
-                class="button"
-                type="button"
-                onclick="location.href='/api/api.php?system_start_write'"
-                >
-            System Starten
-            </button>
-            <button
-                class="button"
-                type="button"
-                onclick="manuelle_aktorsteuerung()"
-                >
-            Manuelle Aktorsteuerung
-            </button>
-            <button class="button" type="button" onclick="systemuebersicht()">
-            Systemübersicht
-            </button>
-            <button
-                class="button"
-                type="button"
-                onclick="location.href='/api/api.php?datenbank_reset_write'"
-                >
-            Datenbank zurücksetzen
-            </button>
-            <button
-                class="button"
-                type="button"
-                onclick="location.href='/api/api.php?betriebsmeldung_reset_write'"
-                >
-            Betriebsmeldungen löschen
-            </button>
-            <button
-                class="button"
-                type="button"
-                onclick="location.href='/api/api.php?system_shutdown_write'"
-                >
-            Herunterfahren
-            </button>
-        </div>
-        <div class="hmi_box betriebsmeldungen" id="betriebsmeldungen">
-            <div class="hmi_titel">Betriebsmeldungen</div>
-            <div class="hmi" id="meldungen"></div>
-        </div>
-        <div class="hmi_box manuelle_aktorsteuerung" id="aktorsteuerung">
-        <div class="hmi_titel">
-            Manuelle Aktorsteuerung
-            <img
-                class="hmi_close"
-                src="/img/close.svg"
-                onclick="betriebsmeldungen()"
-                />
-        </div>
-        <div class="hmi">
-            <div class="aktorgruppe">
-                <button class="aktor_button" type="button">
-                Türen [öffnen]
-                </button>
-                <button class="aktor_button" type="button">
-                Türen [schliessen]
-                </button>
-            </div>
-            <div class="aktorgruppe">
-                <button class="aktor_button" type="button">
-                Lüfter gross [Ein]
-                </button>
-                <button class="aktor_button" type="button">
-                Lüfter gross [Aus]
-                </button>
-            </div>
-            <div class="aktorgruppe">
-                <button class="aktor_button" type="button">
-                Lüfter klein [Ein]
-                </button>
-                <button class="aktor_button" type="button">
-                Lüfter klein [Aus]
-                </button>
-            </div>
-            <div class="aktorgruppe">
-                <button class="aktor_button" type="button">
-                Wasserpumpe [Ein]
-                </button>
-                <button class="aktor_button" type="button">
-                Wasserpumpe [Aus]
-                </button>
-            </div>
-            <div class="aktorgruppe">
-                <button class="aktor_button" type="button">
-                Ventil Wasserpumpe [Auf]
-                </button>
-                <button class="aktor_button" type="button">
-                Ventil Wasserpumpe [Zu]
-                </button>
-            </div>
-            <div class="aktorgruppe">
-                <button class="aktor_button" type="button">
-                Ventil Befeuchter [Auf]
-                </button>
-                <button class="aktor_button" type="button">
-                Ventil Befeuchter [Zu]
-                </button>
-            </div>
-            <div class="aktorgruppe">
-                <button class="aktor_button" type="button">
-                Licht [Ein]
-                </button>
-                <button class="aktor_button" type="button">
-                Licht [Aus]
-                </button>
-            </div>
-            <div class="aktorgruppe">
-                <button class="aktor_button" type="button">
-                Heizung [Ein]
-                </button>
-                <button class="aktor_button" type="button">
-                Heizung [Aus]
-                </button>
-            </div>
-            <div class="aktorgruppe">
-                <button class="aktor_button" type="button">
-                Befeuchter [Ein]
-                </button>
-                <button class="aktor_button" type="button">
-                Befeuchter [Aus]
-                </button>
-            </div>
-        </div>
-        <div class="hmi_box systemuebersicht" id="systemuebersicht">
-            <div class="hmi_titel">
-                Systemübersicht
-                <img
-                    class="hmi_close"
-                    src="/img/close.svg"
-                    onclick="betriebsmeldungen()"
-                    />
-            </div>
-            <div class="hmi"></div>
-        </div>
-        <div class="informationen_box">
-            <div class="ip_adresse_box">
-                <a class="info_titel">IP Adresse:</a>
-                <a class="ip_adress" id="ip_adress"></a>
-            </div>
-            <div class="zeit_box">
-                <a class="info_titel">Datum/Zeit:</a>
-                <a class="zeit" id="date_time"></a>
-            </div>
-        </div>
-        <script src="/js/admin.js"></script>
-        <script>
-            ip_adresse();
-            window.onload = datumzeit("date_time");
-        </script>
-        <div id="error_message">Es ist ein fehler aufgetreten!</div>
-        <div id="success_message">Aktion erfolgreich ausgeführt!</div>
-        <script src="/js/betriebsmeldungen.js"></script>
-        <script src="/js/message.js"></script>
-    </body>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>Gewaechshaus Raspberry Pi 3B+</title>
+		<link rel="stylesheet" href="/css/index.css" />
+		<link rel="stylesheet" href="/css/navigation.css" />
+		<link rel="stylesheet" href="/css/meldungen.css" />
+		<link rel="stylesheet" href="/css/admin.css" />
+		<script src="/js/jquery.min.js"></script>
+		<script src="/js/ip_adresse.js"></script>
+	</head>
+	<body style="background-color:white;">
+		<div class="navigation">
+			<div class="icon top" onclick="window.location='/';">
+				<img src="/img/house.svg" class="menubild" />
+			</div>
+			<div
+				class="icon middle"
+				onclick="window.location='/statistik.html';"
+			>
+				<img src="/img/pie-chart.svg" class="menubild" />
+			</div>
+			<div
+				class="icon bottom"
+				onclick="window.location='/einstellungen.html';"
+			>
+				<img src="/img/settings.svg" class="menubild" />
+			</div>
+			<div
+				class="icon admin aktiv"
+				onclick="window.location='/admin.html';"
+			>
+				<img src="/img/dots.svg" class="menubild" />
+			</div>
+		</div>
+
+		<div class="button_box">
+			<button
+				class="button"
+				type="button"
+				onclick="location.href='/api/api.php?system_stop_write'"
+			>
+				System Stoppen + Grundstellung
+			</button>
+
+			<button
+				class="button"
+				type="button"
+				onclick="location.href='/api/api.php?system_start_write'"
+			>
+				System Starten
+			</button>
+
+			<button
+				class="button"
+				type="button"
+				onclick="manuelle_aktorsteuerung()"
+			>
+				Manuelle Aktorsteuerung
+			</button>
+
+			<button class="button" type="button" onclick="systemuebersicht()">
+				Systemübersicht
+			</button>
+
+			<button
+				class="button"
+				type="button"
+				onclick="location.href='/api/api.php?datenbank_reset_write'"
+			>
+				Datenbank zurücksetzen
+			</button>
+
+			<button
+				class="button"
+				type="button"
+				onclick="location.href='/api/api.php?betriebsmeldung_reset_write'"
+			>
+				Betriebsmeldungen löschen
+			</button>
+
+			<button
+				class="button"
+				type="button"
+				onclick="location.href='/api/api.php?system_shutdown_write'"
+			>
+				Herunterfahren
+			</button>
+		</div>
+
+		<div class="hmi_box betriebsmeldungen" id="betriebsmeldungen">
+			<div class="hmi_titel">Betriebsmeldungen</div>
+			<div class="hmi" id="meldungen"></div>
+		</div>
+
+		<div class="hmi_box manuelle_aktorsteuerung" id="aktorsteuerung">
+			<div class="hmi_titel">
+				Manuelle Aktorsteuerung
+				<img
+					class="hmi_close"
+					src="/img/close.svg"
+					onclick="betriebsmeldungen()"
+				/>
+			</div>
+			<div class="hmi">
+				<button class="aktor_button" type="button">
+					Türen [öffnen]
+				</button>
+				<button class="aktor_button" type="button">
+					Türen [schliessen]
+				</button>
+				<br />
+				<button class="aktor_button" type="button">
+					Lüfter gross [Ein]
+				</button>
+				<button class="aktor_button" type="button">
+					Lüfter gross [Aus]
+				</button>
+				<br />
+				<button class="aktor_button" type="button">
+					Lüfter klein [Ein]
+				</button>
+				<button class="aktor_button" type="button">
+					Lüfter klein [Aus]
+				</button>
+				<br />
+				<button class="aktor_button" type="button">
+					Wasserpumpe [Ein]
+				</button>
+				<button class="aktor_button" type="button">
+					Wasserpumpe [Aus]
+				</button>
+				<br />
+				<button class="aktor_button" type="button">
+					Ventil Wasserpumpe [Auf]
+				</button>
+				<button class="aktor_button" type="button">
+					Ventil Wasserpumpe [Zu]
+				</button>
+				<br />
+				<button class="aktor_button" type="button">
+					Ventil Befeuchter [Auf]
+				</button>
+				<button class="aktor_button" type="button">
+					Ventil Befeuchter [Zu]
+				</button>
+				<br />
+				<button class="aktor_button" type="button">
+					Licht [Ein]
+				</button>
+				<button class="aktor_button" type="button">
+					Licht [Aus]
+				</button>
+				<br />
+				<button class="aktor_button" type="button">
+					Heizung [Ein]
+				</button>
+				<button class="aktor_button" type="button">
+					Heizung [Aus]
+				</button>
+				<br />
+				<button class="aktor_button" type="button">
+					Befeuchter [Ein]
+				</button>
+				<button class="aktor_button" type="button">
+					Befeuchter [Aus]
+				</button>
+			</div>
+		</div>
+
+		<div class="hmi_box systemuebersicht" id="systemuebersicht">
+			<div class="hmi_titel">
+				Systemübersicht
+				<img
+					class="hmi_close"
+					src="/img/close.svg"
+					onclick="betriebsmeldungen()"
+				/>
+			</div>
+			<div class="hmi"></div>
+		</div>
+
+		<div class="informationen_box">
+			<div class="ip_adresse_box">
+				<a class="info_titel">IP Adresse:</a>
+				<a class="ip_adress" id="ip_adress"></a>
+			</div>
+			<div class="zeit_box">
+				<a class="info_titel">Datum/Zeit:</a>
+				<a class="zeit" id="date_time"></a>
+			</div>
+		</div>
+		<script src="/js/admin.js"></script>
+		<script>
+			ip_adresse();
+			window.onload = datumzeit("date_time");
+		</script>
+		<div id="error_message">Es ist ein fehler aufgetreten!</div>
+		<div id="success_message">Aktion erfolgreich ausgeführt!</div>
+		<script src="/js/betriebsmeldungen.js"></script>
+		<script src="/js/message.js"></script>
+	</body>
 </html>
