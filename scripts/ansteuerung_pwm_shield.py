@@ -52,7 +52,7 @@ def tuer_offen():
         kit.servo[1].angle = 90
     except:
         neue_betriebsmeldung(
-            "[ansteuerung_pwm_shield] Tueren konnten nicht geöffnet werden.")
+            "[ansteuerung_pwm_shield] Tueren konnten nicht geoeffnet werden.")
 
 
 def tuer_geschlossen():
@@ -117,7 +117,7 @@ def ventil_wasserpumpe_offen():
         ventil_wasserpumpe.duty_cycle = 0
     except:
         neue_betriebsmeldung(
-            "[ansteuerung_pwm_shield] Das Ventil der Wasserpumpe konnte nicht geöffnet werden.")
+            "[ansteuerung_pwm_shield] Das Ventil der Wasserpumpe konnte nicht geoeffnet werden.")
 
 
 def ventil_wasserpumpe_geschlossen():
@@ -133,7 +133,7 @@ def ventil_befeuchter_offen():
         ventil_befeuchter.duty_cycle = 0
     except:
         neue_betriebsmeldung(
-            "[ansteuerung_pwm_shield] Das Ventil des Befeuchters konnte nicht geöffnet werden.")
+            "[ansteuerung_pwm_shield] Das Ventil des Befeuchters konnte nicht geoeffnet werden.")
 
 
 def ventil_befeuchter_geschlossen():

@@ -1,11 +1,11 @@
-# Die Datei datenbegrenzung.py löscht alle Sensorwerte,
+# Die Datei datenbegrenzung.py loescht alle Sensorwerte,
 # welche aelter als 30 Tage alt sind automatisch.
 
 
 from betriebsmeldungen import neue_betriebsmeldung
 
 
-# Import von benötigten Modulen
+# Import von benoetigten Modulen
 # ======================================================================
 try:
     import time

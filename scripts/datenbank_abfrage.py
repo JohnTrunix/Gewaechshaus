@@ -4,7 +4,7 @@
 from betriebsmeldungen import neue_betriebsmeldung
 
 
-# Import von benötigten Modulen
+# Import von benoetigten Modulen
 # ======================================================================
 try:
     import mysql.connector

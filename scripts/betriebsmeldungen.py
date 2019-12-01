@@ -2,7 +2,7 @@
 # in die Datenbank.
 
 
-# Import von benötigten Modulen
+# Import von benoetigten Modulen
 # ======================================================================
 import time
 import datetime
@@ -52,7 +52,7 @@ def abfrage_anzahl_betriebsmeldungen():
 # ======================================================================
 
 
-# Letzte 50 Betriebsmeldungen löschen
+# Letzte 50 Betriebsmeldungen loeschen
 # ======================================================================
 def begrenzung_betriebsmeldung():
     mycursor = mydb.cursor()
