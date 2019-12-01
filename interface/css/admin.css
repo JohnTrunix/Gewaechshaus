@@ -90,9 +90,18 @@
 	height: 40px;
 	width: 720px;
 	display: flex;
-	justify-content: space-evenly;
 	align-items: center;
 	font-size: 11px;
 	font-family: Schrift_Bold;
 	color: #364366;
+}
+
+.ip_adresse_box {
+	position: fixed;
+	left: 20%;
+}
+
+.zeit_box {
+	position: fixed;
+	left: 55%;
 }

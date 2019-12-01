@@ -39,7 +39,7 @@ function datumzeit(id) {
 	if (s < 10) {
 		s = "0" + s;
 	}
-	result = d + " " + months[month] + " " + year + " " + h + ":" + m;
+	result = d + " " + months[month] + " " + year + " " + h + ":" + m + ":" + s;
 	document.getElementById(id).innerHTML = result;
 	setTimeout('datumzeit("' + id + '");', "1000");
 	return true;
