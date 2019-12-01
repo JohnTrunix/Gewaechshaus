@@ -56,6 +56,18 @@ elseif (isset($_GET['betriebsmodus_write'])) {
 }
 //======================================================================
 
+// Betriebsmodus Stop
+//======================================================================
+elseif (isset($_GET['betriebsmodus_stop_write'])) {
+    $sql1 = "DELETE FROM `betriebsmodus`";
+    $sql2 = "INSERT INTO `betriebsmodus` (`ID`, `parameter_slot`, `programm_status`, `datetime`, `programm_datum_ende`, `programm_zeit_ende`) VALUES
+	(1, 1, 0, '0000-00-00 00:00:00', '0000-00-00', '00:00:00');";
+    mysqli_query($conn, $sql1);
+    mysqli_query($conn, $sql2);
+    mysqli_close($conn);
+}
+//======================================================================
+
 // Lese Parameter
 //======================================================================
 elseif (isset($_GET['parameter_read'])) {
