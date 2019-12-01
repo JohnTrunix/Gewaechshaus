@@ -19,18 +19,51 @@ try:
     parser = argparse.ArgumentParser(description='Manuelle Ansteuerung')
     parser.add_argument(
         '--stop',
-        default=0,
-        help='Wenn 1 -> System wird gestoppt und in Grundstellung positioniert.'
+        default=0
     )
     parser.add_argument(
         '--start',
-        default=0,
-        help='Wenn 1 -> System wird gestartet.'
+        default=0
     )
     parser.add_argument(
         '--herunterfahren',
-        default=0,
-        help='Wenn 1 -> System wird in gestoppt, in Grundstellung gebracht und heruntergefahren.'
+        default=0
+    )
+    parser.add_argument(
+        '--tuer',
+        default=0
+    )
+    parser.add_argument(
+        '--luefter_gross',
+        default=0
+    )
+    parser.add_argument(
+        '--luefter_klein',
+        default=0
+    )
+    parser.add_argument(
+        '--wasserpumpe',
+        default=0
+    )
+    parser.add_argument(
+        '--ventil_wasserpumpe',
+        default=0
+    )
+    parser.add_argument(
+        '--ventil_befeuchter',
+        default=0
+    )
+    parser.add_argument(
+        '--licht',
+        default=0
+    )
+    parser.add_argument(
+        '--heizung',
+        default=0
+    )
+    parser.add_argument(
+        '--befeuchter',
+        default=0
     )
     arguments = parser.parse_args()
 except:
