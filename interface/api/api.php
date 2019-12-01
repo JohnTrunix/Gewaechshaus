@@ -311,7 +311,7 @@ elseif (isset($_GET['fehlermeldung_reset_write'])) {
 }
 //======================================================================
 
-// System Stoppen
+// System stoppen
 //======================================================================
 elseif (isset($_GET['system_stop_write'])) {
     $sql1 = "DELETE FROM `betriebsmodus`";
@@ -329,7 +329,7 @@ elseif (isset($_GET['system_stop_write'])) {
 }
 //======================================================================
 
-// System Starten
+// System starten
 //======================================================================
 elseif (isset($_GET['system_start_write'])) {
     $sql1 = "DELETE FROM `betriebsmodus`";
@@ -347,7 +347,7 @@ elseif (isset($_GET['system_start_write'])) {
 }
 //======================================================================
 
-// System Herunterfahren
+// System herunterfahren
 //======================================================================
 elseif (isset($_GET['system_shutdown_write'])) {
     exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --herunterfahren');
