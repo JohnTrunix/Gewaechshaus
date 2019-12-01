@@ -39,28 +39,63 @@ except:
 # ======================================================================
 
 
-if arguments.stop == 1:
+# Stop
+# ======================================================================
+def stop():
     neue_betriebsmeldung(
         "[manuelle_steuerung] System wird gestoppt.")
     os.system("sudo service gewaechshaus stop")
-    os.system("sudo killall python3")
     time.sleep(2)
     grundstellung()
-    os.system("sudo killall python3")
-elif arguments.start == 1:
+    time.sleep(2)
+# ======================================================================
+
+
+# Start
+# ======================================================================
+def start():
+    stop()
     neue_betriebsmeldung(
         "[manuelle_steuerung] System wird gestartet.")
-    os.system("sudo service gewaechshaus stop")
-    os.system("sudo killall python3")
-    time.sleep(2)
     os.system("sudo service gewaechshaus start")
-elif arguments.herunterfahren == 1:
+# ======================================================================
+
+
+# Shutdown
+# ======================================================================
+def shutdown():
+    stop()
     neue_betriebsmeldung(
         "[manuelle_steuerung] System wird heruntergefahren.")
-    os.system("sudo service gewaechshaus stop")
-    time.sleep(2)
-    grundstellung()
     time.sleep(10)
     os.system("sudo shutdown -h now")
+# ======================================================================
+
+
+# Manuelle Aktorsteuerung
+# ======================================================================
+def manuelle_aktorsteuerung():
+    neue_betriebsmeldung(
+        "[manuelle_steuerung] System wird für manuelle Aktorsteuerung gestoppt.")
+    os.system("sudo service gewaechshaus stop")
+    time.sleep(2)
+# ======================================================================
+
+
+# Tuersteuerung
+# ======================================================================
+def tuer_oeffnen():
+    manuelle_aktorsteuerung()
+    neue_betriebsmeldung(
+        "[manuelle_steuerung] Tueren werden geoeffnet.")
+
+
+# ======================================================================
+if arguments.stop == 1:
+    stop()
+elif arguments.start == 1:
+    start()
+elif arguments.herunterfahren == 1:
+    shutdown()
 else:
     pass
