@@ -32,7 +32,7 @@ except:
 
 def grundstellung():
     try:
-        tuer_geschlossen()
+        tuer_schliessen()
         luefter_gross_aus()
         luefter_klein_aus()
         wasserpumpe_aus()
@@ -46,7 +46,7 @@ def grundstellung():
             "[ansteuerung_pwm_shield] Grundstellung konnte nicht angefordert werden.")
 
 
-def tuer_offen():
+def tuer_oeffnen():
     try:
         kit.servo[0].angle = 90
         kit.servo[1].angle = 90
@@ -55,7 +55,7 @@ def tuer_offen():
             "[ansteuerung_pwm_shield] Tueren konnten nicht geoeffnet werden.")
 
 
-def tuer_geschlossen():
+def tuer_schliessen():
     try:
         kit.servo[0].angle = 0
         kit.servo[1].angle = 0
