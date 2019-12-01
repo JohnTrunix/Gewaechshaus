@@ -329,7 +329,7 @@ elseif (isset($_GET['system_stop_write'])) {
 }
 //======================================================================
 
-// System Stoppen
+// System Starten
 //======================================================================
 elseif (isset($_GET['system_start_write'])) {
     $sql1 = "DELETE FROM `betriebsmodus`";
