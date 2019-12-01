@@ -259,11 +259,50 @@ def manuell_befeuchter_aus():
 # ======================================================================
 
 
+# Startoptionen
+# ======================================================================
 if arguments.stop == 1:
     stop()
 elif arguments.start == 1:
     start()
 elif arguments.herunterfahren == 1:
     shutdown()
+elif arguments.tuer == 1:
+    manuell_tuer_oeffnen()
+elif arguments.luefter_gross == 1:
+    manuell_luefter_gross_ein()
+elif arguments.luefter_klein == 1:
+    manuell_luefter_klein_ein()
+elif arguments.wasserpumpe == 1:
+    manuell_wasserpumpe_ein()
+elif arguments.ventil_wasserpumpe == 1:
+    manuell_ventil_wasserpumpe_oeffnen()
+elif arguments.ventil_befeuchter == 1:
+    manuell_ventil_befeuchter_oeffnen()
+elif arguments.licht == 1:
+    manuell_licht_ein()
+elif arguments.heizung == 1:
+    manuell_heizung_ein()
+elif arguments.befeuchter == 1:
+    manuell_befeuchter_ein()
+elif arguments.tuer == 0:
+    manuell_tuer_schliessen()
+elif arguments.luefter_gross == 0:
+    manuell_luefter_gross_aus()
+elif arguments.luefter_klein == 0:
+    manuell_luefter_klein_aus()
+elif arguments.wasserpumpe == 0:
+    manuell_wasserpumpe_aus()
+elif arguments.ventil_wasserpumpe == 0:
+    manuell_ventil_wasserpumpe_schliessen()
+elif arguments.ventil_befeuchter == 0:
+    manuell_ventil_befeuchter_schliessen()
+elif arguments.licht == 0:
+    manuell_licht_aus()
+elif arguments.heizung == 0:
+    manuell_heizung_aus()
+elif arguments.befeuchter == 0:
+    manuell_befeuchter_aus()
 else:
     pass
+# ======================================================================
