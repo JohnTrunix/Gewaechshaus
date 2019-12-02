@@ -62,6 +62,10 @@
 	justify-content: center;
 }
 
+.block_overflow {
+	overflow: hidden;
+}
+
 .hmi::-webkit-scrollbar {
 	width: 5px;
 }

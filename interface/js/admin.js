@@ -64,7 +64,7 @@ function get_betriebsmeldungen() {
 }
 
 function get_gewaechshaus_status() {
-	var display = document.getElementById("meldungen");
+	var display = document.getElementById("gewaechshaus_status");
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.open("GET", "/api/api.php?gewaechshaus_status_read");
 	xmlhttp.setRequestHeader(
@@ -82,7 +82,7 @@ function get_gewaechshaus_status() {
 }
 
 function get_bussystem_status() {
-	var display = document.getElementById("meldungen");
+	var display = document.getElementById("bussystem_status");
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.open("GET", "/api/api.php?bussystem_status_read");
 	xmlhttp.setRequestHeader(
@@ -99,11 +99,15 @@ function get_bussystem_status() {
 	};
 }
 
-function betriebsmeldungen_download() {
+function admin_download() {
 	get_betriebsmeldungen();
-	setTimeout(betriebsmeldungen_download, 5000);
+	get_gewaechshaus_status();
+	get_bussystem_status();
+	setTimeout(get_betriebsmeldungen, 5000);
+	setTimeout(get_gewaechshaus_status, 5000);
+	setTimeout(get_bussystem_status, 5000);
 }
-betriebsmeldungen_download();
+admin_download();
 
 function systemuebersicht() {
 	var systemuebersicht = document.getElementById("systemuebersicht");
