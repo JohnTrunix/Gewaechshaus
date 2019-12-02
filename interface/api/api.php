@@ -327,7 +327,7 @@ elseif (isset($_GET['system_stop_write'])) {
 	(1, 1, 0, '0000-00-00 00:00:00', '0000-00-00', '00:00:00');";
 
     if (mysqli_query($conn, $sql1) && mysqli_query($conn, $sql2)) {
-        exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --stop');
+        shell_exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --stop');
         header("Location: /admin.html?erfolgreich");
     } else {
         header("Location: /admin.html?fehler");
@@ -340,7 +340,7 @@ elseif (isset($_GET['system_stop_write'])) {
 // System starten
 //======================================================================
 elseif (isset($_GET['system_start_write'])) {
-    exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --start');
+    shell_exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --start');
     header("Location: /admin.html?erfolgreich");
 }
 //======================================================================
@@ -348,7 +348,7 @@ elseif (isset($_GET['system_start_write'])) {
 // System herunterfahren
 //======================================================================
 elseif (isset($_GET['system_shutdown_write'])) {
-    exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --herunterfahren');
+    shell_exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --herunterfahren');
     header("Location: /admin.html?erfolgreich");
 }
 //======================================================================
@@ -359,75 +359,75 @@ elseif (isset($_GET['aktor_steuern'])) {
     switch ($_POST["aktor_wahl"]) {
 
         case 'tuer_1':
-            exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --tuer 1');
+            shell_exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --tuer 1');
             break;
 
         case 'tuer_0':
-            exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --tuer 0');
+            shell_exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --tuer 0');
             break;
 
         case 'luefter_gross_1':
-            exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --luefter_gross 1');
+            shell_exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --luefter_gross 1');
             break;
 
         case 'luefter_gross_0':
-            exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --luefter_gross 0');
+            shell_exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --luefter_gross 0');
             break;
 
         case 'luefter_klein_1':
-            exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --luefter_klein 1');
+            shell_exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --luefter_klein 1');
             break;
 
         case 'luefter_klein_0':
-            exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --luefter_klein 0');
+            shell_exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --luefter_klein 0');
             break;
 
         case 'wasserpumpe_1':
-            exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --wasserpumpe 1');
+            shell_exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --wasserpumpe 1');
             break;
 
         case 'wasserpumpe_0':
-            exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --wasserpumpe 0');
+            shell_exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --wasserpumpe 0');
             break;
 
         case 'ventil_wasserpumpe_1':
-            exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --ventil_wasserpumpe 1');
+            shell_exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --ventil_wasserpumpe 1');
             break;
 
         case 'ventil_wasserpumpe_0':
-            exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --ventil_wasserpumpe 0');
+            shell_exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --ventil_wasserpumpe 0');
             break;
 
         case 'ventil_befeuchter_1':
-            exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --ventil_befeuchter 1');
+            shell_exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --ventil_befeuchter 1');
             break;
 
         case 'ventil_befeuchter_0':
-            exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --ventil_befeuchter 0');
+            shell_exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --ventil_befeuchter 0');
             break;
 
         case 'licht_1':
-            exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --licht 1');
+            shell_exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --licht 1');
             break;
 
         case 'licht_0':
-            exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --licht 0');
+            shell_exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --licht 0');
             break;
 
         case 'heizung_1':
-            exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --heizung 1');
+            shell_exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --heizung 1');
             break;
 
         case 'heizung_0':
-            exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --heizung 0');
+            shell_exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --heizung 0');
             break;
 
         case 'befeuchter_1':
-            exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --befeuchter 1');
+            shell_exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --befeuchter 1');
             break;
 
         case 'befeuchter_0':
-            exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --befeuchter 0');
+            shell_exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --befeuchter 0');
             break;
     }
 }
