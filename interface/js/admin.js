@@ -45,6 +45,66 @@ function datumzeit(id) {
 	return true;
 }
 
+function get_betriebsmeldungen() {
+	var display = document.getElementById("meldungen");
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("GET", "/api/api.php?betriebsmeldungen_read");
+	xmlhttp.setRequestHeader(
+		"Content-Type",
+		"application/x-www-form-urlencoded"
+	);
+	xmlhttp.send();
+	xmlhttp.onreadystatechange = function() {
+		if (this.readyState === 4 && this.status === 200) {
+			display.innerHTML = this.responseText;
+		} else {
+			display.innerHTML = "0";
+		}
+	};
+}
+
+function get_gewaechshaus_status() {
+	var display = document.getElementById("meldungen");
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("GET", "/api/api.php?gewaechshaus_status_read");
+	xmlhttp.setRequestHeader(
+		"Content-Type",
+		"application/x-www-form-urlencoded"
+	);
+	xmlhttp.send();
+	xmlhttp.onreadystatechange = function() {
+		if (this.readyState === 4 && this.status === 200) {
+			display.innerHTML = this.responseText;
+		} else {
+			display.innerHTML = "0";
+		}
+	};
+}
+
+function get_bussystem_status() {
+	var display = document.getElementById("meldungen");
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("GET", "/api/api.php?bussystem_status_read");
+	xmlhttp.setRequestHeader(
+		"Content-Type",
+		"application/x-www-form-urlencoded"
+	);
+	xmlhttp.send();
+	xmlhttp.onreadystatechange = function() {
+		if (this.readyState === 4 && this.status === 200) {
+			display.innerHTML = this.responseText;
+		} else {
+			display.innerHTML = "0";
+		}
+	};
+}
+
+function betriebsmeldungen_download() {
+	get_betriebsmeldungen();
+	setTimeout(betriebsmeldungen_download, 5000);
+}
+betriebsmeldungen_download();
+
 function systemuebersicht() {
 	var systemuebersicht = document.getElementById("systemuebersicht");
 	var betriebsmeldungen = document.getElementById("betriebsmeldungen");
