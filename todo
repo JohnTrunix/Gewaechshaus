@@ -1,6 +1,4 @@
-Manuelle Aktoransteuerung
-SW Status
-I2C Status
+SW Status, I2C Status
 
 Licht Parameter im 0.5h Takt
 Alle Stunde Lüfter Gross und Tür auf -> lüften
