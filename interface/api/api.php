@@ -436,16 +436,16 @@ elseif (isset($_GET['aktor_steuern'])) {
 // Gewaechshaus Systemstatus
 //======================================================================
 elseif (isset($_GET['gewaechshaus_status_read'])) {
-    $output = shell_exec('ipconfig');
-    echo $output;
+    $output = shell_exec('sudo service gewaechshaus status');
+    echo "<a>$output</a>";
 }
 //======================================================================
 
 // Bussystem Status
 //======================================================================
 elseif (isset($_GET['bussystem_status_read'])) {
-    $output = shell_exec('ipconfig');
-    echo $output;
+    $output = shell_exec('sudo i2cdetect -y 1');
+    echo "<a>$output</a>";
 }
 //======================================================================
 
