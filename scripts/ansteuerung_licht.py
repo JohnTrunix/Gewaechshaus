@@ -77,7 +77,7 @@ def start_lichtsteuerung():
             aktueller_fortschritt()
 
             if int(datenbank_abfrage.lichtstunden) > 0:
-                sollwert = (int(datenbank_abfrage.lichtstunden) * 60)
+                sollwert = (float(datenbank_abfrage.lichtstunden) * 60)
 
                 if neue_zaehler_zeit < sollwert:
                     licht_ein()
