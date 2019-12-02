@@ -71,3 +71,13 @@ function manuelle_aktorsteuerung() {
 	betriebsmeldungen.style.display = "none";
 	manuelle_aktorsteuerung.style.display = "initial";
 }
+
+function aktor_steuern(aktor) {
+	jQuery.ajax({
+		type: "POST",
+		url: "/api/api.php?aktor_steuern",
+		data: {
+			aktor_wahl: aktor
+		}
+	});
+}
