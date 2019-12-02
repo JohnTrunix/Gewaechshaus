@@ -1,6 +1,6 @@
 // Lese die neuesten Betriebsmeldungen
 //======================================================================
-function download() {
+function get_betriebsmeldungen() {
 	var display = document.getElementById("meldungen");
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.open("GET", "/api/api.php?betriebsmeldungen_read");
@@ -22,7 +22,7 @@ function download() {
 // Betriebsmeldungen im 5s Takt downloaden.
 //======================================================================
 function betriebsmeldungen_download() {
-	download();
+	get_betriebsmeldungen();
 	setTimeout(betriebsmeldungen_download, 5000);
 }
 betriebsmeldungen_download();
