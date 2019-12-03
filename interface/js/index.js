@@ -271,7 +271,7 @@ function berechne_zeit_verbleibend(input_endzeit) {
 	if (input_endzeit < zeit_jetzt) {
 		return 0;
 	} else if (input_endzeit > zeit_jetzt) {
-		var zeit_verbleibend = zeitrechner(input_endzeit, zeit_jetzt, 1);
+		var zeit_verbleibend = zeitrechner(input_endzeit, zeit_jetzt, 1) - 1;
 		return zeit_verbleibend;
 	} else {
 		return 0;
