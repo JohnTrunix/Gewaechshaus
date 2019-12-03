@@ -1,3 +1,5 @@
+// Datum und Uhrzeit als Text ausgeben
+//======================================================================
 function datumzeit(id) {
 	date = new Date();
 	year = date.getFullYear();
@@ -17,16 +19,6 @@ function datumzeit(id) {
 		"Dezember"
 	);
 	d = date.getDate();
-	day = date.getDay();
-	days = new Array(
-		"Sonntag",
-		"Montag",
-		"Dienstag",
-		"Mittwoch",
-		"Donnerstag",
-		"Freitag",
-		"Samstag"
-	);
 	h = date.getHours();
 	if (h < 10) {
 		h = "0" + h;
@@ -45,7 +37,10 @@ function datumzeit(id) {
 	return true;
 }
 window.onload = datumzeit("date_time");
+//======================================================================
 
+// Betriebsmeldungen von Datenbank als Text ausgeben
+//======================================================================
 function get_betriebsmeldungen() {
 	var display = document.getElementById("meldungen");
 	var xmlhttp = new XMLHttpRequest();
@@ -63,7 +58,10 @@ function get_betriebsmeldungen() {
 		}
 	};
 }
+//======================================================================
 
+// Gewaechshaus Status als Text ausgeben
+//======================================================================
 function get_gewaechshaus_status() {
 	var display = document.getElementById("gewaechshaus_status");
 	var xmlhttp = new XMLHttpRequest();
@@ -81,7 +79,10 @@ function get_gewaechshaus_status() {
 		}
 	};
 }
+//======================================================================
 
+// Bussystem Status als Text ausgeben
+//======================================================================
 function get_bussystem_status() {
 	var display = document.getElementById("bussystem_status");
 	var xmlhttp = new XMLHttpRequest();
@@ -99,7 +100,10 @@ function get_bussystem_status() {
 		}
 	};
 }
+//======================================================================
 
+// Funktionen im 5s Intervall ausfuehren
+//======================================================================
 function admin_download() {
 	get_betriebsmeldungen();
 	get_gewaechshaus_status();
@@ -109,34 +113,35 @@ function admin_download() {
 	setTimeout(get_bussystem_status, 5000);
 }
 admin_download();
+//======================================================================
+
+// HTML Div umschaltfunktionen
+//======================================================================
+var systemuebersicht_html = document.getElementById("systemuebersicht");
+var betriebsmeldungen_html = document.getElementById("betriebsmeldungen");
+var manuelle_aktorsteuerung_html = document.getElementById("aktorsteuerung");
 
 function systemuebersicht() {
-	var systemuebersicht = document.getElementById("systemuebersicht");
-	var betriebsmeldungen = document.getElementById("betriebsmeldungen");
-	var manuelle_aktorsteuerung = document.getElementById("aktorsteuerung");
-	systemuebersicht.style.display = "initial";
-	betriebsmeldungen.style.display = "none";
-	manuelle_aktorsteuerung.style.display = "none";
+	systemuebersicht_html.style.display = "initial";
+	betriebsmeldungen_html.style.display = "none";
+	manuelle_aktorsteuerung_html.style.display = "none";
 }
 
 function betriebsmeldungen() {
-	var systemuebersicht = document.getElementById("systemuebersicht");
-	var betriebsmeldungen = document.getElementById("betriebsmeldungen");
-	var manuelle_aktorsteuerung = document.getElementById("aktorsteuerung");
-	systemuebersicht.style.display = "none";
-	betriebsmeldungen.style.display = "initial";
-	manuelle_aktorsteuerung.style.display = "none";
+	systemuebersicht_html.style.display = "none";
+	betriebsmeldungen_html.style.display = "initial";
+	manuelle_aktorsteuerung_html.style.display = "none";
 }
 
 function manuelle_aktorsteuerung() {
-	var systemuebersicht = document.getElementById("systemuebersicht");
-	var betriebsmeldungen = document.getElementById("betriebsmeldungen");
-	var manuelle_aktorsteuerung = document.getElementById("aktorsteuerung");
-	systemuebersicht.style.display = "none";
-	betriebsmeldungen.style.display = "none";
-	manuelle_aktorsteuerung.style.display = "initial";
+	systemuebersicht_html.style.display = "none";
+	betriebsmeldungen_html.style.display = "none";
+	manuelle_aktorsteuerung_html.style.display = "initial";
 }
+//======================================================================
 
+// Aktor ansteuern API anforderung
+//======================================================================
 function aktor_steuern(aktor) {
 	jQuery.ajax({
 		type: "POST",
@@ -146,7 +151,10 @@ function aktor_steuern(aktor) {
 		}
 	});
 }
+//======================================================================
 
+// IP Adresse von API anfordern
+//======================================================================
 function get_ip_address() {
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", "/api/api.php?ip_adresse_read", true);
@@ -160,7 +168,10 @@ function get_ip_address() {
 	xhr.send();
 }
 get_ip_address();
+//======================================================================
 
+// Display Benachrichtigungen anzeigen
+//======================================================================
 var url = window.location.href;
 if (url.search("fehler") > 0) {
 	display_message("fehler");
@@ -180,3 +191,4 @@ function display_message(status) {
 		x.className = x.className.replace("show", "");
 	}, 2800);
 }
+//======================================================================
