@@ -44,6 +44,7 @@ function datumzeit(id) {
 	setTimeout('datumzeit("' + id + '");', "1000");
 	return true;
 }
+window.onload = datumzeit("date_time");
 
 function get_betriebsmeldungen() {
 	var display = document.getElementById("meldungen");
@@ -144,4 +145,38 @@ function aktor_steuern(aktor) {
 			aktor_wahl: aktor
 		}
 	});
+}
+
+function get_ip_address() {
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", "/api/api.php?ip_adresse_read", true);
+	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhr.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			document.getElementById("ip_adress").innerHTML = xhr.responseText;
+		}
+	};
+
+	xhr.send();
+}
+get_ip_address();
+
+var url = window.location.href;
+if (url.search("fehler") > 0) {
+	display_message("fehler");
+} else if (url.search("erfolgreich") > 0) {
+	display_message("erfolgreich");
+}
+
+function display_message(status) {
+	var status, x;
+	if (status == "fehler") {
+		x = document.getElementById("error_message");
+	} else if (status == "erfolgreich") {
+		x = document.getElementById("success_message");
+	}
+	x.className = "show";
+	setTimeout(function() {
+		x.className = x.className.replace("show", "");
+	}, 2800);
 }
