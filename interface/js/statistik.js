@@ -1,3 +1,5 @@
+// Grafana URL dem HTML Iframe zuweisen
+//======================================================================
 function get_ip_address() {
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", "/api/api.php?ip_adresse_read", true);
@@ -10,7 +12,7 @@ function get_ip_address() {
 				":3000/d/FLXpjTtWk/sensorwerte?orgId=1&kiosk=tv";
 		}
 	};
-
 	xhr.send();
 }
 get_ip_address();
+//======================================================================
