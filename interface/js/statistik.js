@@ -1,18 +1,21 @@
 // Grafana URL dem HTML Iframe zuweisen
 //======================================================================
 function get_ip_address() {
-	var xhr = new XMLHttpRequest();
-	xhr.open("POST", "/api/api.php?ip_adresse_read", true);
-	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xhr.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			document.getElementById("iframe").src =
+	var display = document.getElementById("iframe");
+	jQuery.ajax({
+		type: "GET",
+		url: "/api/api.php?ip_adresse_read",
+		success: function(response) {
+			display.src =
 				"http://" +
-				xhr.responseText +
+				response +
 				":3000/d/FLXpjTtWk/sensorwerte?orgId=1&kiosk=tv";
+		},
+		error: function() {
+			display.src =
+				"http://localhost:3000/d/FLXpjTtWk/sensorwerte?orgId=1&kiosk=tv";
 		}
-	};
-	xhr.send();
+	});
 }
 get_ip_address();
 //======================================================================
