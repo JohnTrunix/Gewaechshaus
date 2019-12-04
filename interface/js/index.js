@@ -1,4 +1,4 @@
-// Definierung von Globalen Variablen
+// Definierung von globalen Variablen
 //======================================================================
 var array_betriebsmodus = [];
 var array_parameter = [];
