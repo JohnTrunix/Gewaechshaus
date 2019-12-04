@@ -1,13 +1,3 @@
-// Minimales Datum für die Datumsauswahl in HTML.
-//======================================================================
-function get_minimum_date() {
-	now = new Date();
-	minimum_date = now.toISOString().substring(0, 10);
-	document.getElementById("programm_datum_ende").min = minimum_date;
-	return minimum_date;
-}
-//======================================================================
-
 // Starte den Countdown mit der definierten input_datumzeit.
 //======================================================================
 function start_countdown(input_datumzeit) {
@@ -345,7 +335,16 @@ function betriebsmodus_display(programm_status) {
 //======================================================================
 
 get_betriebsmodus();
+
+// Minimales Datum für die Datumsauswahl in HTML.
+//======================================================================
+function get_minimum_date() {
+	now = new Date();
+	minimum_date = now.toISOString().substring(0, 10);
+	document.getElementById("programm_datum_ende").min = minimum_date;
+}
 get_minimum_date();
+//======================================================================
 
 // HTML Dropdown steuerung
 //======================================================================
