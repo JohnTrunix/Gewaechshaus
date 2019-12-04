@@ -475,6 +475,86 @@ function betriebsmodus_display(programm_status) {
 get_betriebsmodus();
 get_minimum_date();
 
+// Lichtstaerke von API anfordern
+//======================================================================
+function lichtstaerke_download() {
+	var display = document.getElementById("lichtstaerke_wert");
+	jQuery.ajax({
+		type: "GET",
+		url: "/api/api.php?lichtstaerke_read",
+		success: function(response) {
+			display.innerHTML = response + " Lux";
+		},
+		error: function() {
+			display.innerHTML = "ERR";
+		}
+	});
+}
+//======================================================================
+
+// Luftfeuchtigkeit von API anfordern
+//======================================================================
+function luftfeuchtigkeit_download() {
+	var display = document.getElementById("luftfeuchtigkeit_wert");
+	jQuery.ajax({
+		type: "GET",
+		url: "/api/api.php?luftfeuchtigkeit_read",
+		success: function(response) {
+			display.innerHTML = response + " %";
+		},
+		error: function() {
+			display.innerHTML = "ERR";
+		}
+	});
+}
+//======================================================================
+
+// Temperatur von API anfordern
+//======================================================================
+function temperatur_download() {
+	var display = document.getElementById("temperatur_wert");
+	jQuery.ajax({
+		type: "GET",
+		url: "/api/api.php?temperatur_read",
+		success: function(response) {
+			display.innerHTML = response + " °C";
+		},
+		error: function() {
+			display.innerHTML = "ERR";
+		}
+	});
+}
+//======================================================================
+
+// Bodenfeuchtigkeit von API anfordern
+//======================================================================
+function bodenfeuchtigkeit_download() {
+	var display = document.getElementById("bodenfeuchtigkeit_wert");
+	jQuery.ajax({
+		type: "GET",
+		url: "/api/api.php?bodenfeuchtigkeit_read",
+		success: function(response) {
+			display.innerHTML = response + " %";
+		},
+		error: function() {
+			display.innerHTML = "ERR";
+		}
+	});
+}
+//======================================================================
+
+// Sensorwerte im 5s Takt anfordern
+//======================================================================
+function sensorwert_download() {
+	lichtstaerke_download();
+	luftfeuchtigkeit_download();
+	temperatur_download();
+	bodenfeuchtigkeit_download();
+	setTimeout(sensorwert_download, 5000);
+}
+sensorwert_download();
+//======================================================================
+
 // Display Benachrichtigungen anzeigen
 //======================================================================
 var url = window.location.href;
