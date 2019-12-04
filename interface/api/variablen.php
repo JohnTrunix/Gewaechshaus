@@ -66,8 +66,8 @@ $temperatur10 = 0;
 $lichtstunden10 = 0;
 $wassermenge10 = 0;
 $luftfeuchtigkeit10 = 0;
-$sensor_bodenfeuchtigkeit_1 = 0;
-$sensor_licht_1 = 0;
-$sensor_luftfeuchtigkeit_1 = 0;
-$sensor_temperatur_1 = 0;
+$sensor_bodenfeuchtigkeit_1 = 'ERR';
+$sensor_licht_1 = 'ERR';
+$sensor_luftfeuchtigkeit_1 = 'ERR';
+$sensor_temperatur_1 = 'ERR';
 //======================================================================
