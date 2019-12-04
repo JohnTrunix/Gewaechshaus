@@ -57,7 +57,9 @@ function get_betriebsmeldungen() {
 			display.innerHTML = "0";
 		}
 	};
+	setTimeout(get_betriebsmeldungen, 5000);
 }
+get_betriebsmeldungen();
 //======================================================================
 
 // Gewaechshaus Status als Text ausgeben
@@ -78,7 +80,9 @@ function get_gewaechshaus_status() {
 			display.innerHTML = "0";
 		}
 	};
+	setTimeout(get_gewaechshaus_status, 5000);
 }
+get_gewaechshaus_status();
 //======================================================================
 
 // Bussystem Status als Text ausgeben
@@ -99,20 +103,9 @@ function get_bussystem_status() {
 			display.innerHTML = "0";
 		}
 	};
-}
-//======================================================================
-
-// Funktionen im 5s Intervall ausfuehren
-//======================================================================
-function admin_download() {
-	get_betriebsmeldungen();
-	get_gewaechshaus_status();
-	get_bussystem_status();
-	setTimeout(get_betriebsmeldungen, 5000);
-	setTimeout(get_gewaechshaus_status, 5000);
 	setTimeout(get_bussystem_status, 5000);
 }
-admin_download();
+get_bussystem_status();
 //======================================================================
 
 // HTML Div umschaltfunktionen
