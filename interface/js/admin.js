@@ -43,20 +43,16 @@ window.onload = datumzeit("date_time");
 //======================================================================
 function get_betriebsmeldungen() {
 	var display = document.getElementById("meldungen");
-	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.open("GET", "/api/api.php?betriebsmeldungen_read");
-	xmlhttp.setRequestHeader(
-		"Content-Type",
-		"application/x-www-form-urlencoded"
-	);
-	xmlhttp.send();
-	xmlhttp.onreadystatechange = function() {
-		if (this.readyState === 4 && this.status === 200) {
-			display.innerHTML = this.responseText;
-		} else {
-			display.innerHTML = "0";
+	jQuery.ajax({
+		type: "GET",
+		url: "/api/api.php?betriebsmeldungen_read",
+		success: function(response) {
+			display.innerHTML = response;
+		},
+		error: function() {
+			display.innerHTML = "Fehler beim Laden.";
 		}
-	};
+	});
 	setTimeout(get_betriebsmeldungen, 5000);
 }
 get_betriebsmeldungen();
@@ -66,20 +62,16 @@ get_betriebsmeldungen();
 //======================================================================
 function get_gewaechshaus_status() {
 	var display = document.getElementById("gewaechshaus_status");
-	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.open("GET", "/api/api.php?gewaechshaus_status_read");
-	xmlhttp.setRequestHeader(
-		"Content-Type",
-		"application/x-www-form-urlencoded"
-	);
-	xmlhttp.send();
-	xmlhttp.onreadystatechange = function() {
-		if (this.readyState === 4 && this.status === 200) {
-			display.innerHTML = this.responseText;
-		} else {
-			display.innerHTML = "0";
+	jQuery.ajax({
+		type: "GET",
+		url: "/api/api.php?gewaechshaus_status_read",
+		success: function(response) {
+			display.innerHTML = response;
+		},
+		error: function() {
+			display.innerHTML = "Fehler beim Laden.";
 		}
-	};
+	});
 	setTimeout(get_gewaechshaus_status, 5000);
 }
 get_gewaechshaus_status();
@@ -89,20 +81,16 @@ get_gewaechshaus_status();
 //======================================================================
 function get_bussystem_status() {
 	var display = document.getElementById("bussystem_status");
-	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.open("GET", "/api/api.php?bussystem_status_read");
-	xmlhttp.setRequestHeader(
-		"Content-Type",
-		"application/x-www-form-urlencoded"
-	);
-	xmlhttp.send();
-	xmlhttp.onreadystatechange = function() {
-		if (this.readyState === 4 && this.status === 200) {
-			display.innerHTML = this.responseText;
-		} else {
-			display.innerHTML = "0";
+	jQuery.ajax({
+		type: "GET",
+		url: "/api/api.php?bussystem_status_read",
+		success: function(response) {
+			display.innerHTML = response;
+		},
+		error: function() {
+			display.innerHTML = "Fehler beim Laden.";
 		}
-	};
+	});
 	setTimeout(get_bussystem_status, 5000);
 }
 get_bussystem_status();
@@ -149,16 +137,17 @@ function aktor_steuern(aktor) {
 // IP Adresse von API anfordern
 //======================================================================
 function get_ip_address() {
-	var xhr = new XMLHttpRequest();
-	xhr.open("POST", "/api/api.php?ip_adresse_read", true);
-	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xhr.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			document.getElementById("ip_adress").innerHTML = xhr.responseText;
+	var display = document.getElementById("ip_adress");
+	jQuery.ajax({
+		type: "GET",
+		url: "/api/api.php?ip_adresse_read",
+		success: function(response) {
+			display.innerHTML = response;
+		},
+		error: function() {
+			display.innerHTML = "Fehler beim Laden.";
 		}
-	};
-
-	xhr.send();
+	});
 }
 get_ip_address();
 //======================================================================
