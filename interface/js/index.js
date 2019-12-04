@@ -1,23 +1,3 @@
-var url = window.location.href;
-if (url.search("fehler") > 0) {
-	display_message("fehler");
-} else if (url.search("erfolgreich") > 0) {
-	display_message("erfolgreich");
-}
-
-function display_message(status) {
-	var status, x;
-	if (status == "fehler") {
-		x = document.getElementById("error_message");
-	} else if (status == "erfolgreich") {
-		x = document.getElementById("success_message");
-	}
-	x.className = "show";
-	setTimeout(function() {
-		x.className = x.className.replace("show", "");
-	}, 2800);
-}
-
 function lichtstaerke_download() {
 	var display = document.getElementById("lichtstaerke_wert");
 	var xmlhttp = new XMLHttpRequest();
@@ -494,3 +474,26 @@ function betriebsmodus_display(programm_status) {
 
 get_betriebsmodus();
 get_minimum_date();
+
+// Display Benachrichtigungen anzeigen
+//======================================================================
+var url = window.location.href;
+if (url.search("fehler") > 0) {
+	display_message("fehler");
+} else if (url.search("erfolgreich") > 0) {
+	display_message("erfolgreich");
+}
+
+function display_message(status) {
+	var status, x;
+	if (status == "fehler") {
+		x = document.getElementById("error_message");
+	} else if (status == "erfolgreich") {
+		x = document.getElementById("success_message");
+	}
+	x.className = "show";
+	setTimeout(function() {
+		x.className = x.className.replace("show", "");
+	}, 2800);
+}
+//======================================================================
