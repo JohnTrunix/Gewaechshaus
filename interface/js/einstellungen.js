@@ -1,16 +1,16 @@
 // Parameter von Datenbank anfordern
 //======================================================================
 function get_parameter() {
-	var xhr = new XMLHttpRequest();
-	xhr.open("POST", "/api/api.php?parameter_read", true);
-	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xhr.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			array_parameter = JSON.parse(xhr.responseText);
-			return array_parameter;
+	jQuery.ajax({
+		type: "GET",
+		url: "/api/api.php?parameter_read",
+		success: function(response) {
+			array_parameter = JSON.parse(response);
+		},
+		error: function() {
+			display_message("fehler");
 		}
-	};
-	xhr.send();
+	});
 }
 get_parameter();
 //======================================================================
