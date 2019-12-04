@@ -1,3 +1,56 @@
+// Definierung von Globalen Variablen
+//======================================================================
+var array_betriebsmodus = [];
+var array_parameter = [];
+//======================================================================
+
+// Betriebsmodus von API anfordern
+//======================================================================
+function get_betriebsmodus() {
+	jQuery.ajax({
+		type: "GET",
+		url: "/api/api.php?betriebsmodus_read",
+		success: function(response) {
+			array_betriebsmodus = JSON.parse(response);
+			parameter_slot = array_betriebsmodus[0].parameter_slot;
+			programm_status = array_betriebsmodus[0].programm_status;
+			datetime = array_betriebsmodus[0].datetime;
+			programm_datum_ende = array_betriebsmodus[0].programm_datum_ende;
+			programm_zeit_ende = array_betriebsmodus[0].programm_zeit_ende;
+			programm_ende = programm_datum_ende + " " + programm_zeit_ende;
+			get_parameter();
+			start_countdown(programm_ende);
+			balken_berechnung(datetime, programm_ende);
+			betriebsmodus_display(programm_status);
+		},
+		error: function() {
+			display_message("fehler");
+		}
+	});
+}
+get_betriebsmodus();
+//======================================================================
+
+// Parameter von API anfordern
+//======================================================================
+function get_parameter() {
+	jQuery.ajax({
+		type: "GET",
+		url: "/api/api.php?parameter_read",
+		success: function(response) {
+			array_parameter = JSON.parse(response);
+			if (programm_status == 0) {
+				set_dropdown_names();
+				get_minimum_date();
+			}
+		},
+		error: function() {
+			display_message("fehler");
+		}
+	});
+}
+//======================================================================
+
 // Starte den Countdown mit der definierten input_datumzeit.
 //======================================================================
 function start_countdown(input_datumzeit) {
@@ -196,27 +249,6 @@ function balken_berechnung(datetime, programm_ende) {
 }
 //======================================================================
 
-// get_parameter liest alle relevanten Daten durch die API aus der Datenbank.
-//======================================================================
-function get_parameter() {
-	// Neuer XMLHttpRequest erstellen
-	var xhr = new XMLHttpRequest();
-	xhr.open("POST", "/api/api.php?parameter_read", true);
-	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
-	// Wenn Bereit --> XMLHttpRequest ausführen
-	xhr.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			array_parameter = JSON.parse(xhr.responseText);
-			return array_parameter;
-		}
-	};
-
-	xhr.send();
-}
-get_parameter();
-//======================================================================
-
 // set_dropdown_names schreibt die Slotnamen in das HTML Dropdown
 //======================================================================
 function set_dropdown_names() {
@@ -285,37 +317,6 @@ function get_active_parameter(slot) {
 }
 //======================================================================
 
-// get_betriebsmodus liest alle relevanten Daten durch die API aus der Datenbank.
-//======================================================================
-function get_betriebsmodus() {
-	// Neuer XMLHttpRequest erstellen
-	var xhr = new XMLHttpRequest();
-	xhr.open("POST", "/api/api.php?betriebsmodus_read", true);
-	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
-	// Wenn Bereit --> XMLHttpRequest ausführen
-	xhr.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			// JSON Response.
-			array_betriebsmodus = JSON.parse(xhr.responseText);
-			// JSON Daten Variablen zuweisen.
-			parameter_slot = array_betriebsmodus[0].parameter_slot;
-			programm_status = array_betriebsmodus[0].programm_status;
-			datetime = array_betriebsmodus[0].datetime;
-			programm_datum_ende = array_betriebsmodus[0].programm_datum_ende;
-			programm_zeit_ende = array_betriebsmodus[0].programm_zeit_ende;
-			programm_ende = programm_datum_ende + " " + programm_zeit_ende;
-			// Weitere Funktionen ausführen.
-			start_countdown(programm_ende);
-			balken_berechnung(datetime, programm_ende);
-			betriebsmodus_display(programm_status);
-		}
-	};
-
-	xhr.send();
-}
-//======================================================================
-
 // Die Funktion aktueller_betriebsmodus regelt ob das Start Stop Verhalten.
 //======================================================================
 function betriebsmodus_display(programm_status) {
@@ -326,15 +327,12 @@ function betriebsmodus_display(programm_status) {
 	} else if (programm_status == "0") {
 		document.getElementById("start").style.display = "inline";
 		document.getElementById("stop").style.display = "none";
-		set_dropdown_names();
 	} else {
 		document.getElementById("start").style.display = "inline";
 		document.getElementById("stop").style.display = "none";
 	}
 }
 //======================================================================
-
-get_betriebsmodus();
 
 // Minimales Datum für die Datumsauswahl in HTML.
 //======================================================================
@@ -343,7 +341,6 @@ function get_minimum_date() {
 	minimum_date = now.toISOString().substring(0, 10);
 	document.getElementById("programm_datum_ende").min = minimum_date;
 }
-get_minimum_date();
 //======================================================================
 
 // HTML Dropdown steuerung
