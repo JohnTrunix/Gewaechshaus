@@ -1,12 +1,13 @@
-# Die Datei run.py ist der Hauptbestandteil der Python Programme.
-# Run.py fuehrt periodisch mittels scheduling die vordefinierten
-# Ablaeufe aus.
-
-
+# Import der Betriebsmeldungsfunktion
+# ======================================================================
 from betriebsmeldungen import neue_betriebsmeldung
+# ======================================================================
 
+# Betriebsmeldung bei Systemstart
+# ======================================================================
 neue_betriebsmeldung(
     "[run] System wird gestartet.")
+# ======================================================================
 
 # Import von benoetigten Modulen
 # ======================================================================
@@ -28,7 +29,6 @@ except:
         "[run] Fehler bei der importierung von Modulen.")
 # ======================================================================
 
-
 # Zeit Aktualisierung bei Start
 # ======================================================================
 try:
@@ -37,7 +37,6 @@ except:
     neue_betriebsmeldung(
         "[run] Fehler bei der Anforderung der Zeitaktualisierung.")
 # ======================================================================
-
 
 # Datenbegrenzung bei Start
 # ======================================================================
@@ -48,7 +47,6 @@ except:
         "[run] Fehler bei der Anforderung der Datenbegrenzung.")
 # ======================================================================
 
-
 # Datenbankabfrage bei Start
 # ======================================================================
 try:
@@ -58,7 +56,6 @@ except:
         "[run] Fehler bei der Anforderung der Datenbankabfrage.")
 # ======================================================================
 
-
 # Grundstellung bei Start
 # ======================================================================
 try:
@@ -67,7 +64,6 @@ except:
     neue_betriebsmeldung(
         "[run] Fehler bei der Anforderung der Grundstellung.")
 # ======================================================================
-
 
 # Alle Auftraege mit Startintervall definiert
 # ======================================================================
@@ -82,7 +78,6 @@ schedule.every().day.at("23:55").do(start_datenbegrenzung)
 schedule.every().day.at("23:55").do(start_zeit_update)
 schedule.every().day.at("08:00").do(reset_licht_zaehler)
 # ======================================================================
-
 
 # Alle 5 Sekunden auf ausstehende Auftraege ueberpruefen
 # ======================================================================
