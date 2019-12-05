@@ -1,4 +1,10 @@
+# Import der Betriebsmeldungsfunktion
+# ======================================================================
 from betriebsmeldungen import neue_betriebsmeldung
+# ======================================================================
+
+# Import von benoetigten Modulen
+# ======================================================================
 try:
     import datenbank_abfrage
     import sensor_abfrage
@@ -6,8 +12,10 @@ try:
 except:
     neue_betriebsmeldung(
         "[ansteuerung_temp_luft] Fehler bei der importierung von Modulen.")
+# ======================================================================
 
-
+# Regelkreis Temperatur und Luft
+# ======================================================================
 def start_ansteuerung_temp_luft():
     try:
         if datenbank_abfrage.programm_status == 1:
@@ -19,7 +27,6 @@ def start_ansteuerung_temp_luft():
                 status_heizung = 0
             else:
                 pass
-
             if (int(sensor_abfrage.luftfeuchtigkeit_gerundet) < int(datenbank_abfrage.luftfeuchtigkeit)):
                 befeuchter_ein()
                 status_befeuchter = 1
@@ -28,7 +35,6 @@ def start_ansteuerung_temp_luft():
                 status_befeuchter = 0
             else:
                 pass
-
             if status_heizung == 1 or status_befeuchter == 1:
                 luefter_klein_ein()
             elif status_heizung == 0 and status_befeuchter == 0:
@@ -40,3 +46,4 @@ def start_ansteuerung_temp_luft():
     except:
         neue_betriebsmeldung(
             "[ansteuerung_temp_luft] Fehler bei der Zyklusberechnung der Heizung und des Befeuchters.")
+# ======================================================================
