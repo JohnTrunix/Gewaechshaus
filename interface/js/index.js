@@ -42,6 +42,12 @@ function check_status() {
 				" " +
 				daten_betriebsmodus[0].programm_zeit_ende
 		);
+		balken_berechnung(
+			daten_betriebsmodus[0].datetime,
+			daten_betriebsmodus[0].programm_datum_ende +
+				" " +
+				daten_betriebsmodus[0].programm_zeit_ende
+		);
 	} else {
 		display_status(0);
 		get_minimum_date();
