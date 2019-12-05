@@ -1,8 +1,7 @@
-# Die Datei datenbank_abfrage.py ist fuer die Abfrage von Parameter- und Betriebsmodus Daten zustaendig.
-
-
+# Import der Betriebsmeldungsfunktion
+# ======================================================================
 from betriebsmeldungen import neue_betriebsmeldung
-
+# ======================================================================
 
 # Import von benoetigten Modulen
 # ======================================================================
@@ -12,7 +11,6 @@ except:
     neue_betriebsmeldung(
         "[datenbank_abfrage] Fehler bei der importierung von Modulen.")
 # ======================================================================
-
 
 # Abfragefunktion der Betriebsmodus Daten
 # ======================================================================
@@ -24,14 +22,12 @@ def get_betriebsmodus():
             passwd="rasp",
             database="datenbank"
         )
-
         global id
         global parameter_slot
         global programm_status
         global datetime
         global programm_datum_ende
         global programm_zeit_ende
-
         sql_select_Query = "select * from betriebsmodus"
         cursor = connection.cursor()
         cursor.execute(sql_select_Query)
@@ -52,7 +48,6 @@ def get_betriebsmodus():
             cursor.close()
 # ======================================================================
 
-
 # Abfragefunktion der Aktiven Parameter
 # ======================================================================
 def get_parameter():
@@ -63,14 +58,12 @@ def get_parameter():
             passwd="rasp",
             database="datenbank"
         )
-
         global slot
         global pflanze
         global temperatur
         global lichtstunden
         global wassermenge
         global luftfeuchtigkeit
-
         sql_select_Query = (
             "SELECT `slot`, `pflanze`, `temperatur`, `lichtstunden`, `wassermenge`, `luftfeuchtigkeit` FROM `parameter` WHERE slot = %s" % parameter_slot)
         cursor = connection.cursor()
@@ -91,7 +84,6 @@ def get_parameter():
             connection.close()
             cursor.close()
 # ======================================================================
-
 
 # Start Datenbank Abfrage
 # ======================================================================
