@@ -1,14 +1,9 @@
-# Die Datei betriebsmeldungen.py schreibt Betriebsmeldungen
-# in die Datenbank.
-
-
 # Import von benoetigten Modulen
 # ======================================================================
 import time
 import datetime
 import mysql.connector
 # ======================================================================
-
 
 # MYSQL Konfiguration
 # ======================================================================
@@ -20,14 +15,12 @@ mydb = mysql.connector.connect(
 )
 # ======================================================================
 
-
 # Die Systemzeit wird als Variable gespeichert
 # ======================================================================
 def systemzeit_abfrage():
     global lokale_zeit
     lokale_zeit = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 # ======================================================================
-
 
 # Die Betriebsmeldung wird in Datenbank geschrieben
 # ======================================================================
@@ -38,7 +31,6 @@ def betriebsmeldung_einfuegen(meldung):
     mycursor.execute(sql, val)
     mydb.commit()
 # ======================================================================
-
 
 # Abfrage anzahl vorhandener Betriebsmeldungen
 # ======================================================================
@@ -51,7 +43,6 @@ def abfrage_anzahl_betriebsmeldungen():
     anzahl_betriebsmeldungen = int(result[0])
 # ======================================================================
 
-
 # Letzte 50 Betriebsmeldungen loeschen
 # ======================================================================
 def begrenzung_betriebsmeldung():
@@ -60,7 +51,6 @@ def begrenzung_betriebsmeldung():
     mycursor.execute(sql)
     mydb.commit()
 # ======================================================================
-
 
 # Betriebsmeldung einfuegen
 # ======================================================================
