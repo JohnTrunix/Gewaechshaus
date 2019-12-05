@@ -16,7 +16,7 @@ try:
     from datenbegrenzung import start_datenbegrenzung
     from zeit_update import start_zeit_update
     from datenbank_abfrage import start_datenbank_abfrage
-    from ansteuerung_temp_luft import start_ansteuerung_temp_luft
+    from ansteuerung_temp_luft import start_ansteuerung_temp_luft, start_lueften
     from ansteuerung_licht import reset_licht_zaehler
     from ansteuerung_wasser import start_ansteuerung_wasser, start_auffuellen_befeuchter
     from ansteuerung_pwm_shield import grundstellung
@@ -74,6 +74,7 @@ schedule.every(2).hours.do(start_auffuellen_befeuchter)
 schedule.every().hour.at("00:05").do(start_lichtsteuerung)
 schedule.every().hour.at("00:35").do(start_lichtsteuerung)
 schedule.every().hour.at("00:10").do(start_ansteuerung_wasser)
+schedule.every().hour.at("00:45").do(start_lueften)
 schedule.every().day.at("23:55").do(start_datenbegrenzung)
 schedule.every().day.at("23:55").do(start_zeit_update)
 schedule.every().day.at("08:00").do(reset_licht_zaehler)

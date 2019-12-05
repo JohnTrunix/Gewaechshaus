@@ -6,9 +6,10 @@ from betriebsmeldungen import neue_betriebsmeldung
 # Import von benoetigten Modulen
 # ======================================================================
 try:
-    import datenbank_abfrage
-    import sensor_abfrage
-    from ansteuerung_pwm_shield import heizung_ein, heizung_aus, befeuchter_ein, befeuchter_aus, luefter_klein_ein, luefter_klein_aus, grundstellung
+	import time
+	import datenbank_abfrage
+	import sensor_abfrage
+	from ansteuerung_pwm_shield import heizung_ein, heizung_aus, befeuchter_ein, befeuchter_aus, luefter_klein_ein, luefter_klein_aus, tuer_oeffnen, tuer_schliessen, luefter_gross_ein, luefter_gross_aus, grundstellung
 except:
     neue_betriebsmeldung(
         "[ansteuerung_temp_luft] Fehler bei der importierung von Modulen.")
@@ -46,4 +47,22 @@ def start_ansteuerung_temp_luft():
     except:
         neue_betriebsmeldung(
             "[ansteuerung_temp_luft] Fehler bei der Zyklusberechnung der Heizung und des Befeuchters.")
+# ======================================================================
+
+# Lueften
+# ======================================================================
+def start_lueften():
+	try:
+		if datenbank_abfrage.programm_status == 1:
+			tuer_oeffnen()
+			luefter_gross_ein()
+			time.sleep(60)
+			luefter_gross_aus()
+			tuer_schliessen()
+		else:
+			grundstellung()
+	except:
+		neue_betriebsmeldung(
+            "[ansteuerung_temp_luft] Fehler beim lueften.")
+
 # ======================================================================
