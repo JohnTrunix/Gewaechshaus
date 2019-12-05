@@ -36,6 +36,7 @@ function get_parameter() {
 function check_status() {
 	if (daten_betriebsmodus[0].programm_status == 1) {
 		display_status(1);
+		active_program(daten_betriebsmodus[0].parameter_slot);
 	} else {
 		display_status(0);
 		get_minimum_date();
@@ -143,6 +144,31 @@ function selected_slot(slot) {
 		daten_parameter[slot - 1].wassermenge + "l";
 	document.getElementById("luftfeuchtigkeit").innerHTML =
 		daten_parameter[slot - 1].luftfeuchtigkeit + "%";
+}
+//======================================================================
+
+// Aktuelle Programmdaten laden
+//======================================================================
+function active_program(slot) {
+	document.getElementById("betriebswahl_name").innerHTML = slot;
+	document.getElementById("betriebswahl_slot").innerHTML =
+		daten_parameter[slot - 1].pflanze;
+
+	document.getElementById("act_param_temperatur").innerHTML =
+		daten_parameter[slot - 1].temperatur + "°C";
+	document.getElementById("act_param_lichtstunden").innerHTML =
+		daten_parameter[slot - 1].lichtstunden + "h";
+	document.getElementById("act_param_wassermenge").innerHTML =
+		daten_parameter[slot - 1].wassermenge + "l";
+	document.getElementById("act_param_luftfeuchtigkeit").innerHTML =
+		daten_parameter[slot - 1].luftfeuchtigkeit + "%";
+
+	document.getElementById("betriebswahl_datetime").innerHTML =
+		daten_betriebsmodus[0].datetime;
+	document.getElementById("betriebswahl_programm_ende").innerHTML =
+		daten_betriebsmodus[0].programm_datum_ende +
+		" " +
+		daten_betriebsmodus[0].programm_zeit_ende;
 }
 //======================================================================
 
