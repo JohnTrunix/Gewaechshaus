@@ -1,10 +1,7 @@
-# Die Datei abfrage.py ist fuer die Sensorabfrage zustaendig.
-# Wird start_sensorabfrage() ausgefuehrt, werden alle Sensorwerte
-# abgefragt und in die MYSQL Datenbank geschrieben.
-
-
+# Import der Betriebsmeldungsfunktion
+# ======================================================================
 from betriebsmeldungen import neue_betriebsmeldung
-
+# ======================================================================
 
 # Import von benoetigten Modulen
 # ======================================================================
@@ -23,7 +20,8 @@ except:
         "[sensor_abfrage] Fehler bei der importierung von Modulen.")
 # ======================================================================
 
-
+# MYSQL Konfiguration
+# ======================================================================
 try:
     mydb = mysql.connector.connect(
         host="localhost",
@@ -34,7 +32,7 @@ try:
 except:
     neue_betriebsmeldung(
         "[sensor_abfrage] Fehler bei der Datenbankverbindung.")
-
+# ======================================================================
 
 # I2C Bus Konfiguration
 # ======================================================================
@@ -52,14 +50,12 @@ except:
         "[sensor_abfrage] Fehler bei der initialen I2C Bus Konfiguration.")
 # ======================================================================
 
-
 # Die Systemzeit wird als Variable gespeichert
 # ======================================================================
 def systemzeit_abfrage():
     global lokale_zeit
     lokale_zeit = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 # ======================================================================
-
 
 # Lichtsensor wird abgefragt und die Datenbank Funktion wird aufgerufen
 # ======================================================================
@@ -72,7 +68,6 @@ def lichtsensor_abfrage():
     datenbank_lichtsensor_einfuegen()
 # ======================================================================
 
-
 # Temperatursensor wird abgefragt und die Datenbank Funktion wird aufgerufen
 # ======================================================================
 def temperatur_abfrage():
@@ -82,7 +77,6 @@ def temperatur_abfrage():
     datenbank_temperatursensor_einfuegen()
 # ======================================================================
 
-
 # Luftfeuchtigkeitssensor wird abgefragt und die Datenbank Funktion wird aufgerufen
 # ======================================================================
 def luftfeuchtigkeit_abfrage():
@@ -91,7 +85,6 @@ def luftfeuchtigkeit_abfrage():
         round(sensor_temperatur_luftfeuchtigkeit.relative_humidity, 1))
     datenbank_luftfeuchtesensor_einfuegen()
 # ======================================================================
-
 
 # Bodenfeuchtigkeitsensoren werden abgefragt und die Datenbank Funktion wird aufgerufen
 # ======================================================================
@@ -113,7 +106,6 @@ def bodenfeuchtigkeit_abfrage():
         datenbank_bodenfeuchtigkeitsensor_einfuegen()
 # ======================================================================
 
-
 # Der Lichtsensor Wert wird in Datenbank geschrieben
 # ======================================================================
 def datenbank_lichtsensor_einfuegen():
@@ -123,7 +115,6 @@ def datenbank_lichtsensor_einfuegen():
     mycursor.execute(sql, val)
     mydb.commit()
 # ======================================================================
-
 
 # Der Luftfeuchtigkeit Wert wird in Datenbank geschrieben
 # ======================================================================
@@ -135,7 +126,6 @@ def datenbank_luftfeuchtesensor_einfuegen():
     mydb.commit()
 # ======================================================================
 
-
 # Der Temperatur Wert wird in Datenbank geschrieben
 # ======================================================================
 def datenbank_temperatursensor_einfuegen():
@@ -146,7 +136,6 @@ def datenbank_temperatursensor_einfuegen():
     mydb.commit()
 # ======================================================================
 
-
 # Der Bodenfeuchtigkeits Wert wird in Datenbank geschrieben
 # ======================================================================
 def datenbank_bodenfeuchtigkeitsensor_einfuegen():
@@ -156,7 +145,6 @@ def datenbank_bodenfeuchtigkeitsensor_einfuegen():
     mycursor.execute(sql, val)
     mydb.commit()
 # ======================================================================
-
 
 # Starte alle Abfrage Funktionen
 # ======================================================================
