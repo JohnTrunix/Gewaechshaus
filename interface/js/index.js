@@ -305,19 +305,6 @@ function berechne_prozent_verbleibend(input_startzeit, input_endzeit) {
 }
 //======================================================================
 
-// Bei 100% das Programm stoppen.
-//======================================================================
-function programm_fertig() {
-	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.open("GET", "/api/api.php?betriebsmodus_stop_write");
-	xmlhttp.setRequestHeader(
-		"Content-Type",
-		"application/x-www-form-urlencoded"
-	);
-	xmlhttp.send();
-}
-//======================================================================
-
 // Berechnet den aktuellen Forschritt des Balkens auf der Startseite.
 //======================================================================
 function balken_berechnung(datetime, programm_ende) {
@@ -355,6 +342,16 @@ function balken_berechnung(datetime, programm_ende) {
 			programm_fertig();
 		}
 	}, 1000);
+}
+//======================================================================
+
+// Bei 100% das Programm stoppen.
+//======================================================================
+function programm_fertig() {
+	jQuery.ajax({
+		type: "GET",
+		url: "/api/api.php?betriebsmodus_stop_write"
+	});
 }
 //======================================================================
 
