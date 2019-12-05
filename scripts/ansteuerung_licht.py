@@ -1,4 +1,10 @@
+# Import der Betriebsmeldungsfunktion
+# ======================================================================
 from betriebsmeldungen import neue_betriebsmeldung
+# ======================================================================
+
+# Import von benoetigten Modulen
+# ======================================================================
 try:
     import datenbank_abfrage
     import sensor_abfrage
@@ -9,7 +15,10 @@ try:
 except:
     neue_betriebsmeldung(
         "[ansteuerung_licht] Fehler bei der importierung von Modulen.")
+# ======================================================================
 
+# MYSQL Konfiguration
+# ======================================================================
 try:
     mydb = mysql.connector.connect(
         host="localhost",
@@ -20,8 +29,10 @@ try:
 except:
     neue_betriebsmeldung(
         "[ansteuerung_licht] Fehler bei der Datenbankverbindung.")
+# ======================================================================
 
-
+# Lichtzaehler reset
+# ======================================================================
 def reset_licht_zaehler():
     try:
         mycursor = mydb.cursor()
@@ -31,8 +42,10 @@ def reset_licht_zaehler():
     except:
         neue_betriebsmeldung(
             "[ansteuerung_licht] Lichtzaehler in Datenbank konnte nicht zurueckgesetzt werden.")
+# ======================================================================
 
-
+# Lichtzaehler fortschritt berechnen
+# ======================================================================
 def aktueller_fortschritt():
     try:
         connection = mysql.connector.connect(
@@ -56,8 +69,10 @@ def aktueller_fortschritt():
         if (connection.is_connected()):
             connection.close()
             cursor.close()
+# ======================================================================
 
-
+# Lichtzaehler updaten
+# ======================================================================
 def update_licht_zaehler():
     try:
         global neue_zaehler_zeit
@@ -69,8 +84,10 @@ def update_licht_zaehler():
     except:
         neue_betriebsmeldung(
             "[ansteuerung_licht] Der Fortschritt der Lichtsteuerung konnte nicht an die Datenbank uebermittelt werden.")
+# ======================================================================
 
-
+# Lichtsteuerung
+# ======================================================================
 def start_lichtsteuerung():
     try:
         if datenbank_abfrage.programm_status == 1:
@@ -78,7 +95,6 @@ def start_lichtsteuerung():
 
             if int(datenbank_abfrage.lichtstunden) > 0:
                 sollwert = (float(datenbank_abfrage.lichtstunden) * 60)
-
                 if neue_zaehler_zeit < sollwert:
                     licht_ein()
                 elif neue_zaehler_zeit >= sollwert:
@@ -92,3 +108,4 @@ def start_lichtsteuerung():
     except:
         neue_betriebsmeldung(
             "[ansteuerung_licht] Die Lichtsteuerung konnte die Ausgaenge nicht ansteuern.")
+# ======================================================================
