@@ -1,9 +1,98 @@
+// Betriebsmodus von API anfordern
+//======================================================================
+function get_betriebsmodus() {
+	jQuery.ajax({
+		type: "GET",
+		url: "/api/api.php?betriebsmodus_read",
+		success: function(response) {
+			daten_betriebsmodus = JSON.parse(response);
+			get_parameter();
+		},
+		error: function() {
+			display_message("fehler");
+		}
+	});
+}
+get_betriebsmodus();
+//======================================================================
+
+// Parameter von API anfordern
+//======================================================================
+function get_parameter() {
+	jQuery.ajax({
+		type: "GET",
+		url: "/api/api.php?parameter_read",
+		success: function(response) {
+			daten_parameter = JSON.parse(response);
+			check_status();
+		},
+		error: function() {
+			display_message("fehler");
+		}
+	});
+}
+//======================================================================
+
+function check_status() {
+	if (daten_betriebsmodus[0].programm_status == 1) {
+		display_status(1);
+	} else {
+		display_status(0);
+		get_minimum_date();
+		set_dropdown_names();
+	}
+}
+
+// Display Steuerung
+//======================================================================
+function display_status(status) {
+	if (status == "1") {
+		document.getElementById("start").style.display = "none";
+		document.getElementById("stop").style.display = "inline";
+	} else {
+		document.getElementById("start").style.display = "inline";
+		document.getElementById("stop").style.display = "none";
+	}
+}
+//======================================================================
+
 // Minimales Datum für die Datumsauswahl in HTML.
 //======================================================================
 function get_minimum_date() {
 	now = new Date();
 	minimum_date = now.toISOString().substring(0, 10);
 	document.getElementById("programm_datum_ende").min = minimum_date;
+}
+//======================================================================
+
+// Parameter Namen in HTML Dropdown einfuegen
+//======================================================================
+function set_dropdown_names() {
+	document.getElementById("slot1").innerHTML = daten_parameter[0].pflanze;
+	document.getElementById("slot2").innerHTML = daten_parameter[1].pflanze;
+	document.getElementById("slot3").innerHTML = daten_parameter[2].pflanze;
+	document.getElementById("slot4").innerHTML = daten_parameter[3].pflanze;
+	document.getElementById("slot5").innerHTML = daten_parameter[4].pflanze;
+	document.getElementById("slot6").innerHTML = daten_parameter[5].pflanze;
+	document.getElementById("slot7").innerHTML = daten_parameter[6].pflanze;
+	document.getElementById("slot8").innerHTML = daten_parameter[7].pflanze;
+	document.getElementById("slot9").innerHTML = daten_parameter[8].pflanze;
+	document.getElementById("slot10").innerHTML = daten_parameter[9].pflanze;
+}
+//======================================================================
+
+// Parameterdaten laden wenn in HTML Dropdown ausgewaehlt
+//======================================================================
+function selected_slot(slot) {
+	document.getElementById("parameter_slot").value = slot;
+	document.getElementById("temperatur").innerHTML =
+		daten_parameter[slot - 1].temperatur + "°C";
+	document.getElementById("lichtstunden").innerHTML =
+		daten_parameter[slot - 1].lichtstunden + "h";
+	document.getElementById("wassermenge").innerHTML =
+		daten_parameter[slot - 1].wassermenge + "l";
+	document.getElementById("luftfeuchtigkeit").innerHTML =
+		daten_parameter[slot - 1].luftfeuchtigkeit + "%";
 }
 //======================================================================
 
