@@ -86,7 +86,7 @@ def update_licht_zaehler():
             "[ansteuerung_licht] Der Fortschritt der Lichtsteuerung konnte nicht an die Datenbank uebermittelt werden.")
 # ======================================================================
 
-# Lichtsteuerung
+# Regelkreis Licht
 # ======================================================================
 def start_lichtsteuerung():
     try:

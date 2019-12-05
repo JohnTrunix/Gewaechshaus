@@ -1,4 +1,10 @@
+# Import der Betriebsmeldungsfunktion
+# ======================================================================
 from betriebsmeldungen import neue_betriebsmeldung
+# ======================================================================
+
+# Import von benoetigten Modulen
+# ======================================================================
 try:
     import datenbank_abfrage
     import sensor_abfrage
@@ -8,7 +14,10 @@ try:
 except:
     neue_betriebsmeldung(
         "[ansteuerung_wasser] Fehler bei der importierung von Modulen.")
+# ======================================================================
 
+# GPIO definition
+# ======================================================================
 try:
     GPIO.setwarnings(False)
     GPIO.setmode(GPIO.BCM)
@@ -16,8 +25,10 @@ try:
 except:
     neue_betriebsmeldung(
         "[ansteuerung_wasser] Fehler bei der GPIO definierung.")
+# ======================================================================
 
-
+# Regelkreis Wasser
+# ======================================================================
 def start_ansteuerung_wasser():
     try:
         if datenbank_abfrage.programm_status == 1:
@@ -40,8 +51,10 @@ def start_ansteuerung_wasser():
     except:
         neue_betriebsmeldung(
             "[ansteuerung_wasser] Fehler bei der Zyklusberechnung der Wasseransteuerung.")
+# ======================================================================
 
-
+# Regelkreis Befeuchter auffuellen
+# ======================================================================
 def start_auffuellen_befeuchter():
     try:
         if datenbank_abfrage.programm_status == 1:
@@ -67,3 +80,4 @@ def start_auffuellen_befeuchter():
     except:
         neue_betriebsmeldung(
             "[ansteuerung_wasser] Fehler bei der Auffuellung des Befeuchters.")
+# ======================================================================
