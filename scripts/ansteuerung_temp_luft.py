@@ -49,7 +49,7 @@ def start_ansteuerung_temp_luft():
             "[ansteuerung_temp_luft] Fehler bei der Zyklusberechnung der Heizung und des Befeuchters.")
 # ======================================================================
 
-# Lueften
+# Zyklus 60s Lueften
 # ======================================================================
 def start_lueften():
 	try:
