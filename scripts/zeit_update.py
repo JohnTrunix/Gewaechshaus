@@ -1,12 +1,7 @@
-# zeit_update.py stellt sicher, dass der Raspberry Pi
-# mit der korrekten Zeit arbeitet. Ist der Raspberry Pi
-# mit dem Internet verbunden, wird die Zeit mittels NTP aktualisert.
-# Besteht keine Internetverbindung, wird die Zeit von der RTC gelesen
-# und als Systemzeit geschrieben.
-
-
+# Import der Betriebsmeldungsfunktion
+# ======================================================================
 from betriebsmeldungen import neue_betriebsmeldung
-
+# ======================================================================
 
 # Import von benoetigten Modulen
 # ======================================================================
@@ -23,7 +18,6 @@ except:
         "[zeit_update] Fehler bei der importierung von Modulen.")
 # ======================================================================
 
-
 # I2C Bus Konfiguration
 # ======================================================================
 try:
@@ -35,8 +29,7 @@ except:
         "[zeit_update] Fehler bei der initialen I2C Bus Konfiguration.")
 # ======================================================================
 
-
-# ueberpruefe Internetverbindung
+# Ueberpruefe Internetverbindung
 # ======================================================================
 def start_zeit_update():
     try:
@@ -45,7 +38,6 @@ def start_zeit_update():
     except:
         systemzeit_schreiben()
 # ======================================================================
-
 
 # RTC Update
 # ======================================================================
@@ -59,7 +51,6 @@ def rtc_update():
         neue_betriebsmeldung(
             "[zeit_update] Die RTC konnte nicht aktualisiert werden.")
 # ======================================================================
-
 
 # Systemzeit schreiben von RTC
 # ======================================================================
