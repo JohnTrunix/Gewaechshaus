@@ -1,4 +1,7 @@
+# Import der Betriebsmeldungsfunktion
+# ======================================================================
 from betriebsmeldungen import neue_betriebsmeldung
+# ======================================================================
 
 # Import von benoetigten Modulen
 # ======================================================================
@@ -11,7 +14,6 @@ except:
     neue_betriebsmeldung(
         "[manuelle_steuerung] Fehler bei der importierung von Modulen.")
 # ======================================================================
-
 
 # Definierung von Startoptionen
 # ======================================================================
@@ -71,7 +73,6 @@ except:
         "[manuelle_steuerung] Fehler bei der definierung von Startsignalen.")
 # ======================================================================
 
-
 # Stop
 # ======================================================================
 def stop():
@@ -83,7 +84,6 @@ def stop():
     time.sleep(2)
 # ======================================================================
 
-
 # Start
 # ======================================================================
 def start():
@@ -92,7 +92,6 @@ def start():
         "[manuelle_steuerung] System wird gestartet.")
     os.system("sudo service gewaechshaus start")
 # ======================================================================
-
 
 # Shutdown
 # ======================================================================
@@ -104,7 +103,6 @@ def shutdown():
     os.system("sudo shutdown -h now")
 # ======================================================================
 
-
 # Manuelle Aktorsteuerung
 # ======================================================================
 def manuelle_aktorsteuerung():
@@ -113,7 +111,6 @@ def manuelle_aktorsteuerung():
     os.system("sudo service gewaechshaus stop")
     time.sleep(2)
 # ======================================================================
-
 
 # Tuersteuerung
 # ======================================================================
@@ -130,7 +127,6 @@ def manuell_tuer_schliessen():
         "[manuelle_steuerung] Tueren werden geschlossen.")
     tuer_schliessen()
 # ======================================================================
-
 
 # Lueftersteuerung
 # ======================================================================
@@ -161,7 +157,6 @@ def manuell_luefter_klein_aus():
         "[manuelle_steuerung] Luefter klein werden ausgeschaltet.")
     luefter_klein_aus()
 # ======================================================================
-
 
 # Wassersteuerung
 # ======================================================================
@@ -207,7 +202,6 @@ def manuell_ventil_befeuchter_schliessen():
     ventil_befeuchter_schliessen()
 # ======================================================================
 
-
 # Lichtsteuerung
 # ======================================================================
 def manuell_licht_ein():
@@ -223,7 +217,6 @@ def manuell_licht_aus():
         "[manuelle_steuerung] Licht wird ausgeschaltet.")
     licht_aus()
 # ======================================================================
-
 
 # Heizungssteuerung
 # ======================================================================
@@ -241,7 +234,6 @@ def manuell_heizung_aus():
     heizung_aus()
 # ======================================================================
 
-
 # Befeuchtersteuerung
 # ======================================================================
 def manuell_befeuchter_ein():
@@ -257,7 +249,6 @@ def manuell_befeuchter_aus():
         "[manuelle_steuerung] Befeuchter wird ausgeschaltet.")
     befeuchter_aus()
 # ======================================================================
-
 
 # Startoptionen
 # ======================================================================
