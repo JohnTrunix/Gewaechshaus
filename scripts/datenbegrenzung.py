@@ -1,9 +1,7 @@
-# Die Datei datenbegrenzung.py loescht alle Sensorwerte,
-# welche aelter als 30 Tage alt sind automatisch.
-
-
+# Import der Betriebsmeldungsfunktion
+# ======================================================================
 from betriebsmeldungen import neue_betriebsmeldung
-
+# ======================================================================
 
 # Import von benoetigten Modulen
 # ======================================================================
@@ -16,7 +14,6 @@ except:
     neue_betriebsmeldung(
         "[datenbegrenzung] Fehler bei der importierung von Modulen.")
 # ======================================================================
-
 
 # MYSQL Konfiguration
 # ======================================================================
@@ -32,7 +29,6 @@ except:
         "[datenbegrenzung] Fehler bei der Datenbankverbindung.")
 # ======================================================================
 
-
 # Lichtsensor Begrenzung
 # ======================================================================
 def begrenzung_sensor_licht_1():
@@ -41,7 +37,6 @@ def begrenzung_sensor_licht_1():
     mycursor.execute(sql)
     mydb.commit()
 # ======================================================================
-
 
 # Temperatursensor Begrenzung
 # ======================================================================
@@ -52,7 +47,6 @@ def begrenzung_sensor_temperatur_1():
     mydb.commit()
 # ======================================================================
 
-
 # Luftfeuchtigkeitsensor Begrenzung
 # ======================================================================
 def begrenzung_sensor_luftfeuchtigkeit_1():
@@ -62,7 +56,6 @@ def begrenzung_sensor_luftfeuchtigkeit_1():
     mydb.commit()
 # ======================================================================
 
-
 # Bodenfeuchtigkeitsensor Begrenzung
 # ======================================================================
 def begrenzung_sensor_bodenfeuchtigkeit_1():
@@ -71,7 +64,6 @@ def begrenzung_sensor_bodenfeuchtigkeit_1():
     mycursor.execute(sql)
     mydb.commit()
 # ======================================================================
-
 
 # Start Datenbegrenzung
 # ======================================================================
