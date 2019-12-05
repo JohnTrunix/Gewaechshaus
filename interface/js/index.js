@@ -81,21 +81,6 @@ function set_dropdown_names() {
 }
 //======================================================================
 
-// Parameterdaten laden wenn in HTML Dropdown ausgewaehlt
-//======================================================================
-function selected_slot(slot) {
-	document.getElementById("parameter_slot").value = slot;
-	document.getElementById("temperatur").innerHTML =
-		daten_parameter[slot - 1].temperatur + "°C";
-	document.getElementById("lichtstunden").innerHTML =
-		daten_parameter[slot - 1].lichtstunden + "h";
-	document.getElementById("wassermenge").innerHTML =
-		daten_parameter[slot - 1].wassermenge + "l";
-	document.getElementById("luftfeuchtigkeit").innerHTML =
-		daten_parameter[slot - 1].luftfeuchtigkeit + "%";
-}
-//======================================================================
-
 // HTML Dropdown steuerung
 //======================================================================
 $(document).ready(function() {
@@ -144,6 +129,21 @@ $(document).ready(function() {
 	}
 	collapse();
 });
+//======================================================================
+
+// Parameterdaten laden wenn in HTML Dropdown ausgewaehlt
+//======================================================================
+function selected_slot(slot) {
+	document.getElementById("parameter_slot").value = slot;
+	document.getElementById("temperatur").innerHTML =
+		daten_parameter[slot - 1].temperatur + "°C";
+	document.getElementById("lichtstunden").innerHTML =
+		daten_parameter[slot - 1].lichtstunden + "h";
+	document.getElementById("wassermenge").innerHTML =
+		daten_parameter[slot - 1].wassermenge + "l";
+	document.getElementById("luftfeuchtigkeit").innerHTML =
+		daten_parameter[slot - 1].luftfeuchtigkeit + "%";
+}
 //======================================================================
 
 // Lichtstaerke von API anfordern
