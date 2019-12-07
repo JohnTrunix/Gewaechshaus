@@ -33,6 +33,8 @@ function get_parameter() {
 }
 //======================================================================
 
+// Programmstatus ueberpruefen und Funktionen aufrufen
+//======================================================================
 function check_status() {
 	if (daten_betriebsmodus[0].programm_status == 1) {
 		display_status(1);
@@ -54,6 +56,7 @@ function check_status() {
 		set_dropdown_names();
 	}
 }
+//======================================================================
 
 // Display Steuerung
 //======================================================================
