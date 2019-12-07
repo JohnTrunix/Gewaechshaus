@@ -222,7 +222,8 @@
 	position: relative;
 	overflow: hidden;
 	background: #364366;
-	transition: 0.5s;
+	transition: 1s;
+	animation-timing-function: ease-in-out;
 }
 
 .fortschritt_rahmen {
