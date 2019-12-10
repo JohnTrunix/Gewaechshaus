@@ -31,9 +31,8 @@ try:
     ventil_wasserpumpe = shield.channels[7]
     ventil_befeuchter = shield.channels[8]
     licht = shield.channels[9]
-    heizung1 = shield.channels[10]
-    heizung2 = shield.channels[11]
-    befeuchter = shield.channels[12]
+    heizung = shield.channels[10]
+    befeuchter = shield.channels[11]
 except:
     neue_betriebsmeldung(
         "[ansteuerung_pwm_shield] Fehler bei der initialen definierung.")
@@ -177,16 +176,14 @@ def licht_aus():
 # ======================================================================
 def heizung_ein():
     try:
-        heizung1.duty_cycle = 0
-        heizung2.duty_cycle = 0
+        heizung.duty_cycle = 0
     except:
         neue_betriebsmeldung(
             "[ansteuerung_pwm_shield] Die Heizung konnte nicht eingeschaltet werden.")
 
 def heizung_aus():
     try:
-        heizung1.duty_cycle = 0xffff
-        heizung2.duty_cycle = 0xffff
+        heizung.duty_cycle = 0xffff
     except:
         neue_betriebsmeldung(
             "[ansteuerung_pwm_shield] Die Heizung konnte nicht ausgeschaltet werden.")
