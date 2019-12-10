@@ -42,7 +42,10 @@ elseif (isset($_GET['betriebsmodus_write'])) {
     $sql1 = "DELETE FROM betriebsmodus WHERE ID = '1'";
     $sql2 .= "INSERT INTO betriebsmodus (ID, parameter_slot, programm_status, datetime, programm_datum_ende, programm_zeit_ende)
 	VALUES ('1', '$parameter_slot', '$programm_status', '$datetime', '$programm_datum_ende', '$programm_zeit_ende')";
-    if (mysqli_query($conn, $sql1) && mysqli_query($conn, $sql2)) {
+	$sql3 = "DELETE FROM `zwischenspeicher`";
+	$sql4 = "INSERT INTO `zwischenspeicher` (`licht_zaehler`) VALUES
+	(0);";
+    if (mysqli_query($conn, $sql1) && mysqli_query($conn, $sql3) && mysqli_query($conn, $sql2) && mysqli_query($conn, $sql4)) {
         header("Location: /index.html?erfolgreich");
     } else {
         header("Location: /index.html?fehler");
