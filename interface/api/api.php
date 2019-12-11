@@ -322,24 +322,6 @@ elseif (isset($_GET['betriebsmeldung_reset_write'])) {
 }
 //======================================================================
 
-// System stoppen
-//======================================================================
-elseif (isset($_GET['system_stop_write'])) {
-    $sql1 = "DELETE FROM `betriebsmodus`";
-    $sql2 = "INSERT INTO `betriebsmodus` (`ID`, `parameter_slot`, `programm_status`, `datetime`, `programm_datum_ende`, `programm_zeit_ende`) VALUES
-	(1, 1, 0, '0000-00-00 00:00:00', '0000-00-00', '00:00:00');";
-
-    if (mysqli_query($conn, $sql1) && mysqli_query($conn, $sql2)) {
-        shell_exec('sudo python3 /etc/gewaechshaus/manuelle_steuerung.py --stop');
-        header("Location: /admin.html?erfolgreich");
-    } else {
-        header("Location: /admin.html?fehler");
-        die();
-    }
-    mysqli_close($conn);
-}
-//======================================================================
-
 // Gewaechshaus Systemstatus
 //======================================================================
 elseif (isset($_GET['gewaechshaus_status_read'])) {

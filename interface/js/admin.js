@@ -119,19 +119,6 @@ function manuelle_aktorsteuerung() {
 }
 //======================================================================
 
-// Aktor ansteuern API anforderung
-//======================================================================
-function aktor_steuern(aktor) {
-	jQuery.ajax({
-		type: "POST",
-		url: "/api/api.php?aktor_steuern",
-		data: {
-			aktor_wahl: aktor
-		}
-	});
-}
-//======================================================================
-
 // IP Adresse von API anfordern
 //======================================================================
 function get_ip_address() {
