@@ -72,9 +72,7 @@ function get_gewaechshaus_status() {
 			display.innerHTML = "Fehler beim Laden.";
 		}
 	});
-	setTimeout(get_gewaechshaus_status, 5000);
 }
-get_gewaechshaus_status();
 //======================================================================
 
 // Bussystem Status als Text ausgeben
@@ -91,12 +89,10 @@ function get_bussystem_status() {
 			display.innerHTML = "Fehler beim Laden.";
 		}
 	});
-	setTimeout(get_bussystem_status, 5000);
 }
-get_bussystem_status();
 //======================================================================
 
-// HTML Div umschaltfunktionen
+// Aktives Fenster
 //======================================================================
 var systemuebersicht_html = document.getElementById("systemuebersicht");
 var betriebsmeldungen_html = document.getElementById("betriebsmeldungen");
@@ -106,6 +102,8 @@ function systemuebersicht() {
 	systemuebersicht_html.style.display = "initial";
 	betriebsmeldungen_html.style.display = "none";
 	manuelle_aktorsteuerung_html.style.display = "none";
+	get_gewaechshaus_status();
+	get_bussystem_status();
 }
 
 function betriebsmeldungen() {
