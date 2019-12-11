@@ -4,7 +4,7 @@
 	top: 0;
 	height: 440px;
 	display: flex;
-	width: 200px;
+	width: 180px;
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-evenly;
@@ -50,7 +50,7 @@
 	right: 80px;
 	top: 0;
 	height: 440px;
-	width: 520px;
+	width: 540px;
 }
 
 .hmi {
@@ -59,7 +59,7 @@
 	left: 50%;
 	transform: translateX(-50%);
 	height: 353px;
-	width: 480px;
+	width: 500px;
 	border: 2px solid #364366;
 	border-bottom-right-radius: 5px;
 	border-bottom-left-radius: 5px;
@@ -101,7 +101,7 @@
 	left: 50%;
 	transform: translateX(-50%);
 	top: 23px;
-	width: 480px;
+	width: 500px;
 	height: 35px;
 	font-size: 15px;
 	font-family: Schrift_Bold;
