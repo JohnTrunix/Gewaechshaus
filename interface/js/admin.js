@@ -145,6 +145,9 @@ function admin_kommunikation(action) {
 		url: "/api/api.php?admin_kommunikation",
 		data: {
 			action: action
+		},
+		error: function() {
+			display_message("fehler");
 		}
 	});
 }
