@@ -22,8 +22,20 @@
 	font-family: Schrift_Bold;
 }
 
+.aktor_zeile {
+	width: 500px;
+	align-items: center;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.aktor_beschreibung {
+	width: 150px;
+	text-align: center;
+}
+
 .aktor_button {
-	width: 170px;
+	width: 100px;
 	height: 30px;
 	background-color: white;
 	border: 1px solid #364366;

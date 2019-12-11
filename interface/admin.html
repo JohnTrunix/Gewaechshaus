@@ -101,7 +101,187 @@
 					onclick="betriebsmeldungen()"
 				/>
 			</div>
-			<div class="hmi aktorsteuerung block_overflow"></div>
+			<div class="hmi aktorsteuerung block_overflow">
+				<div class="aktor_zeile">
+					<a class="aktor_beschreibung">Türen</a>
+					<div class="aktor_buttons">
+						<button
+							class="aktor_button"
+							type="button"
+							onclick="admin_kommunikation('--tuer 2')"
+						>
+							öffnen
+						</button>
+						<button
+							class="aktor_button"
+							type="button"
+							onclick="admin_kommunikation('--tuer 1')"
+						>
+							schliessen
+						</button>
+					</div>
+				</div>
+
+				<div class="aktor_zeile">
+					<a class="aktor_beschreibung">Lüfter gross</a>
+					<div class="aktor_buttons">
+						<button
+							class="aktor_button"
+							type="button"
+							onclick="admin_kommunikation('--luefter_gross 2')"
+						>
+							Ein
+						</button>
+						<button
+							class="aktor_button"
+							type="button"
+							onclick="admin_kommunikation('--luefter_gross 1')"
+						>
+							Aus
+						</button>
+					</div>
+				</div>
+
+				<div class="aktor_zeile">
+					<a class="aktor_beschreibung">Lüfter klein</a>
+					<div class="aktor_buttons">
+						<button
+							class="aktor_button"
+							type="button"
+							onclick="admin_kommunikation('--luefter_klein 2')"
+						>
+							Ein
+						</button>
+						<button
+							class="aktor_button"
+							type="button"
+							onclick="admin_kommunikation('--luefter_klein 1')"
+						>
+							Aus
+						</button>
+					</div>
+				</div>
+
+				<div class="aktor_zeile">
+					<a class="aktor_beschreibung">Wasserpumpe</a>
+					<div class="aktor_buttons">
+						<button
+							class="aktor_button"
+							type="button"
+							onclick="admin_kommunikation('--wasserpumpe 2')"
+						>
+							Ein
+						</button>
+						<button
+							class="aktor_button"
+							type="button"
+							onclick="admin_kommunikation('--wasserpumpe 1')"
+						>
+							Aus
+						</button>
+					</div>
+				</div>
+
+				<div class="aktor_zeile">
+					<a class="aktor_beschreibung">Ventil Wasserpumpe</a>
+					<div class="aktor_buttons">
+						<button
+							class="aktor_button"
+							type="button"
+							onclick="admin_kommunikation('--ventil_wasserpumpe 2')"
+						>
+							öffnen
+						</button>
+						<button
+							class="aktor_button"
+							type="button"
+							onclick="admin_kommunikation('--ventil_wasserpumpe 1')"
+						>
+							schliessen
+						</button>
+					</div>
+				</div>
+
+				<div class="aktor_zeile">
+					<a class="aktor_beschreibung">Ventil Befeuchter</a>
+					<div class="aktor_buttons">
+						<button
+							class="aktor_button"
+							type="button"
+							onclick="admin_kommunikation('--ventil_befeuchter 2')"
+						>
+							öffnen
+						</button>
+						<button
+							class="aktor_button"
+							type="button"
+							onclick="admin_kommunikation('--ventil_befeuchter 1')"
+						>
+							schliessen
+						</button>
+					</div>
+				</div>
+
+				<div class="aktor_zeile">
+					<a class="aktor_beschreibung">Licht</a>
+					<div class="aktor_buttons">
+						<button
+							class="aktor_button"
+							type="button"
+							onclick="admin_kommunikation('--licht 2')"
+						>
+							Ein
+						</button>
+						<button
+							class="aktor_button"
+							type="button"
+							onclick="admin_kommunikation('--licht 1')"
+						>
+							Aus
+						</button>
+					</div>
+				</div>
+
+				<div class="aktor_zeile">
+					<a class="aktor_beschreibung">Heizung</a>
+					<div class="aktor_buttons">
+						<button
+							class="aktor_button"
+							type="button"
+							onclick="admin_kommunikation('--heizung 2')"
+						>
+							Ein
+						</button>
+						<button
+							class="aktor_button"
+							type="button"
+							onclick="admin_kommunikation('--heizung 1')"
+						>
+							Aus
+						</button>
+					</div>
+				</div>
+
+				<div class="aktor_zeile">
+					<a class="aktor_beschreibung">Befeuchter</a>
+					<div class="aktor_buttons">
+						<button
+							class="aktor_button"
+							type="button"
+							onclick="admin_kommunikation('--befeuchter 2')"
+						>
+							Ein
+						</button>
+						<button
+							class="aktor_button"
+							type="button"
+							onclick="admin_kommunikation('--befeuchter 1')"
+						>
+							Aus
+						</button>
+					</div>
+				</div>
+			</div>
 		</div>
 
 		<div class="hmi_box systemuebersicht" id="systemuebersicht">
