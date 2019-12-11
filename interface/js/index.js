@@ -155,7 +155,7 @@ function selected_slot(slot) {
 	document.getElementById("lichtstunden").innerHTML =
 		daten_parameter[slot - 1].lichtstunden + "h";
 	document.getElementById("wassermenge").innerHTML =
-		daten_parameter[slot - 1].wassermenge + "l";
+		daten_parameter[slot - 1].wassermenge + "dl";
 	document.getElementById("luftfeuchtigkeit").innerHTML =
 		daten_parameter[slot - 1].luftfeuchtigkeit + "%";
 }
@@ -173,7 +173,7 @@ function active_program(slot) {
 	document.getElementById("act_param_lichtstunden").innerHTML =
 		daten_parameter[slot - 1].lichtstunden + "h";
 	document.getElementById("act_param_wassermenge").innerHTML =
-		daten_parameter[slot - 1].wassermenge + "l";
+		daten_parameter[slot - 1].wassermenge + "dl";
 	document.getElementById("act_param_luftfeuchtigkeit").innerHTML =
 		daten_parameter[slot - 1].luftfeuchtigkeit + "%";
 
