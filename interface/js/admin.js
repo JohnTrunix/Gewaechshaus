@@ -137,6 +137,19 @@ function get_ip_address() {
 get_ip_address();
 //======================================================================
 
+// Admin Kommunikation
+//======================================================================
+function admin_kommunikation(action) {
+	jQuery.ajax({
+		type: "POST",
+		url: "/api/api.php?admin_kommunikation",
+		data: {
+			action: action
+		}
+	});
+}
+//======================================================================
+
 // Display Benachrichtigungen anzeigen
 //======================================================================
 var url = window.location.href;
