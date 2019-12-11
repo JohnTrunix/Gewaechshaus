@@ -40,7 +40,7 @@
 				type="button"
 				onclick="manuelle_aktorsteuerung()"
 			>
-				Aktoren
+				Manuelle Aktorsteuerung
 			</button>
 
 			<button class="button" type="button" onclick="systemuebersicht()">
@@ -50,17 +50,17 @@
 			<button
 				class="button"
 				type="button"
-				onclick="location.href='/api/api.php?datenbank_reset_write'"
+				onclick="location.href='/api/api.php?betriebsmeldung_reset_write'"
 			>
-				Datenbank reset
+				Betriebsmeldungen löschen
 			</button>
 
 			<button
 				class="button"
 				type="button"
-				onclick="location.href='/api/api.php?betriebsmeldung_reset_write'"
+				onclick="location.href='/api/api.php?datenbank_reset_write'"
 			>
-				Meldungen reset
+				Datenbank reset
 			</button>
 
 			<button
@@ -254,7 +254,6 @@
 				></div>
 			</div>
 		</div>
-
 		<div class="informationen_box">
 			<div class="ip_adresse_box">
 				<a class="info_titel">IP Adresse:</a>
