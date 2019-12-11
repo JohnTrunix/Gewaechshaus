@@ -93,14 +93,14 @@ def luefter_gross_aus():
 
 def luefter_klein_ein():
     try:
-        luefter_klein.duty_cycle = 0
+        luefter_klein.duty_cycle = 0xffff
     except:
         neue_betriebsmeldung(
             "[ansteuerung_pwm_shield] Kleine Luefter konnten nicht eingeschaltet werden.")
 
 def luefter_klein_aus():
     try:
-        luefter_klein.duty_cycle = 0xffff
+        luefter_klein.duty_cycle = 0
     except:
         neue_betriebsmeldung(
             "[ansteuerung_pwm_shield] Kleine Luefter konnten nicht ausgeschaltet werden.")
@@ -193,7 +193,7 @@ def heizung_aus():
 # ======================================================================
 def befeuchter_ein():
     try:
-        befeuchter.duty_cycle = 0
+        befeuchter.duty_cycle = 0xffff
     except:
         neue_betriebsmeldung(
             "[ansteuerung_pwm_shield] Der Befeuchter konnte nicht eingeschaltet werden.")
@@ -201,7 +201,7 @@ def befeuchter_ein():
 
 def befeuchter_aus():
     try:
-        befeuchter.duty_cycle = 0xffff
+        befeuchter.duty_cycle = 0
     except:
         neue_betriebsmeldung(
             "[ansteuerung_pwm_shield] Der Befeuchter konnte nicht ausgeschaltet werden.")
