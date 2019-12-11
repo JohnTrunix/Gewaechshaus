@@ -35,11 +35,11 @@
 		</div>
 
 		<div class="button_box">
-			<button class="button" type="button" onclick="systemuebersicht()">
+			<button class="button" type="button">
 				Automatik Stop
 			</button>
 
-			<button class="button" type="button" onclick="systemuebersicht()">
+			<button class="button" type="button">
 				Automatik Start
 			</button>
 			<button
@@ -70,11 +70,7 @@
 				Datenbank reset
 			</button>
 
-			<button
-				class="button"
-				type="button"
-				onclick="location.href='/api/api.php?system_shutdown_write'"
-			>
+			<button class="button" type="button">
 				Herunterfahren
 			</button>
 		</div>
@@ -93,152 +89,7 @@
 					onclick="betriebsmeldungen()"
 				/>
 			</div>
-			<div class="hmi aktorsteuerung block_overflow">
-				<div class="aktor_gruppe">
-					<button
-						class="aktor_button"
-						type="button"
-						onclick="aktor_steuern('tuer_1')"
-					>
-						Türen [öffnen]
-					</button>
-					<button
-						class="aktor_button"
-						type="button"
-						onclick="aktor_steuern('tuer_0')"
-					>
-						Türen [schliessen]
-					</button>
-				</div>
-				<div class="aktor_gruppe">
-					<button
-						class="aktor_button"
-						type="button"
-						onclick="aktor_steuern('luefter_gross_1')"
-					>
-						Lüfter gross [Ein]
-					</button>
-					<button
-						class="aktor_button"
-						type="button"
-						onclick="aktor_steuern('luefter_gross_0')"
-					>
-						Lüfter gross [Aus]
-					</button>
-				</div>
-				<div class="aktor_gruppe">
-					<button
-						class="aktor_button"
-						type="button"
-						onclick="aktor_steuern('luefter_klein_1')"
-					>
-						Lüfter klein [Ein]
-					</button>
-					<button
-						class="aktor_button"
-						type="button"
-						onclick="aktor_steuern('luefter_klein_0')"
-					>
-						Lüfter klein [Aus]
-					</button>
-				</div>
-				<div class="aktor_gruppe">
-					<button
-						class="aktor_button"
-						type="button"
-						onclick="aktor_steuern('wasserpumpe_1')"
-					>
-						Wasserpumpe [Ein]
-					</button>
-					<button
-						class="aktor_button"
-						type="button"
-						onclick="aktor_steuern('wasserpumpe_0')"
-					>
-						Wasserpumpe [Aus]
-					</button>
-				</div>
-				<div class="aktor_gruppe">
-					<button
-						class="aktor_button"
-						type="button"
-						onclick="aktor_steuern('ventil_wasserpumpe_1')"
-					>
-						Ventil Wasserpumpe [Auf]
-					</button>
-					<button
-						class="aktor_button"
-						type="button"
-						onclick="aktor_steuern('ventil_wasserpumpe_0')"
-					>
-						Ventil Wasserpumpe [Zu]
-					</button>
-				</div>
-				<div class="aktor_gruppe">
-					<button
-						class="aktor_button"
-						type="button"
-						onclick="aktor_steuern('ventil_befeuchter_1')"
-					>
-						Ventil Befeuchter [Auf]
-					</button>
-					<button
-						class="aktor_button"
-						type="button"
-						onclick="aktor_steuern('ventil_befeuchter_0')"
-					>
-						Ventil Befeuchter [Zu]
-					</button>
-				</div>
-				<div class="aktor_gruppe">
-					<button
-						class="aktor_button"
-						type="button"
-						onclick="aktor_steuern('licht_1')"
-					>
-						Licht [Ein]
-					</button>
-					<button
-						class="aktor_button"
-						type="button"
-						onclick="aktor_steuern('licht_0')"
-					>
-						Licht [Aus]
-					</button>
-				</div>
-				<div class="aktor_gruppe">
-					<button
-						class="aktor_button"
-						type="button"
-						onclick="aktor_steuern('heizung_1')"
-					>
-						Heizung [Ein]
-					</button>
-					<button
-						class="aktor_button"
-						type="button"
-						onclick="aktor_steuern('heizung_0')"
-					>
-						Heizung [Aus]
-					</button>
-				</div>
-				<div class="aktor_gruppe">
-					<button
-						class="aktor_button"
-						type="button"
-						onclick="aktor_steuern('befeuchter_1')"
-					>
-						Befeuchter [Ein]
-					</button>
-					<button
-						class="aktor_button"
-						type="button"
-						onclick="aktor_steuern('befeuchter_0')"
-					>
-						Befeuchter [Aus]
-					</button>
-				</div>
-			</div>
+			<div class="hmi aktorsteuerung block_overflow"></div>
 		</div>
 
 		<div class="hmi_box systemuebersicht" id="systemuebersicht">
