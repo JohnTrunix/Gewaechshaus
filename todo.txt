@@ -1,4 +1,3 @@
 ip adresse von ipconfig nicht localhost
 wassersteuerung parameter dl/min
-servos
 Niveauregler
