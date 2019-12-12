@@ -176,14 +176,14 @@ def licht_aus():
 # ======================================================================
 def heizung_ein():
     try:
-        heizung.duty_cycle = 0
+        heizung.duty_cycle = 0xffff
     except:
         neue_betriebsmeldung(
             "[ansteuerung_pwm_shield] Die Heizung konnte nicht eingeschaltet werden.")
 
 def heizung_aus():
     try:
-        heizung.duty_cycle = 0xffff
+        heizung.duty_cycle = 0
     except:
         neue_betriebsmeldung(
             "[ansteuerung_pwm_shield] Die Heizung konnte nicht ausgeschaltet werden.")
