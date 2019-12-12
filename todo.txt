@@ -1,1 +1,2 @@
 ip adresse von ipconfig nicht localhost
+RTC Test und Rechte überprüfen
