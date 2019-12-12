@@ -1,3 +1,5 @@
 apache2 user:	pi
 apache2 group:	pi
 
+visudo:
+pi	ALL=NOPASSWD:/sbin/shutdown/
