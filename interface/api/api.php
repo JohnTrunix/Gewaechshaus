@@ -341,7 +341,7 @@ elseif (isset($_GET['bussystem_status_read'])) {
 // Admin Kommunikation
 //======================================================================
 elseif (isset($_GET['admin_kommunikation'])) {
-    $python_datei = 'C:/Users/thomi/AppData/Local/Programs/Python/Python37-32/python.exe "b:/SW Repos/Gewaechshaus/scripts/admin.py"';
+    $python_datei = '/usr/bin/python3 /etc/gewaechshaus/admin.py';
     $action = $_POST['action'];
     shell_exec("$python_datei $action");
 }
