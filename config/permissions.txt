@@ -1,5 +1,19 @@
+// Apache2 User
+//======================================================================
+
 apache2 user:	pi
 apache2 group:	pi
 
-visudo:
-pi	ALL=NOPASSWD:/sbin/shutdown/
+//======================================================================
+
+
+// visudo
+//======================================================================
+
+# User privilege specification
+root    ALL=(ALL:ALL) ALL
+pi      ALL=NOPASSWD:/sbin/shutdown, /usr/sbin/service, /usr/bin/python3
+# Allow members of group sudo to execute any command
+%sudo   ALL=(ALL:ALL) ALL
+
+//======================================================================
