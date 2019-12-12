@@ -249,7 +249,9 @@ elseif (isset($_GET['temperatur_read'])) {
 // Lese IP Adresse
 //======================================================================
 elseif (isset($_GET['ip_adresse_read'])) {
-    echo $_SERVER['HTTP_HOST'];
+    $command = "/sbin/ifconfig wlan0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'";
+    $localIP = exec($command);
+    echo $localIP;
 }
 //======================================================================
 
