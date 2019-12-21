@@ -333,7 +333,7 @@ elseif (isset($_GET['gewaechshaus_status_read'])) {
 // Bussystem Status
 //======================================================================
 elseif (isset($_GET['bussystem_status_read'])) {
-    $output = shell_exec('i2cdetect -y 1');
+    $output = shell_exec('sudo i2cdetect -y 1');
     echo "<pre>$output</pre>";
 }
 //======================================================================
@@ -344,6 +344,13 @@ elseif (isset($_GET['admin_kommunikation'])) {
     $python_datei = '/usr/bin/python3 /etc/gewaechshaus/admin.py';
     $action = $_POST['action'];
     shell_exec("$python_datei $action");
+}
+//======================================================================
+
+// Interface schliessen
+//======================================================================
+elseif (isset($_GET['exit_interface'])) {
+    shell_exec('sudo pkill -o chromium');
 }
 //======================================================================
 
