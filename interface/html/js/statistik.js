@@ -12,8 +12,7 @@ function get_ip_address() {
 				":3000/d/FLXpjTtWk/sensorwerte?orgId=1&kiosk=tv";
 		},
 		error: function() {
-			display.src =
-				"http://localhost:3000/d/FLXpjTtWk/sensorwerte?orgId=1&kiosk=tv";
+			display.src = "http://localhost:3000?kiosk=tv";
 		}
 	});
 }
