@@ -153,6 +153,16 @@ function admin_kommunikation(action) {
 }
 //======================================================================
 
+// Interface schliessen
+//======================================================================
+function interface_schliessen() {
+	jQuery.ajax({
+		type: "POST",
+		url: "/api/api.php?exit_interface"
+	});
+}
+//======================================================================
+
 // Display Benachrichtigungen anzeigen
 //======================================================================
 var url = window.location.href;
