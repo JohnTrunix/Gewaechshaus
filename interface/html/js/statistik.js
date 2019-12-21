@@ -6,13 +6,7 @@ function get_ip_address() {
 		type: "GET",
 		url: "/api/api.php?ip_adresse_read",
 		success: function(response) {
-			display.src =
-				"http://" +
-				response +
-				":3000/d/FLXpjTtWk/sensorwerte?orgId=1&kiosk=tv";
-		},
-		error: function() {
-			display.src = "http://localhost:3000?kiosk=tv";
+			display.src = "http://" + response + ":3000?kiosk=tv";
 		}
 	});
 }
