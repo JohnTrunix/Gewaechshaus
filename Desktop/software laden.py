@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 import os
 
-
 os.system("sudo rm -rf /var/www/html")
 os.system("sudo cp -R /media/pi/SOFTWARE/interface/html /var/www")
 
