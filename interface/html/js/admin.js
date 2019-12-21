@@ -92,6 +92,23 @@ function get_bussystem_status() {
 }
 //======================================================================
 
+// Bussystem Status als Text ausgeben
+//======================================================================
+function get_filesystem_status() {
+	var display = document.getElementById("filesystem_status");
+	jQuery.ajax({
+		type: "GET",
+		url: "/api/api.php?filesystem_status_read",
+		success: function(response) {
+			display.innerHTML = response;
+		},
+		error: function() {
+			display.innerHTML = "Fehler beim Laden.";
+		}
+	});
+}
+//======================================================================
+
 // Aktives Fenster
 //======================================================================
 var systemuebersicht_html = document.getElementById("systemuebersicht");
@@ -104,6 +121,7 @@ function systemuebersicht() {
 	manuelle_aktorsteuerung_html.style.display = "none";
 	get_gewaechshaus_status();
 	get_bussystem_status();
+	get_filesystem_status();
 }
 
 function betriebsmeldungen() {

@@ -74,10 +74,6 @@
 	justify-content: center;
 }
 
-.block_overflow {
-	overflow: hidden;
-}
-
 .hmi::-webkit-scrollbar {
 	width: 5px;
 }
@@ -158,7 +154,6 @@
 }
 
 .systemstatus {
-	height: 50%;
 	width: 100%;
 	overflow: hidden;
 }

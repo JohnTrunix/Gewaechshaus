@@ -326,6 +326,7 @@ elseif (isset($_GET['betriebsmeldung_reset_write'])) {
 //======================================================================
 elseif (isset($_GET['gewaechshaus_status_read'])) {
     $output = shell_exec('service gewaechshaus status');
+    echo "<a>Gewaechshaus Status:</a>";
     echo "<pre>$output</pre>";
 }
 //======================================================================
@@ -334,6 +335,16 @@ elseif (isset($_GET['gewaechshaus_status_read'])) {
 //======================================================================
 elseif (isset($_GET['bussystem_status_read'])) {
     $output = shell_exec('sudo i2cdetect -y 1');
+    echo "<a>Bussystem Status:</a>";
+    echo "<pre>$output</pre>";
+}
+//======================================================================
+
+// Filesystem Status
+//======================================================================
+elseif (isset($_GET['filesystem_status_read'])) {
+    $output = shell_exec('sudo df');
+    echo "<a>Filesystem Status:</a>";
     echo "<pre>$output</pre>";
 }
 //======================================================================
