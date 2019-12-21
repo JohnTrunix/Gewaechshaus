@@ -55,14 +55,14 @@ def rtc_update():
 # Systemzeit schreiben von RTC
 # ======================================================================
 def systemzeit_schreiben():
-    try:
-        os.system("sudo timedatectl set-ntp false")
-        time.sleep(1)
-        os.system("sudo timedatectl set-time " + str(t.tm_hour) +
-                  ":" + str(t.tm_min) + ":" + str(t.tm_sec))
-        time.sleep(1)
-        os.system("sudo timedatectl set-ntp true")
-    except:
-        neue_betriebsmeldung(
+	try:
+		os.system("sudo timedatectl set-ntp false")
+		time.sleep(1)
+		os.system("sudo timedatectl set-time " + str(t.tm_hour) + ":" + str(t.tm_min) + ":" + str(t.tm_sec))
+		time.sleep(1)
+	except:
+		neue_betriebsmeldung(
             "[zeit_update] Die Systemzeit konnte nicht durch die RTC aktualisiert werden.")
+	finally:
+		os.system("sudo timedatectl set-ntp true")
 # ======================================================================
