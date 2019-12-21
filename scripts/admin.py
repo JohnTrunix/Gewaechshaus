@@ -30,6 +30,11 @@ parser.add_argument(
     help='herunterfahren'
 )
 parser.add_argument(
+    '--interface_verlassen',
+    default=0,
+    help='interface verlassen'
+)
+parser.add_argument(
     '--tuer',
     default=0,
     help='tuer'
@@ -94,6 +99,9 @@ elif int(parameter.herunterfahren) == 1:
 	grundstellung()
 	time.sleep(10)
 	os.system("sudo shutdown -h now")
+elif int(parameter.herunterfahren) == 1:
+	neue_betriebsmeldung("[admin] Interface wird geschlossen.")
+	os.system("sudo pkill -o chromium")
 elif int(parameter.tuer) == 2:
 	neue_betriebsmeldung("[admin] Tueren werden geoeffnet.")
 	tuer_oeffnen()
