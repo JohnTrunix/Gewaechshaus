@@ -1,7 +1,10 @@
 #!/usr/bin/python3
 import os
 
-os.system("cp -R /media/pi/* /home/pi/Desktop/")
-os.system("rm -rf /var")
 
+os.system("sudo rm -rf /var/www/html")
+os.system("sudo cp -R /media/pi/SOFTWARE/interface/html /var/www")
+
+os.system("sudo chown -R www-data:www-data /var/www")
+os.system("sudo chmod -R 777 /var/www")
 
