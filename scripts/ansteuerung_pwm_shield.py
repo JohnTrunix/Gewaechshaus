@@ -60,8 +60,8 @@ def grundstellung():
 # ======================================================================
 def tuer_oeffnen():
     try:
-        kit.servo[0].angle = 45
-        kit.servo[1].angle = 0
+        kit.servo[0].angle = 42
+        kit.servo[1].angle = 10
     except:
         neue_betriebsmeldung(
             "[ansteuerung_pwm_shield] Tueren konnten nicht geoeffnet werden.")
@@ -69,7 +69,7 @@ def tuer_oeffnen():
 def tuer_schliessen():
     try:
         kit.servo[0].angle = 5
-        kit.servo[1].angle = 38
+        kit.servo[1].angle = 54
     except:
         neue_betriebsmeldung(
             "[ansteuerung_pwm_shield] Tueren konnten nicht geschlossen werden.")
