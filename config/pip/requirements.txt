@@ -8,6 +8,8 @@ adafruit-circuitpython-pcf8523
 adafruit-circuitpython-sht31d
 adafruit-circuitpython-pca9685
 
+python-tsl2591
+
 adafruit-circuitpython-busdevice
 adafruit-circuitpython-register
 adafruit-circuitpython-motor
