@@ -352,7 +352,7 @@ elseif (isset($_GET['filesystem_status_read'])) {
 // Admin Kommunikation
 //======================================================================
 elseif (isset($_GET['admin_kommunikation'])) {
-    $python_datei = '/usr/bin/python3 /etc/gewaechshaus/admin.py';
+    $python_datei = 'sudo python3 /etc/gewaechshaus/admin.py';
     $action = $_POST['action'];
     shell_exec("$python_datei $action");
 }
