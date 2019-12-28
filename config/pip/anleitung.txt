@@ -1,1 +1,1 @@
-pip3 install --upgrade -r requirements.txt --timeout 9999999
+pip3 install --upgrade -r requirements.txt --timeout 999
