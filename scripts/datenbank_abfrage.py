@@ -12,43 +12,52 @@ except:
         "[datenbank_abfrage] Fehler bei der importierung von Modulen.")
 # ======================================================================
 
-# Datenbankverbindung herstellen
+# Abfragefunktion der Betriebsmodus Daten
 # ======================================================================
-def db_connect():
-	try:
-		global connection
-		connection = mysql.connector.connect(
+def get_betriebsmodus():
+    try:
+        connection = mysql.connector.connect(
             host="localhost",
             user="datenbank",
             passwd="rasp",
             database="datenbank"
         )
-	except:
-		neue_betriebsmeldung(
-            "[datenbank_abfrage] Fehler bei der Datenbankverbindung.")
+        global id
+        global parameter_slot
+        global programm_status
+        global datetime
+        global programm_datum_ende
+        global programm_zeit_ende
+        sql_select_Query = "select * from betriebsmodus"
+        cursor = connection.cursor()
+        cursor.execute(sql_select_Query)
+        records = cursor.fetchall()
+        for row in records:
+            id = (row[0])
+            parameter_slot = (row[1])
+            programm_status = (row[2])
+            datetime = (row[3])
+            programm_datum_ende = (row[4])
+            programm_zeit_ende = (row[5])
+    except:
+        neue_betriebsmeldung(
+            "[datenbank_abfrage] Daten zum Betriebsmodus konnten nicht aus der Datenbank gelesen werden.")
+    finally:
+        if (connection.is_connected()):
+            connection.close()
+            cursor.close()
 # ======================================================================
 
-# Programmstatus abfragen
-# ======================================================================
-def get_status():
-	try:
-		global parameter_slot
-		global programm_status
-		sql_select_Query = "select * from betriebsmodus"
-		cursor = connection.cursor()
-		cursor.execute(sql_select_Query)
-		records = cursor.fetchall()
-		for row in records:
-			parameter_slot = (row[1])
-			programm_status = (row[2])
-	except:
-		neue_betriebsmeldung("[datenbank_abfrage] Fehler bei der Programmstatus Abfrage.")
-# ======================================================================
-
-# Abfragefunktion der aktiven Parameter
+# Abfragefunktion der Aktiven Parameter
 # ======================================================================
 def get_parameter():
     try:
+        connection = mysql.connector.connect(
+            host="localhost",
+            user="datenbank",
+            passwd="rasp",
+            database="datenbank"
+        )
         global slot
         global pflanze
         global temperatur
@@ -70,15 +79,15 @@ def get_parameter():
     except:
         neue_betriebsmeldung(
             "[datenbank_abfrage] Parameterdaten konnten nicht aus der Datenbank gelesen werden.")
+    finally:
+        if (connection.is_connected()):
+            connection.close()
+            cursor.close()
 # ======================================================================
 
 # Start Datenbank Abfrage
 # ======================================================================
 def start_datenbank_abfrage():
-	db_connect()
-	get_status()
-	if programm_status == 1:
-		get_parameter()
-	else:
-		pass
+    get_betriebsmodus()
+    get_parameter()
 # ======================================================================
