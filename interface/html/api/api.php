@@ -45,7 +45,7 @@ elseif (isset($_GET['betriebsmodus_write'])) {
     $sql3 = "DELETE FROM `zwischenspeicher`";
     $sql4 = "INSERT INTO `zwischenspeicher` (`licht_zaehler`) VALUES
 	(0);";
-    if (mysqli_query($conn, $sql1) && mysqli_query($conn, $sql3) && mysqli_query($conn, $sql2) && mysqli_query($conn, $sql4)) {
+    if (mysqli_query($conn, $sql1) && mysqli_query($conn, $sql2) && mysqli_query($conn, $sql3) && mysqli_query($conn, $sql4)) {
         header("Location: /index.html?erfolgreich");
     } else {
         header("Location: /index.html?fehler");
@@ -61,8 +61,12 @@ elseif (isset($_GET['betriebsmodus_stop_write'])) {
     $sql1 = "DELETE FROM `betriebsmodus`";
     $sql2 = "INSERT INTO `betriebsmodus` (`ID`, `parameter_slot`, `programm_status`, `datetime`, `programm_datum_ende`, `programm_zeit_ende`) VALUES
 	(1, 1, 0, '0000-00-00 00:00:00', '0000-00-00', '00:00:00');";
-    mysqli_query($conn, $sql1);
-    mysqli_query($conn, $sql2);
+    if (mysqli_query($conn, $sql1) && mysqli_query($conn, $sql2)) {
+        header("Location: /index.html?erfolgreich");
+    } else {
+        header("Location: /index.html?fehler");
+        die();
+    }
     mysqli_close($conn);
 }
 //======================================================================

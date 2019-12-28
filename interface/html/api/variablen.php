@@ -70,4 +70,9 @@ $sensor_bodenfeuchtigkeit_1 = 'ERR';
 $sensor_licht_1 = 'ERR';
 $sensor_luftfeuchtigkeit_1 = 'ERR';
 $sensor_temperatur_1 = 'ERR';
+$parameter_slot = 1;
+$programm_status = 0;
+$datetime = '0000-00-00 00:00:00';
+$programm_datum_ende = '0000-00-00';
+$programm_zeit_ende = '00:00:00';
 //======================================================================
