@@ -3,6 +3,7 @@
 import time
 import datetime
 import mysql.connector
+import os
 # ======================================================================
 
 # MYSQL Konfiguration
@@ -52,6 +53,12 @@ def begrenzung_betriebsmeldung():
     mydb.commit()
 # ======================================================================
 
+# System Stop bei Fehler
+# ======================================================================
+def system_stop():
+	os.system("sudo python3 /etc/gewaechshaus/admin.py --stop 1")
+# ======================================================================
+
 # Betriebsmeldung einfuegen
 # ======================================================================
 def neue_betriebsmeldung(meldung):
@@ -62,4 +69,5 @@ def neue_betriebsmeldung(meldung):
     else:
         pass
     betriebsmeldung_einfuegen(meldung)
+	system_stop()
 # ======================================================================
