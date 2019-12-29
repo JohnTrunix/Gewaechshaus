@@ -67,17 +67,17 @@ except:
 
 # Alle Auftraege mit Startintervall definiert
 # ======================================================================
-schedule.every(10).seconds.do(start_datenbank_abfrage)
+#schedule.every(10).seconds.do(start_datenbank_abfrage)
 schedule.every(10).seconds.do(start_sensorabfrage)
-schedule.every(10).seconds.do(start_ansteuerung_temp_luft)
-schedule.every().hour.at("00:05").do(start_lichtsteuerung)
+#schedule.every(10).seconds.do(start_ansteuerung_temp_luft)
+#schedule.every().hour.at("00:05").do(start_lichtsteuerung)
 #schedule.every().hour.at("00:10").do(start_ansteuerung_wasser)
 #schedule.every().hour.at("00:20").do(start_auffuellen_befeuchter)
-schedule.every().hour.at("00:35").do(start_lichtsteuerung)
+#schedule.every().hour.at("00:35").do(start_lichtsteuerung)
 #schedule.every().hour.at("00:45").do(start_lueften)
 #schedule.every().day.at("23:55").do(start_datenbegrenzung)
 #schedule.every().day.at("23:55").do(start_zeit_update)
-schedule.every().day.at("08:00").do(reset_licht_zaehler)
+#schedule.every().day.at("08:00").do(reset_licht_zaehler)
 # ======================================================================
 
 # Alle 5 Sekunden auf ausstehende Auftraege ueberpruefen
