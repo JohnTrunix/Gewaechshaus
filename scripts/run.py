@@ -85,7 +85,7 @@ schedule.every().day.at("08:00").do(reset_licht_zaehler)
 while True:
     try:
         schedule.run_pending()
-        time.sleep(2)
+        time.sleep(5)
     except:
         neue_betriebsmeldung(
             "[run] Kritischer Fehler bei der Ausfuehrung der ausstehenden Auftraege (Evtl. Busfehler).")
