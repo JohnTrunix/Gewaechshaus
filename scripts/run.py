@@ -5,8 +5,8 @@ from betriebsmeldungen import neue_betriebsmeldung
 
 # Betriebsmeldung bei Systemstart
 # ======================================================================
-#neue_betriebsmeldung(
-#    "[run] System wird gestartet.")
+neue_betriebsmeldung(
+    "[run] System wird gestartet.")
 # ======================================================================
 
 # Import von benoetigten Modulen

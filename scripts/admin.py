@@ -85,7 +85,7 @@ if int(parameter.stop) == 1:
 	time.sleep(2)
 	grundstellung()
 elif int(parameter.start) == 1:
-	#neue_betriebsmeldung("[admin] System wird gestartet.")
+	neue_betriebsmeldung("[admin] System wird gestartet.")
 	os.system("sudo service gewaechshaus start")
 elif int(parameter.herunterfahren) == 1:
 	neue_betriebsmeldung("[admin] System wird gestoppt, in Grundstellung gebracht und heruntergefahren.")
