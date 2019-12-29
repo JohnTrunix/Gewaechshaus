@@ -62,12 +62,12 @@ def system_stop():
 # Betriebsmeldung einfuegen
 # ======================================================================
 def neue_betriebsmeldung(meldung):
-    systemzeit_abfrage()
-    abfrage_anzahl_betriebsmeldungen()
-    if anzahl_betriebsmeldungen >= 50:
-        begrenzung_betriebsmeldung()
-    else:
-        pass
-    betriebsmeldung_einfuegen(meldung)
+	systemzeit_abfrage()
+	abfrage_anzahl_betriebsmeldungen()
+	if anzahl_betriebsmeldungen >= 50:
+		begrenzung_betriebsmeldung()
+	else:
+		pass
+	betriebsmeldung_einfuegen(meldung)
 	system_stop()
 # ======================================================================
