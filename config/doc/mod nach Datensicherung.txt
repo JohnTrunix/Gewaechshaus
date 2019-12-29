@@ -1,2 +1,3 @@
 xscreensaver installiert.
 SW angepasst
+disable swap
