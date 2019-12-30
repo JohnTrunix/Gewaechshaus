@@ -6,7 +6,7 @@ from betriebsmeldungen import neue_betriebsmeldung
 # Import von benoetigten Modulen
 # ======================================================================
 try:
-	import datenbank_abfrage
+	import datenaustausch
 	import sensor_abfrage
 	from ansteuerung_pwm_shield import ventil_wasserpumpe_oeffnen, ventil_wasserpumpe_schliessen, ventil_befeuchter_oeffnen, ventil_befeuchter_schliessen, wasserpumpe_ein, wasserpumpe_aus, grundstellung
 	import time
@@ -29,10 +29,10 @@ except Exception as e:
 # ======================================================================
 def start_ansteuerung_wasser():
 	try:
-		if datenbank_abfrage.programm_status == 1:
-			if int(datenbank_abfrage.wassermenge) > 0:
+		if datenaustausch.programm_status == 1:
+			if int(datenaustausch.wassermenge) > 0:
 				ausgabe_wassermenge_mililiter = (
-					(int(datenbank_abfrage.wassermenge) / 24) * 100)
+					(int(datenaustausch.wassermenge) / 24) * 100)
 				pumpe_mililiter_pro_sekunde = 5
 				einschaltdauer_pumpe = ausgabe_wassermenge_mililiter / pumpe_mililiter_pro_sekunde
 				ventil_wasserpumpe_oeffnen()
@@ -54,7 +54,7 @@ def start_ansteuerung_wasser():
 # ======================================================================
 def start_auffuellen_befeuchter():
 	try:
-		if datenbank_abfrage.programm_status == 1:
+		if datenaustausch.programm_status == 1:
 			auffuellen_fertig = 0
 			pumpe_gestartet = 0
 			while auffuellen_fertig == 0 and GPIO.input(21) == GPIO.LOW:

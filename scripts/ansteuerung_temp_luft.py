@@ -7,7 +7,7 @@ from betriebsmeldungen import neue_betriebsmeldung
 # ======================================================================
 try:
 	import time
-	import datenbank_abfrage
+	import datenaustausch
 	import sensor_abfrage
 	from ansteuerung_pwm_shield import heizung_ein, heizung_aus, befeuchter_ein, befeuchter_aus, luefter_klein_ein, luefter_klein_aus, tuer_oeffnen, tuer_schliessen, luefter_gross_ein, luefter_gross_aus, grundstellung
 except Exception as e:
@@ -18,19 +18,19 @@ except Exception as e:
 # ======================================================================
 def start_ansteuerung_temp_luft():
 	try:
-		if datenbank_abfrage.programm_status == 1:
-			if (int(sensor_abfrage.temperatur_gerundet) < int(datenbank_abfrage.temperatur)):
+		if datenaustausch.programm_status == 1:
+			if (int(sensor_abfrage.temperatur_gerundet) < int(datenaustausch.temperatur)):
 				heizung_ein()
 				status_heizung = 1
-			elif ((int(sensor_abfrage.temperatur_gerundet) + 2) > int(datenbank_abfrage.temperatur)):
+			elif ((int(sensor_abfrage.temperatur_gerundet) + 2) > int(datenaustausch.temperatur)):
 				heizung_aus()
 				status_heizung = 0
 			else:
 				pass
-			if (int(sensor_abfrage.luftfeuchtigkeit_gerundet) < int(datenbank_abfrage.luftfeuchtigkeit)):
+			if (int(sensor_abfrage.luftfeuchtigkeit_gerundet) < int(datenaustausch.luftfeuchtigkeit)):
 				befeuchter_ein()
 				status_befeuchter = 1
-			elif ((int(sensor_abfrage.luftfeuchtigkeit_gerundet) + 5) > int(datenbank_abfrage.luftfeuchtigkeit)):
+			elif ((int(sensor_abfrage.luftfeuchtigkeit_gerundet) + 5) > int(datenaustausch.luftfeuchtigkeit)):
 				befeuchter_aus()
 				status_befeuchter = 0
 			else:
@@ -51,7 +51,7 @@ def start_ansteuerung_temp_luft():
 # ======================================================================
 def start_lueften():
 	try:
-		if datenbank_abfrage.programm_status == 1:
+		if datenaustausch.programm_status == 1:
 			tuer_oeffnen()
 			luefter_gross_ein()
 			time.sleep(60)

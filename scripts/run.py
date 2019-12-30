@@ -15,7 +15,7 @@ try:
 	from sensor_abfrage import start_sensorabfrage
 	from datenbegrenzung import start_datenbegrenzung
 	from zeit_update import start_zeit_update
-	from datenbank_abfrage import start_datenbank_abfrage
+	from datenaustausch import start_datenbank_abfrage
 	from ansteuerung_temp_luft import start_ansteuerung_temp_luft, start_lueften
 	from ansteuerung_licht import reset_licht_zaehler
 	from ansteuerung_wasser import start_ansteuerung_wasser, start_auffuellen_befeuchter

@@ -26,7 +26,7 @@ config = {
 
 # Aktueller Programmstatus und Parameter abfragen
 # ======================================================================
-def get_active_state():
+def start_datenbank_abfrage():
 	try:
 		global parameter_slot
 		global programm_status

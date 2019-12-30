@@ -6,7 +6,7 @@ from betriebsmeldungen import neue_betriebsmeldung
 # Import von benoetigten Modulen
 # ======================================================================
 try:
-	import datenbank_abfrage
+	import datenaustausch
 	import sensor_abfrage
 	from ansteuerung_pwm_shield import licht_ein, licht_aus, grundstellung
 	import time
@@ -85,11 +85,11 @@ def update_licht_zaehler():
 # ======================================================================
 def start_lichtsteuerung():
 	try:
-		if datenbank_abfrage.programm_status == 1:
+		if datenaustausch.programm_status == 1:
 			aktueller_fortschritt()
 
-			if int(datenbank_abfrage.lichtstunden) > 0:
-				sollwert = (float(datenbank_abfrage.lichtstunden) * 60)
+			if int(datenaustausch.lichtstunden) > 0:
+				sollwert = (float(datenaustausch.lichtstunden) * 60)
 				if neue_zaehler_zeit < sollwert:
 					licht_ein()
 				elif neue_zaehler_zeit >= sollwert:
