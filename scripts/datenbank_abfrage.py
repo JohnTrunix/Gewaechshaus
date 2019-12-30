@@ -8,9 +8,8 @@ from betriebsmeldungen import neue_betriebsmeldung
 try:
 	import mysql.connector
 	from mysql.connector.cursor import MySQLCursor
-except:
-    neue_betriebsmeldung(
-        "[datenbank_abfrage] Fehler bei der importierung von Modulen.")
+except Exception as e:
+		neue_betriebsmeldung(e)
 # ======================================================================
 
 # Datenbank Abfrage
@@ -36,11 +35,11 @@ def start_datenbank_abfrage():
 		luftfeuchtigkeit = 0
 
 		db = mysql.connector.connect(
-    	    	host="localhost",
-        		user="datenbank",
-        		passwd="rasp",
+				host="localhost",
+				user="datenbank",
+				passwd="rasp",
 				database="datenbank"
-    		)
+			)
 
 		cursor = db.cursor()
 
@@ -52,7 +51,7 @@ def start_datenbank_abfrage():
 
 		sql2 = """SELECT `slot`, `pflanze`, `temperatur`, `lichtstunden`, `wassermenge`, `luftfeuchtigkeit` FROM `parameter` WHERE slot = %(slot)s"""
 		data2 = {
-    	    	'slot': parameter_slot
+				'slot': parameter_slot
 		}
 		cursor.execute(sql2, data2)
 		for row in cursor:
@@ -67,5 +66,7 @@ def start_datenbank_abfrage():
 		db.close()
 
 	except mysql.connector.Error as err:
-		neue_betriebsmeldung("[datenbank_abfrage] {}".format(err))
+		neue_betriebsmeldung("DB Fehler: {}".format(err))
+	except Exception as e:
+		neue_betriebsmeldung(e)
 # ======================================================================

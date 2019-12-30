@@ -15,64 +15,64 @@ from ansteuerung_pwm_shield import grundstellung, tuer_oeffnen, tuer_schliessen,
 # ======================================================================
 parser = argparse.ArgumentParser(description='Gewaechshaus Admin Programm')
 parser.add_argument(
-    '--stop',
-    default=0,
-    help='stop'
+	'--stop',
+	default=0,
+	help='stop'
 )
 parser.add_argument(
-    '--start',
-    default=0,
-    help='start'
+	'--start',
+	default=0,
+	help='start'
 )
 parser.add_argument(
-    '--herunterfahren',
-    default=0,
-    help='herunterfahren'
+	'--herunterfahren',
+	default=0,
+	help='herunterfahren'
 )
 parser.add_argument(
-    '--tuer',
-    default=0,
-    help='tuer'
+	'--tuer',
+	default=0,
+	help='tuer'
 )
 parser.add_argument(
-    '--luefter_gross',
-    default=0,
-    help='luefter_gross'
+	'--luefter_gross',
+	default=0,
+	help='luefter_gross'
 )
 parser.add_argument(
-    '--luefter_klein',
-    default=0,
-    help='luefter_klein'
+	'--luefter_klein',
+	default=0,
+	help='luefter_klein'
 )
 parser.add_argument(
-    '--wasserpumpe',
-    default=0,
-    help='wasserpumpe'
+	'--wasserpumpe',
+	default=0,
+	help='wasserpumpe'
 )
 parser.add_argument(
-    '--ventil_wasserpumpe',
-    default=0,
-    help='ventil_wasserpumpe'
+	'--ventil_wasserpumpe',
+	default=0,
+	help='ventil_wasserpumpe'
 )
 parser.add_argument(
-    '--ventil_befeuchter',
-    default=0,
-    help='ventil_befeuchter'
+	'--ventil_befeuchter',
+	default=0,
+	help='ventil_befeuchter'
 )
 parser.add_argument(
-    '--licht',
-    default=0,
-    help='licht'
+	'--licht',
+	default=0,
+	help='licht'
 )
 parser.add_argument(
-    '--heizung',
-    default=0,
-    help='heizung'	
+	'--heizung',
+	default=0,
+	help='heizung'	
 )
 parser.add_argument(
-    '--befeuchter',
-    default=0,
-    help='befeuchter'
+	'--befeuchter',
+	default=0,
+	help='befeuchter'
 )
 parameter = parser.parse_args()
 # ======================================================================
@@ -85,7 +85,7 @@ if int(parameter.stop) == 1:
 	time.sleep(2)
 	grundstellung()
 elif int(parameter.start) == 1:
-	neue_betriebsmeldung("[admin] System wird gestartet.")
+	neue_betriebsmeldung("[admin] Systemstart wird angefordert.")
 	os.system("sudo service gewaechshaus start")
 elif int(parameter.herunterfahren) == 1:
 	neue_betriebsmeldung("[admin] System wird gestoppt, in Grundstellung gebracht und heruntergefahren.")
