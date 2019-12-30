@@ -155,35 +155,37 @@ def start_datenbegrenzung():
 
 # Sensorwerte einfuegen
 # ======================================================================
-def sensorwerte_einfuegen(datetime, temperatur, licht, bodenfuechtigkeit, luftfeuchtigkeit):
+def sensorwerte_einfuegen(temperatur, licht, bodenfuechtigkeit, luftfeuchtigkeit):
 	try:
+		lokale_zeit = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
 		cnx = mysql.connector.connect(**config)
 		cursor = cnx.cursor()
 
 		query1 = ("INSERT INTO 	sensor_licht_1 (datetime, sensorwert) VALUES %(datetime)s, %(sensorwert)s")
 		data1 = {
-				'datetime': datetime,
+				'datetime': lokale_zeit,
 				'sensorwert': licht
 			}
 		cursor.execute(query1, data1)
 
 		query2 = ("INSERT INTO 	sensor_luftfeuchtigkeit_1 (datetime, sensorwert) VALUES %(datetime)s, %(sensorwert)s")
 		data2 = {
-				'datetime': datetime,
+				'datetime': lokale_zeit,
 				'sensorwert': luftfeuchtigkeit
 			}
 		cursor.execute(query2, data2)
 
 		query3 = ("INSERT INTO 	sensor_temperatur_1 (datetime, sensorwert) VALUES %(datetime)s, %(sensorwert)s")
 		data3 = {
-				'datetime': datetime,
+				'datetime': lokale_zeit,
 				'sensorwert': temperatur
 			}
 		cursor.execute(query3, data3)
 
 		query4 = ("INSERT INTO 	sensor_bodenfeuchtigkeit_1 (datetime, sensorwert) VALUES %(datetime)s, %(sensorwert)s")
 		data4 = {
-				'datetime': datetime,
+				'datetime': lokale_zeit,
 				'sensorwert': bodenfuechtigkeit
 			}
 		cursor.execute(query4, data4)
@@ -195,3 +197,5 @@ def sensorwerte_einfuegen(datetime, temperatur, licht, bodenfuechtigkeit, luftfe
 	except Exception as e:
 		neue_betriebsmeldung(str(e))	
 # ======================================================================
+
+
