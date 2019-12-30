@@ -14,20 +14,7 @@ try:
 	import busio
 	import time
 	import datetime
-	import mysql.connector
-except Exception as e:
-		neue_betriebsmeldung(str(e))
-# ======================================================================
-
-# MYSQL Konfiguration
-# ======================================================================
-try:
-	db = mysql.connector.connect(
-			host="localhost",
-			user="datenbank",
-			passwd="rasp",
-			database="datenbank"
-		)
+	from datenaustausch import sensorwerte_einfuegen
 except Exception as e:
 		neue_betriebsmeldung(str(e))
 # ======================================================================
@@ -60,7 +47,6 @@ def systemzeit_abfrage():
 def lichtsensor_abfrage():
 	global lux_gerundet
 	lux_gerundet = (round(sensor_licht.lux, 1))
-	datenbank_lichtsensor_einfuegen()
 # ======================================================================
 
 # Temperatursensor wird abgefragt und die Datenbank Funktion wird aufgerufen
@@ -69,7 +55,6 @@ def temperatur_abfrage():
 	global temperatur_gerundet
 	temperatur_gerundet = (
 		round(sensor_temperatur_luftfeuchtigkeit.temperature, 1))
-	datenbank_temperatursensor_einfuegen()
 # ======================================================================
 
 # Luftfeuchtigkeitssensor wird abgefragt und die Datenbank Funktion wird aufgerufen
@@ -78,7 +63,6 @@ def luftfeuchtigkeit_abfrage():
 	global luftfeuchtigkeit_gerundet
 	luftfeuchtigkeit_gerundet = (
 		round(sensor_temperatur_luftfeuchtigkeit.relative_humidity, 1))
-	datenbank_luftfeuchtesensor_einfuegen()
 # ======================================================================
 
 # Bodenfeuchtigkeitsensoren werden abgefragt und die Datenbank Funktion wird aufgerufen
@@ -92,61 +76,10 @@ def bodenfeuchtigkeit_abfrage():
 	sensor_gerundet = round(sensor_korrigiert, 1)
 	if sensor_gerundet >= 100:
 		bodenfeuchtigkeit_endwert = 100
-		datenbank_bodenfeuchtigkeitsensor_einfuegen()
 	elif sensor_gerundet <= 0:
 		bodenfeuchtigkeit_endwert = 0
-		datenbank_bodenfeuchtigkeitsensor_einfuegen()
 	else:
 		bodenfeuchtigkeit_endwert = sensor_gerundet
-		datenbank_bodenfeuchtigkeitsensor_einfuegen()
-# ======================================================================
-
-# Der Lichtsensor Wert wird in Datenbank geschrieben
-# ======================================================================
-def datenbank_lichtsensor_einfuegen():
-	cursor = db.cursor()
-	sql = "INSERT INTO sensor_licht_1 (datetime, sensorwert) VALUES (%s, %s)"
-	val = (lokale_zeit, lux_gerundet)
-	cursor.execute(sql, val)
-	db.commit()
-	cursor.close()
-	db.close()
-# ======================================================================
-
-# Der Luftfeuchtigkeit Wert wird in Datenbank geschrieben
-# ======================================================================
-def datenbank_luftfeuchtesensor_einfuegen():
-	cursor = db.cursor()
-	sql = "INSERT INTO 	sensor_luftfeuchtigkeit_1 (datetime, sensorwert) VALUES (%s, %s)"
-	val = (lokale_zeit, luftfeuchtigkeit_gerundet)
-	cursor.execute(sql, val)
-	db.commit()
-	cursor.close()
-	db.close()
-# ======================================================================
-
-# Der Temperatur Wert wird in Datenbank geschrieben
-# ======================================================================
-def datenbank_temperatursensor_einfuegen():
-	cursor = db.cursor()
-	sql = "INSERT INTO sensor_temperatur_1 (datetime, sensorwert) VALUES (%s, %s)"
-	val = (lokale_zeit, temperatur_gerundet)
-	cursor.execute(sql, val)
-	db.commit()
-	cursor.close()
-	db.close()
-# ======================================================================
-
-# Der Bodenfeuchtigkeits Wert wird in Datenbank geschrieben
-# ======================================================================
-def datenbank_bodenfeuchtigkeitsensor_einfuegen():
-	cursor = db.cursor()
-	sql = "INSERT INTO sensor_bodenfeuchtigkeit_1 (datetime, sensorwert) VALUES (%s, %s)"
-	val = (lokale_zeit, bodenfeuchtigkeit_endwert)
-	cursor.execute(sql, val)
-	db.commit()
-	cursor.close()
-	db.close()
 # ======================================================================
 
 # Starte alle Abfrage Funktionen
@@ -154,22 +87,11 @@ def datenbank_bodenfeuchtigkeitsensor_einfuegen():
 def start_sensorabfrage():
 	try:
 		systemzeit_abfrage()
-	except Exception as e:
-		neue_betriebsmeldung(str(e))
-	try:
 		lichtsensor_abfrage()
-	except Exception as e:
-		neue_betriebsmeldung(str(e))
-	try:
 		temperatur_abfrage()
-	except Exception as e:
-		neue_betriebsmeldung(str(e))
-	try:
 		luftfeuchtigkeit_abfrage()
-	except Exception as e:
-		neue_betriebsmeldung(str(e))
-	try:
 		bodenfeuchtigkeit_abfrage()
+		sensorwerte_einfuegen(temperatur_gerundet, lux_gerundet, bodenfeuchtigkeit_endwert, luftfeuchtigkeit_gerundet)
 	except Exception as e:
 		neue_betriebsmeldung(str(e))
 # ======================================================================
