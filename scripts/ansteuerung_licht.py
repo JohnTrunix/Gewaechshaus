@@ -6,79 +6,14 @@ from datenaustausch import neue_betriebsmeldung
 # Import von benoetigten Modulen
 # ======================================================================
 try:
+	from datenaustausch import lichtzaehler_update
 	import datenaustausch
 	import sensor_abfrage
 	from ansteuerung_pwm_shield import licht_ein, licht_aus, grundstellung
 	import time
 	import datetime
-	import mysql.connector
 except Exception as e:
 	neue_betriebsmeldung(str(e))
-# ======================================================================
-
-# MYSQL Konfiguration
-# ======================================================================
-try:
-	mydb = mysql.connector.connect(
-		host="localhost",
-		user="datenbank",
-		passwd="rasp",
-		database="datenbank"
-	)
-except Exception as e:
-	neue_betriebsmeldung(str(e))
-# ======================================================================
-
-# Lichtzaehler reset
-# ======================================================================
-def reset_licht_zaehler():
-	try:
-		mycursor = mydb.cursor()
-		sql = "update zwischenspeicher set licht_zaehler = '0'"
-		mycursor.execute(sql)
-		mydb.commit()
-	except Exception as e:
-		neue_betriebsmeldung(str(e))
-# ======================================================================
-
-# Lichtzaehler fortschritt berechnen
-# ======================================================================
-def aktueller_fortschritt():
-	try:
-		connection = mysql.connector.connect(
-			host="localhost",
-			user="datenbank",
-			passwd="rasp",
-			database="datenbank"
-		)
-		global licht_zaehler
-		sql_select_Query = "select licht_zaehler from zwischenspeicher"
-		cursor = connection.cursor()
-		cursor.execute(sql_select_Query)
-		records = cursor.fetchall()
-		for row in records:
-			licht_zaehler = (row[0])
-		update_licht_zaehler()
-	except Exception as e:
-		neue_betriebsmeldung(str(e))
-	finally:
-		if (connection.is_connected()):
-			connection.close()
-			cursor.close()
-# ======================================================================
-
-# Lichtzaehler updaten
-# ======================================================================
-def update_licht_zaehler():
-	try:
-		global neue_zaehler_zeit
-		neue_zaehler_zeit = (licht_zaehler + 30)
-		mycursor = mydb.cursor()
-		sql = "update zwischenspeicher set licht_zaehler = %s" % neue_zaehler_zeit
-		mycursor.execute(sql)
-		mydb.commit()
-	except Exception as e:
-		neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # Regelkreis Licht
@@ -86,13 +21,13 @@ def update_licht_zaehler():
 def start_lichtsteuerung():
 	try:
 		if datenaustausch.programm_status == 1:
-			aktueller_fortschritt()
+			lichtzaehler_update()
 
 			if int(datenaustausch.lichtstunden) > 0:
 				sollwert = (float(datenaustausch.lichtstunden) * 60)
-				if neue_zaehler_zeit < sollwert:
+				if datenaustausch.neue_zaehler_zeit < sollwert:
 					licht_ein()
-				elif neue_zaehler_zeit >= sollwert:
+				elif datenaustausch.neue_zaehler_zeit >= sollwert:
 					licht_aus()
 				else:
 					pass
