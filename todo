@@ -1,1 +1,3 @@
 pip3 rm python-tsl2591
+
+db schliessen nach cn
