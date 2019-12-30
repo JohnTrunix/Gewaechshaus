@@ -6,7 +6,7 @@ from betriebsmeldungen import neue_betriebsmeldung
 # Import von benoetigten Modulen
 # ======================================================================
 try:
-	from python_tsl2591 import tsl2591
+	import adafruit_tsl2591
 	import adafruit_sht31d
 	import adafruit_ads1x15.ads1115 as ADS
 	from adafruit_ads1x15.analog_in import AnalogIn
@@ -37,6 +37,7 @@ except Exception as e:
 try:
 	i2c = busio.I2C(board.SCL, board.SDA)
 	sensor_temperatur_luftfeuchtigkeit = adafruit_sht31d.SHT31D(i2c)
+	sensor_licht = adafruit_tsl2591.TSL2591(i2c)
 	ads = ADS.ADS1115(i2c)
 	ads.gain = 1
 	sensor1 = AnalogIn(ads, ADS.P0)
@@ -58,11 +59,7 @@ def systemzeit_abfrage():
 # ======================================================================
 def lichtsensor_abfrage():
 	global lux_gerundet
-	tsl = tsl2591()
-	full, ir = tsl.get_full_luminosity()
-	lux = tsl.calculate_lux(full, ir)
-	lux_gerundet = (round(lux, 1))
-	datenbank_lichtsensor_einfuegen()
+	lux_gerundet = (round(sensor_licht.lux, 1))
 # ======================================================================
 
 # Temperatursensor wird abgefragt und die Datenbank Funktion wird aufgerufen
@@ -71,7 +68,6 @@ def temperatur_abfrage():
 	global temperatur_gerundet
 	temperatur_gerundet = (
 		round(sensor_temperatur_luftfeuchtigkeit.temperature, 1))
-	datenbank_temperatursensor_einfuegen()
 # ======================================================================
 
 # Luftfeuchtigkeitssensor wird abgefragt und die Datenbank Funktion wird aufgerufen
@@ -80,7 +76,6 @@ def luftfeuchtigkeit_abfrage():
 	global luftfeuchtigkeit_gerundet
 	luftfeuchtigkeit_gerundet = (
 		round(sensor_temperatur_luftfeuchtigkeit.relative_humidity, 1))
-	datenbank_luftfeuchtesensor_einfuegen()
 # ======================================================================
 
 # Bodenfeuchtigkeitsensoren werden abgefragt und die Datenbank Funktion wird aufgerufen
@@ -94,76 +89,8 @@ def bodenfeuchtigkeit_abfrage():
 	sensor_gerundet = round(sensor_korrigiert, 1)
 	if sensor_gerundet >= 100:
 		bodenfeuchtigkeit_endwert = 100
-		datenbank_bodenfeuchtigkeitsensor_einfuegen()
 	elif sensor_gerundet <= 0:
 		bodenfeuchtigkeit_endwert = 0
-		datenbank_bodenfeuchtigkeitsensor_einfuegen()
 	else:
 		bodenfeuchtigkeit_endwert = sensor_gerundet
-		datenbank_bodenfeuchtigkeitsensor_einfuegen()
-# ======================================================================
-
-# Der Lichtsensor Wert wird in Datenbank geschrieben
-# ======================================================================
-def datenbank_lichtsensor_einfuegen():
-	mycursor = mydb.cursor()
-	sql = "INSERT INTO sensor_licht_1 (datetime, sensorwert) VALUES (%s, %s)"
-	val = (lokale_zeit, lux_gerundet)
-	mycursor.execute(sql, val)
-	mydb.commit()
-# ======================================================================
-
-# Der Luftfeuchtigkeit Wert wird in Datenbank geschrieben
-# ======================================================================
-def datenbank_luftfeuchtesensor_einfuegen():
-	mycursor = mydb.cursor()
-	sql = "INSERT INTO 	sensor_luftfeuchtigkeit_1 (datetime, sensorwert) VALUES (%s, %s)"
-	val = (lokale_zeit, luftfeuchtigkeit_gerundet)
-	mycursor.execute(sql, val)
-	mydb.commit()
-# ======================================================================
-
-# Der Temperatur Wert wird in Datenbank geschrieben
-# ======================================================================
-def datenbank_temperatursensor_einfuegen():
-	mycursor = mydb.cursor()
-	sql = "INSERT INTO sensor_temperatur_1 (datetime, sensorwert) VALUES (%s, %s)"
-	val = (lokale_zeit, temperatur_gerundet)
-	mycursor.execute(sql, val)
-	mydb.commit()
-# ======================================================================
-
-# Der Bodenfeuchtigkeits Wert wird in Datenbank geschrieben
-# ======================================================================
-def datenbank_bodenfeuchtigkeitsensor_einfuegen():
-	mycursor = mydb.cursor()
-	sql = "INSERT INTO sensor_bodenfeuchtigkeit_1 (datetime, sensorwert) VALUES (%s, %s)"
-	val = (lokale_zeit, bodenfeuchtigkeit_endwert)
-	mycursor.execute(sql, val)
-	mydb.commit()
-# ======================================================================
-
-# Starte alle Abfrage Funktionen
-# ======================================================================
-def start_sensorabfrage():
-	try:
-		systemzeit_abfrage()
-	except Exception as e:
-		neue_betriebsmeldung(str(e))
-	try:
-		lichtsensor_abfrage()
-	except Exception as e:
-		neue_betriebsmeldung(str(e))
-	try:
-		temperatur_abfrage()
-	except Exception as e:
-		neue_betriebsmeldung(str(e))
-	try:
-		luftfeuchtigkeit_abfrage()
-	except Exception as e:
-		neue_betriebsmeldung(str(e))
-	try:
-		bodenfeuchtigkeit_abfrage()
-	except Exception as e:
-		neue_betriebsmeldung(str(e))
 # ======================================================================
