@@ -110,40 +110,34 @@ def datenbank_kommunikation():
 
 		sql1 = """INSERT INTO sensor_licht_1 (datetime, sensorwert) VALUES = %(datetime)s, %(sensorwert)s"""
 		data1 = {
-				'datetime': datetime,
+				'datetime': lokale_zeit,
 				'sensorwert': lux_gerundet
 		}
 		cursor.execute(sql1, data1)
 
 		sql2 = """INSERT INTO sensor_luftfeuchtigkeit_1 (datetime, sensorwert) VALUES = %(datetime)s, %(sensorwert)s"""
 		data2 = {
-				'datetime': datetime,
+				'datetime': lokale_zeit,
 				'sensorwert': luftfeuchtigkeit_gerundet
 		}
 		cursor.execute(sql2, data2)
 
 		sql3 = """INSERT INTO sensor_temperatur_1 (datetime, sensorwert) VALUES = %(datetime)s, %(sensorwert)s"""
 		data3 = {
-				'datetime': datetime,
+				'datetime': lokale_zeit,
 				'sensorwert': temperatur_gerundet
 		}
 		cursor.execute(sql3, data3)
 
 		sql4 = """INSERT INTO sensor_bodenfeuchtigkeit_1 (datetime, sensorwert) VALUES = %(datetime)s, %(sensorwert)s"""
 		data4 = {
-				'datetime': datetime,
+				'datetime': lokale_zeit,
 				'sensorwert': bodenfeuchtigkeit_endwert
 		}
 		cursor.execute(sql4, data4)
 
 		cursor.close()
 		db.close()
-
-		print(datetime)
-		print(lux_gerundet)
-		print(luftfeuchtigkeit_gerundet)
-		print(temperatur_gerundet)
-		print(bodenfeuchtigkeit_endwert)
 
 	except mysql.connector.Error as err:
 		neue_betriebsmeldung("DB Fehler: {}".format(err))
@@ -181,8 +175,3 @@ def start_sensorabfrage():
 	except Exception as e:
 		neue_betriebsmeldung(str(e))
 # ======================================================================
-
-
-while True:
-	start_sensorabfrage()
-	time.sleep(5)
