@@ -94,3 +94,95 @@ def bodenfeuchtigkeit_abfrage():
 	else:
 		bodenfeuchtigkeit_endwert = sensor_gerundet
 # ======================================================================
+
+# Sensorwerte an Datenbank senden
+# ======================================================================
+def datenbank_kommunikation():
+	try:
+		db = mysql.connector.connect(
+				host="localhost",
+				user="datenbank",
+				passwd="rasp",
+				database="datenbank"
+			)
+
+		cursor = db.cursor()
+
+		sql1 = """INSERT INTO sensor_licht_1 (datetime, sensorwert) VALUES = %(datetime)s, %(sensorwert)s"""
+		data1 = {
+				'datetime': datetime,
+				'sensorwert': lux_gerundet
+		}
+		cursor.execute(sql1, data1)
+
+		sql2 = """INSERT INTO sensor_luftfeuchtigkeit_1 (datetime, sensorwert) VALUES = %(datetime)s, %(sensorwert)s"""
+		data2 = {
+				'datetime': datetime,
+				'sensorwert': luftfeuchtigkeit_gerundet
+		}
+		cursor.execute(sql2, data2)
+
+		sql3 = """INSERT INTO sensor_temperatur_1 (datetime, sensorwert) VALUES = %(datetime)s, %(sensorwert)s"""
+		data3 = {
+				'datetime': datetime,
+				'sensorwert': temperatur_gerundet
+		}
+		cursor.execute(sql3, data3)
+
+		sql4 = """INSERT INTO sensor_bodenfeuchtigkeit_1 (datetime, sensorwert) VALUES = %(datetime)s, %(sensorwert)s"""
+		data4 = {
+				'datetime': datetime,
+				'sensorwert': bodenfeuchtigkeit_endwert
+		}
+		cursor.execute(sql4, data4)
+
+		cursor.close()
+		db.close()
+
+		print(datetime)
+		print(lux_gerundet)
+		print(luftfeuchtigkeit_gerundet)
+		print(temperatur_gerundet)
+		print(bodenfeuchtigkeit_endwert)
+
+	except mysql.connector.Error as err:
+		neue_betriebsmeldung("DB Fehler: {}".format(err))
+	except Exception as e:
+		neue_betriebsmeldung(str(e))
+
+
+# ======================================================================
+
+# Starte alle Abfrage Funktionen
+# ======================================================================
+def start_sensorabfrage():
+	try:
+		systemzeit_abfrage()
+	except Exception as e:
+		neue_betriebsmeldung(str(e))
+	try:
+		lichtsensor_abfrage()
+	except Exception as e:
+		neue_betriebsmeldung(str(e))
+	try:
+		temperatur_abfrage()
+	except Exception as e:
+		neue_betriebsmeldung(str(e))
+	try:
+		luftfeuchtigkeit_abfrage()
+	except Exception as e:
+		neue_betriebsmeldung(str(e))
+	try:
+		bodenfeuchtigkeit_abfrage()
+	except Exception as e:
+		neue_betriebsmeldung(str(e))
+	try:
+		datenbank_kommunikation()
+	except Exception as e:
+		neue_betriebsmeldung(str(e))
+# ======================================================================
+
+
+while True:
+	start_sensorabfrage()
+	time.sleep(5)
