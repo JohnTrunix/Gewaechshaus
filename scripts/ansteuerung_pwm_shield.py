@@ -1,18 +1,14 @@
-# Import der Betriebsmeldungsfunktion
-# ======================================================================
-from datenaustausch import neue_betriebsmeldung
-# ======================================================================
-
 # Import von benoetigten Modulen
 # ======================================================================
 try:
+	from datenaustausch import neue_betriebsmeldung
 	from adafruit_servokit import ServoKit
 	import board
 	import busio
 	import time
 	import adafruit_pca9685
 except Exception as e:
-		neue_betriebsmeldung(str(e))
+	neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # PWM Board definition
@@ -33,7 +29,7 @@ try:
 	heizung = shield.channels[10]
 	befeuchter = shield.channels[11]
 except Exception as e:
-		neue_betriebsmeldung(str(e))
+	neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # Grundstellung ausfuehren
@@ -177,7 +173,6 @@ def befeuchter_ein():
 		befeuchter.duty_cycle = 0xffff
 	except Exception as e:
 		neue_betriebsmeldung(str(e))
-
 
 def befeuchter_aus():
 	try:

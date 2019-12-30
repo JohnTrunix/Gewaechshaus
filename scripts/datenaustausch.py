@@ -5,7 +5,7 @@ try:
 	import time
 	import datetime
 except Exception as e:
-		neue_betriebsmeldung(str(e))
+	neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # Datenbank Konfiguration

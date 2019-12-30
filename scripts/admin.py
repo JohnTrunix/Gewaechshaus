@@ -1,14 +1,13 @@
-# Import der Betriebsmeldungsfunktion
-# ======================================================================
-from datenaustausch import neue_betriebsmeldung
-# ======================================================================
-
 # Import von benoetigten Modulen
 # ======================================================================
-import argparse
-import os
-import time
-from ansteuerung_pwm_shield import grundstellung, tuer_oeffnen, tuer_schliessen, luefter_gross_ein, luefter_gross_aus, luefter_klein_ein, luefter_klein_aus, wasserpumpe_ein, wasserpumpe_aus, ventil_wasserpumpe_oeffnen, ventil_wasserpumpe_schliessen, ventil_befeuchter_oeffnen, ventil_befeuchter_schliessen, licht_ein, licht_aus, heizung_ein, heizung_aus, befeuchter_ein, befeuchter_aus
+try:
+	from datenaustausch import neue_betriebsmeldung
+	import argparse
+	import os
+	import time
+	from ansteuerung_pwm_shield import grundstellung, tuer_oeffnen, tuer_schliessen, luefter_gross_ein, luefter_gross_aus, luefter_klein_ein, luefter_klein_aus, wasserpumpe_ein, wasserpumpe_aus, ventil_wasserpumpe_oeffnen, ventil_wasserpumpe_schliessen, ventil_befeuchter_oeffnen, ventil_befeuchter_schliessen, licht_ein, licht_aus, heizung_ein, heizung_aus, befeuchter_ein, befeuchter_aus
+except Exception as e:
+	neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # Startargumente

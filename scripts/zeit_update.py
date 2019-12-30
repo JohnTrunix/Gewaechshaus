@@ -1,11 +1,7 @@
-# Import der Betriebsmeldungsfunktion
-# ======================================================================
-from datenaustausch import neue_betriebsmeldung
-# ======================================================================
-
 # Import von benoetigten Modulen
 # ======================================================================
 try:
+	from datenaustausch import neue_betriebsmeldung
 	import busio
 	import adafruit_pcf8523
 	import time
@@ -14,7 +10,7 @@ try:
 	import socket
 	import os
 except Exception as e:
-		neue_betriebsmeldung(str(e))
+	neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # I2C Bus Konfiguration
@@ -24,7 +20,7 @@ try:
 	rtc = adafruit_pcf8523.PCF8523(myI2C)
 	t = rtc.datetime
 except Exception as e:
-		neue_betriebsmeldung(str(e))
+	neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # Ueberpruefe Internetverbindung

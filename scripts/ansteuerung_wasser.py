@@ -1,18 +1,14 @@
-# Import der Betriebsmeldungsfunktion
-# ======================================================================
-from datenaustausch import neue_betriebsmeldung
-# ======================================================================
-
 # Import von benoetigten Modulen
 # ======================================================================
 try:
+	from datenaustausch import neue_betriebsmeldung
+	from ansteuerung_pwm_shield import ventil_wasserpumpe_oeffnen, ventil_wasserpumpe_schliessen, ventil_befeuchter_oeffnen, ventil_befeuchter_schliessen, wasserpumpe_ein, wasserpumpe_aus, grundstellung
 	import datenaustausch
 	import sensor_abfrage
-	from ansteuerung_pwm_shield import ventil_wasserpumpe_oeffnen, ventil_wasserpumpe_schliessen, ventil_befeuchter_oeffnen, ventil_befeuchter_schliessen, wasserpumpe_ein, wasserpumpe_aus, grundstellung
 	import time
 	import RPi.GPIO as GPIO
 except Exception as e:
-		neue_betriebsmeldung(str(e))
+	neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # GPIO definition
@@ -22,7 +18,7 @@ try:
 	GPIO.setmode(GPIO.BCM)
 	GPIO.setup(21, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 except Exception as e:
-		neue_betriebsmeldung(str(e))
+	neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # Regelkreis Wasser

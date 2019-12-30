@@ -1,11 +1,7 @@
-# Import der Betriebsmeldungsfunktion
-# ======================================================================
-from datenaustausch import neue_betriebsmeldung
-# ======================================================================
-
 # Import von benoetigten Modulen
 # ======================================================================
 try:
+	from datenaustausch import neue_betriebsmeldung
 	import adafruit_tsl2591
 	import adafruit_sht31d
 	import adafruit_ads1x15.ads1115 as ADS
@@ -16,7 +12,7 @@ try:
 	import datetime
 	from datenaustausch import sensorwerte_einfuegen
 except Exception as e:
-		neue_betriebsmeldung(str(e))
+	neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # I2C Bus Konfiguration
@@ -32,7 +28,7 @@ try:
 	sensor3 = AnalogIn(ads, ADS.P2)
 	sensor4 = AnalogIn(ads, ADS.P3)
 except Exception as e:
-		neue_betriebsmeldung(str(e))
+	neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # Die Systemzeit wird als Variable gespeichert

@@ -1,15 +1,11 @@
-# Import der Betriebsmeldungsfunktion
-# ======================================================================
-from datenaustausch import neue_betriebsmeldung
-# ======================================================================
-
 # Import von benoetigten Modulen
 # ======================================================================
 try:
+	from datenaustausch import neue_betriebsmeldung
 	from datenaustausch import lichtzaehler_update
+	from ansteuerung_pwm_shield import licht_ein, licht_aus, grundstellung
 	import datenaustausch
 	import sensor_abfrage
-	from ansteuerung_pwm_shield import licht_ein, licht_aus, grundstellung
 	import time
 	import datetime
 except Exception as e:
