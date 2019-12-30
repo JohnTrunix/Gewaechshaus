@@ -157,3 +157,55 @@ def sensorwerte_einfuegen(temperatur, licht, bodenfuechtigkeit, luftfeuchtigkeit
 	except Exception as e:
 		neue_betriebsmeldung(str(e))	
 # ======================================================================
+
+# Lichtzaehler reset
+# ======================================================================
+def reset_licht_zaehler():
+	try:
+		cnx = mysql.connector.connect(**config)
+		cursor = cnx.cursor()
+
+		query1 = ("update zwischenspeicher set licht_zaehler = '0'")
+		cursor.execute(query1)
+
+		cnx.commit()
+
+		cursor.close()
+		cnx.close()
+	except mysql.connector.Error as err:
+  		neue_betriebsmeldung(str(err))
+	except Exception as e:
+		neue_betriebsmeldung(str(e))	
+# ======================================================================
+
+# Lichtzaehler update
+# ======================================================================
+def lichtzaehler_update():
+	try:
+		global neue_zaehler_zeit
+
+		cnx = mysql.connector.connect(**config)
+		cursor = cnx.cursor()
+
+		query1 = ("select licht_zaehler from zwischenspeicher")
+		cursor.execute(query1)
+
+		for row in cursor:
+			licht_zaehler = (row[0])
+
+		neue_zaehler_zeit = (licht_zaehler + 30)
+
+		query2 = ("UPDATE zwischenspeicher SET licht_zaehler = licht_zaehler + 30")
+		cursor.execute(query2)
+
+		cnx.commit()
+
+		cursor.close()
+		cnx.close()
+	except mysql.connector.Error as err:
+  		neue_betriebsmeldung(str(err))
+	except Exception as e:
+		neue_betriebsmeldung(str(e))
+# ======================================================================
+
+reset_licht_zaehler()
