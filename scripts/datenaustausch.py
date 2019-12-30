@@ -1,8 +1,3 @@
-# Import der Betriebsmeldungsfunktion
-# ======================================================================
-from betriebsmeldungen import neue_betriebsmeldung
-# ======================================================================
-
 # Import von benoetigten Modulen
 # ======================================================================
 try:
@@ -71,27 +66,37 @@ def start_datenbank_abfrage():
 		neue_betriebsmeldung(str(e))
 # ======================================================================
 
-# Betriebsmeldung an Datenbank senden
+# Betriebsmeldung handling
 # ======================================================================
-def betriebsmeldung_einfuegen(meldung):
+def neue_betriebsmeldung(meldung):
 	try:
 		lokale_zeit = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 		cnx = mysql.connector.connect(**config)
 		cursor = cnx.cursor()
 
-		query1 = ("INSERT INTO betriebsmeldungen (datetime, meldung) VALUES (%s, %s)")
-		data1 = (lokale_zeit, meldung)
-		cursor.execute(query1, data1)
+		query1 = ("SELECT COUNT(*) FROM betriebsmeldungen")
+		cursor.execute(query1)
+
+		for row in cursor:
+			anzahl_betriebsmeldungen = (row[0])
+
+		if anzahl_betriebsmeldungen >= 50:
+			query2 = ("DELETE FROM betriebsmeldungen ORDER BY meldung DESC LIMIT 20")
+			cursor.execute(query2)
+		else:
+			pass
+
+		query3 = ("INSERT INTO betriebsmeldungen (datetime, meldung) VALUES (%s, %s)")
+		data3 = (lokale_zeit, meldung)
+		cursor.execute(query3, data3)
 
 		cnx.commit()
 
 		cursor.close()
 		cnx.close()
-	except mysql.connector.Error as err:
-  		neue_betriebsmeldung(str(err))
-	except Exception as e:
-		neue_betriebsmeldung(str(e))
+	except:
+		pass
 # ======================================================================
 
 # Datenbegrenzung

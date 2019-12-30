@@ -1,6 +1,6 @@
 # Import der Betriebsmeldungsfunktion
 # ======================================================================
-from betriebsmeldungen import neue_betriebsmeldung
+from datenaustausch import neue_betriebsmeldung
 # ======================================================================
 
 # Import von benoetigten Modulen
