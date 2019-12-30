@@ -13,7 +13,5 @@ adafruit-circuitpython-register
 adafruit-circuitpython-motor
 adafruit-circuitpython-servokit
 
-python-tsl2591
-
 mysql-connector
 schedule
