@@ -207,5 +207,3 @@ def lichtzaehler_update():
 	except Exception as e:
 		neue_betriebsmeldung(str(e))
 # ======================================================================
-
-reset_licht_zaehler()
