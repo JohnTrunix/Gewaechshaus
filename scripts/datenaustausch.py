@@ -80,12 +80,11 @@ def betriebsmeldung_einfuegen(meldung):
 		cnx = mysql.connector.connect(**config)
 		cursor = cnx.cursor()
 
-		query = ("INSERT INTO betriebsmeldungen (datetime, meldung) VALUES %(datetime)s, %(meldung)s")
-		data = {
-				'datetime': lokale_zeit,
-				'meldung': meldung
-			}
-		cursor.execute(query, data)
+		query1 = ("INSERT INTO betriebsmeldungen (datetime, meldung) VALUES (%s, %s)")
+		data1 = (lokale_zeit, meldung)
+		cursor.execute(query1, data1)
+
+		cnx.commit()
 
 		cursor.close()
 		cnx.close()
@@ -114,6 +113,8 @@ def start_datenbegrenzung():
 		query4 = ("DELETE FROM sensor_bodenfeuchtigkeit_1 WHERE datetime < NOW() - INTERVAL 30 DAY")
 		cursor.execute(query4)
 
+		cnx.commit()
+
 		cursor.close()
 		cnx.close()
 	except mysql.connector.Error as err:
@@ -131,33 +132,23 @@ def sensorwerte_einfuegen(temperatur, licht, bodenfuechtigkeit, luftfeuchtigkeit
 		cnx = mysql.connector.connect(**config)
 		cursor = cnx.cursor()
 
-		query1 = ("INSERT INTO 	sensor_licht_1 (datetime, sensorwert) VALUES %(datetime)s, %(sensorwert)s")
-		data1 = {
-				'datetime': lokale_zeit,
-				'sensorwert': licht
-			}
+		query1 = ("INSERT INTO sensor_licht_1 (datetime, sensorwert) VALUES (%s, %s)")
+		data1 = (lokale_zeit, licht)
 		cursor.execute(query1, data1)
 
-		query2 = ("INSERT INTO 	sensor_luftfeuchtigkeit_1 (datetime, sensorwert) VALUES %(datetime)s, %(sensorwert)s")
-		data2 = {
-				'datetime': lokale_zeit,
-				'sensorwert': luftfeuchtigkeit
-			}
+		query2 = ("INSERT INTO 	sensor_luftfeuchtigkeit_1 (datetime, sensorwert) VALUES (%s, %s)")
+		data2 = (lokale_zeit, luftfeuchtigkeit)
 		cursor.execute(query2, data2)
 
-		query3 = ("INSERT INTO 	sensor_temperatur_1 (datetime, sensorwert) VALUES %(datetime)s, %(sensorwert)s")
-		data3 = {
-				'datetime': lokale_zeit,
-				'sensorwert': temperatur
-			}
+		query3 = ("INSERT INTO sensor_temperatur_1 (datetime, sensorwert) VALUES (%s, %s)")
+		data3 = (lokale_zeit, temperatur)
 		cursor.execute(query3, data3)
 
-		query4 = ("INSERT INTO 	sensor_bodenfeuchtigkeit_1 (datetime, sensorwert) VALUES %(datetime)s, %(sensorwert)s")
-		data4 = {
-				'datetime': lokale_zeit,
-				'sensorwert': bodenfuechtigkeit
-			}
+		query4 = ("INSERT INTO sensor_bodenfeuchtigkeit_1 (datetime, sensorwert) VALUES (%s, %s)")
+		data4 = (lokale_zeit, bodenfuechtigkeit)
 		cursor.execute(query4, data4)
+
+		cnx.commit()
 
 		cursor.close()
 		cnx.close()
