@@ -42,7 +42,7 @@ def get_active_state():
 		cnx = mysql.connector.connect(**config)
 		cursor = cnx.cursor()
 
-		query1 = ("select * from betriebsmodus")
+		query1 = ("SELECT * from betriebsmodus")
 		cursor.execute(query1)
 
 		for row in cursor:
@@ -62,37 +62,6 @@ def get_active_state():
 			lichtstunden = (row[3])
 			wassermenge = (row[4])
 			luftfeuchtigkeit = (row[5])
-
-		cursor.close()
-		cnx.close()
-	except mysql.connector.Error as err:
-  		neue_betriebsmeldung(str(err))
-	except Exception as e:
-		neue_betriebsmeldung(str(e))
-# ======================================================================
-
-# Licht-Zwischenspeicher
-# ======================================================================
-def licht_zwischenspeicher():
-	try:
-		global licht_zaehler
-
-		cnx = mysql.connector.connect(**config)
-		cursor = cnx.cursor()
-
-		query1 = ("select licht_zaehler from zwischenspeicher")
-		cursor.execute(query1)
-
-		for row in cursor:
-			licht_zaehler = (row[0])
-
-		neue_zaehler_zeit = (licht_zaehler + 30)
-
-		query2 = ("update zwischenspeicher set licht_zaehler = %(wert)s")
-		data2 = {
-				'wert': neue_zaehler_zeit
-			}
-		cursor.execute(query2, data2)
 
 		cursor.close()
 		cnx.close()
@@ -197,5 +166,3 @@ def sensorwerte_einfuegen(temperatur, licht, bodenfuechtigkeit, luftfeuchtigkeit
 	except Exception as e:
 		neue_betriebsmeldung(str(e))	
 # ======================================================================
-
-
