@@ -1,0 +1,12 @@
+[Unit]
+Description=bildschirmschoner.service
+After=multi-user.target
+
+[Service]
+Type=simple
+User=pi
+Group=pi
+ExecStart=/usr/bin/xscreensaver -nosplash
+
+[Install]
+WantedBy=multi-user.target
