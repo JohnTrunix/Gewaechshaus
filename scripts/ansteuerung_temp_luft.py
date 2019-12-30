@@ -11,7 +11,7 @@ try:
 	import sensor_abfrage
 	from ansteuerung_pwm_shield import heizung_ein, heizung_aus, befeuchter_ein, befeuchter_aus, luefter_klein_ein, luefter_klein_aus, tuer_oeffnen, tuer_schliessen, luefter_gross_ein, luefter_gross_aus, grundstellung
 except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # Regelkreis Temperatur und Luft
@@ -44,7 +44,7 @@ def start_ansteuerung_temp_luft():
 		else:
 			grundstellung()
 	except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # Zyklus 60s Lueften
@@ -60,5 +60,5 @@ def start_lueften():
 		else:
 			grundstellung()
 	except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 # ======================================================================

@@ -16,7 +16,7 @@ try:
 	import datetime
 	import mysql.connector
 except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # MYSQL Konfiguration
@@ -29,7 +29,7 @@ try:
 		database="datenbank"
 	)
 except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # I2C Bus Konfiguration
@@ -44,7 +44,7 @@ try:
 	sensor3 = AnalogIn(ads, ADS.P2)
 	sensor4 = AnalogIn(ads, ADS.P3)
 except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # Die Systemzeit wird als Variable gespeichert
@@ -149,21 +149,21 @@ def start_sensorabfrage():
 	try:
 		systemzeit_abfrage()
 	except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 	try:
 		lichtsensor_abfrage()
 	except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 	try:
 		temperatur_abfrage()
 	except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 	try:
 		luftfeuchtigkeit_abfrage()
 	except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 	try:
 		bodenfeuchtigkeit_abfrage()
 	except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 # ======================================================================

@@ -14,7 +14,7 @@ try:
 	import socket
 	import os
 except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # I2C Bus Konfiguration
@@ -24,7 +24,7 @@ try:
 	rtc = adafruit_pcf8523.PCF8523(myI2C)
 	t = rtc.datetime
 except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # Ueberpruefe Internetverbindung
@@ -46,7 +46,7 @@ def rtc_update():
 			(now.year, now.month, now.day, now.hour, now.minute, now.second, 0, 0, 0))
 		rtc.datetime = t
 	except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # Systemzeit schreiben von RTC
@@ -58,7 +58,7 @@ def systemzeit_schreiben():
 		os.system("sudo timedatectl set-time " + str(t.tm_hour) + ":" + str(t.tm_min) + ":" + str(t.tm_sec))
 		time.sleep(1)
 	except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 	finally:
 		os.system("sudo timedatectl set-ntp true")
 # ======================================================================

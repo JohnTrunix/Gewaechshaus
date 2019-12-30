@@ -12,7 +12,7 @@ try:
 	import time
 	import RPi.GPIO as GPIO
 except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # GPIO definition
@@ -22,7 +22,7 @@ try:
 	GPIO.setmode(GPIO.BCM)
 	GPIO.setup(21, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # Regelkreis Wasser
@@ -47,7 +47,7 @@ def start_ansteuerung_wasser():
 		else:
 			grundstellung()
 	except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # Regelkreis Befeuchter auffuellen
@@ -75,5 +75,5 @@ def start_auffuellen_befeuchter():
 		else:
 			grundstellung()
 	except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 # ======================================================================

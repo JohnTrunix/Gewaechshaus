@@ -12,7 +12,7 @@ try:
 	import time
 	import adafruit_pca9685
 except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # PWM Board definition
@@ -33,7 +33,7 @@ try:
 	heizung = shield.channels[10]
 	befeuchter = shield.channels[11]
 except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # Grundstellung ausfuehren
@@ -50,7 +50,7 @@ def grundstellung():
 		heizung_aus()
 		befeuchter_aus()
 	except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # Tuersteuerung
@@ -60,14 +60,14 @@ def tuer_oeffnen():
 		kit.servo[0].angle = 42
 		kit.servo[1].angle = 10
 	except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 
 def tuer_schliessen():
 	try:
 		kit.servo[0].angle = 5
 		kit.servo[1].angle = 54
 	except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # Lueftersteuerung
@@ -76,25 +76,25 @@ def luefter_gross_ein():
 	try:
 		luefter_gross.duty_cycle = 0
 	except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 
 def luefter_gross_aus():
 	try:
 		luefter_gross.duty_cycle = 0xffff
 	except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 
 def luefter_klein_ein():
 	try:
 		luefter_klein.duty_cycle = 0xffff
 	except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 
 def luefter_klein_aus():
 	try:
 		luefter_klein.duty_cycle = 0
 	except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # Wasserpumpensteuerung
@@ -103,13 +103,13 @@ def wasserpumpe_ein():
 	try:
 		wasserpumpe.duty_cycle = 0
 	except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 
 def wasserpumpe_aus():
 	try:
 		wasserpumpe.duty_cycle = 0xffff
 	except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # Ventilsteuerung
@@ -118,25 +118,25 @@ def ventil_wasserpumpe_oeffnen():
 	try:
 		ventil_wasserpumpe.duty_cycle = 0
 	except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 
 def ventil_wasserpumpe_schliessen():
 	try:
 		ventil_wasserpumpe.duty_cycle = 0xffff
 	except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 
 def ventil_befeuchter_oeffnen():
 	try:
 		ventil_befeuchter.duty_cycle = 0
 	except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 
 def ventil_befeuchter_schliessen():
 	try:
 		ventil_befeuchter.duty_cycle = 0xffff
 	except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # Lichtsteuerung
@@ -145,14 +145,14 @@ def licht_ein():
 	try:
 		licht.duty_cycle = 0
 	except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 
 
 def licht_aus():
 	try:
 		licht.duty_cycle = 0xffff
 	except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # Heizungssteuerung
@@ -161,13 +161,13 @@ def heizung_ein():
 	try:
 		heizung.duty_cycle = 0xffff
 	except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 
 def heizung_aus():
 	try:
 		heizung.duty_cycle = 0
 	except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # Befeuchtersteuerung
@@ -176,12 +176,12 @@ def befeuchter_ein():
 	try:
 		befeuchter.duty_cycle = 0xffff
 	except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 
 
 def befeuchter_aus():
 	try:
 		befeuchter.duty_cycle = 0
 	except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 # ======================================================================

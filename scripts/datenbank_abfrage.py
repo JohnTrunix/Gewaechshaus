@@ -9,7 +9,7 @@ try:
 	import mysql.connector
 	from mysql.connector.cursor import MySQLCursor
 except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # Datenbank Abfrage
@@ -68,5 +68,5 @@ def start_datenbank_abfrage():
 	except mysql.connector.Error as err:
 		neue_betriebsmeldung("DB Fehler: {}".format(err))
 	except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 # ======================================================================

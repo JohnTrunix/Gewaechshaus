@@ -13,7 +13,7 @@ try:
 	import datetime
 	import mysql.connector
 except Exception as e:
-	neue_betriebsmeldung(e)
+	neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # MYSQL Konfiguration
@@ -26,7 +26,7 @@ try:
 		database="datenbank"
 	)
 except Exception as e:
-	neue_betriebsmeldung(e)
+	neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # Lichtzaehler reset
@@ -38,7 +38,7 @@ def reset_licht_zaehler():
 		mycursor.execute(sql)
 		mydb.commit()
 	except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # Lichtzaehler fortschritt berechnen
@@ -60,7 +60,7 @@ def aktueller_fortschritt():
 			licht_zaehler = (row[0])
 		update_licht_zaehler()
 	except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 	finally:
 		if (connection.is_connected()):
 			connection.close()
@@ -78,7 +78,7 @@ def update_licht_zaehler():
 		mycursor.execute(sql)
 		mydb.commit()
 	except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # Regelkreis Licht
@@ -101,5 +101,5 @@ def start_lichtsteuerung():
 		else:
 			grundstellung()
 	except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 # ======================================================================

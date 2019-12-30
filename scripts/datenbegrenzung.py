@@ -11,7 +11,7 @@ try:
 	import mysql.connector
 	import subprocess
 except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # MYSQL Konfiguration
@@ -24,7 +24,7 @@ try:
 		database="datenbank"
 	)
 except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # Lichtsensor Begrenzung
@@ -69,17 +69,17 @@ def start_datenbegrenzung():
 	try:
 		begrenzung_sensor_licht_1()
 	except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 	try:
 		begrenzung_sensor_temperatur_1()
 	except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 	try:
 		begrenzung_sensor_luftfeuchtigkeit_1()
 	except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 	try:
 		begrenzung_sensor_bodenfeuchtigkeit_1()
 	except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 # ======================================================================

@@ -25,7 +25,7 @@ try:
 	import time
 	import os
 except Exception as e:
-	neue_betriebsmeldung(e)
+	neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # Zeit Aktualisierung bei Start
@@ -33,7 +33,7 @@ except Exception as e:
 try:
 	start_zeit_update()
 except Exception as e:
-	neue_betriebsmeldung(e)
+	neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # Datenbegrenzung bei Start
@@ -41,7 +41,7 @@ except Exception as e:
 try:
 	start_datenbegrenzung()
 except Exception as e:
-	neue_betriebsmeldung(e)
+	neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # Datenbankabfrage bei Start
@@ -49,7 +49,7 @@ except Exception as e:
 try:
 	start_datenbank_abfrage()
 except Exception as e:
-	neue_betriebsmeldung(e)
+	neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # Grundstellung bei Start
@@ -57,7 +57,7 @@ except Exception as e:
 try:
 	grundstellung()
 except Exception as e:
-	neue_betriebsmeldung(e)
+	neue_betriebsmeldung(str(e))
 # ======================================================================
 
 # Alle Auftraege mit Startintervall definiert
@@ -82,5 +82,5 @@ while True:
 		schedule.run_pending()
 		time.sleep(5)
 	except Exception as e:
-		neue_betriebsmeldung(e)
+		neue_betriebsmeldung(str(e))
 # ======================================================================
