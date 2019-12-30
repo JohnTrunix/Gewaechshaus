@@ -13,5 +13,5 @@ adafruit-circuitpython-register
 adafruit-circuitpython-motor
 adafruit-circuitpython-servokit
 
-mysql-connector
+mysql-connector-python
 schedule
