@@ -143,7 +143,6 @@ def licht_ein():
 	except Exception as e:
 		neue_betriebsmeldung(str(e))
 
-
 def licht_aus():
 	try:
 		licht.duty_cycle = 0xffff
