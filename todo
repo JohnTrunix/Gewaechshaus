@@ -1,2 +1,3 @@
 pip3 rm python-tsl2591 und mysql-connector
 db schliessen nach cn
+bei betriebsmeldungen überall except pass
