@@ -1,3 +1,5 @@
 xscreensaver installiert.
 SW angepasst
 disable swap
+pip3 remove python-tsl2591
+pip install
