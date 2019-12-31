@@ -3,3 +3,4 @@ disable swap
 pip3 remove python-tsl2591 und mysql-connector
 pip update
 @xset einträge aus LXDE-pi autostart entfernt (screensaver)
+xscreensaver purge remove
