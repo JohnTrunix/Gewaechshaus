@@ -40,24 +40,21 @@ def lichtsensor_abfrage():
 # ======================================================================
 def temperatur_abfrage():
 	global temperatur_gerundet
-	temperatur_gerundet = (
-		round(sensor_temperatur_luftfeuchtigkeit.temperature, 1))
+	temperatur_gerundet = (round(sensor_temperatur_luftfeuchtigkeit.temperature, 1))
 # ======================================================================
 
 # Luftfeuchtigkeitssensor wird abgefragt und die Datenbank Funktion wird aufgerufen
 # ======================================================================
 def luftfeuchtigkeit_abfrage():
 	global luftfeuchtigkeit_gerundet
-	luftfeuchtigkeit_gerundet = (
-		round(sensor_temperatur_luftfeuchtigkeit.relative_humidity, 1))
+	luftfeuchtigkeit_gerundet = (round(sensor_temperatur_luftfeuchtigkeit.relative_humidity, 1))
 # ======================================================================
 
 # Bodenfeuchtigkeitsensoren werden abgefragt und die Datenbank Funktion wird aufgerufen
 # ======================================================================
 def bodenfeuchtigkeit_abfrage():
 	global bodenfeuchtigkeit_endwert
-	sensor_durchschnitt = (
-		(sensor1.voltage + sensor2.voltage + sensor3.voltage + sensor4.voltage) / 4)
+	sensor_durchschnitt = ((sensor1.voltage + sensor2.voltage + sensor3.voltage + sensor4.voltage) / 4)
 	sensor_prozentual = (((sensor_durchschnitt - 1.45) / 1.55) * 100)
 	sensor_korrigiert = (100 - sensor_prozentual)
 	sensor_gerundet = round(sensor_korrigiert, 1)

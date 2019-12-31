@@ -38,8 +38,7 @@ def start_zeit_update():
 def rtc_update():
 	try:
 		now = datetime.datetime.now()
-		t = time.struct_time(
-			(now.year, now.month, now.day, now.hour, now.minute, now.second, 0, 0, 0))
+		t = time.struct_time((now.year, now.month, now.day, now.hour, now.minute, now.second, 0, 0, 0))
 		rtc.datetime = t
 	except Exception as e:
 		neue_betriebsmeldung(str(e))

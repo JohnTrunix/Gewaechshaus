@@ -54,7 +54,6 @@ def start_auffuellen_befeuchter():
 			auffuellen_fertig = 0
 			pumpe_gestartet = 0
 			while auffuellen_fertig == 0 and GPIO.input(21) == GPIO.LOW:
-
 				if GPIO.input(21) == GPIO.LOW and pumpe_gestartet == 0:
 					ventil_befeuchter_oeffnen()
 					time.sleep(1)

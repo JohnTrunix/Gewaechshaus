@@ -15,7 +15,6 @@ def start_lichtsteuerung():
 	try:
 		if datenaustausch.programm_status == 1:
 			lichtzaehler_update()
-
 			if int(datenaustausch.lichtstunden) > 0:
 				sollwert = (float(datenaustausch.lichtstunden) * 60)
 				if datenaustausch.neue_zaehler_zeit < sollwert:

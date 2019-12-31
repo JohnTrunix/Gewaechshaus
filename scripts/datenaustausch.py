@@ -39,7 +39,6 @@ def start_datenbank_abfrage():
 
 		query1 = ("SELECT * from betriebsmodus")
 		cursor.execute(query1)
-
 		for row in cursor:
 			parameter_slot = (row[1])
 			programm_status = (row[2])
@@ -49,7 +48,6 @@ def start_datenbank_abfrage():
 				'slot': parameter_slot
 			}
 		cursor.execute(query2, data2)
-
 		for row in cursor:
 			slot = (row[0])
 			pflanze = (row[1])
@@ -77,7 +75,6 @@ def neue_betriebsmeldung(meldung):
 
 		query1 = ("SELECT COUNT(*) FROM betriebsmeldungen")
 		cursor.execute(query1)
-
 		for row in cursor:
 			anzahl_betriebsmeldungen = (row[0])
 
@@ -194,7 +191,6 @@ def lichtzaehler_update():
 
 		query1 = ("select licht_zaehler from zwischenspeicher")
 		cursor.execute(query1)
-
 		for row in cursor:
 			licht_zaehler = (row[0])
 
