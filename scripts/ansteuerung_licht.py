@@ -5,9 +5,6 @@ try:
 	from datenaustausch import lichtzaehler_update
 	from ansteuerung_pwm_shield import licht_ein, licht_aus, grundstellung
 	import datenaustausch
-	import sensor_abfrage
-	import time
-	import datetime
 except Exception as e:
 	neue_betriebsmeldung(str(e))
 # ======================================================================
