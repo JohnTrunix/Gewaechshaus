@@ -167,7 +167,7 @@ def reset_licht_zaehler():
 		cnx = mysql.connector.connect(**config)
 		cursor = cnx.cursor()
 
-		query1 = ("update zwischenspeicher set licht_zaehler = '0'")
+		query1 = ("UPDATE zwischenspeicher SET licht_zaehler = '0'")
 		cursor.execute(query1)
 
 		cnx.commit()
@@ -189,7 +189,7 @@ def lichtzaehler_update():
 		cnx = mysql.connector.connect(**config)
 		cursor = cnx.cursor()
 
-		query1 = ("select licht_zaehler from zwischenspeicher")
+		query1 = ("SELECT licht_zaehler FROM zwischenspeicher")
 		cursor.execute(query1)
 		for row in cursor:
 			licht_zaehler = (row[0])
