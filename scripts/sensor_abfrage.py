@@ -8,8 +8,6 @@ try:
 	from adafruit_ads1x15.analog_in import AnalogIn
 	import board
 	import busio
-	import time
-	import datetime
 	from datenaustausch import sensorwerte_einfuegen
 except Exception as e:
 	neue_betriebsmeldung(str(e))
@@ -29,13 +27,6 @@ try:
 	sensor4 = AnalogIn(ads, ADS.P3)
 except Exception as e:
 	neue_betriebsmeldung(str(e))
-# ======================================================================
-
-# Die Systemzeit wird als Variable gespeichert
-# ======================================================================
-def systemzeit_abfrage():
-	global lokale_zeit
-	lokale_zeit = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 # ======================================================================
 
 # Lichtsensor wird abgefragt und die Datenbank Funktion wird aufgerufen
@@ -82,7 +73,6 @@ def bodenfeuchtigkeit_abfrage():
 # ======================================================================
 def start_sensorabfrage():
 	try:
-		systemzeit_abfrage()
 		lichtsensor_abfrage()
 		temperatur_abfrage()
 		luftfeuchtigkeit_abfrage()
