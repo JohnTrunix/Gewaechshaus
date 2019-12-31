@@ -5,7 +5,6 @@ try:
 	from adafruit_servokit import ServoKit
 	import board
 	import busio
-	import time
 	import adafruit_pca9685
 except Exception as e:
 	neue_betriebsmeldung(str(e))
