@@ -27,8 +27,7 @@ def start_ansteuerung_wasser():
 	try:
 		if datenaustausch.programm_status == 1:
 			if int(datenaustausch.wassermenge) > 0:
-				ausgabe_wassermenge_mililiter = (
-					(int(datenaustausch.wassermenge) / 24) * 100)
+				ausgabe_wassermenge_mililiter = ((int(datenaustausch.wassermenge) / 24) * 100)
 				pumpe_mililiter_pro_sekunde = 5
 				einschaltdauer_pumpe = ausgabe_wassermenge_mililiter / pumpe_mililiter_pro_sekunde
 				ventil_wasserpumpe_oeffnen()
