@@ -1,6 +1,4 @@
-xscreensaver installiert.
 SW angepasst
 disable swap
 pip3 remove python-tsl2591 und mysql-connector
 pip update
-xscreensaver daemon
