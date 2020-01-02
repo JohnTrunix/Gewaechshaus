@@ -16,8 +16,8 @@ except Exception as e:
 # I2C Bus Konfiguration
 # ======================================================================
 try:
-	myI2C = busio.I2C(board.SCL, board.SDA)
-	rtc = adafruit_pcf8523.PCF8523(myI2C)
+	i2c = busio.I2C(board.SCL, board.SDA)
+	rtc = adafruit_pcf8523.PCF8523(i2c)
 	t = rtc.datetime
 except Exception as e:
 	neue_betriebsmeldung(str(e))
