@@ -205,6 +205,7 @@ elseif (isset($_GET['bodenfeuchtigkeit_read'])) {
         }
     }
     echo "$sensor_bodenfeuchtigkeit_1";
+    $conn->close();
 }
 //======================================================================
 
@@ -219,6 +220,7 @@ elseif (isset($_GET['lichtstaerke_read'])) {
         }
     }
     echo "$sensor_licht_1";
+    $conn->close();
 }
 //======================================================================
 
@@ -233,6 +235,7 @@ elseif (isset($_GET['luftfeuchtigkeit_read'])) {
         }
     }
     echo "$sensor_luftfeuchtigkeit_1";
+    $conn->close();
 }
 //======================================================================
 
@@ -247,6 +250,7 @@ elseif (isset($_GET['temperatur_read'])) {
         }
     }
     echo "$sensor_temperatur_1";
+    $conn->close();
 }
 //======================================================================
 
